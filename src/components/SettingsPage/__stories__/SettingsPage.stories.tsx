@@ -14,14 +14,18 @@ const item: SettingsPageProps = {
 	items: [{
 		component: 'ThemeSettingsList',
 		description: 'All your theme related settings reside here.',
-		name: 'theme-settings',
+		name: 'theme-settings-1',
 		title: 'Theme',
 	}, {
 		component: 'ThemeSettingsList',
 		description: 'All your theme related settings reside here.',
-		name: 'theme-settings',
+		name: 'theme-settings-2',
 		title: 'Theme',
-	}]
+	}],
+
+	navigationOptions: {
+		title: 'Appearance'
+	}
 };
 
 storiesOf('SettingsPage', module)

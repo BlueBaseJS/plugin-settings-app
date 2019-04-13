@@ -2,6 +2,7 @@ import React from 'react';
 import { RouteConfig } from '@bluebase/components';
 import { SettingsPageItemProps } from '../SettingsPageItem';
 import { getComponent } from '@bluebase/core';
+import { isMobile as isMobileFn } from '../../isMobile';
 
 const SettingsPageMobile = getComponent('SettingsPageMobile');
 const SettingsPageDesktop = getComponent('SettingsPageDesktop');
@@ -20,5 +21,5 @@ isMobile === true
 : <SettingsPageDesktop {...rest} />;
 
 SettingsPage.defaultProps = {
-	isMobile: true,
+	isMobile: isMobileFn(),
 };

@@ -1,12 +1,13 @@
-import { Platform, StyleProp, ViewStyle, ScrollView } from 'react-native';
-import { Theme, getComponent } from '@bluebase/core';
+import { StyleProp, ViewStyle, ScrollView, TextStyle } from 'react-native';
+import { Theme, getComponent, resolveThunk } from '@bluebase/core';
 import React from 'react';
 import { SettingsPageProps } from './SettingsPage';
-import { View } from '@bluebase/components';
+import { View, H6, Divider } from '@bluebase/components';
 
 const SettingsPageItem = getComponent('SettingsPageItem');
 
 export interface SettingsPageDesktopStyles {
+	title: StyleProp<TextStyle>;
 	root: StyleProp<ViewStyle>;
 }
 
@@ -21,10 +22,11 @@ export class SettingsPageDesktop extends React.PureComponent<SettingsPageDesktop
 
 	static defaultStyles = (theme: Theme): SettingsPageDesktopStyles => ({
 		root: {
-			backgroundColor: Platform.OS === 'ios'
-			? theme.palette.background.default
-			: theme.palette.background.card,
+			backgroundColor: theme.palette.background.default,
 			flex: 1,
+		},
+		title: {
+			padding: theme.spacing.unit * 2,
 		},
 	})
 
@@ -33,9 +35,18 @@ export class SettingsPageDesktop extends React.PureComponent<SettingsPageDesktop
 		const items = this.props.items || [];
 		const styles = this.props.styles as SettingsPageDesktopStyles;
 
+		const navigationOptions = resolveThunk(this.props.navigationOptions || {});
+		const title = navigationOptions.title || navigationOptions.headerTitle;
+
 		return (
 			<ScrollView>
 				<View style={styles.root}>
+					{title && (
+						<React.Fragment>
+							<H6 style={styles.title}>{title}</H6>
+							<Divider />
+						</React.Fragment>
+					)}
 					{items.map((item, index) => (
 						<SettingsPageItem
 							key={item.name}
