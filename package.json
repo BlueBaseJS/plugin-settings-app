@@ -76,6 +76,7 @@
     "node": ">=8.9"
   },
   "dependencies": {
+    "@bluebase/components": "^3.3.0",
     "deepmerge": "^3.2.0",
     "react-native": "^0.57.8",
     "tslib": "^1.9.3"
@@ -86,8 +87,13 @@
     "@bluebase/cli-essentials": "^0.0.4",
     "@bluebase/code-standards": "^1.0.2",
     "@bluebase/core": "^4.0.0-aplha.14",
+    "@bluebase/plugin-material-ui": "^1.11.0",
+    "@bluebase/plugin-react-native-paper": "^1.1.1",
     "@bluebase/storybook-addon": "^3.0.0",
     "@blueeast/tslint-config-blueeast": "^0.7.0",
+    "@storybook/addon-actions": "^5.0.6",
+    "@storybook/addon-links": "^5.0.6",
+    "@storybook/react": "^5.0.6",
     "@types/deepmerge": "^2.2.0",
     "@types/enzyme": "^3.9.0",
     "@types/enzyme-adapter-react-16": "^1.0.5",
