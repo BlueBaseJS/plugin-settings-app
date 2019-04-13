@@ -15,7 +15,7 @@ export const ThemeSettingsList = () => (
 		<Divider />
 		<ListItem
 			title="Theme"
-			description="Select theme here"
+			// description="Select theme here"
 			right={<ThemePicker />}
 		/>
 	</View>

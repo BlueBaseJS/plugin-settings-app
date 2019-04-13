@@ -1,12 +1,12 @@
 // tslint:disable:no-console
 import React from 'react';
-import { SettingsPageItemObject } from '../../../typings';
+import { SettingsPageItemProps } from '../';
 import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
 
 const SettingsPageItem = getComponent('SettingsPageItem');
 
-const item: SettingsPageItemObject = {
+const item: SettingsPageItemProps = {
 	component: 'ThemeSettingsList',
 	description: 'All your theme related settings reside here.',
 	name: 'theme-settings',
@@ -30,5 +30,11 @@ storiesOf('SettingsPageItem', module)
 	<SettingsPageItem {...item} isMobile={false} />
 ))
 
+.add('Desktop View (Multiple)', () => (
+	<React.Fragment>
+		<SettingsPageItem {...item} isMobile={false} />
+		<SettingsPageItem {...item} isMobile={false} />
+	</React.Fragment>
+))
 
 ;

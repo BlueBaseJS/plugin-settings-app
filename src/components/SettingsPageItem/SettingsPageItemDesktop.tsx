@@ -2,7 +2,7 @@ import { Body2, Caption, View } from '@bluebase/components';
 import { Platform, StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Theme, getComponent } from '@bluebase/core';
 import React from 'react';
-import { SettingsPageItemObject } from '../../typings';
+import { SettingsPageItemProps } from './SettingsPageItem';
 
 export interface SettingsPageItemDesktopStyles {
 	contentStyles: StyleProp<ViewStyle>;
@@ -12,7 +12,7 @@ export interface SettingsPageItemDesktopStyles {
 	titleStyles: StyleProp<TextStyle>;
 }
 
-export interface SettingsPageItemDesktopProps extends SettingsPageItemObject {
+export interface SettingsPageItemDesktopProps extends SettingsPageItemProps {
 	styles?: Partial<SettingsPageItemDesktopStyles>;
 }
 

@@ -2,7 +2,7 @@ import { Body2, Caption, View } from '@bluebase/components';
 import { Platform, StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Theme, getComponent } from '@bluebase/core';
 import React from 'react';
-import { SettingsPageItemObject } from '../../typings';
+import { SettingsPageItemProps } from './SettingsPageItem';
 
 export interface SettingsPageItemMobileStyles {
 	contentStyles: StyleProp<ViewStyle>;
@@ -11,7 +11,7 @@ export interface SettingsPageItemMobileStyles {
 	titleStyles: StyleProp<TextStyle>;
 }
 
-export interface SettingsPageItemMobileProps extends SettingsPageItemObject {
+export interface SettingsPageItemMobileProps extends SettingsPageItemProps {
 	// isMobile?: boolean;
 
 	styles?: Partial<SettingsPageItemMobileStyles>;
