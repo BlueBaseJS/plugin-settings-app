@@ -4,7 +4,8 @@ import { SettingsPageItemProps } from '../';
 import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
 
-const SettingsPageItem = getComponent('SettingsPageItem');
+const SettingsPageItemDesktop = getComponent('SettingsPageItemDesktop');
+const SettingsPageItemMobile = getComponent('SettingsPageItemMobile');
 
 const item: SettingsPageItemProps = {
 	component: 'ThemeSettingsList',
@@ -16,24 +17,24 @@ const item: SettingsPageItemProps = {
 storiesOf('SettingsPageItem', module)
 
 .add('Mobile View', () => (
-	<SettingsPageItem {...item} />
+	<SettingsPageItemMobile {...item} />
 ))
 
 .add('Mobile View (Multiple)', () => (
 	<React.Fragment>
-		<SettingsPageItem {...item} />
-		<SettingsPageItem {...item} />
+		<SettingsPageItemMobile {...item} />
+		<SettingsPageItemMobile {...item} />
 	</React.Fragment>
 ))
 
 .add('Desktop View', () => (
-	<SettingsPageItem {...item} isMobile={false} />
+	<SettingsPageItemDesktop {...item} isMobile={false} />
 ))
 
 .add('Desktop View (Multiple)', () => (
 	<React.Fragment>
-		<SettingsPageItem {...item} isMobile={false} />
-		<SettingsPageItem {...item} isMobile={false} />
+		<SettingsPageItemDesktop {...item} isMobile={false} />
+		<SettingsPageItemDesktop {...item} isMobile={false} />
 	</React.Fragment>
 ))
 

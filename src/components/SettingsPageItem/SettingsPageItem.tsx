@@ -1,6 +1,7 @@
 import { StyleProp, TextStyle } from 'react-native';
 import React from 'react';
 import { getComponent } from '@bluebase/core';
+import { Divider } from '@bluebase/components';
 
 const SettingsPageItemMobile = getComponent('SettingsPageItemMobile');
 const SettingsPageItemDesktop = getComponent('SettingsPageItemDesktop');
@@ -32,10 +33,20 @@ export interface SettingsPageItemProps {
 }
 
 export const SettingsPageItem =
-({ isMobile, ...rest }: SettingsPageItemProps & { isMobile?: boolean }) =>
+({ isMobile, divider, ...rest }: SettingsPageItemProps & { isMobile?: boolean, divider?: boolean }) =>
 isMobile === true
-? <SettingsPageItemMobile {...rest} />
-: <SettingsPageItemDesktop {...rest} />;
+? (
+	<React.Fragment>
+		<SettingsPageItemMobile {...rest} />
+		{divider && <Divider />}
+	</React.Fragment>
+	)
+: (
+	<React.Fragment>
+		<SettingsPageItemDesktop {...rest} />
+		{divider && <Divider />}
+	</React.Fragment>
+	);
 
 SettingsPageItem.defaultProps = {
 	isMobile: true,

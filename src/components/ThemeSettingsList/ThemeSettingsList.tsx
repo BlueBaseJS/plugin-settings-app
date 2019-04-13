@@ -1,4 +1,5 @@
 import { Divider, ListItem, View } from '@bluebase/components';
+import { Platform } from 'react-native';
 import React from 'react';
 import { getComponent } from '@bluebase/core';
 
@@ -12,7 +13,7 @@ export const ThemeSettingsList = () => (
 			description="Change to Dark Mode"
 			right={<ThemeDarkModeSwitch />}
 		/>
-		<Divider />
+		{Platform.OS !== 'android' && <Divider />}
 		<ListItem
 			title="Theme"
 			// description="Select theme here"
