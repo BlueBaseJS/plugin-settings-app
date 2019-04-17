@@ -29,7 +29,7 @@ export class SettingsPageItemMobile extends React.PureComponent<SettingsPageItem
 
 	static defaultStyles = (theme: Theme): SettingsPageItemMobileStyles => ({
 		contentStyles: {
-			backgroundColor: theme.palette.background.card,
+			// backgroundColor: theme.palette.background.card,
 			borderBottomWidth: Platform.OS === 'ios' ? 1 : undefined,
 			borderColor: Platform.OS === 'ios' ? theme.palette.divider : undefined,
 			borderTopWidth: Platform.OS === 'ios' ? 1 : undefined,
@@ -40,9 +40,9 @@ export class SettingsPageItemMobile extends React.PureComponent<SettingsPageItem
 			paddingVertical: theme.spacing.unit * 2,
 		},
 		root: {
-			backgroundColor: Platform.OS === 'ios'
-			? theme.palette.background.default
-			: theme.palette.background.card,
+			// backgroundColor: Platform.OS === 'ios'
+			// ? theme.palette.background.default
+			// : theme.palette.background.card,
 		},
 		titleStyles: {
 			color: theme.palette.primary.main,

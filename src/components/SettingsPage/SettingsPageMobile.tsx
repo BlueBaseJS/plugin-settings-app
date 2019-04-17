@@ -19,11 +19,11 @@ export class SettingsPageMobile extends React.PureComponent<SettingsPageMobilePr
 	static defaultProps: Partial<SettingsPageMobileProps> = {};
 
 
-	static defaultStyles = (theme: Theme): SettingsPageMobileStyles => ({
+	static defaultStyles = (_theme: Theme): SettingsPageMobileStyles => ({
 		root: {
-			backgroundColor: Platform.OS === 'ios'
-			? theme.palette.background.default
-			: theme.palette.background.card,
+			// backgroundColor: Platform.OS === 'ios'
+			// ? theme.palette.background.default
+			// : theme.palette.background.card,
 		},
 	})
 

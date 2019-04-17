@@ -1,8 +1,9 @@
 import { BootOptions } from '@bluebase/core';
-import MaterialUIPLugin from '@bluebase/plugin-material-ui';
-import ReactRouterPlugin from '@bluebase/plugin-react-router';
+import ReactNativePaperPlugin from '@bluebase/plugin-react-native-paper';
+import ReactNavigationPlugin from '@bluebase/plugin-react-navigation';
 import commonBootOptions from '../common/bluebase';
 import deepmerge from 'deepmerge';
+// const assetsPath = `../../assets/expo`;
 
 /**
  * Add your platform specific configs here.
@@ -11,11 +12,11 @@ import deepmerge from 'deepmerge';
  */
 const bootOptions: Partial<BootOptions> = {
 
-	plugins: [
-		MaterialUIPLugin,
-		ReactRouterPlugin,
-	],
 
+	plugins: [
+		ReactNativePaperPlugin,
+		ReactNavigationPlugin,
+	],
 };
 
 export default deepmerge(commonBootOptions, bootOptions);
