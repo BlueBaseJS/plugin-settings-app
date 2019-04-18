@@ -1,10 +1,10 @@
 import { SafeAreaView, ScrollView, StyleProp, ViewStyle } from 'react-native';
 import { Theme, getComponent } from '@bluebase/core';
 import React from 'react';
-import { SettingsPageProps } from './SettingsPage';
+import { SettingsPageProps } from './';
 import { View } from '@bluebase/components';
 
-const SettingsPageItem = getComponent('SettingsPageItem');
+const SettingsPageItemMobile = getComponent('SettingsPageItemMobile');
 
 export interface SettingsPageMobileStyles {
 	root: StyleProp<ViewStyle>;
@@ -37,7 +37,7 @@ export class SettingsPageMobile extends React.PureComponent<SettingsPageMobilePr
 				<SafeAreaView>
 					<View style={styles.root}>
 						{items.map((item, index) => (
-							<SettingsPageItem
+							<SettingsPageItemMobile
 								key={item.name}
 								isMobile={true}
 								divider={index < items.length - 1}

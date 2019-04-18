@@ -6,12 +6,7 @@ import { isMobile } from '../isMobile';
 
 export const createSettingsRoutes = (pages: SettingsPageProps[], mainRoute: RouteConfig) => {
 
-	if (isMobile()) {
-		return createMobileRoutes(pages, mainRoute);
-	}
-
-	return [{
-		...mainRoute,
-		navigator: createDesktopNavigator(pages),
-	}];
+	return isMobile()
+	? createMobileRoutes(pages, mainRoute)
+	: [{ ...mainRoute, navigator: createDesktopNavigator(pages) }];
 };

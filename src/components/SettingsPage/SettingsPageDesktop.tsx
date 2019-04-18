@@ -2,9 +2,9 @@ import { Divider, H6, View } from '@bluebase/components';
 import { ScrollView, StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Theme, getComponent, resolveThunk } from '@bluebase/core';
 import React from 'react';
-import { SettingsPageProps } from './SettingsPage';
+import { SettingsPageProps } from './';
 
-const SettingsPageItem = getComponent('SettingsPageItem');
+const SettingsPageItemDesktop = getComponent('SettingsPageItemDesktop');
 
 export interface SettingsPageDesktopStyles {
 	title: StyleProp<TextStyle>;
@@ -48,7 +48,7 @@ export class SettingsPageDesktop extends React.PureComponent<SettingsPageDesktop
 						</React.Fragment>
 					)}
 					{items.map((item, index) => (
-						<SettingsPageItem
+						<SettingsPageItemDesktop
 							key={item.name}
 							isMobile={false}
 							divider={index < items.length - 1}

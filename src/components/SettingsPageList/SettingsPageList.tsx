@@ -1,7 +1,7 @@
 import { List, NavigationActions, Noop } from '@bluebase/components';
 import { getComponent, resolveThunk } from '@bluebase/core';
 import React from 'react';
-import { SettingsPageProps } from '../SettingsPage/SettingsPage';
+import { SettingsPageProps } from '../SettingsPage';
 
 export interface SettingsPageListProps {
 	name: string;

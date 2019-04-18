@@ -1,6 +1,6 @@
 import { IntlMessages, createPlugin } from '@bluebase/core';
-import { SettingsPage, SettingsPageDesktop, SettingsPageMobile } from './components/SettingsPage';
-import { SettingsPageItem, SettingsPageItemDesktop, SettingsPageItemMobile } from './components/SettingsPageItem';
+import { SettingsPageDesktop, SettingsPageMobile } from './components/SettingsPage';
+import { SettingsPageItemDesktop, SettingsPageItemMobile } from './components/SettingsPageItem';
 import { DirectionPicker } from './components/DirectionPicker';
 import { LocalePicker } from './components/LocalePicker';
 import { LocalizationSettingsList } from './components/LocalizationSettingsList';
@@ -11,7 +11,7 @@ import { ThemePicker } from './components/ThemePicker';
 import { ThemeSettingsList } from './components/ThemeSettingsList';
 import { createSettingsRoutes } from './createSettingsRoutes';
 import { pages } from './pages';
-import { isMobile } from './isMobile';
+// import { isMobile } from './isMobile';
 
 export default createPlugin({
 	description: 'A settings app for the BlueBase framework!',
@@ -29,9 +29,7 @@ export default createPlugin({
 
 		// Core components
 		SettingsAppIcon,
-		SettingsPage,
 		SettingsPageDesktop,
-		SettingsPageItem,
 		SettingsPageItemDesktop,
 		SettingsPageItemMobile,
 		SettingsPageList,
