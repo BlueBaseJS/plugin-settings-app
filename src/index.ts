@@ -11,6 +11,7 @@ import { ThemePicker } from './components/ThemePicker';
 import { ThemeSettingsList } from './components/ThemeSettingsList';
 import { createSettingsRoutes } from './createSettingsRoutes';
 import { pages } from './pages';
+import { isMobile } from './isMobile';
 
 export default createPlugin({
 	description: 'A settings app for the BlueBase framework!',
@@ -45,9 +46,9 @@ export default createPlugin({
 		ThemeSettingsList,
 	},
 
-	routes: (BB) => {
+	routes: (_BB) => {
 
-		console.log('yayy', BB);
+		// console.log('yayy', BB);
 
 		return createSettingsRoutes(pages, {
 			name: 'Settings',

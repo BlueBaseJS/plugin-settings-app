@@ -5,27 +5,19 @@ import { getComponent } from '@bluebase/core';
 
 const SettingsPageDesktop = getComponent<SettingsPageProps>('SettingsPageDesktop');
 
-export const createDesktopNavigator = (
-	pages: SettingsPageProps[],
-
-	_route: RouteConfig
-): NavigatorProps => {
-
-	const routes = (pages || []).map(page => ({
-		...page,
-		exact: true,
-		screen: (props: any) => <SettingsPageDesktop {...page} {...props} />,
-
-	}));
+export const createDesktopNavigator = (pages: SettingsPageProps[] = []): NavigatorProps => {
 
 	return {
-		// ...options,
 		drawerType: 'slide',
 		drawerWidth: 175,
 		open: true,
 		type: 'drawer',
 
-		routes,
+		routes: (pages || []).map(page => ({
+			...page,
+			exact: true,
+			screen: (props: any) => <SettingsPageDesktop {...page} {...props} />,
+		})),
 	};
 
 };
