@@ -1,4 +1,4 @@
-import { Platform, StyleProp, ViewStyle } from 'react-native';
+import { SafeAreaView, ScrollView, StyleProp, ViewStyle } from 'react-native';
 import { Theme, getComponent } from '@bluebase/core';
 import React from 'react';
 import { SettingsPageProps } from './SettingsPage';
@@ -33,16 +33,20 @@ export class SettingsPageMobile extends React.PureComponent<SettingsPageMobilePr
 		const styles = this.props.styles as SettingsPageMobileStyles;
 
 		return (
-			<View style={styles.root}>
-				{items.map((item, index) => (
-					<SettingsPageItem
-						key={item.name}
-						isMobile={true}
-						divider={Platform.OS !== 'ios' && (index < items.length - 1)}
-						{...item}
-					/>
-				))}
-			</View>
+			<ScrollView>
+				<SafeAreaView>
+					<View style={styles.root}>
+						{items.map((item, index) => (
+							<SettingsPageItem
+								key={item.name}
+								isMobile={true}
+								divider={index < items.length - 1}
+								{...item}
+							/>
+						))}
+					</View>
+				</SafeAreaView>
+			</ScrollView>
 		);
 	}
 }

@@ -1,4 +1,4 @@
-import { ListItem, NavigationActions } from '@bluebase/components';
+import { List, NavigationActions } from '@bluebase/components';
 import { getComponent, resolveThunk } from '@bluebase/core';
 import React from 'react';
 import { SettingsPageProps } from '../SettingsPage/SettingsPage';
@@ -19,14 +19,21 @@ export const SettingsPageList = (props: SettingsPageListProps) => (
 );
 
 export const SettingsPageListContent = (props: SettingsPageListProps) => (
-	<NavigationActions>
-		{({ navigate }) => (props.pages || []).map(page => {
-			const options = resolveThunk(page.navigationOptions || {});
+	<List>
+		<NavigationActions>
+			{({ navigate }) => (props.pages || []).map(page => {
+				const options = resolveThunk(page.navigationOptions || {});
 
-			const title = options.title || options.headerTitle;
-			const onPress = () => navigate(page.name);
+				const title = options.title || options.headerTitle;
+				const onPress = () => navigate(page.name);
 
-			return (<ListItem key={page.name} onPress={onPress} title={title} />);
-		})}
-	</NavigationActions>
+				return (
+					<List.Item
+						key={page.name}
+						onPress={onPress}
+						title={title}
+					/>);
+			})}
+		</NavigationActions>
+	</List>
 );

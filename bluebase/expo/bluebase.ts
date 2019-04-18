@@ -14,8 +14,8 @@ const bootOptions: Partial<BootOptions> = {
 
 
 	plugins: [
-		ReactNativePaperPlugin,
 		ReactNavigationPlugin,
+		ReactNativePaperPlugin,
 	],
 };
 

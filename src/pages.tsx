@@ -8,17 +8,20 @@ export const pages: SettingsPageProps[] = [{
 		title: 'Appearance',
 	},
 
-	items: [{
-		component: 'ThemeSettingsList',
-		description: 'All your theme related settings reside here.',
-		name: 'theme-settings-1',
-		title: 'Theme',
-	}, {
-		component: 'LocalizationSettingsList',
-		description: 'All your theme related settings reside here.',
-		name: 'theme-settings-2',
-		title: 'Theme',
-	}],
+	items: [
+		{
+			component: 'ThemeSettingsList',
+			description: 'All your theme related settings reside here.',
+			name: 'theme-settings-1',
+			title: 'Theme',
+		},
+		{
+			component: 'LocalizationSettingsList',
+			description: 'All your theme related settings reside here.',
+			name: 'theme-settings-2',
+			title: 'Theme',
+		}
+	],
 }, {
 	name: 'AboutSettingsPage',
 	path: 'about',

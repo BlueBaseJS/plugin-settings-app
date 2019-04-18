@@ -1,5 +1,5 @@
 import { Body2, Caption, View } from '@bluebase/components';
-import { Platform, StyleProp, TextStyle, ViewStyle } from 'react-native';
+import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Theme, getComponent } from '@bluebase/core';
 import React from 'react';
 import { SettingsPageItemProps } from './SettingsPageItem';
@@ -30,9 +30,9 @@ export class SettingsPageItemMobile extends React.PureComponent<SettingsPageItem
 	static defaultStyles = (theme: Theme): SettingsPageItemMobileStyles => ({
 		contentStyles: {
 			// backgroundColor: theme.palette.background.card,
-			borderBottomWidth: Platform.OS === 'ios' ? 1 : undefined,
-			borderColor: Platform.OS === 'ios' ? theme.palette.divider : undefined,
-			borderTopWidth: Platform.OS === 'ios' ? 1 : undefined,
+			// borderBottomWidth: Platform.OS === 'ios' ? 1 : undefined,
+			// borderColor: Platform.OS === 'ios' ? theme.palette.divider : undefined,
+			// borderTopWidth: Platform.OS === 'ios' ? 1 : undefined,
 		},
 		descriptionStyles: {
 			color: theme.palette.text.hint,
