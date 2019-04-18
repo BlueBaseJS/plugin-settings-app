@@ -1070,7 +1070,7 @@
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
-"@bluebase/components@^2.5.0", "@bluebase/components@^2.8.1":
+"@bluebase/components@^2.8.1":
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-2.8.1.tgz#c73e119b8cc11d7cebb53a78663c34cfbb186ee4"
   integrity sha512-AdVl4wufhGpS5Vh8Q/9lsmzGVg7kELT/Bl13wBh1LuIC+vLUlRoE5A1YRnwbqgaPR/n//e9Z1Y5Pjz3vPCFabQ==
@@ -1078,26 +1078,26 @@
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
-"@bluebase/components@^3.0.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-3.3.0.tgz#4f7c17a1ae1e11c7709cf828edeef55472baea55"
-  integrity sha512-+P+nvPcc56LxLiQF69YGbqyhjj8+OjEj8W380u69oAPZzjYyiGGIJ85MTMQ82k5YKLvM1J8ssGk4jZxiabAogg==
+"@bluebase/components@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-4.1.1.tgz#1d69d9f9e0bcd71a94991bb3740456fdc87fa6b6"
+  integrity sha512-aLph4tlnimY1Ekmqm8Cw5uBu6ZcbH8h4khk0Avf+hFqiZjlmb2WL/CslYcNZD00BgZ0xdW2PW7//adt1gX0FDQ==
   dependencies:
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
-"@bluebase/components@^3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-3.5.0.tgz#9cf1f765bef89112e223e07c5a8fddd673e6a875"
-  integrity sha512-LXwitjUzXhasW9aKr45+b1VhCcorS6wIqAAHU1owsfuj6bTTCP17xPiTHjRkJLmqkHyTSCyPbxyN9J1fkRhcqw==
+"@bluebase/components@^5.1.0", "@bluebase/components@^5.1.1", "@bluebase/components@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-5.2.0.tgz#ff370678edb4c411f85e3d8e8c41b5c83f9ca531"
+  integrity sha512-D8J+vCHaxnzXcxemdtVHbLpmhfRBDAzGIrQ7HcidFnO7tQrLu0+uBUCRNfkvxXalDpcBThEcDG3HzWLYwQwiPg==
   dependencies:
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
-"@bluebase/core@^4.0.0-aplha.18":
-  version "4.0.0-aplha.18"
-  resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-4.0.0-aplha.18.tgz#ced712c9957a5cbd5a709ce429b9f302af72b969"
-  integrity sha512-cnTdqnaSCtYTUsgTVIVjbTDFkaW+9TQOn0srOHRlvP60hnD0PDmtTb+aybzdSgECFB1T26M9eL6wZ7nsq3Is6w==
+"@bluebase/core@^4.0.0-aplha.19":
+  version "4.0.0-aplha.19"
+  resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-4.0.0-aplha.19.tgz#2b3e4265c7b3fed3ca46bd7278273eeb00461ebd"
+  integrity sha512-5f0qVbWdl6cg3ryMur2I1Pm42ic4kL6tqCJu9WqGMXTMrJyc/ZKTz0iMwjIFBeUCyjLVbWEkLx+sJ4vxqEkuHg==
   dependencies:
     deepmerge "^3.2.0"
     hoist-non-react-statics "^3.3.0"
@@ -1111,25 +1111,34 @@
     rtl-detect "^1.0.2"
     tslib "^1.9.3"
 
-"@bluebase/plugin-material-ui@^1.12.0":
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/@bluebase/plugin-material-ui/-/plugin-material-ui-1.12.0.tgz#53f45f6cad46d7621abb364dc949693a3f0bc88e"
-  integrity sha512-tzbYQRu72WUrwKAkHl+rhZxCMo114NF1J+BhsbAEoqDkpFIGkFUW2ykZeURqxja3gn9t/EMbJCXelj4cMdVqJg==
+"@bluebase/plugin-launcher@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@bluebase/plugin-launcher/-/plugin-launcher-0.0.2.tgz#7cd7339a9f6b75bd710d1700624af4cf2fe6cb69"
+  integrity sha512-BDyJAdzLdl1bT6gr0fBU6N0DO0In9Hte3XSstHRbgRnW/8ERIJAmjPuwyBtaPLHHFcH0a21qHPxj2Z7Og5wu+A==
+  dependencies:
+    "@bluebase/components" "^4.1.1"
+    deepmerge "^3.2.0"
+    tslib "^1.9.3"
+
+"@bluebase/plugin-material-ui@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@bluebase/plugin-material-ui/-/plugin-material-ui-2.2.0.tgz#5c4177b9162021be9896dcc7023e517f6bf77eff"
+  integrity sha512-dyY1s3Fdw9OV9iypmR3ogkTGeReK1GH35avX9zGsJKrT+UZpevLwFox65j9DSQ+EUkyj2V916Lk1hLJohRYieA==
   dependencies:
     "@bluebase/component-mapper" "^1.4.0"
-    "@bluebase/components" "^3.0.0"
+    "@bluebase/components" "^5.1.1"
     "@material-ui/core" "^3.9.3"
     "@material-ui/lab" "^3.0.0-alpha.30"
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
-"@bluebase/plugin-react-native-paper@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@bluebase/plugin-react-native-paper/-/plugin-react-native-paper-1.1.1.tgz#70533e9707852833bf60963d40c831a6fd50c29d"
-  integrity sha512-kUqIAxDB6OQgS1RDNvHmnbrMRroAOBsoFio88jb+UD9b4IFtEqg5tNru5u2n3fF9KmcLF9NjEuzq834uYuvygA==
+"@bluebase/plugin-react-native-paper@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@bluebase/plugin-react-native-paper/-/plugin-react-native-paper-1.2.0.tgz#66048dd5ad12a25926eac3f751c692fd7a6ca532"
+  integrity sha512-e9adoDEqZt0lt3CPEPjsQ7dEjrhjWnEh/mxaR5xbsBMIIeiRS1Y2Tytp6VJDj0s9PyVzkzKB455qUNaIiAA/sA==
   dependencies:
     "@bluebase/component-mapper" "^1.4.0"
-    "@bluebase/components" "^2.5.0"
+    "@bluebase/components" "^5.1.0"
     deepmerge "^3.2.0"
     react-native-paper "^2.15.0"
     tslib "^1.9.3"
@@ -1155,6 +1164,16 @@
     react-native "^0.57.8"
     react-router-dom "^5.0.0"
     react-router-native "^5.0.0"
+    tslib "^1.9.3"
+
+"@bluebase/plugin-responsive-grid@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@bluebase/plugin-responsive-grid/-/plugin-responsive-grid-0.0.5.tgz#7ce705a9409306a6210cd0c62b02325d484c3ebf"
+  integrity sha512-n/hTMWI1N/Kwcd9gOmLBRkk+iuHObSLlzSAyYliODmZcM1MOcqRinNUPfYXVCq2vWPE2H+JMbdYqU0/JjkgpNg==
+  dependencies:
+    "@bluebase/components" "^4.1.1"
+    deepmerge "^3.2.0"
+    react-native "^0.57.8"
     tslib "^1.9.3"
 
 "@bluebase/plugin-vector-icons@^0.0.2":

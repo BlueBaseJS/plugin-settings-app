@@ -1,4 +1,4 @@
-import { Body2, Caption, View } from '@bluebase/components';
+import { Body1, Body2, Card, View } from '@bluebase/components';
 import { Platform, StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Theme, getComponent } from '@bluebase/core';
 import React from 'react';
@@ -28,7 +28,7 @@ export class SettingsPageItemDesktop extends React.PureComponent<SettingsPageIte
 
 	static defaultStyles = (theme: Theme): SettingsPageItemDesktopStyles => ({
 		contentStyles: {
-			backgroundColor: theme.palette.background.card,
+			// backgroundColor: theme.palette.background.card,
 			borderBottomWidth: Platform.OS === 'ios' ? 1 : undefined,
 			borderColor: Platform.OS === 'ios' ? theme.palette.divider : undefined,
 			borderTopWidth: Platform.OS === 'ios' ? 1 : undefined,
@@ -62,15 +62,15 @@ export class SettingsPageItemDesktop extends React.PureComponent<SettingsPageIte
 		const styles = this.props.styles as SettingsPageItemDesktopStyles;
 
 		const titleNode = !!title
-		? <Body2 style={[styles.titleStyles, titleStyle]}>{title}</Body2>
+		? <Body1 style={[styles.titleStyles, titleStyle]}>{title}</Body1>
 		: null;
 
 		const descNode = !!description
-		? <Caption style={[styles.descriptionStyles, descriptionStyle]}>{description}</Caption>
+		? <Body2 style={[styles.descriptionStyles, descriptionStyle]}>{description}</Body2>
 		: null;
 
 		const componentNode = !!ItemComponent
-		? <View style={styles.contentStyles}><ItemComponent /></View>
+		? <Card style={styles.contentStyles}><ItemComponent /></Card>
 		: null;
 
 		return (

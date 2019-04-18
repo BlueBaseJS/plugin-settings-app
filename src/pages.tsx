@@ -6,7 +6,6 @@ export const pages: SettingsPageProps[] = [{
 
 	navigationOptions: {
 		title: 'Appearance',
-		// drawerLockMode: 'locked-open',
 	},
 
 	items: [{

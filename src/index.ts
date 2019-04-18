@@ -2,9 +2,9 @@ import { IntlMessages, createPlugin } from '@bluebase/core';
 import { SettingsPage, SettingsPageDesktop, SettingsPageMobile } from './components/SettingsPage';
 import { SettingsPageItem, SettingsPageItemDesktop, SettingsPageItemMobile } from './components/SettingsPageItem';
 import { DirectionPicker } from './components/DirectionPicker';
-import { HomeScreen } from './HomeScreen';
 import { LocalePicker } from './components/LocalePicker';
 import { LocalizationSettingsList } from './components/LocalizationSettingsList';
+import { SettingsAppIcon } from './components/SettingsAppIcon';
 import { SettingsPageList } from './components/SettingsPageList';
 import { ThemeDarkModeSwitch } from './components/ThemeDarkModeSwitch';
 import { ThemePicker } from './components/ThemePicker';
@@ -15,14 +15,19 @@ import { pages } from './pages';
 export default createPlugin({
 	description: 'A settings app for the BlueBase framework!',
 	key: 'settings',
-	name: 'BlueBase Settings App',
+	name: 'Settings',
 	version: '1.0.0',
 
+	icon: {
+		component: 'SettingsAppIcon',
+		type: 'component',
+	},
+
 	components: {
-		DirectionPicker,
-		HomeScreen,
-		LocalePicker,
-		LocalizationSettingsList,
+		// HomeScreen,
+
+		// Core components
+		SettingsAppIcon,
 		SettingsPage,
 		SettingsPageDesktop,
 		SettingsPageItem,
@@ -30,21 +35,29 @@ export default createPlugin({
 		SettingsPageItemMobile,
 		SettingsPageList,
 		SettingsPageMobile,
+
+		// Addons 
+		DirectionPicker,
+		LocalePicker,
+		LocalizationSettingsList,
 		ThemeDarkModeSwitch,
 		ThemePicker,
 		ThemeSettingsList,
 	},
 
-	routes: [
-		...createSettingsRoutes(pages, {
+	routes: (BB) => {
+
+		console.log('yayy', BB);
+
+		return createSettingsRoutes(pages, {
 			name: 'Settings',
 			path: '',
 
 			navigationOptions: {
 				title: 'My App Settings',
 			}
-		})
-	],
+		});
+	},
 
 	filters: {
 		'bluebase.intl.messages.ur': (messages: IntlMessages) => ({

@@ -14,7 +14,7 @@ export const createDesktopNavigator = (
 	const routes = (pages || []).map(page => ({
 		...page,
 		exact: true,
-		screen: (props: any) => <SettingsPageDesktop items={page.items} {...props} />,
+		screen: (props: any) => <SettingsPageDesktop {...page} {...props} />,
 
 	}));
 

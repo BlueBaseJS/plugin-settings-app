@@ -1,4 +1,4 @@
-import { Divider, DynamicIcon, ListItem, View } from '@bluebase/components';
+import { Divider, List } from '@bluebase/components';
 import { IntlContext, IntlContextData, getComponent } from '@bluebase/core';
 import { Platform } from 'react-native';
 import React from 'react';
@@ -15,27 +15,23 @@ export class LocalizationSettingsList extends React.PureComponent {
 		const { __, rtl }: IntlContextData = this.context;
 
 		return (
-			<View>
-				<ListItem
-					left={<DynamicIcon type="icon" name="translate" size={24} />}
+			<List>
+				<List.Item
+					left={<List.Icon name="translate" />}
 					title="Content Direction"
 					description="Direction of the app's content"
 					right={<DirectionPicker />}
 				/>
 				{Platform.OS !== 'android' && <Divider inset />}
-				<ListItem
+				<List.Item
 					left={
-						<DynamicIcon
-							type="icon"
-							name={!!rtl ? 'format-textdirection-r-to-l' : 'format-textdirection-l-to-r'}
-							size={24}
-						/>
+						<List.Icon name={!!rtl ? 'format-textdirection-r-to-l' : 'format-textdirection-l-to-r'} />
 					}
 					title={__('Language')}
 					description={__('You can change the app\'s default language from here')}
 					right={<LocalePicker />}
 				/>
-			</View>
+			</List>
 		);
 	}
 }

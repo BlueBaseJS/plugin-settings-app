@@ -16,8 +16,6 @@ export const createMobileNavigator = (
 	const indexPage: RouteConfig = {
 		...route,
 		exact: true,
-		// name: 'SettingsList',
-		// path: '',
 		screen: (props: any) => <SettingsPageList pages={pages} {...props} />,
 	};
 	const routes = (pages || []).map(page => ({
