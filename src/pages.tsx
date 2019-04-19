@@ -14,12 +14,22 @@ export const pages: SettingsPageProps[] = [{
 			description: 'All your theme related settings reside here.',
 			name: 'theme-settings-1',
 			title: 'Theme',
-		},
+		}
+	],
+}, {
+	name: 'LanguageSettingsPage',
+	path: 'language',
+
+	navigationOptions: {
+		title: 'Language',
+	},
+
+	items: [
 		{
 			component: 'LocalizationSettingsList',
-			description: 'All your theme related settings reside here.',
-			name: 'theme-settings-2',
-			title: 'Theme',
+			description: 'Change your language settings here',
+			name: 'language-settings',
+			title: 'Language',
 		}
 	],
 }, {

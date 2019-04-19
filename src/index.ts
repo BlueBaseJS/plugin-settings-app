@@ -24,6 +24,36 @@ export default createPlugin({
 		type: 'component',
 	},
 
+	defaultConfigs: {
+
+		/** Enable appearnace page */
+		'plugin.settings-app.appearance': false,
+
+		/** Enable theme section, on appearnace page */
+		'plugin.settings-app.appearance.theme': false,
+
+		/** Enable dark mode setting in theme section, on appearnace page */
+		'plugin.settings-app.appearance.theme.dark-mode': false,
+
+		/** Enable theme selection setting in theme section, on appearnace page */
+		'plugin.settings-app.appearance.theme.selection': false,
+
+		/** Enable appearnace page */
+		'plugin.settings-app.language': false,
+
+		/** Enable language section, on language page */
+		'plugin.settings-app.language.language': false,
+
+		/** Enable writing direction setting in language section, on language page */
+		'plugin.settings-app.language.language.writing-direction': false,
+
+		/** Enable language selection setting in language section, on language page */
+		'plugin.settings-app.language.language.selection': false,
+
+		/** Enable appearnace page */
+		'plugin.settings-app.about': false,
+	},
+
 	components: {
 		// HomeScreen,
 
@@ -49,7 +79,7 @@ export default createPlugin({
 		// console.log('yayy', BB);
 
 		return createSettingsRoutes(pages, {
-			name: 'Settings',
+			name: 'SettingsApp',
 			path: '',
 
 			navigationOptions: {
