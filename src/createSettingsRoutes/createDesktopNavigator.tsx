@@ -1,4 +1,4 @@
-import { NavigatorProps, RouteConfig } from '@bluebase/components';
+import { NavigatorProps } from '@bluebase/components';
 import React from 'react';
 import { SettingsPageProps } from '../components/SettingsPage';
 import { getComponent } from '@bluebase/core';

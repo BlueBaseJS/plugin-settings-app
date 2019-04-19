@@ -13,6 +13,8 @@ import { createSettingsRoutes } from './createSettingsRoutes';
 import { pages } from './pages';
 // import { isMobile } from './isMobile';
 
+export { createSettingsRoutes } from './createSettingsRoutes';
+
 export default createPlugin({
 	description: 'A settings app for the BlueBase framework!',
 	key: 'settings',
