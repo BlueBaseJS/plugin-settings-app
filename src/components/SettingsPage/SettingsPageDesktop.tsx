@@ -48,12 +48,10 @@ export class SettingsPageDesktop extends React.PureComponent<SettingsPageDesktop
 						</React.Fragment>
 					)}
 					{items.map((item, index) => (
-						<SettingsPageItemDesktop
-							key={item.name}
-							isMobile={false}
-							divider={index < items.length - 1}
-							{...item}
-						/>
+						<React.Fragment>
+							<SettingsPageItemDesktop key={item.name} {...item} />
+							{index < items.length - 1 && <Divider />}
+						</React.Fragment>
 					))}
 				</View>
 			</ScrollView>

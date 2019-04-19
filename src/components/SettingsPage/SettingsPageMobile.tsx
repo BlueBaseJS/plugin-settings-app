@@ -1,8 +1,8 @@
+import { Divider, View } from '@bluebase/components';
 import { SafeAreaView, ScrollView, StyleProp, ViewStyle } from 'react-native';
 import { Theme, getComponent } from '@bluebase/core';
 import React from 'react';
 import { SettingsPageProps } from './';
-import { View } from '@bluebase/components';
 
 const SettingsPageItemMobile = getComponent('SettingsPageItemMobile');
 
@@ -37,12 +37,10 @@ export class SettingsPageMobile extends React.PureComponent<SettingsPageMobilePr
 				<SafeAreaView>
 					<View style={styles.root}>
 						{items.map((item, index) => (
-							<SettingsPageItemMobile
-								key={item.name}
-								isMobile={true}
-								divider={index < items.length - 1}
-								{...item}
-							/>
+							<React.Fragment>
+								<SettingsPageItemMobile key={item.name} {...item} />
+								{index < items.length - 1 && <Divider />}
+							</React.Fragment>
 						))}
 					</View>
 				</SafeAreaView>
