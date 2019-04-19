@@ -37,8 +37,8 @@ export class SettingsPageMobile extends React.PureComponent<SettingsPageMobilePr
 				<SafeAreaView>
 					<View style={styles.root}>
 						{items.map((item, index) => (
-							<React.Fragment>
-								<SettingsPageItemMobile key={item.name} {...item} />
+							<React.Fragment key={item.name}>
+								<SettingsPageItemMobile {...item} />
 								{index < items.length - 1 && <Divider />}
 							</React.Fragment>
 						))}

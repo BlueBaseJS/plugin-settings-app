@@ -30,7 +30,7 @@ SettingsAppIcon.defaultStyles = (_theme: Theme) => ({
 	},
 	root: {
 		alignItems: 'center',
-		backgroundColor: 'green',
+		backgroundColor: '#6E90A1',
 		borderRadius: 10,
 		justifyContent: 'center',
 	},
