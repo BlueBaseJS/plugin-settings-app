@@ -4,9 +4,9 @@ import { createDesktopNavigator } from './createDesktopNavigator';
 import { createMobileRoutes } from './createMobileNavigator';
 import { isMobile } from '../isMobile';
 
-export const createSettingsRoutes = (pages: SettingsPageProps[], mainRoute: RouteConfig) => {
+export const createSettingsRoutes = (mainRoute: RouteConfig, pages: SettingsPageProps[]) => {
 
 	return isMobile()
-	? createMobileRoutes(pages, mainRoute)
+	? createMobileRoutes(mainRoute, pages)
 	: [{ ...mainRoute, navigator: createDesktopNavigator(pages) }];
 };

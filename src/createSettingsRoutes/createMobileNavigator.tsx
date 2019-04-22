@@ -8,9 +8,9 @@ const SettingsPageList = getComponent<SettingsPageListProps>('SettingsPageList')
 const SettingsPageMobile = getComponent<SettingsPageProps>('SettingsPageMobile');
 
 export const createMobileRoutes = (
-	pages: SettingsPageProps[] = [],
+	route: RouteConfig,
 
-	route: RouteConfig
+	pages: SettingsPageProps[] = [],
 ): RouteConfig[] => {
 
 	return [

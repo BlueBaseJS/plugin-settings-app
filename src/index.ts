@@ -80,14 +80,14 @@ export default createPlugin({
 
 		// console.log('yayy', BB);
 
-		return createSettingsRoutes(pages, {
+		return createSettingsRoutes({
 			name: 'SettingsApp',
 			path: '',
 
 			navigationOptions: {
 				title: 'My App Settings',
 			}
-		});
+		}, pages);
 	},
 
 	filters: {
