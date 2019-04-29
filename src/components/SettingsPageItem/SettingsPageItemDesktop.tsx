@@ -45,7 +45,7 @@ export class SettingsPageItemDesktop extends React.PureComponent<SettingsPageIte
 		textColumn: {
 			paddingRight: theme.spacing.unit * 2,
 			paddingVertical: theme.spacing.unit * 2,
-			width: '30%',
+			width: '40%',
 		},
 		titleStyles: {
 			// color: theme.palette.primary.main,

@@ -9,7 +9,7 @@ export const createDesktopNavigator = (pages: SettingsPageProps[] = []): Navigat
 
 	return {
 		drawerType: 'slide',
-		drawerWidth: 175,
+		drawerWidth: 225,
 		open: true,
 		type: 'drawer',
 

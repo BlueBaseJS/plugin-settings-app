@@ -1,4 +1,4 @@
-import { List, NavigationActions, Noop } from '@bluebase/components';
+import { List, NavigationActions, NavigationOptions, Noop } from '@bluebase/components';
 import { getComponent, resolveThunk } from '@bluebase/core';
 import React from 'react';
 import { SettingsPageProps } from '../SettingsPage';
@@ -7,7 +7,6 @@ export interface SettingsPageListProps {
 	name: string;
 	pages: SettingsPageProps[];
 }
-
 
 export class SettingsPageList extends React.PureComponent<SettingsPageListProps> {
 
@@ -36,7 +35,8 @@ export class SettingsPageList extends React.PureComponent<SettingsPageListProps>
 						{({ navigate }) => (this.props.pages || []).map(page => {
 							const options = resolveThunk(page.navigationOptions || {});
 
-							const title = options.title || options.headerTitle;
+							const title = getTitle(options);
+							const left = getIcon(options);
 							const onPress = () => navigate(page.name);
 
 							return (
@@ -44,6 +44,7 @@ export class SettingsPageList extends React.PureComponent<SettingsPageListProps>
 									key={page.name}
 									onPress={onPress}
 									title={title}
+									left={left}
 								/>);
 						})}
 					</NavigationActions>
@@ -51,5 +52,26 @@ export class SettingsPageList extends React.PureComponent<SettingsPageListProps>
 				<FooterComponent />
 			</React.Fragment>
 		);
+	}
+}
+
+
+function getTitle(options: NavigationOptions) {
+	return (options as any).drawerLabel || options.title || options.headerTitle;
+}
+
+function getIcon(options: NavigationOptions) {
+	const icon = (options as any).drawerIcon;
+
+	if (!icon) {
+		return;
+	}
+
+	if (typeof icon === 'function') {
+		return icon();
+	}
+
+	if (icon && typeof icon.type === 'string') {
+		return <List.Icon {...icon} />
 	}
 }

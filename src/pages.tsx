@@ -5,6 +5,7 @@ export const pages: SettingsPageProps[] = [{
 	path: 'appearance',
 
 	navigationOptions: {
+		drawerIcon: { type: 'icon', name: 'brush' },
 		title: 'Appearance',
 	},
 
@@ -21,6 +22,7 @@ export const pages: SettingsPageProps[] = [{
 	path: 'language',
 
 	navigationOptions: {
+		drawerIcon: { type: 'icon', name: 'translate' },
 		title: 'Language',
 	},
 
@@ -37,6 +39,7 @@ export const pages: SettingsPageProps[] = [{
 	path: 'about',
 
 	navigationOptions: {
+		drawerIcon: { type: 'icon', name: 'information' },
 		title: 'About',
 	}
 } as any];
