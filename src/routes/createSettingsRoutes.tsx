@@ -1,5 +1,5 @@
 import { RouteConfig } from '@bluebase/components';
-import { SettingsPageProps } from '../components/SettingsPage';
+import { SettingsPageProps } from '../layout/SettingsPage';
 import { createDesktopNavigator } from './createDesktopNavigator';
 import { createMobileRoutes } from './createMobileNavigator';
 import { isMobile } from '../isMobile';

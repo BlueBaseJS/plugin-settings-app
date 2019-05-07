@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteConfig } from '@bluebase/components';
-import { SettingsPageListProps } from '../components/SettingsPageList';
-import { SettingsPageProps } from '../components/SettingsPage';
+import { SettingsPageListProps } from '../layout/SettingsPageList';
+import { SettingsPageProps } from '../layout/SettingsPage';
 import { getComponent } from '@bluebase/core';
 
 const SettingsPageList = getComponent<SettingsPageListProps>('SettingsPageList');

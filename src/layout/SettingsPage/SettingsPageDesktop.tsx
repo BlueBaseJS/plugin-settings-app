@@ -2,7 +2,7 @@ import { Divider, H6, View } from '@bluebase/components';
 import { ScrollView, StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Theme, getComponent, resolveThunk } from '@bluebase/core';
 import React from 'react';
-import { SettingsPageProps } from './';
+import { SettingsPageProps } from '.';
 
 const SettingsPageItemDesktop = getComponent('SettingsPageItemDesktop');
 
