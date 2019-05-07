@@ -1,8 +1,8 @@
 import { SettingsPageProps } from './layout/SettingsPage';
 
 export const pages: SettingsPageProps[] = [{
-	name: 'AppearanceSettingsPage',
-	path: 'appearance',
+	name: 'GeneralSettingsPage',
+	path: 'general',
 
 	navigationOptions: {
 		drawerIcon: { type: 'icon', name: 'settings' },
@@ -35,9 +35,8 @@ export const pages: SettingsPageProps[] = [{
 	items: [
 		{
 			component: 'AboutSettingsList',
-			description: 'Add description here',
 			name: 'about-app',
-			title: 'Title',
+			title: 'App Information',
 		}
 	],
 } as any];

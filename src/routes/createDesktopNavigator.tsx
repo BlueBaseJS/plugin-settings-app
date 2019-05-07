@@ -7,7 +7,7 @@ import { getComponent } from '@bluebase/core';
 const SettingsPageDesktop = getComponent<SettingsPageProps>('SettingsPageDesktop');
 
 export const createDesktopNavigator = (
-	{ pages, filter }: CreateSettingsRoutesOptions
+	{ pages = [], filter }: CreateSettingsRoutesOptions
 ): NavigatorProps => {
 
 	return {
@@ -16,7 +16,7 @@ export const createDesktopNavigator = (
 		open: true,
 		type: 'drawer',
 
-		routes: (pages || []).map(page => ({
+		routes: pages.map(page => ({
 			...page,
 			exact: true,
 			screen: (props: any) => <SettingsPageDesktop filter={filter} {...page} {...props} />,

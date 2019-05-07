@@ -16,6 +16,7 @@ import { defaultConfigs } from './configs';
 import { lang } from './lang';
 import { pages } from './pages';
 
+export { SettingsPageProps } from './layout/SettingsPage';
 export { createSettingsRoutes } from './routes';
 
 export default createPlugin({

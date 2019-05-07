@@ -1,4 +1,4 @@
-import { Caption, View, List, FormattedMessage } from '@bluebase/components';
+import { Caption, FormattedMessage, List, View } from '@bluebase/components';
 import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Theme, getComponent } from '@bluebase/core';
 import React from 'react';
@@ -20,7 +20,6 @@ export interface SettingsPageItemMobileProps extends SettingsPageItemProps {
 export class SettingsPageItemMobile extends React.PureComponent<SettingsPageItemMobileProps> {
 
 	static defaultProps: Partial<SettingsPageItemMobileProps> = {
-		// isMobile: true,
 	};
 
 	private Component = (this.props.component && typeof this.props.component === 'string')
@@ -29,10 +28,6 @@ export class SettingsPageItemMobile extends React.PureComponent<SettingsPageItem
 
 	static defaultStyles = (theme: Theme): SettingsPageItemMobileStyles => ({
 		contentStyles: {
-			// backgroundColor: theme.palette.background.card,
-			// borderBottomWidth: Platform.OS === 'ios' ? 1 : undefined,
-			// borderColor: Platform.OS === 'ios' ? theme.palette.divider : undefined,
-			// borderTopWidth: Platform.OS === 'ios' ? 1 : undefined,
 		},
 		descriptionStyles: {
 			color: theme.palette.text.hint,
@@ -40,15 +35,10 @@ export class SettingsPageItemMobile extends React.PureComponent<SettingsPageItem
 			paddingVertical: theme.spacing.unit * 2,
 		},
 		root: {
-			// backgroundColor: Platform.OS === 'ios'
-			// ? theme.palette.background.default
-			// : theme.palette.background.card,
 		},
 		titleStyles: {
-			// color: theme.palette.primary.main,
 			paddingHorizontal: theme.spacing.unit * 2,
 			paddingVertical: theme.spacing.unit * 2,
-			// fontWeight: theme.typography.fontWeightMedium,
 		},
 	})
 

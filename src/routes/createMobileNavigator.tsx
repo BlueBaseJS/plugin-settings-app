@@ -9,7 +9,7 @@ const SettingsPageList = getComponent<SettingsPageListProps>('SettingsPageList')
 const SettingsPageMobile = getComponent<SettingsPageProps>('SettingsPageMobile');
 
 export const createMobileRoutes = (
-	{ mainRoute: route, pages, filter }: CreateSettingsRoutesOptions
+	{ mainRoute: route, pages = [], filter }: CreateSettingsRoutesOptions
 ): RouteConfig[] => {
 
 	return [

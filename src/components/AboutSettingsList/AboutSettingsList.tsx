@@ -1,8 +1,8 @@
-import { BlueBase, BlueBaseContext, Theme } from '@bluebase/core';
+import { BlueBase, BlueBaseContext, Theme, IntlConsumer, IntlContextData } from '@bluebase/core';
 import { Divider, Icon, List, View } from '@bluebase/components';
 import { ExternalLink } from '../ExternalLink';
 import React from 'react';
-import { TextStyle } from 'react-native';
+import { TextStyle, I18nManager } from 'react-native';
 
 export interface AboutSettingsListStyles {
 	iconRight: TextStyle;
@@ -18,18 +18,19 @@ export class AboutSettingsList extends React.PureComponent<AboutSettingsListProp
 
 	static defaultStyles = (theme: Theme) => ({
 		iconRight: {
-			color: theme.palette.text.disabled
-		}
+			color: theme.palette.text.disabled,
+			transform: [{ scaleX: I18nManager.isRTL ? -1 : 1 }],
+		},
 	})
 
-	renderVersion = () => {
+	renderVersion = ({ __ }: IntlContextData) => {
 		const BB: BlueBase = this.context;
 		const version = BB.Configs.getValue('version');
 
-		return version && <List.Item title="Version" description={version} />;
+		return version && <List.Item title={__('Version')} description={__(version)} />;
 	}
 
-	renderAuthor = () => {
+	renderAuthor = ({ __ }: IntlContextData) => {
 		const BB: BlueBase = this.context;
 		const { styles = {} } = this.props;
 
@@ -42,8 +43,8 @@ export class AboutSettingsList extends React.PureComponent<AboutSettingsListProp
 		}
 
 		const props: any = {
-			description: author,
-			title: 'Developed by',
+			description: __(author),
+			title: __('Developed by'),
 		};
 
 		// If there is not authorUrl, only render name
@@ -61,22 +62,29 @@ export class AboutSettingsList extends React.PureComponent<AboutSettingsListProp
 
 	render() {
 
-		const items = [
-			this.renderVersion(),
-			this.renderAuthor(),
-		]
-		// Remove undefined items
-		.filter(x => !!x);
-
 		return (
-			<View>
-				{items.map((item, index) => (
-					<React.Fragment key={index}>
-						{item}
-						{(index < items.length - 1) ? <Divider /> : null}
-					</React.Fragment>
-				))}
-			</View>
+			<IntlConsumer>
+			{(intl) => {
+
+				const items = [
+					this.renderVersion(intl),
+					this.renderAuthor(intl),
+				]
+				// Remove undefined items
+				.filter(x => !!x);
+
+				return (
+					<View>
+						{items.map((item, index) => (
+							<React.Fragment key={index}>
+								{item}
+								{(index < items.length - 1) ? <Divider /> : null}
+							</React.Fragment>
+						))}
+					</View>
+				);
+			}}
+			</IntlConsumer>
 		);
 	}
 }

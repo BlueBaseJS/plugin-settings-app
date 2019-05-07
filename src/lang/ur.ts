@@ -5,6 +5,7 @@ export const ur = (messages: IntlMessages) => ({
 	...messages,
 	'About': 'کے بارے میں',
 	'All your theme related settings reside here.': 'آپ کے مرکزی خیال، موضوع سے متعلق تمام ترتیبات یہاں رہیں.',
+	'App Information': 'ایپ کی معلومات',
 	'Appearance': 'ظہور',
 	'Auto': 'آٹو',
 	'Available Themes': 'دستیاب موضوعات',
