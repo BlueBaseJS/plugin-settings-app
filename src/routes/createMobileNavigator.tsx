@@ -1,3 +1,4 @@
+import { CreateSettingsRoutesOptions } from './createSettingsRoutes';
 import React from 'react';
 import { RouteConfig } from '@bluebase/components';
 import { SettingsPageListProps } from '../layout/SettingsPageList';
@@ -8,9 +9,7 @@ const SettingsPageList = getComponent<SettingsPageListProps>('SettingsPageList')
 const SettingsPageMobile = getComponent<SettingsPageProps>('SettingsPageMobile');
 
 export const createMobileRoutes = (
-	route: RouteConfig,
-
-	pages: SettingsPageProps[] = [],
+	{ mainRoute: route, pages, filter }: CreateSettingsRoutesOptions
 ): RouteConfig[] => {
 
 	return [
@@ -18,14 +17,14 @@ export const createMobileRoutes = (
 		{
 			...route,
 			exact: true,
-			screen: (props: any) => <SettingsPageList name={route.name} pages={pages} {...props} />
+			screen: (props: any) => <SettingsPageList filter={filter} name={route.name} pages={pages} {...props} />
 		},
 
 		// Sub routes
 		...pages.map(page => ({
 			...page,
 			exact: true,
-			screen: (props: any) => <SettingsPageMobile items={page.items} {...props} />,
+			screen: (props: any) => <SettingsPageMobile filter={filter} items={page.items} {...props} />,
 		}))
 	];
 

@@ -1,8 +1,9 @@
-import { Divider, View } from '@bluebase/components';
+import { Divider, View, BlueBaseFilter } from '@bluebase/components';
 import { SafeAreaView, ScrollView, StyleProp, ViewStyle } from 'react-native';
 import { Theme, getComponent } from '@bluebase/core';
 import React from 'react';
 import { SettingsPageProps } from '.';
+import { SettingsPageItemProps } from '../SettingsPageItem';
 
 const SettingsPageItemMobile = getComponent('SettingsPageItemMobile');
 
@@ -27,9 +28,8 @@ export class SettingsPageMobile extends React.PureComponent<SettingsPageMobilePr
 		},
 	})
 
-	render() {
+	renderLayout = (items: SettingsPageItemProps[]) => {
 
-		const items = this.props.items || [];
 		const styles = this.props.styles as SettingsPageMobileStyles;
 
 		return (
@@ -45,6 +45,17 @@ export class SettingsPageMobile extends React.PureComponent<SettingsPageMobilePr
 					</View>
 				</SafeAreaView>
 			</ScrollView>
+		);
+	}
+
+	render() {
+
+		const { filter, items = [] } = this.props;
+
+		return (
+			<BlueBaseFilter filter={`${filter}.page.mobile`} value={items} args={this.props}>
+			{(filteredItems) => this.renderLayout(filteredItems)}
+			</BlueBaseFilter>
 		);
 	}
 }

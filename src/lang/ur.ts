@@ -3,6 +3,7 @@ import { IntlMessages } from '@bluebase/core';
 
 export const ur = (messages: IntlMessages) => ({
 	...messages,
+	'About': 'کے بارے میں',
 	'All your theme related settings reside here.': 'آپ کے مرکزی خیال، موضوع سے متعلق تمام ترتیبات یہاں رہیں.',
 	'Appearance': 'ظہور',
 	'Auto': 'آٹو',

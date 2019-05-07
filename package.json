@@ -19,7 +19,8 @@
     {
       "limit": "15 KB",
       "webpack": false,
-      "path": "dist/**/*.js"
+      "path": "dist/**/*.js",
+      "running": false
     }
   ],
   "scripts": {
@@ -94,7 +95,7 @@
     "@bluebase/code-standards": "^1.3.2",
     "@bluebase/core": "^4.0.0-aplha.27",
     "@bluebase/plugin-launcher": "^0.0.4",
-    "@bluebase/plugin-material-ui": "^2.6.0",
+    "@bluebase/plugin-material-ui": "^2.7.0",
     "@bluebase/plugin-react-native-paper": "^1.5.1",
     "@bluebase/plugin-react-navigation": "^0.0.1-alpha.5",
     "@bluebase/plugin-react-router": "^0.0.1-aplha.9",

@@ -10,7 +10,7 @@ import { SettingsPageList } from './layout/SettingsPageList';
 import { TextDirectionSetting } from './components/TextDirectionSetting';
 import { ThemeSelectionSetting } from './components/ThemeSelectionSetting';
 import { ThemeSettingsList } from './components/ThemeSettingsList';
-import { createPlugin } from '@bluebase/core';
+import { createPlugin, BlueBase } from '@bluebase/core';
 import { createSettingsRoutes } from './routes';
 import { defaultConfigs } from './configs';
 import { lang } from './lang';
@@ -53,16 +53,23 @@ export default createPlugin({
 		ThemeSettingsList,
 	},
 
-	routes: (_BB) => {
+	routes: async (BB: BlueBase) => {
 
-		return createSettingsRoutes({
-			name: 'SettingsApp',
-			path: '',
+		return createSettingsRoutes(
+			{
+				filter: 'bluebase.plugin.setting-app',
+				pages: await BB.Filters.run('bluebase.plugin.setting-app.pages', pages),
 
-			navigationOptions: {
-				title: 'Settings',
+				mainRoute: {
+					name: 'SettingsApp',
+					path: '',
+
+					navigationOptions: {
+						title: 'Settings',
+					}
+				},
 			}
-		}, pages);
+		);
 	},
 
 	filters: {

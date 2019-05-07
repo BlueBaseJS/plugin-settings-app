@@ -2,8 +2,17 @@ import { BlueBase, BlueBaseContext, Theme } from '@bluebase/core';
 import { Divider, Icon, List, View } from '@bluebase/components';
 import { ExternalLink } from '../ExternalLink';
 import React from 'react';
+import { TextStyle } from 'react-native';
 
-export class AboutSettingsList extends React.PureComponent {
+export interface AboutSettingsListStyles {
+	iconRight: TextStyle;
+}
+
+export interface AboutSettingsListProps {
+	styles?: Partial<AboutSettingsListStyles>;
+}
+
+export class AboutSettingsList extends React.PureComponent<AboutSettingsListProps> {
 
 	static contextType = BlueBaseContext;
 
@@ -62,7 +71,7 @@ export class AboutSettingsList extends React.PureComponent {
 		return (
 			<View>
 				{items.map((item, index) => (
-					<React.Fragment>
+					<React.Fragment key={index}>
 						{item}
 						{(index < items.length - 1) ? <Divider /> : null}
 					</React.Fragment>

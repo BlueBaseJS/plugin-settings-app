@@ -1,8 +1,9 @@
-import { Divider, H6, View, FormattedMessage } from '@bluebase/components';
+import { Divider, H6, View, FormattedMessage, BlueBaseFilter } from '@bluebase/components';
 import { ScrollView, StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Theme, getComponent, resolveThunk } from '@bluebase/core';
 import React from 'react';
 import { SettingsPageProps } from '.';
+import { SettingsPageItemProps } from '../SettingsPageItem';
 
 const SettingsPageItemDesktop = getComponent('SettingsPageItemDesktop');
 
@@ -30,9 +31,8 @@ export class SettingsPageDesktop extends React.PureComponent<SettingsPageDesktop
 		},
 	})
 
-	render() {
+	renderLayout = (items: SettingsPageItemProps[]) => {
 
-		const items = this.props.items || [];
 		const styles = this.props.styles as SettingsPageDesktopStyles;
 
 		const navigationOptions = resolveThunk(this.props.navigationOptions || {});
@@ -55,6 +55,17 @@ export class SettingsPageDesktop extends React.PureComponent<SettingsPageDesktop
 					))}
 				</View>
 			</ScrollView>
+		);
+	}
+
+	render() {
+
+		const { filter, items = [] } = this.props;
+
+		return (
+			<BlueBaseFilter filter={`${filter}.page.desktop`} value={items} args={this.props}>
+			{(filteredItems) => this.renderLayout(filteredItems)}
+			</BlueBaseFilter>
 		);
 	}
 }

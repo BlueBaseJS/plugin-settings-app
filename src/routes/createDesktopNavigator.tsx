@@ -1,3 +1,4 @@
+import { CreateSettingsRoutesOptions } from './createSettingsRoutes';
 import { NavigatorProps } from '@bluebase/components';
 import React from 'react';
 import { SettingsPageProps } from '../layout/SettingsPage';
@@ -5,7 +6,9 @@ import { getComponent } from '@bluebase/core';
 
 const SettingsPageDesktop = getComponent<SettingsPageProps>('SettingsPageDesktop');
 
-export const createDesktopNavigator = (pages: SettingsPageProps[] = []): NavigatorProps => {
+export const createDesktopNavigator = (
+	{ pages, filter }: CreateSettingsRoutesOptions
+): NavigatorProps => {
 
 	return {
 		drawerType: 'slide',
@@ -16,7 +19,7 @@ export const createDesktopNavigator = (pages: SettingsPageProps[] = []): Navigat
 		routes: (pages || []).map(page => ({
 			...page,
 			exact: true,
-			screen: (props: any) => <SettingsPageDesktop {...page} {...props} />,
+			screen: (props: any) => <SettingsPageDesktop filter={filter} {...page} {...props} />,
 		})),
 	};
 

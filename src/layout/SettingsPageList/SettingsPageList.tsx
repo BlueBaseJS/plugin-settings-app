@@ -1,5 +1,5 @@
 import { List, NavigationActions, NavigationOptions, Noop } from '@bluebase/components';
-import { getComponent, resolveThunk } from '@bluebase/core';
+import { IntlContext, IntlContextData, getComponent, resolveThunk } from '@bluebase/core';
 import React from 'react';
 import { SettingsPageProps } from '../SettingsPage';
 
@@ -9,6 +9,8 @@ export interface SettingsPageListProps {
 }
 
 export class SettingsPageList extends React.PureComponent<SettingsPageListProps> {
+
+	static contextType = IntlContext;
 
 	private HeaderComponent?: React.ComponentType<any>;
 	private FooterComponent?: React.ComponentType<any>;
@@ -23,6 +25,8 @@ export class SettingsPageList extends React.PureComponent<SettingsPageListProps>
 	}
 
 	render() {
+
+		const { __ }: IntlContextData = this.context;
 
 		const HeaderComponent = this.HeaderComponent || Noop;
 		const FooterComponent = this.FooterComponent || Noop;
@@ -43,7 +47,7 @@ export class SettingsPageList extends React.PureComponent<SettingsPageListProps>
 								<List.Item
 									key={page.name}
 									onPress={onPress}
-									title={title}
+									title={__(title)}
 									left={left}
 								/>);
 						})}

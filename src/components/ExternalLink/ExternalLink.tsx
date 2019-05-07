@@ -1,5 +1,6 @@
-import { Linking, Platform, Text } from 'react-native';
+import { Linking, Platform } from 'react-native';
 import React from 'react';
+import { Text } from '@bluebase/components';
 
 export interface ExternalLinkProps {
 	Component: React.ComponentType<any>;
