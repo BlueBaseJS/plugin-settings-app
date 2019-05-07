@@ -1,25 +1,43 @@
+import { BlueBase, BlueBaseContext, getComponent } from '@bluebase/core';
 import { Divider, List, } from '@bluebase/components';
-import { Platform } from 'react-native';
 import React from 'react';
-import { getComponent } from '@bluebase/core';
 
 const ThemeDarkModeSwitch = getComponent('ThemeDarkModeSwitch');
-const ThemePicker = getComponent('ThemePicker', 'Noop');
+const ThemeSelectionSetting = getComponent('ThemeSelectionSetting', 'Noop');
 
-export const ThemeSettingsList = () => (
-	<List>
-		<List.Item
-			left={<List.Icon name="brightness-3" />}
-			title="Dark Mode"
-			description="Change to Dark Mode"
-			right={<ThemeDarkModeSwitch />}
-		/>
-		{Platform.OS !== 'android' && <Divider inset />}
-		<List.Item
-			left={<List.Icon name="brush" />}
-			title="Theme"
-			// description="Select theme here"
-			right={<ThemePicker />}
-		/>
-	</List>
-);
+export class ThemeSettingsList extends React.PureComponent {
+
+	static contextType = BlueBaseContext;
+
+	render() {
+
+		const BB: BlueBase = this.context;
+
+		const hasDarkMode = BB.Configs.getValue('plugin.settings-app.appearance.theme.dark-mode');
+		const hasThemeSelection = BB.Configs.getValue('plugin.settings-app.appearance.theme.selection');
+
+		const items = [
+			hasDarkMode && (
+				<List.Item
+					left={<List.Icon name="brightness-3" />}
+					title="Dark Mode"
+					description="Change to Dark Mode"
+					right={<ThemeDarkModeSwitch />}
+				/>
+			),
+			hasThemeSelection && <ThemeSelectionSetting />,
+		]
+		.filter(x => !!x);
+
+		return (
+			<List>
+				{items.map((item, index) => (
+					<React.Fragment>
+						{item}
+						{(index < items.length - 1) ? <Divider inset /> : null}
+					</React.Fragment>
+				))}
+			</List>
+		);
+	}
+}

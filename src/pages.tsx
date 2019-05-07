@@ -41,5 +41,14 @@ export const pages: SettingsPageProps[] = [{
 	navigationOptions: {
 		drawerIcon: { type: 'icon', name: 'information' },
 		title: 'About',
-	}
+	},
+
+	items: [
+		{
+			component: 'AboutSettingsList',
+			description: 'Add description here',
+			name: 'about-app',
+			title: 'Title',
+		}
+	],
 } as any];

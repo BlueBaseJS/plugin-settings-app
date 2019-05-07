@@ -1,36 +1,35 @@
+import { BlueBase, BlueBaseContext, getComponent } from '@bluebase/core';
 import { Divider, List } from '@bluebase/components';
-import { IntlContext, IntlContextData, getComponent } from '@bluebase/core';
-import { Platform } from 'react-native';
 import React from 'react';
 
-const DirectionPicker = getComponent('DirectionPicker', 'Noop');
-const LocalePicker = getComponent('LocalePicker', 'Noop');
+const TextDirectionSetting = getComponent('TextDirectionSetting', 'Noop');
+const LanguageSetting = getComponent('LanguageSetting', 'Noop');
 
 export class LocalizationSettingsList extends React.PureComponent {
 
-	static contextType = IntlContext;
+	static contextType = BlueBaseContext;
 
 	render() {
 
-		const { __, rtl }: IntlContextData = this.context;
+		const BB: BlueBase = this.context;
+
+		const hasLanguageSetting = BB.Configs.getValue('plugin.settings-app.language.language.selection');
+		const hasTextDirection = BB.Configs.getValue('plugin.settings-app.language.language.text-direction');
+
+		const items = [
+			hasLanguageSetting && <LanguageSetting />,
+			hasTextDirection && <TextDirectionSetting />,
+		]
+		.filter(x => !!x);
 
 		return (
 			<List>
-				<List.Item
-					left={<List.Icon name="translate" />}
-					title="Content Direction"
-					description="Direction of the app's content"
-					right={<DirectionPicker />}
-				/>
-				{Platform.OS !== 'android' && <Divider inset />}
-				<List.Item
-					left={
-						<List.Icon name={!!rtl ? 'format-textdirection-r-to-l' : 'format-textdirection-l-to-r'} />
-					}
-					title={__('Language')}
-					description={__('You can change the app\'s default language from here')}
-					right={<LocalePicker />}
-				/>
+				{items.map((item, index) => (
+					<React.Fragment>
+						{item}
+						{(index < items.length - 1) ? <Divider inset /> : null}
+					</React.Fragment>
+				))}
 			</List>
 		);
 	}

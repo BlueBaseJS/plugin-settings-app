@@ -5,4 +5,10 @@ import ResponsiveGrid from '@bluebase/plugin-responsive-grid';
 
 export default {
 	plugins: [MaterialIcons, Launcher, ResponsiveGrid, Plugin],
+
+	configs: {
+		author: 'BlueEast',
+		authorUrl: 'https://www.blueeast.com',
+		version: '2.3.1',
+	}
 };
