@@ -3,11 +3,17 @@ import { IntlMessages } from '@bluebase/core';
 
 export const ur = (messages: IntlMessages) => ({
 	...messages,
+	'All your theme related settings reside here.': 'آپ کے مرکزی خیال، موضوع سے متعلق تمام ترتیبات یہاں رہیں.',
+	'Appearance': 'ظہور',
 	'Auto': 'آٹو',
 	'Available Themes': 'دستیاب موضوعات',
 	'BlueBase Dark': 'بلیو بیز ڈارک',
 	'BlueBase Light': 'بلیو بیس لائٹ',
+	'Change to Dark Mode': 'سیاہ موڈ میں تبدیل کریں',
+	'Change your language settings here': 'یہاں اپنی زبان کی ترتیبات کو تبدیل کریں',
+	'Dark Mode': 'گہرا موڈ',
 	'Developed by': 'کی طرف سے تیار',
+	'General': 'جنرل',
 	'Language': 'زبان',
 	'Left to Right': 'بائیں سے دائیں',
 	'Right to Left': 'دائیں سے بائیں',

@@ -5,28 +5,17 @@ export const pages: SettingsPageProps[] = [{
 	path: 'appearance',
 
 	navigationOptions: {
-		drawerIcon: { type: 'icon', name: 'brush' },
-		title: 'Appearance',
+		drawerIcon: { type: 'icon', name: 'settings' },
+		title: 'General',
 	},
 
 	items: [
 		{
 			component: 'ThemeSettingsList',
 			description: 'All your theme related settings reside here.',
-			name: 'theme-settings-1',
-			title: 'Theme',
-		}
-	],
-}, {
-	name: 'LanguageSettingsPage',
-	path: 'language',
-
-	navigationOptions: {
-		drawerIcon: { type: 'icon', name: 'translate' },
-		title: 'Language',
-	},
-
-	items: [
+			name: 'theme-settings',
+			title: 'Appearance',
+		},
 		{
 			component: 'LocalizationSettingsList',
 			description: 'Change your language settings here',

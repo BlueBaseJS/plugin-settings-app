@@ -1,4 +1,4 @@
-import { Body2, Caption, View } from '@bluebase/components';
+import { Body2, Caption, View, List, FormattedMessage } from '@bluebase/components';
 import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Theme, getComponent } from '@bluebase/core';
 import React from 'react';
@@ -45,7 +45,7 @@ export class SettingsPageItemMobile extends React.PureComponent<SettingsPageItem
 			// : theme.palette.background.card,
 		},
 		titleStyles: {
-			color: theme.palette.primary.main,
+			// color: theme.palette.primary.main,
 			paddingHorizontal: theme.spacing.unit * 2,
 			paddingVertical: theme.spacing.unit * 2,
 			// fontWeight: theme.typography.fontWeightMedium,
@@ -60,11 +60,25 @@ export class SettingsPageItemMobile extends React.PureComponent<SettingsPageItem
 		const styles = this.props.styles as SettingsPageItemMobileStyles;
 
 		const titleNode = !!title
-		? <Body2 style={[styles.titleStyles, titleStyle]}>{title}</Body2>
+		? (
+			<FormattedMessage
+				component={List.Subheader}
+				style={[styles.titleStyles, titleStyle]}
+			>
+			{title}
+			</FormattedMessage>
+			)
 		: null;
 
 		const descNode = !!description
-		? <Caption style={[styles.descriptionStyles, descriptionStyle]}>{description}</Caption>
+		? (
+			<FormattedMessage
+				component={Caption}
+				style={[styles.descriptionStyles, descriptionStyle]}
+			>
+			{description}
+			</FormattedMessage>
+			)
 		: null;
 
 		const componentNode = !!ItemComponent

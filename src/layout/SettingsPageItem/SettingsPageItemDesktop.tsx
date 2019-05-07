@@ -1,4 +1,4 @@
-import { Body1, Body2, Card, View } from '@bluebase/components';
+import { Body1, Body2, Card, View, FormattedMessage } from '@bluebase/components';
 import { Platform, StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Theme, getComponent } from '@bluebase/core';
 import React from 'react';
@@ -62,11 +62,25 @@ export class SettingsPageItemDesktop extends React.PureComponent<SettingsPageIte
 		const styles = this.props.styles as SettingsPageItemDesktopStyles;
 
 		const titleNode = !!title
-		? <Body1 style={[styles.titleStyles, titleStyle]}>{title}</Body1>
+		? (
+			<FormattedMessage
+				component={Body1}
+				style={[styles.titleStyles, titleStyle]}
+			>
+			{title}
+			</FormattedMessage>
+		)
 		: null;
 
 		const descNode = !!description
-		? <Body2 style={[styles.descriptionStyles, descriptionStyle]}>{description}</Body2>
+		? (
+			<FormattedMessage
+				component={Body2}
+				style={[styles.descriptionStyles, descriptionStyle]}
+			>
+			{description}
+			</FormattedMessage>
+		)
 		: null;
 
 		const componentNode = !!ItemComponent

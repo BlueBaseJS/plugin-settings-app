@@ -1,17 +1,15 @@
 // tslint:disable:no-console
+import { DarkModeSetting } from '../DarkModeSetting';
 import React from 'react';
-import { ThemeDemo } from './ThemeDemo';
-import { ThemePicker } from '../ThemePicker';
 import { View } from 'react-native';
 
 import storiesOf from '@bluebase/storybook-addon';
 
 storiesOf('Themes', module)
 
-.add('Theme Picker', () => (
+.add('Theme Dark Mode Switch', () => (
 	<View>
-		<ThemePicker />
-		<ThemeDemo />
+		<DarkModeSetting />
 	</View>
 ))
 ;

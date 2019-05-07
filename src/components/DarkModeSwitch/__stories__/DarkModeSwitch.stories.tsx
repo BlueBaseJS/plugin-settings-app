@@ -1,6 +1,6 @@
 // tslint:disable:no-console
+import { DarkModeSwitch } from '../DarkModeSwitch';
 import React from 'react';
-import { ThemeDarkModeSwitch } from '../ThemeDarkModeSwitch';
 import { ThemeDemo } from './ThemeDemo';
 import { View } from 'react-native';
 
@@ -10,7 +10,7 @@ storiesOf('Themes', module)
 
 .add('Theme Dark Mode Switch', () => (
 	<View>
-		<ThemeDarkModeSwitch />
+		<DarkModeSwitch />
 		<ThemeDemo />
 	</View>
 ))

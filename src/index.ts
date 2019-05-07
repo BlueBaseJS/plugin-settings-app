@@ -1,15 +1,13 @@
 import { SettingsPageDesktop, SettingsPageMobile } from './layout/SettingsPage';
 import { SettingsPageItemDesktop, SettingsPageItemMobile } from './layout/SettingsPageItem';
 import { AboutSettingsList } from './components/AboutSettingsList';
-import { DirectionPicker } from './components/DirectionPicker';
+import { DarkModeSetting } from './components/DarkModeSetting';
+import { DarkModeSwitch } from './components/DarkModeSwitch';
 import { LanguageSetting } from './components/LanguageSetting';
-import { LocalePicker } from './components/LocalePicker';
 import { LocalizationSettingsList } from './components/LocalizationSettingsList';
 import { SettingsAppIcon } from './components/SettingsAppIcon';
 import { SettingsPageList } from './layout/SettingsPageList';
 import { TextDirectionSetting } from './components/TextDirectionSetting';
-import { ThemeDarkModeSwitch } from './components/ThemeDarkModeSwitch';
-import { ThemePicker } from './components/ThemePicker';
 import { ThemeSelectionSetting } from './components/ThemeSelectionSetting';
 import { ThemeSettingsList } from './components/ThemeSettingsList';
 import { createPlugin } from '@bluebase/core';
@@ -46,27 +44,23 @@ export default createPlugin({
 
 		// Addons
 		AboutSettingsList,
-		DirectionPicker,
+		DarkModeSetting,
+		DarkModeSwitch,
 		LanguageSetting,
-		LocalePicker,
 		LocalizationSettingsList,
 		TextDirectionSetting,
-		ThemeDarkModeSwitch,
-		ThemePicker,
 		ThemeSelectionSetting,
 		ThemeSettingsList,
 	},
 
 	routes: (_BB) => {
 
-		// console.log('yayy', BB);
-
 		return createSettingsRoutes({
 			name: 'SettingsApp',
 			path: '',
 
 			navigationOptions: {
-				title: 'My App Settings',
+				title: 'Settings',
 			}
 		}, pages);
 	},

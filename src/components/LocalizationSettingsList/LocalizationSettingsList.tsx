@@ -25,7 +25,7 @@ export class LocalizationSettingsList extends React.PureComponent {
 		return (
 			<List>
 				{items.map((item, index) => (
-					<React.Fragment>
+					<React.Fragment key={index}>
 						{item}
 						{(index < items.length - 1) ? <Divider inset /> : null}
 					</React.Fragment>

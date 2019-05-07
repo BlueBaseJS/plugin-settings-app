@@ -2,7 +2,7 @@ import { BlueBase, BlueBaseContext, ThemeContext, ThemeContextData } from '@blue
 import React from 'react';
 import { Switch } from '@bluebase/components';
 
-export class ThemeDarkModeSwitch extends React.PureComponent {
+export class DarkModeSwitch extends React.PureComponent {
 
 	static contextType = BlueBaseContext;
 

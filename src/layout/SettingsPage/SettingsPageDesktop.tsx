@@ -1,4 +1,4 @@
-import { Divider, H6, View } from '@bluebase/components';
+import { Divider, H6, View, FormattedMessage } from '@bluebase/components';
 import { ScrollView, StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Theme, getComponent, resolveThunk } from '@bluebase/core';
 import React from 'react';
@@ -43,7 +43,7 @@ export class SettingsPageDesktop extends React.PureComponent<SettingsPageDesktop
 				<View style={styles.root}>
 					{title && (
 						<React.Fragment>
-							<H6 style={styles.title}>{title}</H6>
+							<FormattedMessage component={H6} style={styles.title}>{title}</FormattedMessage>
 							<Divider />
 						</React.Fragment>
 					)}
