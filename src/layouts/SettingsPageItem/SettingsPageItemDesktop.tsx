@@ -1,8 +1,8 @@
-import { Body1, Body2, Card, View, FormattedMessage } from '@bluebase/components';
+import { Body1, Body2, Card, FormattedMessage, View } from '@bluebase/components';
 import { Platform, StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Theme, getComponent } from '@bluebase/core';
 import React from 'react';
-import { SettingsPageItemProps } from '.';
+import { SettingsPageItemProps } from '../SettingsPageItem';
 
 export interface SettingsPageItemDesktopStyles {
 	contentStyles: StyleProp<ViewStyle>;

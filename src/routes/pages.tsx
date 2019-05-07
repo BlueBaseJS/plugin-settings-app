@@ -1,4 +1,4 @@
-import { SettingsPageProps } from './layout/SettingsPage';
+import { SettingsPageProps } from '../layouts/SettingsPage';
 
 export const pages: SettingsPageProps[] = [{
 	name: 'GeneralSettingsPage',

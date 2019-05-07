@@ -1,7 +1,7 @@
 import { CreateSettingsRoutesOptions } from './createSettingsRoutes';
 import { NavigatorProps } from '@bluebase/components';
 import React from 'react';
-import { SettingsPageProps } from '../layout/SettingsPage';
+import { SettingsPageProps } from '../layouts/SettingsPage';
 import { getComponent } from '@bluebase/core';
 
 const SettingsPageDesktop = getComponent<SettingsPageProps>('SettingsPageDesktop');

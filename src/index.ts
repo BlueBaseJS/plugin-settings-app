@@ -1,23 +1,12 @@
-import { SettingsPageDesktop, SettingsPageMobile } from './layout/SettingsPage';
-import { SettingsPageItemDesktop, SettingsPageItemMobile } from './layout/SettingsPageItem';
-import { AboutSettingsList } from './components/AboutSettingsList';
-import { DarkModeSetting } from './components/DarkModeSetting';
-import { DarkModeSwitch } from './components/DarkModeSwitch';
-import { LanguageSetting } from './components/LanguageSetting';
-import { LocalizationSettingsList } from './components/LocalizationSettingsList';
-import { SettingsAppIcon } from './components/SettingsAppIcon';
-import { SettingsPageList } from './layout/SettingsPageList';
-import { TextDirectionSetting } from './components/TextDirectionSetting';
-import { ThemeSelectionSetting } from './components/ThemeSelectionSetting';
-import { ThemeSettingsList } from './components/ThemeSettingsList';
-import { createPlugin, BlueBase } from '@bluebase/core';
-import { createSettingsRoutes } from './routes';
+import { components } from './components';
+import { createPlugin } from '@bluebase/core';
 import { defaultConfigs } from './configs';
 import { lang } from './lang';
-import { pages } from './pages';
+import { layouts } from './layouts';
+import { routes } from './routes';
 
-export { SettingsPageProps } from './layout/SettingsPage';
-export { createSettingsRoutes } from './routes';
+export { SettingsPageProps } from './layouts/SettingsPage';
+export { createSettingsRoutes } from './lib';
 
 export default createPlugin({
 	description: 'A settings app for the BlueBase framework!',
@@ -33,45 +22,11 @@ export default createPlugin({
 	defaultConfigs,
 
 	components: {
-		// HomeScreen,
-
-		// Core components
-		SettingsAppIcon,
-		SettingsPageDesktop,
-		SettingsPageItemDesktop,
-		SettingsPageItemMobile,
-		SettingsPageList,
-		SettingsPageMobile,
-
-		// Addons
-		AboutSettingsList,
-		DarkModeSetting,
-		DarkModeSwitch,
-		LanguageSetting,
-		LocalizationSettingsList,
-		TextDirectionSetting,
-		ThemeSelectionSetting,
-		ThemeSettingsList,
+		...components,
+		...layouts,
 	},
 
-	routes: async (BB: BlueBase) => {
-
-		return createSettingsRoutes(
-			{
-				filter: 'bluebase.plugin.setting-app',
-				pages: await BB.Filters.run('bluebase.plugin.setting-app.pages', pages),
-
-				mainRoute: {
-					name: 'SettingsApp',
-					path: '',
-
-					navigationOptions: {
-						title: 'Settings',
-					}
-				},
-			}
-		);
-	},
+	routes,
 
 	filters: {
 		...lang,

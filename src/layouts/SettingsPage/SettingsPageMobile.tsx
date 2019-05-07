@@ -1,9 +1,9 @@
-import { Divider, View, BlueBaseFilter } from '@bluebase/components';
+import { BlueBaseFilter, Divider, View } from '@bluebase/components';
 import { SafeAreaView, ScrollView, StyleProp, ViewStyle } from 'react-native';
 import { Theme, getComponent } from '@bluebase/core';
 import React from 'react';
-import { SettingsPageProps } from '.';
 import { SettingsPageItemProps } from '../SettingsPageItem';
+import { SettingsPageProps } from '../SettingsPage';
 
 const SettingsPageItemMobile = getComponent('SettingsPageItemMobile');
 
