@@ -13,8 +13,8 @@ export class ThemeSettingsList extends React.PureComponent {
 
 		const BB: BlueBase = this.context;
 
-		const hasDarkMode = BB.Configs.getValue('plugin.settings-app.appearance.theme.dark-mode');
-		const hasThemeSelection = BB.Configs.getValue('plugin.settings-app.appearance.theme.selection');
+		const hasDarkMode = BB.Configs.getValue('plugin.settings-app.general.appearance.dark-mode');
+		const hasThemeSelection = BB.Configs.getValue('plugin.settings-app.general.appearance.theme.selection');
 
 		const items = [
 			hasDarkMode && <DarkModeSetting />,

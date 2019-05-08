@@ -13,8 +13,8 @@ export class LocalizationSettingsList extends React.PureComponent {
 
 		const BB: BlueBase = this.context;
 
-		const hasLanguageSetting = BB.Configs.getValue('plugin.settings-app.language.language.selection');
-		const hasTextDirection = BB.Configs.getValue('plugin.settings-app.language.language.text-direction');
+		const hasLanguageSetting = BB.Configs.getValue('plugin.settings-app.general.language.selection');
+		const hasTextDirection = BB.Configs.getValue('plugin.settings-app.general.language.text-direction');
 
 		const items = [
 			hasLanguageSetting && <LanguageSetting />,
