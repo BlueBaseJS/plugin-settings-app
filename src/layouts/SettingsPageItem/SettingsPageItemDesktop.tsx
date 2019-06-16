@@ -1,6 +1,7 @@
 import { Body1, Body2, Card, FormattedMessage, View } from '@bluebase/components';
 import { Platform, StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Theme, getComponent } from '@bluebase/core';
+
 import React from 'react';
 import { SettingsPageItemProps } from '../SettingsPageItem';
 
@@ -17,14 +18,14 @@ export interface SettingsPageItemDesktopProps extends SettingsPageItemProps {
 }
 
 export class SettingsPageItemDesktop extends React.PureComponent<SettingsPageItemDesktopProps> {
-
 	static defaultProps: Partial<SettingsPageItemDesktopProps> = {
 		// isMobile: true,
 	};
 
-	private Component = (this.props.component && typeof this.props.component === 'string')
-	? getComponent(this.props.component)
-	: this.props.component;
+	private Component =
+		this.props.component && typeof this.props.component === 'string'
+			? getComponent(this.props.component)
+			: this.props.component;
 
 	static defaultStyles = (theme: Theme): SettingsPageItemDesktopStyles => ({
 		contentStyles: {
@@ -52,40 +53,31 @@ export class SettingsPageItemDesktop extends React.PureComponent<SettingsPageIte
 			paddingBottom: theme.spacing.unit,
 			// fontWeight: theme.typography.fontWeightMedium,
 		},
-	})
+	});
 
 	render() {
-
-		const { description, descriptionStyle, title, titleStyle, } = this.props;
+		const { description, descriptionStyle, title, titleStyle } = this.props;
 		const ItemComponent = this.Component;
 
 		const styles = this.props.styles as SettingsPageItemDesktopStyles;
 
-		const titleNode = !!title
-		? (
-			<FormattedMessage
-				component={Body1}
-				style={[styles.titleStyles, titleStyle]}
-			>
-			{title}
+		const titleNode = !!title ? (
+			<FormattedMessage component={Body1} style={[styles.titleStyles, titleStyle]}>
+				{title}
 			</FormattedMessage>
-		)
-		: null;
+		) : null;
 
-		const descNode = !!description
-		? (
-			<FormattedMessage
-				component={Body2}
-				style={[styles.descriptionStyles, descriptionStyle]}
-			>
-			{description}
+		const descNode = !!description ? (
+			<FormattedMessage component={Body2} style={[styles.descriptionStyles, descriptionStyle]}>
+				{description}
 			</FormattedMessage>
-		)
-		: null;
+		) : null;
 
-		const componentNode = !!ItemComponent
-		? <Card style={styles.contentStyles}><ItemComponent /></Card>
-		: null;
+		const componentNode = !!ItemComponent ? (
+			<Card style={styles.contentStyles}>
+				<ItemComponent />
+			</Card>
+		) : null;
 
 		return (
 			<View style={styles.root}>
@@ -99,3 +91,4 @@ export class SettingsPageItemDesktop extends React.PureComponent<SettingsPageIte
 	}
 }
 
+export default SettingsPageItemDesktop;

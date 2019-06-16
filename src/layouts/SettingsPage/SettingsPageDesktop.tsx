@@ -1,6 +1,7 @@
 import { BlueBaseFilter, Divider, FormattedMessage, H6, View } from '@bluebase/components';
 import { ScrollView, StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Theme, getComponent, resolveThunk } from '@bluebase/core';
+
 import React from 'react';
 import { SettingsPageItemProps } from '../SettingsPageItem';
 import { SettingsPageProps } from '../SettingsPage';
@@ -17,9 +18,7 @@ export interface SettingsPageDesktopProps extends SettingsPageProps {
 }
 
 export class SettingsPageDesktop extends React.PureComponent<SettingsPageDesktopProps> {
-
 	static defaultProps: Partial<SettingsPageDesktopProps> = {};
-
 
 	static defaultStyles = (theme: Theme): SettingsPageDesktopStyles => ({
 		root: {
@@ -29,10 +28,9 @@ export class SettingsPageDesktop extends React.PureComponent<SettingsPageDesktop
 		title: {
 			padding: theme.spacing.unit * 2,
 		},
-	})
+	});
 
 	renderLayout = (items: SettingsPageItemProps[]) => {
-
 		const styles = this.props.styles as SettingsPageDesktopStyles;
 
 		const navigationOptions = resolveThunk(this.props.navigationOptions || {});
@@ -43,7 +41,9 @@ export class SettingsPageDesktop extends React.PureComponent<SettingsPageDesktop
 				<View style={styles.root}>
 					{title && (
 						<React.Fragment>
-							<FormattedMessage component={H6} style={styles.title}>{title}</FormattedMessage>
+							<FormattedMessage component={H6} style={styles.title}>
+								{title}
+							</FormattedMessage>
 							<Divider />
 						</React.Fragment>
 					)}
@@ -56,17 +56,17 @@ export class SettingsPageDesktop extends React.PureComponent<SettingsPageDesktop
 				</View>
 			</ScrollView>
 		);
-	}
+	};
 
 	render() {
-
 		const { filter, items = [] } = this.props;
 
 		return (
 			<BlueBaseFilter filter={`${filter}.page.desktop`} value={items} args={this.props}>
-			{(filteredItems) => this.renderLayout(filteredItems)}
+				{filteredItems => this.renderLayout(filteredItems)}
 			</BlueBaseFilter>
 		);
 	}
 }
 
+export default SettingsPageDesktop;

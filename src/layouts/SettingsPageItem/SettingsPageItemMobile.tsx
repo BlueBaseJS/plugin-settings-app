@@ -1,6 +1,7 @@
 import { Caption, FormattedMessage, List, View } from '@bluebase/components';
 import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Theme, getComponent } from '@bluebase/core';
+
 import React from 'react';
 import { SettingsPageItemProps } from '../SettingsPageItem';
 
@@ -18,62 +19,50 @@ export interface SettingsPageItemMobileProps extends SettingsPageItemProps {
 }
 
 export class SettingsPageItemMobile extends React.PureComponent<SettingsPageItemMobileProps> {
+	static defaultProps: Partial<SettingsPageItemMobileProps> = {};
 
-	static defaultProps: Partial<SettingsPageItemMobileProps> = {
-	};
-
-	private Component = (this.props.component && typeof this.props.component === 'string')
-	? getComponent(this.props.component)
-	: this.props.component;
+	private Component =
+		this.props.component && typeof this.props.component === 'string'
+			? getComponent(this.props.component)
+			: this.props.component;
 
 	static defaultStyles = (theme: Theme): SettingsPageItemMobileStyles => ({
-		contentStyles: {
-		},
+		contentStyles: {},
 		descriptionStyles: {
 			color: theme.palette.text.hint,
 			paddingHorizontal: theme.spacing.unit * 2,
 			paddingVertical: theme.spacing.unit * 2,
 		},
-		root: {
-		},
+		root: {},
 		titleStyles: {
 			paddingHorizontal: theme.spacing.unit * 2,
 			paddingVertical: theme.spacing.unit * 2,
 		},
-	})
+	});
 
 	render() {
-
-		const { description, descriptionStyle, title, titleStyle, } = this.props;
+		const { description, descriptionStyle, title, titleStyle } = this.props;
 		const ItemComponent = this.Component;
 
 		const styles = this.props.styles as SettingsPageItemMobileStyles;
 
-		const titleNode = !!title
-		? (
-			<FormattedMessage
-				component={List.Subheader}
-				style={[styles.titleStyles, titleStyle]}
-			>
-			{title}
+		const titleNode = !!title ? (
+			<FormattedMessage component={List.Subheader} style={[styles.titleStyles, titleStyle]}>
+				{title}
 			</FormattedMessage>
-			)
-		: null;
+		) : null;
 
-		const descNode = !!description
-		? (
-			<FormattedMessage
-				component={Caption}
-				style={[styles.descriptionStyles, descriptionStyle]}
-			>
-			{description}
+		const descNode = !!description ? (
+			<FormattedMessage component={Caption} style={[styles.descriptionStyles, descriptionStyle]}>
+				{description}
 			</FormattedMessage>
-			)
-		: null;
+		) : null;
 
-		const componentNode = !!ItemComponent
-		? <View style={styles.contentStyles}><ItemComponent /></View>
-		: null;
+		const componentNode = !!ItemComponent ? (
+			<View style={styles.contentStyles}>
+				<ItemComponent />
+			</View>
+		) : null;
 
 		return (
 			<View style={styles.root}>
@@ -85,3 +74,4 @@ export class SettingsPageItemMobile extends React.PureComponent<SettingsPageItem
 	}
 }
 
+export default SettingsPageItemMobile;
