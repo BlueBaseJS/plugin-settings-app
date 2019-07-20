@@ -26,9 +26,11 @@ export default createPlugin({
 		...layouts,
 	},
 
+	indexRoute: 'SettingsApp',
+
 	routes,
 
 	filters: {
 		...lang,
-	}
+	},
 });
