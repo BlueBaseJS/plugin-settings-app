@@ -35,6 +35,10 @@ export class ThemeSelectionSetting extends React.PureComponent {
 
 	toggleDialog = () => this.setState({ visible: !this.state.visible });
 
+	onPress = (theme: { changeTheme: (item: []) => void }, item: any[]) => () => {
+		theme.changeTheme(item[0]);
+		this.toggleDialog();
+	};
 	renderDialog = () => {
 
 		const BB: BlueBase = this.context;
@@ -51,14 +55,10 @@ export class ThemeSelectionSetting extends React.PureComponent {
 							<List.Subheader>{intl.__('Available Themes')}</List.Subheader>
 							{themes.map(item => {
 
-								const onPress = () => {
-									theme.changeTheme(item[0]);
-									this.toggleDialog();
-								};
 								return (
 									<List.Item
 										title={intl.__(item[1].name)}
-										onPress={onPress}
+										onPress={this.onPress(theme, item)}
 										key={item[0]}
 										selected={BB.Configs.getValue('theme.name') === item[0]}
 									/>

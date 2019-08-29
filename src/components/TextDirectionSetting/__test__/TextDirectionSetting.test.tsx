@@ -18,11 +18,14 @@ describe('TextDirectionSetting', () => {
         );
         await waitForElement(wrapper, 'Dialog');
 
-        expect(wrapper).toMatchSnapshot();
         wrapper.context = { changeDirection: () => '' };
-        console.log(wrapper.find('View[testID="test-listItem"]').last());
-        const onPress: any = wrapper.find('View[testID="test-listItem"]').last().find('List.Item').last().prop('onPress');
-        onPress();
+        const wrappers: any = wrapper
+            .find('TextDirectionSetting')
+            .last()
+            .instance();
+        wrappers.onPress('settings')();
+        expect(wrapper.find('Divider').first().prop('inset')).toBe(true);
+
 
     });
 

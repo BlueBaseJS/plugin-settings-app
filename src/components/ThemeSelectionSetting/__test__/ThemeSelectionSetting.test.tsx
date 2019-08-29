@@ -8,8 +8,8 @@ import { waitForElement } from 'enzyme-async-helpers';
 
 const ThemeSelectionSetting = getComponent('ThemeSelectionSetting');
 jest.mock('expo', () => { });
-describe('TextDirectionSetting', () => {
-    it('should return TextDirectionSetting', async () => {
+describe('ThemeSelectionSetting', () => {
+    it('should return ThemeSelectionSetting', async () => {
         // mount componentz
         const wrapper = mount(
             <BlueBaseApp plugins={[Plugin, MUI,]}>
@@ -17,9 +17,13 @@ describe('TextDirectionSetting', () => {
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'Dialog');
-        const onPress: any = wrapper.find('List.Item').last().prop('onPress');
-        onPress();
-        expect(wrapper.find('List.Item').first().prop('description')).toBe('Text Direction will automatically changed based on selected language.');
+
+        const wrappers: any = wrapper
+            .find('ThemeSelectionSetting')
+            .last()
+            .instance();
+        wrappers.onPress({ changeTheme: () => 'ss' }, [{}])();
+        expect(wrapper.find('List.Item').last().prop('description')).toBe('Text Direction will automatically changed based on selected language.');
 
     });
 

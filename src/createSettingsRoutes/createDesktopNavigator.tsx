@@ -5,7 +5,7 @@ import { getComponent } from '@bluebase/core';
 
 const SettingsPageDesktop = getComponent<SettingsPageProps>('SettingsPageDesktop');
 
-export const createDesktopNavigator = (pages: SettingsPageProps[] = []): NavigatorProps => {
+export const createDesktopNavigator = ({ pages }: { pages: SettingsPageProps[] }): NavigatorProps => {
 
 	return {
 		drawerType: 'slide',

@@ -27,8 +27,14 @@ export class TextDirectionSetting extends React.PureComponent {
 
 	toggleDialog = () => this.setState({ visible: !this.state.visible });
 
+	onPress = (value: string) => () => {
+		const { changeDirection }: IntlContextData = (this as any).context;
+
+		changeDirection(value as any);
+		this.toggleDialog();
+	};
 	renderDialog = () => {
-		const { __, changeDirection, direction }: IntlContextData = (this as any).context;
+		const { __, direction }: IntlContextData = (this as any).context;
 
 		return (
 			<Dialog
@@ -36,19 +42,17 @@ export class TextDirectionSetting extends React.PureComponent {
 				onDismiss={this.toggleDialog}
 			>
 				<List.Subheader>{__('Text Direction')}</List.Subheader>
+
 				{this.values.map(item => {
 
-					const onPress = () => {
-						changeDirection(item.value as any);
-						this.toggleDialog();
-					};
+
 					return (
 						<View testID="test-listItem" key={item.value}>
 							<Divider />
 							<List.Item
 								title={__(item.label)}
 								description={__(item.description)}
-								onPress={onPress}
+								onPress={this.onPress(item.value)}
 								selected={direction === item.value}
 							/>
 						</View>

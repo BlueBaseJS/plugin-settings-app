@@ -7,6 +7,11 @@ import { SettingsPageItemMobile } from '../SettingsPageItemMobile';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
+jest.mock('Platform', () => {
+    const Platform = require.requireActual('Platform');
+    Platform.OS = 'ios';
+    return Platform;
+});
 jest.mock('expo', () => { });
 describe('SettingsPageDesktop', () => {
     const item = {
@@ -52,8 +57,15 @@ describe('SettingsPageDesktop', () => {
 
     });
 
+
+    jest.mock('Platform', () => {
+        const Platform = require.requireActual('Platform');
+        Platform.OS = 'android';
+        return Platform;
+    });
     it('should return SettingsPageDesktop', async () => {
         // mount components
+
         require('../../index.ts');
         require('../../index.web.ts');
         require('../../../lang/ur.ts');
@@ -78,7 +90,20 @@ describe('SettingsPageDesktop', () => {
         // mount componentz
         const wrapper = mount(
             <BlueBaseApp plugins={[Plugin, MUI]}>
-                <SettingsPageItemMobile {...item} />
+                <SettingsPageItemMobile component="View" {...item} />
+            </BlueBaseApp>
+        );
+        await waitForElement(wrapper, 'View');
+        const onPress: any = wrapper.find('Button').first().prop('onPress');
+        onPress();
+        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+
+    });
+    it('should return SettingsMobileDesktop', async () => {
+        // mount componentz
+        const wrapper = mount(
+            <BlueBaseApp plugins={[Plugin, MUI]}>
+                <SettingsPageItemMobile  {...item} />
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'View');

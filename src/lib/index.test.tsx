@@ -2,7 +2,7 @@ import { BlueBaseApp } from '@bluebase/core';
 import MUI from '@bluebase/plugin-material-ui';
 import Plugin from '../../src'
 import React from 'react';
-import { createDesktopNavigator } from '../createSettingsRoutes/createDesktopNavigator';
+import { createDesktopNavigator } from './createDesktopNavigator';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
@@ -20,11 +20,14 @@ describe('SettingsPageList', () => {
         await waitForElement(wrapper, 'List');
         const onPress: any = wrapper.find('Button').first().prop('onPress');
         onPress();
+        const data = Desktop([{ mainRoute: 'setting' }]);
+        const datas: any = createDesktopNavigator({ mainRoute: '' as any });
+
         expect(wrapper.find('List').first().prop('children')).toBeDefined();
 
     });
 
-    it('should return SettingsPageList', async () => {
+    it('should return SettingsPageListsss', async () => {
         // mount componentz
         require('../index');
         const wrapper = mount(

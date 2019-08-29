@@ -1,11 +1,20 @@
-import { BlueBaseApp } from '@bluebase/core';
+import { BlueBaseApp, getComponent } from '@bluebase/core';
+
 import MUI from '@bluebase/plugin-material-ui';
 import Plugin from '../../../../src'
 import React from 'react';
-import { SettingsPageDesktop } from '../SettingsPageDesktop';
-import { SettingsPageMobile } from '../SettingsPageMobile';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+
+const SettingsPageDesktop = getComponent('SettingsPageDesktop');
+const SettingsPageMobile = getComponent('SettingsPageMobile');
+
+
+jest.mock('Platform', () => {
+    const Platform = require.requireActual('Platform');
+    Platform.OS = 'ios';
+    return Platform;
+});
 
 jest.mock('expo', () => { });
 describe('SettingsPageDesktop', () => {
@@ -57,10 +66,7 @@ describe('SettingsPageDesktop', () => {
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'FormattedMessage');
-        // const placeGridInstance = wrapper
-        // .find('SettingsPageDesktop')
-        // .last()
-        // .instance();
+
 
         const onPress: any = wrapper.find('Button').first().prop('onPress');
         onPress();
@@ -74,12 +80,37 @@ describe('SettingsPageDesktop', () => {
         require('../../../createSettingsRoutes/createDesktopNavigator');
         const wrapper = mount(
             <BlueBaseApp plugins={[Plugin, MUI]}>
-                <SettingsPageMobile {...item} isMobile={false} />
+                <SettingsPageMobile />
             </BlueBaseApp>
         );
-        await waitForElement(wrapper, 'SettingsPageItemMobile');
-        const onPress: any = wrapper.find('Button').first().prop('onPress');
-        onPress();
+        await waitForElement(wrapper, 'SafeAreaView');
+        const placeGridInstance: any = wrapper
+            .find('SettingsPageMobile')
+            .last()
+            .instance();
+        placeGridInstance.renderLayout([{ title: 'string' }]);
+
+
+        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+
+    });
+
+    it('should return SettingsMobileDesktop', async () => {
+        // mount componentz
+        require('../../../createSettingsRoutes/createDesktopNavigator');
+        const wrapper = mount(
+            <BlueBaseApp plugins={[Plugin, MUI]}>
+                <SettingsPageMobile filter={'filter'} items={[]} />
+            </BlueBaseApp>
+        );
+        await waitForElement(wrapper, 'SafeAreaView');
+        const placeGridInstance: any = wrapper
+            .find('SettingsPageMobile')
+            .last()
+            .instance();
+        placeGridInstance.renderLayout([{ title: 'string' }]);
+
+
         expect(wrapper.find('List').first().prop('children')).toBeDefined();
 
     });
