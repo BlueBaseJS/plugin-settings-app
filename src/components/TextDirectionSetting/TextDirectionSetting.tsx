@@ -1,5 +1,6 @@
-import { Dialog, Divider, List } from '@bluebase/components';
+import { Dialog, Divider, List, View } from '@bluebase/components';
 import { IntlContext, IntlContextData } from '@bluebase/core';
+
 import React from 'react';
 
 export class TextDirectionSetting extends React.PureComponent {
@@ -34,25 +35,25 @@ export class TextDirectionSetting extends React.PureComponent {
 				visible={this.state.visible}
 				onDismiss={this.toggleDialog}
 			>
-					<List.Subheader>{__('Text Direction')}</List.Subheader>
-					{this.values.map(item => {
+				<List.Subheader>{__('Text Direction')}</List.Subheader>
+				{this.values.map(item => {
 
-						const onPress = () => {
-							changeDirection(item.value as any);
-							this.toggleDialog();
-						};
-						return (
-							<React.Fragment key={item.value}>
-								<Divider />
-								<List.Item
-									title={__(item.label)}
-									description={__(item.description)}
-									onPress={onPress}
-									selected={direction === item.value}
-								/>
-							</React.Fragment>
-						);
-					})}
+					const onPress = () => {
+						changeDirection(item.value as any);
+						this.toggleDialog();
+					};
+					return (
+						<View testID="test-listItem" key={item.value}>
+							<Divider />
+							<List.Item
+								title={__(item.label)}
+								description={__(item.description)}
+								onPress={onPress}
+								selected={direction === item.value}
+							/>
+						</View>
+					);
+				})}
 			</Dialog>
 		);
 	}

@@ -1,4 +1,5 @@
 import { Linking, Platform } from 'react-native';
+
 import React from 'react';
 import { Text } from '@bluebase/components';
 
