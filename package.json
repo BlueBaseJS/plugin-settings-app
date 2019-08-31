@@ -99,7 +99,7 @@
     "@types/react-native": "^0.57.7",
     "@types/react-test-renderer": "^16.8.1",
     "@types/storybook__addon-info": "^4.1.0",
-    "@types/storybook__addon-knobs": "^4.0.3",
+    "@types/storybook__addon-knobs": "^5.0.3",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.3.1",
     "babel-loader": "^8.0.5",
