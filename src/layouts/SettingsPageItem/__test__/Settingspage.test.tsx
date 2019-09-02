@@ -1,20 +1,12 @@
 import { BlueBaseApp } from '@bluebase/core';
 import MUI from '@bluebase/plugin-material-ui';
-import Plugin from '../../../../src'
+import { Platform } from 'react-native';
+import Plugin from '../../../../src';
 import React from 'react';
 import { SettingsPageItemDesktop } from '../SettingsPageItemDesktop';
 import { SettingsPageItemMobile } from '../SettingsPageItemMobile';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
-
-jest.mock('Platform', () => {
-    const Platform = require.requireActual('Platform');
-    Platform.OS = 'ios';
-    return Platform;
-});
-beforeEach(() => {
-    jest.restoreAllMocks();
-});
 
 jest.mock('expo', () => { });
 describe('SettingsPageDesktop', () => {
@@ -62,19 +54,10 @@ describe('SettingsPageDesktop', () => {
     });
 
 
-    jest.mock('Platform', () => {
-        const Platform = require.requireActual('Platform');
-        Platform.OS = 'android';
-        return Platform;
-    });
     it('should return SettingsPageDesktop', async () => {
         // mount components
+        Platform.OS = 'web';
 
-        jest.mock('Platform', () => {
-            const Platform = require.requireActual('Platform');
-            Platform.OS = 'android';
-            return Platform;
-        });
 
         require('../../index.ts');
         require('../../index.web.ts');
@@ -98,6 +81,7 @@ describe('SettingsPageDesktop', () => {
 
     it('should return SettingsPageDesktop', async () => {
         // mount components
+        Platform.OS = "ios";
 
         require('../../index.ts');
         require('../../index.web.ts');

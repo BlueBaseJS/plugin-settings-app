@@ -95,6 +95,8 @@ describe('SettingsPageDesktop', () => {
     });
 
 
+
+
     it('should return SettingsMobileDesktop', async () => {
         // mount componentz
         require('../../../createSettingsRoutes/createDesktopNavigator');
@@ -131,6 +133,24 @@ describe('SettingsPageDesktop', () => {
         placeGridInstance.renderLayout([{ title: 'string' }]);
 
 
+        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+
+    });
+
+    it('should return SettingsPageDesktop', async () => {
+        // mount componentz
+        require('../../../createSettingsRoutes/createDesktopNavigator');
+        const wrapper = mount(
+            <BlueBaseApp plugins={[Plugin, MUI]}>
+                <SettingsPageMobile filter={'filter'} items={[]} />
+            </BlueBaseApp>
+        );
+        await waitForElement(wrapper, 'SafeAreaView');
+        const placeGridInstance: any = wrapper
+            .find('SettingsPageMobile')
+            .last()
+            .instance();
+        placeGridInstance.renderLayout([{ title: 'string' }]);
         expect(wrapper.find('List').first().prop('children')).toBeDefined();
 
     });
