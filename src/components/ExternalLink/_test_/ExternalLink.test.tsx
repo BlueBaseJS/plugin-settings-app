@@ -16,7 +16,13 @@ import { waitForElement } from 'enzyme-async-helpers';
 jest.mock('expo', () => { });
 describe('Externallink', () => {
     it('should return External link url for web platform', async () => {
+        jest.mock('Platform', () => {
+            const Platform = require.requireActual('Platform');
+            Platform.OS = 'android';
+            return Platform;
+        });
         // mount component
+
         const wrapper = mount(
             <BlueBaseApp plugins={[Plugin, MUI,]}>
                 <ExternalLink Component={'View' as any} props={{ onPress: () => { } }} href={'url'} />
