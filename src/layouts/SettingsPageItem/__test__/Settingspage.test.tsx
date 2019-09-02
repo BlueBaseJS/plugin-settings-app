@@ -36,8 +36,8 @@ describe('SettingsPageDesktop', () => {
         // mount components
         require('../../index.ts');
         require('../../index.web.ts');
-        require('../../../lang/ur.ts');
-        require('../../../lang/ur-roman.ts');
+        // require('../../../lang/ur.ts');
+        // require('../../../lang/ur-roman.ts');
         require('../../../lang/index.web.ts');
         require('../../../lang/index.ts');
         require('../index.ts');

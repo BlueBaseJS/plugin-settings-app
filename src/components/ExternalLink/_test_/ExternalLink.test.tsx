@@ -19,13 +19,12 @@ describe('Externallink', () => {
         // mount component
         const wrapper = mount(
             <BlueBaseApp plugins={[Plugin, MUI,]}>
-                <ExternalLink Component={'View' as any} props={{}} href={'url'} />
+                <ExternalLink Component={'View' as any} props={{ onPress: () => { } }} href={'url'} />
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'View');
         // expect(wrapper.find('Text').first.props().)();
         expect(wrapper.find('Text').first().prop('accessibilityRole')).toBe('link');
-
     });
 
 });
