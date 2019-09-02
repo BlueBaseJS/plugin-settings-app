@@ -13,7 +13,7 @@ export const createDesktopNavigator = ({ pages }: { pages: SettingsPageProps[] }
 		open: true,
 		type: 'drawer',
 
-		routes: (pages || []).map(page => ({
+		routes: pages.map(page => ({
 			...page,
 			exact: true,
 			screen: (props: any) => <SettingsPageDesktop {...page} {...props} />,

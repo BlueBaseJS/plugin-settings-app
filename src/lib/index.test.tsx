@@ -12,9 +12,9 @@ jest.mock('react-native/Libraries/Utilities/Dimensions', () => {
 
 import { createDesktopNavigator } from './createDesktopNavigator';
 import { createMobileRoutes } from './createMobileNavigator';
+import { createSettingsRoutes } from './createSettingsRoutes';
 import { createDesktopNavigator as navigator } from '../createSettingsRoutes/createDesktopNavigator';
 
-jest.mock('expo', () => { });
 jest.mock('expo', () => { });
 
 export let Component: any;
@@ -25,24 +25,17 @@ describe('SettingsPageList', () => {
 
         const data: any = Desktop({ pages: [{ title: 'setting' }] });
         data.routes[0].screen();
+        const datas: any = navigator({ pages: [{ title: 'setting' }] as any });
+        datas.routes[0].screen();
+        const datass: any = createMobileRoutes({ mainRoute: { name: 'screen' } as any, pages: [{ title: 'setting' }] as any });
+        datass[0].screen();
+        datass[1].screen();
+        const routes: any = createSettingsRoutes({ pages: [{ title: 'setting' }] as any } as any);
+        routes.routes[0].screen();
 
+        expect(data).toContain('size');
     });
-    it('should return SettingsPageList', async () => {
-        require('../index');
 
-        const data: any = navigator({ pages: [{ title: 'setting' }] as any });
-        data.routes[0].screen();
-
-    });
-
-    it('should return SettingsPageList', async () => {
-        require('../index');
-
-        const data: any = createMobileRoutes({ mainRoute: { name: 'screen' } as any, pages: [{ title: 'setting' }] as any });
-        data[0].screen();
-        data[1].screen();
-
-    });
 
 
 });

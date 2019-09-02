@@ -8,6 +8,8 @@ import { waitForElement } from 'enzyme-async-helpers';
 
 const TextDirectionSetting = getComponent('TextDirectionSetting');
 jest.mock('expo', () => { });
+
+
 describe('TextDirectionSetting', () => {
     it('should return TextDirectionSetting with rtl false', async () => {
         // mount components
@@ -51,6 +53,8 @@ describe('TextDirectionSetting', () => {
     });
     it('should return TextDirectionSetting with rtl true', async () => {
         // mount components
+
+
         const wrapper: any = mount(
             <BlueBaseApp plugins={[Plugin, MUI,]}>
                 <TextDirectionSetting />
