@@ -18,8 +18,6 @@ describe('SettingsPageList', () => {
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'List');
-        const onPress: any = wrapper.find('Button').first().prop('onPress');
-        onPress();
         expect(wrapper.find('List').first().prop('children')).toBeDefined();
 
     });
@@ -36,8 +34,6 @@ it('should return SettingsPageList with Icon name', async () => {
         </BlueBaseApp>
     );
     await waitForElement(wrapper, 'List');
-    const onPress: any = wrapper.find('Button').first().prop('onPress');
-    onPress();
     expect(wrapper.find('List').first().prop('children')).toBeDefined();
 
 });
@@ -56,8 +52,6 @@ it('should return SettingsPageList with Icon  as function', async () => {
         </BlueBaseApp>
     );
     await waitForElement(wrapper, 'List');
-    const onPress: any = wrapper.find('Button').first().prop('onPress');
-    onPress();
     expect(wrapper.find('List').first().prop('children')).toBeDefined();
 
 });

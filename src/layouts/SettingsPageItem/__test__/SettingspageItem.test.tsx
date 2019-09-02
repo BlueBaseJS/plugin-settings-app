@@ -1,3 +1,8 @@
+
+beforeEach(() => {
+    jest.restoreAllMocks();
+});
+
 import { BlueBaseApp } from '@bluebase/core';
 import MUI from '@bluebase/plugin-material-ui';
 import Plugin from '../../../../src'
@@ -6,15 +11,6 @@ import { SettingsPageItemDesktop } from '../SettingsPageItemDesktop';
 import { SettingsPageItemMobile } from '../SettingsPageItemMobile';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
-
-jest.mock('Platform', () => {
-    const Platform = require.requireActual('Platform');
-    Platform.OS = 'ios';
-    return Platform;
-});
-beforeEach(() => {
-    jest.restoreAllMocks();
-});
 
 jest.mock('expo', () => { });
 describe('SettingsPageDesktop', () => {
@@ -70,12 +66,6 @@ describe('SettingsPageDesktop', () => {
     it('should return SettingsPageDesktop', async () => {
         // mount components
 
-        jest.mock('Platform', () => {
-            const Platform = require.requireActual('Platform');
-            Platform.OS = 'android';
-            return Platform;
-        });
-
         require('../../index.ts');
         require('../../index.web.ts');
         require('../../../lang/ur.ts');
@@ -83,31 +73,6 @@ describe('SettingsPageDesktop', () => {
         require('../../../lang/index.web.ts');
         require('../../../lang/index.ts');
         require('../index.ts');
-        const wrapper = mount(
-            <BlueBaseApp plugins={[Plugin, MUI]}>
-                <SettingsPageItemDesktop  {...item} />
-            </BlueBaseApp>
-        );
-        await waitForElement(wrapper, 'View');
-        const onPress: any = wrapper.find('Button').first().prop('onPress');
-        onPress();
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
-
-    });
-
-
-    it('should return SettingsPageDesktop', async () => {
-        // mount components
-
-        require('../../index.ts');
-        require('../../index.web.ts');
-        const ur = require('../../../lang/ur.ts');
-        const roman = require('../../../lang/ur-roman.ts');
-        require('../../../lang/index.web.ts');
-        require('../../../lang/index.ts');
-        require('../index.ts');
-        ur({ title: 'string' });
-        roman({ title: 'string' });
         const wrapper = mount(
             <BlueBaseApp plugins={[Plugin, MUI]}>
                 <SettingsPageItemDesktop  {...item} />
@@ -138,21 +103,7 @@ describe('SettingsPageDesktop', () => {
         // mount componentz
         const wrapper = mount(
             <BlueBaseApp plugins={[Plugin, MUI]}>
-                <SettingsPageItemMobile  {...item} />
-            </BlueBaseApp>
-        );
-        await waitForElement(wrapper, 'View');
-        const onPress: any = wrapper.find('Button').first().prop('onPress');
-        onPress();
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
-
-    });
-
-    it('should return SettingsMobileDesktop', async () => {
-        // mount componentz
-        const wrapper = mount(
-            <BlueBaseApp plugins={[Plugin, MUI]}>
-                <SettingsPageItemDesktop description="settings" title="settings" component="View" {...item} />
+                <SettingsPageItemMobile title='mobile' description='ádd mobile layout' {...item} />
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'View');

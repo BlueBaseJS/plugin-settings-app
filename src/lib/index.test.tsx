@@ -20,8 +20,8 @@ describe('SettingsPageList', () => {
         await waitForElement(wrapper, 'List');
         const onPress: any = wrapper.find('Button').first().prop('onPress');
         onPress();
-        const data = Desktop([{ mainRoute: 'setting' }]);
-        const datas: any = createDesktopNavigator({ mainRoute: '' as any });
+        Desktop([{ mainRoute: 'setting' }]);
+        createDesktopNavigator({ mainRoute: '' as any });
 
         expect(wrapper.find('List').first().prop('children')).toBeDefined();
 

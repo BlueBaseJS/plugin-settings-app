@@ -9,16 +9,22 @@ import { waitForElement } from 'enzyme-async-helpers';
 const ThemeSettingsList = getComponent('ThemeSettingsList');
 jest.mock('expo', () => { });
 describe('ThemeSettingsList', () => {
-    it('should return ThemeSettingsList', async () => {
+
+    it('should ThemeSettingsList', async () => {
         // mount componentz
         const wrapper = mount(
-            <BlueBaseApp plugins={[Plugin, MUI,]}>
+            <BlueBaseApp
+                configs={{
+                    // 'plugin.settings-app.general.appearance.dark-mode': 'dark',
+                    'plugin.settings-app.general.appearance.theme.selection': true
+                }}
+                plugins={[Plugin, MUI]}
+            >
                 <ThemeSettingsList />
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'List');
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
-        expect(wrapper.find('List').first().prop('children')).toHaveLength(1);
+        expect(wrapper.find('StatusBar').first().prop('barStyle')).toBe('light-content');
 
     });
 

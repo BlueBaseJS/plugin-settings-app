@@ -27,6 +27,17 @@ describe('SettingsPageList', () => {
     it('should return SettingsPageList', async () => {
         // mount componentz
         require('../index');
+
+        const data = createDesktopNavigator({ pages: [] });
+        const Component = data.screen();
+
+        const wrappers = mount(
+            <BlueBaseApp plugins={[Plugin, MUI]}>
+                <Component />
+            </BlueBaseApp>
+        );
+        await waitForElement(wrappers, 'SettingsPageDesktop');
+
         const wrapper = mount(
             <BlueBaseApp plugins={[Plugin, MUI]}>
                 <Desktop />

@@ -18,7 +18,7 @@ describe('HomeScreen', () => {
         await waitForElement(wrapper, 'StatusBar');
         const onPress: any = wrapper.find('Button').first().prop('onPress');
         onPress();
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+        expect(wrapper.find('Button').first().prop('title')).toBe('Settings');
 
     });
 

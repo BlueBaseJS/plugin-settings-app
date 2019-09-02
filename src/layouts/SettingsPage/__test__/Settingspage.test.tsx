@@ -1,5 +1,6 @@
 import { BlueBaseApp, getComponent } from '@bluebase/core';
 
+// import { HeaderTitle } from '@bluebase/components';
 import MUI from '@bluebase/plugin-material-ui';
 import Plugin from '../../../../src'
 import React from 'react';
@@ -56,6 +57,9 @@ describe('SettingsPageDesktop', () => {
 
     });
 
+
+
+
     it('should return SettingsPageDesktop', async () => {
         // mount componentz
         require('../../../components/index.web.ts');
@@ -63,6 +67,22 @@ describe('SettingsPageDesktop', () => {
         const wrapper = mount(
             <BlueBaseApp plugins={[Plugin, MUI]}>
                 <SettingsPageDesktop {...item} isMobile={false} />
+            </BlueBaseApp>
+        );
+        await waitForElement(wrapper, 'FormattedMessage');
+        const onPress: any = wrapper.find('Button').first().prop('onPress');
+        onPress();
+        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+
+    });
+
+    it('should return SettingsPageDesktop', async () => {
+        // mount componentz
+        require('../../../components/index.web.ts');
+        require('../index.ts');
+        const wrapper = mount(
+            <BlueBaseApp plugins={[Plugin, MUI]}>
+                <SettingsPageDesktop navigationOptions={{ title: 'title', headerTitle: 'settings' }} filter="settings"  {...item} isMobile={false} />
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'FormattedMessage');
