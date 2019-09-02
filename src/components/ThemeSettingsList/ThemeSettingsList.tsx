@@ -7,22 +7,22 @@ const ThemeSelectionSetting = getComponent('ThemeSelectionSetting', 'Noop');
 
 export class ThemeSettingsList extends React.PureComponent {
 
-	static contextType = BlueBaseContext;
+			static contextType = BlueBaseContext;
 
-	render() {
+			render() {
 
-		const BB: BlueBase = this.context;
+			const BB: BlueBase = this.context;
 
-		const hasDarkMode = BB.Configs.getValue('plugin.settings-app.general.appearance.dark-mode');
-		const hasThemeSelection = BB.Configs.getValue('plugin.settings-app.general.appearance.theme.selection');
+			const hasDarkMode = BB.Configs.getValue('plugin.settings-app.general.appearance.dark-mode');
+			const hasThemeSelection = BB.Configs.getValue('plugin.settings-app.general.appearance.theme.selection');
 
-		const items = [
+			const items = [
 			hasDarkMode && <DarkModeSetting />,
 			hasThemeSelection && <ThemeSelectionSetting />,
 		]
 		.filter(x => !!x);
 
-		return (
+			return (
 			<List>
 				{items.map((item, index) => (
 					<React.Fragment key={index}>
@@ -32,5 +32,5 @@ export class ThemeSettingsList extends React.PureComponent {
 				))}
 			</List>
 		);
-	}
+		}
 }

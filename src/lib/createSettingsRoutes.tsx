@@ -5,9 +5,9 @@ import { createMobileRoutes } from './createMobileNavigator';
 import { isMobile } from '@bluebase/core';
 
 export interface CreateSettingsRoutesOptions {
-	mainRoute: RouteConfig,
-	pages: SettingsPageProps,
-	filter?: string
+			mainRoute: RouteConfig,
+			pages: SettingsPageProps,
+			filter?: string
 }
 
 export const createSettingsRoutes = (

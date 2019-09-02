@@ -4,9 +4,9 @@ import React from 'react';
 import { Text } from '@bluebase/components';
 
 export interface ExternalLinkProps {
-	Component: React.ComponentType<any>;
-	props: any;
-	href: string;
+			Component: React.ComponentType<any>;
+			props: any;
+			href: string;
 }
 
 /**

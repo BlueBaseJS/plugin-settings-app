@@ -27,24 +27,24 @@ const AllBlueBase = ({ children }: { children: RenderPropChildren }) => (
 
 export class ThemeSelectionSetting extends React.PureComponent {
 
-	static contextType = BlueBaseContext;
+			static contextType = BlueBaseContext;
 
-	readonly state = {
-		visible: false
-	};
+			readonly state = {
+			visible: false
+		};
 
-	toggleDialog = () => this.setState({ visible: !this.state.visible });
+			toggleDialog = () => this.setState({ visible: !this.state.visible });
 
-	onPress = (theme: { changeTheme: (item: []) => void }, item: any[]) => () => {
-		theme.changeTheme(item[0]);
-		this.toggleDialog();
-	};
-	renderDialog = () => {
+			onPress = (theme: { changeTheme: (item: []) => void }, item: any[]) => () => {
+			theme.changeTheme(item[0]);
+			this.toggleDialog();
+		}
+			renderDialog = () => {
 
-		const BB: BlueBase = this.context;
-		const themes = [...BB.Themes.entries()];
+			const BB: BlueBase = this.context;
+			const themes = [...BB.Themes.entries()];
 
-		return (
+			return (
 			<AllBlueBase>
 				{({ intl, theme }) => (
 					<Dialog
@@ -69,9 +69,9 @@ export class ThemeSelectionSetting extends React.PureComponent {
 				)}
 			</AllBlueBase>
 		);
-	}
-	render() {
-		return (
+		}
+			render() {
+			return (
 			<AllBlueBase>
 				{({ intl, theme }) => (
 					<React.Fragment>
@@ -86,5 +86,5 @@ export class ThemeSelectionSetting extends React.PureComponent {
 				)}
 			</AllBlueBase>
 		);
-	}
+		}
 }

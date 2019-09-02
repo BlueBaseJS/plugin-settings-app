@@ -4,19 +4,19 @@ import React from 'react';
 
 export class LanguageSetting extends React.PureComponent {
 
-	static contextType = BlueBaseContext;
+			static contextType = BlueBaseContext;
 
-	readonly state = {
-		visible: false
-	};
+			readonly state = {
+			visible: false
+		};
 
-	toggleDialog = () => this.setState({ visible: !this.state.visible });
+			toggleDialog = () => this.setState({ visible: !this.state.visible });
 
-	renderDialog = () => {
-		const BB: BlueBase = (this as any).context;
-		const localeOptions = BB.Configs.getValue('locale.options');
+			renderDialog = () => {
+			const BB: BlueBase = (this as any).context;
+			const localeOptions = BB.Configs.getValue('locale.options');
 
-		return (
+			return (
 			<IntlContext.Consumer>
 				{({ changeLocale, locale }: IntlContextData) => (
 					<Dialog
@@ -41,12 +41,12 @@ export class LanguageSetting extends React.PureComponent {
 			)}
 			</IntlContext.Consumer>
 		);
-	}
-	render() {
-		const BB: BlueBase = (this as any).context;
-		const localeOptions = BB.Configs.getValue('locale.options');
+		}
+			render() {
+			const BB: BlueBase = (this as any).context;
+			const localeOptions = BB.Configs.getValue('locale.options');
 
-		return (
+			return (
 			<IntlContext.Consumer>
 				{({ __, locale }: IntlContextData) => (
 					<React.Fragment>
@@ -61,5 +61,5 @@ export class LanguageSetting extends React.PureComponent {
 			)}
 			</IntlContext.Consumer>
 		);
-	}
+		}
 }

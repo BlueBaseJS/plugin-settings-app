@@ -1,13 +1,6 @@
-// import { BlueBaseApp } from '@bluebase/core';
-// import MUI from '@bluebase/plugin-material-ui';
-// import Plugin from '../../src'
-// import React from 'react';
 import { createDesktopNavigator } from './createDesktopNavigator';
 import { createMobileRoutes } from './createMobileNavigator';
 import { createDesktopNavigator as navigator } from '../createSettingsRoutes/createDesktopNavigator';
-
-// import { mount } from 'enzyme';
-// import { waitForElement } from 'enzyme-async-helpers';
 
 jest.mock('expo', () => { });
 export let Component: any;

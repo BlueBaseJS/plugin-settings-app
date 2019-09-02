@@ -49,6 +49,27 @@ describe('TextDirectionSetting', () => {
 
 
     });
+    it('should return TextDirectionSetting with rtl true', async () => {
+        // mount components
+        const wrapper: any = mount(
+            <BlueBaseApp plugins={[Plugin, MUI,]}>
+                <TextDirectionSetting />
+            </BlueBaseApp>
+        );
+        await waitForElement(wrapper, 'Dialog');
+
+        wrapper.context = {
+            rtl: true, changeDirection: () => ''
+        };
+        const wrappers: any = wrapper
+            .find('TextDirectionSetting')
+            .last()
+            .instance();
+        wrappers.onPress('settings')();
+        expect(wrapper.find('Dialog').first().prop('visible')).toBe(false);
+
+
+    });
 
 });
 

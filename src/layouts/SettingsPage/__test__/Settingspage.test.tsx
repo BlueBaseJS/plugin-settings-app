@@ -96,6 +96,26 @@ describe('SettingsPageDesktop', () => {
 
 
 
+    it('should return SettingsPageDesktop', async () => {
+        // mount componentz
+        require('../../../components/index.web.ts');
+        require('../index.ts');
+        const wrapper = mount(
+            <BlueBaseApp plugins={[Plugin, MUI]}>
+                <SettingsPageDesktop filter="settings"  {...item} isMobile={false} />
+            </BlueBaseApp>
+        );
+        await waitForElement(wrapper, 'FormattedMessage');
+
+
+        const onPress: any = wrapper.find('Button').first().prop('onPress');
+        onPress();
+        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+
+    });
+
+
+
 
     it('should return SettingsMobileDesktop', async () => {
         // mount componentz

@@ -6,12 +6,12 @@ const DarkModeSwitch = getComponent('DarkModeSwitch');
 
 export class DarkModeSetting extends React.PureComponent {
 
-	static contextType = IntlContext;
+			static contextType = IntlContext;
 
-	render() {
-		const { __ }: IntlContextData = this.context;
+			render() {
+			const { __ }: IntlContextData = this.context;
 
-		return (
+			return (
 			<List.Item
 				key="dark-mode"
 				left={<List.Icon name="brightness-3" />}
@@ -20,5 +20,5 @@ export class DarkModeSetting extends React.PureComponent {
 				right={<DarkModeSwitch />}
 			/>
 		);
-	}
+		}
 }

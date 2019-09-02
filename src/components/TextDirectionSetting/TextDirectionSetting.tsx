@@ -5,17 +5,17 @@ import React from 'react';
 
 export class TextDirectionSetting extends React.PureComponent {
 
-	static contextType = IntlContext;
+			static contextType = IntlContext;
 
-	readonly state = {
-		visible: false
-	};
+			readonly state = {
+			visible: false
+		};
 
-	private values = [{
-		description: 'Text Direction will automatically changed based on selected language.',
-		label: 'Auto',
-		value: 'auto',
-	}, {
+			private values = [{
+			description: 'Text Direction will automatically changed based on selected language.',
+			label: 'Auto',
+			value: 'auto',
+		}, {
 		description: 'Text will be displayed from Left to Right',
 		label: 'Left to Right',
 		value: 'ltr',
@@ -25,18 +25,18 @@ export class TextDirectionSetting extends React.PureComponent {
 		value: 'rtl',
 	}];
 
-	toggleDialog = () => this.setState({ visible: !this.state.visible });
+			toggleDialog = () => this.setState({ visible: !this.state.visible });
 
-	onPress = (value: string) => () => {
-		const { changeDirection }: IntlContextData = (this as any).context;
+			onPress = (value: string) => () => {
+			const { changeDirection }: IntlContextData = (this as any).context;
 
-		changeDirection(value as any);
-		this.toggleDialog();
-	};
-	renderDialog = () => {
-		const { __, direction }: IntlContextData = (this as any).context;
+			changeDirection(value as any);
+			this.toggleDialog();
+		}
+			renderDialog = () => {
+			const { __, direction }: IntlContextData = (this as any).context;
 
-		return (
+			return (
 			<Dialog
 				visible={this.state.visible}
 				onDismiss={this.toggleDialog}
@@ -60,13 +60,13 @@ export class TextDirectionSetting extends React.PureComponent {
 				})}
 			</Dialog>
 		);
-	}
-	render() {
-		const { __, direction, rtl }: IntlContextData = (this as any).context;
+		}
+			render() {
+			const { __, direction, rtl }: IntlContextData = (this as any).context;
 
-		const current = this.values.find(v => v.value === direction) || this.values[0];
+			const current = this.values.find(v => v.value === direction) || this.values[0];
 
-		return (
+			return (
 			<React.Fragment>
 				{this.renderDialog()}
 				<List.Item
@@ -77,5 +77,5 @@ export class TextDirectionSetting extends React.PureComponent {
 				/>
 			</React.Fragment>
 		);
-	}
+		}
 }

@@ -17,20 +17,20 @@ export interface SettingsPageMobileProps extends SettingsPageProps {
 }
 
 export class SettingsPageMobile extends React.PureComponent<SettingsPageMobileProps> {
-	static defaultProps: Partial<SettingsPageMobileProps> = {};
+			static defaultProps: Partial<SettingsPageMobileProps> = {};
 
-	static defaultStyles = (_theme: Theme): SettingsPageMobileStyles => ({
-		root: {
+			static defaultStyles = (_theme: Theme): SettingsPageMobileStyles => ({
+			root: {
 			// backgroundColor: Platform.OS === 'ios'
 			// ? theme.palette.background.default
 			// : theme.palette.background.card,
 		},
-	});
+		})
 
-	renderLayout = (items: SettingsPageItemProps[]) => {
-		const styles = this.props.styles as SettingsPageMobileStyles;
+			renderLayout = (items: SettingsPageItemProps[]) => {
+			const styles = this.props.styles as SettingsPageMobileStyles;
 
-		return (
+			return (
 			<ScrollView>
 				<SafeAreaView>
 					<View style={styles.root}>
@@ -44,17 +44,17 @@ export class SettingsPageMobile extends React.PureComponent<SettingsPageMobilePr
 				</SafeAreaView>
 			</ScrollView>
 		);
-	};
+		}
 
-	render() {
-		const { filter, items = [] } = this.props;
+			render() {
+			const { filter, items = [] } = this.props;
 
-		return (
+			return (
 			<BlueBaseFilter filter={`${filter}.page.mobile`} value={items} args={this.props}>
 				{filteredItems => this.renderLayout(filteredItems)}
 			</BlueBaseFilter>
 		);
-	}
+		}
 }
 
 export default SettingsPageMobile;

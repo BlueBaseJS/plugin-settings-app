@@ -3,9 +3,9 @@ import { IntlMessages } from '@bluebase/core';
 
 export const urRoman = (messages: IntlMessages) => ({
 	...messages,
-	Setting: 'Setting',
-	General: 'General',
 	About: 'Ba-mutalik',
+	General: 'General',
+	Setting: 'Setting',
 	'All your theme related settings reside here.': 'Tamam themes ke mutalik tartebaat yahaan hai',
 	'App Information': 'App ki malomaat',
 	Appearance: 'Zahoor',

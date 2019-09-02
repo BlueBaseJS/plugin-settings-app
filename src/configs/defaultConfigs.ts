@@ -1,5 +1,4 @@
 export const defaultConfigs = {
-
 	/** Enable appearnace page */
 	'plugin.settings-app.general': false,
 
