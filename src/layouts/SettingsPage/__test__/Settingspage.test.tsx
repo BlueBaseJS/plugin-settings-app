@@ -41,6 +41,27 @@ describe('SettingsPageDesktop', () => {
         }
     };
 
+
+    const items = {
+
+        name: 'AppearanceSettingsPage',
+        path: 'appearance',
+
+        items: [{
+            component: 'ThemeSettingsList',
+            description: 'All your theme related settings reside here.',
+            name: 'theme-settings-1',
+            title: 'Theme',
+        }, {
+            component: 'LocalizationSettingsList',
+            description: 'Select you language settings here',
+            name: 'theme-settings-2',
+            title: 'Localization',
+        }],
+
+
+    };
+
     it('should return SettingsPageDesktop', async () => {
         // mount componentz
         require('../../../components/index.web.ts');
@@ -102,7 +123,7 @@ describe('SettingsPageDesktop', () => {
         require('../index.ts');
         const wrapper = mount(
             <BlueBaseApp plugins={[Plugin, MUI]}>
-                <SettingsPageDesktop filter="settings"  {...item} isMobile={false} />
+                <SettingsPageDesktop filter="settings"  {...items} isMobile={false} />
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'FormattedMessage');
