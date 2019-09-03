@@ -92,7 +92,7 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.4.3",
     "@bluebase/cli-essentials": "^0.0.4",
-    "@bluebase/code-standards": "^1.3.2",
+    "@bluebase/code-standards": "^1.4.0",
     "@bluebase/core": "^4.0.0-aplha.27",
     "@bluebase/plugin-launcher": "^0.0.4",
     "@bluebase/plugin-material-ui": "^2.7.0",
