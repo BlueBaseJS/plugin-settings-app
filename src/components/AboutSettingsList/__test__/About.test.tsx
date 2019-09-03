@@ -12,7 +12,7 @@ jest.mock('expo', () => { });
 
 jest.mock('I18nManager', () => ({
     ...jest.requireActual('I18nManager'),
-    isRTL: false
+    isRTL: true
 }));
 
 describe('AboutSettingsList', () => {
