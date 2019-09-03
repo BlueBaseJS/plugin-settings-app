@@ -19,7 +19,7 @@ describe('DarkModeSwitch', () => {
         );
         await waitForElement(wrapper, 'Switch');
         const onValueChange: any = wrapper.find('Switch').first().prop('onValueChange');
-        onValueChange((name: any) => name)();
+        onValueChange((name: any) => name);
         expect(wrapper.find('Switch').first().prop('checked')).toBe(false);
     });
 

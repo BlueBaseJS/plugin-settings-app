@@ -5,38 +5,38 @@ import React from 'react';
 import { SettingsPageProps } from '../SettingsPage';
 
 export interface SettingsPageListProps {
-			name: string;
-			pages: SettingsPageProps[];
+	name: string;
+	pages: SettingsPageProps[];
 }
 
 export class SettingsPageList extends React.PureComponent<SettingsPageListProps> {
-			static contextType = IntlContext;
+	static contextType = IntlContext;
 
-			private HeaderComponent?: React.ComponentType<any>;
-			private FooterComponent?: React.ComponentType<any>;
+	private HeaderComponent?: React.ComponentType<any>;
+	private FooterComponent?: React.ComponentType<any>;
 
-			componentWillMount() {
-			const { name } = this.props;
+	componentWillMount() {
+		const { name } = this.props;
 
-			if (name) {
+		if (name) {
 			this.HeaderComponent = getComponent(`${name}RootPageHeader`, 'Noop');
 			this.FooterComponent = getComponent(`${name}RootPageFooter`, 'Noop');
 		}
-		}
+	}
 
-			render() {
-			const { __ }: IntlContextData = this.context;
+	render() {
+		const { __ }: IntlContextData = this.context;
 
-			const HeaderComponent = this.HeaderComponent || Noop;
-			const FooterComponent = this.FooterComponent || Noop;
+		const HeaderComponent = this.HeaderComponent || Noop;
+		const FooterComponent = this.FooterComponent || Noop;
 
-			return (
+		return (
 			<React.Fragment>
 				<HeaderComponent />
 				<List>
 					<NavigationActions>
 						{({ navigate }) =>
-							(this.props.pages || []).map(page => {
+							(this.props.pages).map(page => {
 								const options = resolveThunk(page.navigationOptions || {});
 
 								const title = getTitle(options);
@@ -53,7 +53,7 @@ export class SettingsPageList extends React.PureComponent<SettingsPageListProps>
 				<FooterComponent />
 			</React.Fragment>
 		);
-		}
+	}
 }
 
 function getTitle(options: NavigationOptions) {

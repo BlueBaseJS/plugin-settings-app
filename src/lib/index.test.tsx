@@ -21,13 +21,18 @@ export let Component: any;
 describe('SettingsPageList', () => {
     const Desktop: any = createDesktopNavigator;
     it('should return SettingsPageList', async () => {
+        mockGetDimensions.mockReturnValue({
+            height: 1300,
+            width: 1200,
+        });
         require('../index');
 
         const data: any = Desktop({ pages: [{ title: 'setting' }] });
         data.routes[0].screen();
         const datas: any = navigator({ pages: [{ title: 'setting' }] as any });
         datas.routes[0].screen();
-        const datass: any = createMobileRoutes({ mainRoute: { name: 'screen' } as any, pages: [{ title: 'setting' }] as any });
+        const datass: any =
+            createMobileRoutes({ mainRoute: { name: 'screen' } as any, pages: [{ title: 'setting' }] as any });
         datass[0].screen();
         datass[1].screen();
         const routes: any = createSettingsRoutes({ pages: [{ title: 'setting' }] as any } as any);

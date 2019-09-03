@@ -9,6 +9,12 @@ import { waitForElement } from 'enzyme-async-helpers';
 const TextDirectionSetting = getComponent('TextDirectionSetting');
 jest.mock('expo', () => { });
 
+// jest.mock('@bluebase/core', () =>
+//     ({
+//         IntlContext: ''
+//     }
+//     ));
+
 
 describe('TextDirectionSetting', () => {
     it('should return TextDirectionSetting with rtl false', async () => {
