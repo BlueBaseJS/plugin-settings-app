@@ -23,7 +23,7 @@ describe('ThemeSelectionSetting', () => {
             .last()
             .instance();
         wrappers.onPress({ changeTheme: () => 'ss' }, [{}])();
-        expect(wrapper.find('List.Item').last().prop('description')).toBe('Text Direction will automatically changed based on selected language.');
+        expect(wrapper.find('Dialog').first().prop('visible')).toBe(false);
 
     });
 

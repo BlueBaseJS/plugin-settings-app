@@ -68,13 +68,11 @@ describe('SettingsPageDesktop', () => {
         require('../index.ts');
         const wrapper = mount(
             <BlueBaseApp plugins={[Plugin, MUI]}>
-                <SettingsPageDesktop {...item} isMobile={false} />
+                <SettingsPageDesktop title='settings' {...item} isMobile={false} />
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'FormattedMessage');
-        const onPress: any = wrapper.find('Button').first().prop('onPress');
-        onPress();
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+        expect(wrapper.find('FormattedMessage').first().prop('children')).toBeDefined();
 
     });
 
@@ -87,13 +85,11 @@ describe('SettingsPageDesktop', () => {
         require('../index.ts');
         const wrapper = mount(
             <BlueBaseApp plugins={[Plugin, MUI]}>
-                <SettingsPageDesktop {...item} isMobile={false} />
+                <SettingsPageDesktop title='settings' {...item} isMobile={false} />
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'FormattedMessage');
-        const onPress: any = wrapper.find('Button').first().prop('onPress');
-        onPress();
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+        expect(wrapper.find('FormattedMessage').first().prop('children')).toBeDefined();
 
     });
 
@@ -103,15 +99,13 @@ describe('SettingsPageDesktop', () => {
         require('../index.ts');
         const wrapper = mount(
             <BlueBaseApp plugins={[Plugin, MUI]}>
-                <SettingsPageDesktop navigationOptions={{ title: 'title', headerTitle: 'settings' }} filter="settings"  {...item} isMobile={false} />
+                <SettingsPageDesktop title='settings' navigationOptions={{ title: 'title', headerTitle: 'settings' }} filter="settings"  {...item} isMobile={false} />
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'FormattedMessage');
 
 
-        const onPress: any = wrapper.find('Button').first().prop('onPress');
-        onPress();
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+        expect(wrapper.find('FormattedMessage').last().prop('children')).toBeDefined();
 
     });
 
@@ -123,15 +117,12 @@ describe('SettingsPageDesktop', () => {
         require('../index.ts');
         const wrapper = mount(
             <BlueBaseApp plugins={[Plugin, MUI]}>
-                <SettingsPageDesktop filter="settings"  {...items} isMobile={false} />
+                <SettingsPageDesktop title='settings' filter="settings"  {...items} isMobile={false} />
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'FormattedMessage');
 
-
-        const onPress: any = wrapper.find('Button').first().prop('onPress');
-        onPress();
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+        expect(wrapper.find('FormattedMessage').last().prop('children')).toBeDefined();
 
     });
 
@@ -154,7 +145,7 @@ describe('SettingsPageDesktop', () => {
         placeGridInstance.renderLayout([{ title: 'string' }]);
 
 
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+        expect(wrapper.find('View').last().prop('children')).toBeDefined();
 
     });
 
@@ -174,7 +165,7 @@ describe('SettingsPageDesktop', () => {
         placeGridInstance.renderLayout([{ title: 'string' }]);
 
 
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+        expect(wrapper.find('View').last().prop('children')).toBeDefined();
 
     });
 
@@ -192,7 +183,7 @@ describe('SettingsPageDesktop', () => {
             .last()
             .instance();
         placeGridInstance.renderLayout([{ title: 'string' }]);
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+        expect(wrapper.find('View').last().prop('children')).toBeDefined();
 
     });
 });

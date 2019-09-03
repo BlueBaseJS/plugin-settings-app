@@ -24,7 +24,7 @@ describe('ThemeSettingsList', () => {
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'List');
-        expect(wrapper.find('StatusBar').first().prop('barStyle')).toBe('light-content');
+        expect(wrapper.find('List').first().prop('children')).toHaveLength(2);
 
     });
 

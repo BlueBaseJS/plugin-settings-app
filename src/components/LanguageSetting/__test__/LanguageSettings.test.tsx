@@ -36,7 +36,7 @@ describe('languageSetting', () => {
 			.first()
 			.prop('onPress');
 		wrapperss();
-		// expect(wrapper.find('Dialog').first().prop('visible')).toBe(false);
+		expect(wrapper.find('Dialog').first().prop('visible')).toBe(false);
 
 
 	});

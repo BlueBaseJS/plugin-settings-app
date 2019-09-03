@@ -47,9 +47,7 @@ describe('SettingsPageDesktop', () => {
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'View');
-        const onPress: any = wrapper.find('Button').first().prop('onPress');
-        onPress();
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+        expect(wrapper.find('Card').first().prop('children')).toBeDefined();
 
     });
 
@@ -71,9 +69,7 @@ describe('SettingsPageDesktop', () => {
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'View');
-        const onPress: any = wrapper.find('Button').first().prop('onPress');
-        onPress();
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+        expect(wrapper.find('View').last().prop('children')).toBeDefined();
 
     });
 
@@ -102,9 +98,7 @@ describe('SettingsPageDesktop', () => {
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'View');
-        const onPress: any = wrapper.find('Button').first().prop('onPress');
-        onPress();
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+        expect(wrapper.find('View').last().prop('children')).toBeDefined();
 
     });
 
@@ -117,9 +111,7 @@ describe('SettingsPageDesktop', () => {
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'View');
-        const onPress: any = wrapper.find('Button').first().prop('onPress');
-        onPress();
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+        expect(wrapper.find('View').last().prop('children')).toBeDefined();
 
     });
     it('should return SettingsMobileDesktop', async () => {
@@ -130,9 +122,7 @@ describe('SettingsPageDesktop', () => {
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'View');
-        const onPress: any = wrapper.find('Button').first().prop('onPress');
-        onPress();
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+        expect(wrapper.find('View').last().prop('children')).toBeDefined();
 
     });
 
@@ -144,9 +134,7 @@ describe('SettingsPageDesktop', () => {
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'View');
-        const onPress: any = wrapper.find('Button').first().prop('onPress');
-        onPress();
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+        expect(wrapper.find('View').last().prop('children')).toBeDefined();
 
     });
 
@@ -158,9 +146,7 @@ describe('SettingsPageDesktop', () => {
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'View');
-        const onPress: any = wrapper.find('Button').first().prop('onPress');
-        onPress();
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+        expect(wrapper.find('View').last().prop('children')).toBeDefined();
 
     });
 
@@ -172,9 +158,7 @@ describe('SettingsPageDesktop', () => {
             </BlueBaseApp>
         );
         await waitForElement(wrapper, 'View');
-        const onPress: any = wrapper.find('Button').first().prop('onPress');
-        onPress();
-        expect(wrapper.find('List').first().prop('children')).toBeDefined();
+        expect(wrapper.find('View').last().prop('children')).toBeDefined();
 
     });
 });
