@@ -30,6 +30,11 @@ describe('Externallink', () => {
         );
         await waitForElement(wrapper, 'View');
         // expect(wrapper.find('Text').first.props().)();
+
+
+        // const onPress: any = wrapper.find('ExternalLink').last().prop('props');
+
+        // onPress();
         expect(wrapper.find('Text').first().prop('accessibilityRole')).toBe('link');
     });
 
