@@ -22,4 +22,11 @@ export const defaultConfigs = {
 
 	/** Enable appearnace page */
 	'plugin.settings-app.about': false,
+
+	/** Adds author on about page  */
+	'author': 'Blueeast',
+
+	/** Adds author on about page  */
+	'authorUrl': 'https://www.blueeast.com/'
+
 };
