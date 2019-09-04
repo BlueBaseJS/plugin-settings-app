@@ -77,7 +77,6 @@
     "node": ">=8.9"
   },
   "dependencies": {
-    "@babel/runtime": "^7.4.3",
     "@bluebase/components": "^5.10.0",
     "compression": "^1.7.4",
     "deepmerge": "^3.2.0",
