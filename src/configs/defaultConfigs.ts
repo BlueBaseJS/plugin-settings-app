@@ -26,7 +26,7 @@ export const defaultConfigs = {
 	/** Adds author on about page  */
 	'author': 'Blueeast',
 
-	/** Adds author on about page  */
+	/** Adds author  redirect url  */
 	'authorUrl': 'https://www.blueeast.com/'
 
 };
