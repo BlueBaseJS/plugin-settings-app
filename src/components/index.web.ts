@@ -1,4 +1,5 @@
 export const components = {
+	SettingsPage: import('./SettingsPage'),
 	AboutSettingsList: import('./AboutSettingsList'),
 	DarkModeSetting: import('./DarkModeSetting'),
 	DarkModeSwitch: import('./DarkModeSwitch'),
