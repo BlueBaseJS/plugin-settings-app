@@ -26,7 +26,6 @@ export class SettingsTaskbar extends React.PureComponent<ListItemProps, ListItem
 		return (
 			<NavigationActions>
 				{(navigation) => {
-					console.log(navigation);
 					return (
 						<>
 							<ListItem
