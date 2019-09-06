@@ -1,45 +1,37 @@
-import { ListItem } from '@bluebase/components';
-import { NavigationActions } from '@bluebase/core/dist/components';
+import { ListItem, NavigationActionsObject } from '@bluebase/components';
+
+import { NavigationActions, } from '@bluebase/core/dist/components';
 import React from 'react';
 
-export interface ListItemProps {
+export interface SettingsTaskbarProps {
 	onPress: () => void;
 	left: string;
 }
-export interface ListItemState {
-	title: string
+
+
+export const SettingsTaskbar = (props: SettingsTaskbarProps) => {
+	const { onPress, left } = props;
+	return (
+		<NavigationActions>
+			{(navigation) => {
+				console.log(navigation);
+				return (
+					<>
+						<ListItem
+							onPress={onPress}
+							// selected={navigation.state.params.selected}
+							left={left}
+							title=""
+							{...props}
+						/>
+					</>
+				);
+			}}
+		</NavigationActions>
+	);
 }
 
-
-export class SettingsTaskbar extends React.PureComponent<ListItemProps, ListItemState> {
-
-	constructor(props: ListItemProps) {
-		super(props);
-		this.state = {
-			title: '',
-		};
-
-	}
-
-	render() {
-		const { onPress, left } = this.props;
-		return (
-			<NavigationActions>
-				{(navigation) => {
-					return (
-						<>
-							<ListItem
-								onPress={onPress}
-								// selected={navigation.state.params.selected}
-								left={left}
-								title={this.state.title}
-								{...this.props}
-							/>
-						</>
-					);
-				}}
-			</NavigationActions>
-		);
-	}
-}
+SettingsTaskbar.navigationOptions = ({ navigation }: { navigation: NavigationActionsObject }) => {
+	return navigation;
+};
 
