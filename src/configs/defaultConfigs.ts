@@ -20,7 +20,7 @@ export const defaultConfigs = {
 	/** Enable language selection setting in language section, on language page */
 	'plugin.settings-app.general.language.selection': true,
 
-	/** Enable appearnace page */
+	/** Enable appearance page */
 	'plugin.settings-app.about': false,
 
 	/** Adds author on about page  */
