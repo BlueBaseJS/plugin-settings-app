@@ -3,17 +3,18 @@ cache:
   yarn: true
   directories:
     - node_modules
+    - ~/.npm
+    - .jest
 # notifications:
 #   email: false
 node_js:
   - lts/*
 script:
-  -  yarn run test
-  -  yarn run report-coverage
-  -  yarn run build
-  -  yarn run size
+  - yarn run test
+  - yarn run build
+  - yarn run size
 before_install:
-# package-lock.json was introduced in npm@5
+  # package-lock.json was introduced in npm@5
   - '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest' # skipped when using node 9
   - npm install -g greenkeeper-lockfile@1
 before_script:
@@ -21,5 +22,6 @@ before_script:
 after_script:
   - greenkeeper-lockfile-upload
 after_success:
-  - test $TRAVIS_BRANCH = "master" && yarn run doc && yarn run doc:publish
+  - test $TRAVIS_BRANCH = "master" && yarn run doc
   - npx semantic-release
+  - yarn run report-coverage
