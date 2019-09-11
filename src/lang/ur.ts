@@ -10,6 +10,7 @@ export const ur = (messages: IntlMessages) => ({
 	'Available Themes': 'موجودہ تھیمز',
 	'BlueBase Dark': 'بلیو بیز ڈارک',
 	'BlueBase Light': 'بلیو بیس لائٹ',
+	'Change to Dark Mode': 'ڈارک موڈ میں تبدیل کریں',
 	'Change your language settings here': 'یہاں اپنی زبان کی ترتیبات کو تبدیل کریں',
 	'Dark Mode': 'ڈارک موڈ ',
 	'Developed by': 'تیار کردہ',
@@ -19,7 +20,7 @@ export const ur = (messages: IntlMessages) => ({
 	'Left to Right': 'بائیں سے دائیں',
 	'Right to Left': 'دائیں سے بائیں',
 	Setting: 'ترتیبات',
-	'Switchto Dark Mode': 'ڈارک موڈ میں تبدیل کریں',
+	'Switch to Dark Mode': 'ڈارک موڈ میں تبدیل کریں',
 	'Text Direction': 'سمت ٕ متن',
 	'Text Direction will automatically changed based on selected language.':
 		' متن کی سمت منتخب کردہ زبان کی نویت سے خودبخودتبدیل ہوتی رہے گی',

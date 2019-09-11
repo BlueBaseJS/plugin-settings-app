@@ -24,9 +24,8 @@ export const defaultConfigs = {
 	'plugin.settings-app.about': false,
 
 	/** Adds author on about page  */
-	'author': 'Blueeast',
+	author: 'Blueeast',
 
 	/** Adds author  redirect url  */
-	'authorUrl': 'https://www.blueeast.com/'
-
+	authorUrl: 'https://www.blueeast.com/',
 };
