@@ -1,6 +1,8 @@
 import { BlueBase, BlueBaseContext, getComponent } from '@bluebase/core';
 import { Divider, List, } from '@bluebase/components';
+
 import React from 'react';
+import { View } from 'react-native';
 
 const DarkModeSetting = getComponent('DarkModeSetting', 'Noop');
 const ThemeSelectionSetting = getComponent('ThemeSelectionSetting', 'Noop');
@@ -23,7 +25,8 @@ export class ThemeSettingsList extends React.PureComponent {
 		.filter(x => !!x);
 
 			return (
-			<List>
+			<View style={{ display:'flex',flex:1,paddingRight:25}}>
+			<List >
 				{items.map((item, index) => (
 					<React.Fragment key={index}>
 						{item}
@@ -31,6 +34,7 @@ export class ThemeSettingsList extends React.PureComponent {
 					</React.Fragment>
 				))}
 			</List>
+			</View>
 		);
 		}
 }
