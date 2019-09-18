@@ -1,40 +1,52 @@
-import { BlueBase, BlueBaseContext, getComponent } from '@bluebase/core';
-import { Divider, List, } from '@bluebase/components';
+import { BlueBase, BlueBaseContext, Theme, getComponent } from '@bluebase/core';
+import { Divider, List } from '@bluebase/components';
+import { View, ViewStyle } from 'react-native';
 
 import React from 'react';
-import { View } from 'react-native';
 
 const DarkModeSetting = getComponent('DarkModeSetting', 'Noop');
 const ThemeSelectionSetting = getComponent('ThemeSelectionSetting', 'Noop');
 
-export class ThemeSettingsList extends React.PureComponent {
+export interface ThemeSettingStyles {
+	/** Status text styles */
+	ThemeButton: ViewStyle;
+}
 
-			static contextType = BlueBaseContext;
+export interface ThemeSettingProps {
+	/** Status text styles */
+	styles: ThemeSettingStyles;
+}
 
-			render() {
+export class ThemeSettingsList extends React.PureComponent<ThemeSettingProps> {
+	static contextType = BlueBaseContext;
 
-			const BB: BlueBase = this.context;
+	static defaultStyles = (_theme: Theme): ThemeSettingStyles => ({
+		ThemeButton: {
+			display: 'flex',
+			flex: 1,
+			paddingRight: 25,
+		},
+	})
 
-			const hasDarkMode = BB.Configs.getValue('plugin.settings-app.general.appearance.dark-mode');
-			const hasThemeSelection = BB.Configs.getValue('plugin.settings-app.general.appearance.theme.selection');
+	render() {
+		const BB: BlueBase = this.context;
 
-			const items = [
-			hasDarkMode && <DarkModeSetting />,
-			hasThemeSelection && <ThemeSelectionSetting />,
-		]
-		.filter(x => !!x);
+		const hasDarkMode = BB.Configs.getValue('plugin.settings-app.general.appearance.dark-mode');
+		const hasThemeSelection = BB.Configs.getValue('plugin.settings-app.general.appearance.theme.selection');
 
-			return (
-			<View style={{ display:'flex',flex:1,paddingRight:25}}>
-			<List >
-				{items.map((item, index) => (
-					<React.Fragment key={index}>
-						{item}
-						{(index < items.length - 1) ? <Divider inset /> : null}
-					</React.Fragment>
-				))}
-			</List>
+		const items = [hasDarkMode && <DarkModeSetting />, hasThemeSelection && <ThemeSelectionSetting />].filter(x => !!x);
+
+		return (
+			<View style={this.props.styles.ThemeButton}>
+				<List>
+					{items.map((item, index) => (
+						<React.Fragment key={index}>
+							{item}
+							{index < items.length - 1 ? <Divider inset /> : null}
+						</React.Fragment>
+					))}
+				</List>
 			</View>
 		);
-		}
+	}
 }
