@@ -39,4 +39,54 @@ export const pages: SettingsPageProps[] = [{
 			title: 'App Information',
 		}
 	],
+}, {
+	name: 'Support',
+	path: 'support',
+
+	navigationOptions: {
+		drawerIcon: { type: 'icon', name: 'information' },
+		title: 'Support',
+	},
+
+	items: [
+		{
+			component: 'AboutSettingsList',
+			name: 'contact or support ',
+			title: 'support',
+		}
+	],
+},
+{
+	name: 'Terms',
+	path: 'terms',
+
+	navigationOptions: {
+		drawerIcon: { type: 'icon', name: 'information' },
+		title: 'Terms',
+	},
+
+	// items: [
+	// 	{
+	// 		component: 'AboutSettingsList',
+	// 		name: 'about-app',
+	// 		title: 'App Information',
+	// 	}
+	// ],
+},
+{
+	name: 'PrivacyPolicy',
+	path: 'privacy',
+
+	navigationOptions: {
+		drawerIcon: { type: 'icon', name: 'information' },
+		title: 'privacy',
+	},
+
+	// items: [
+	// 	{
+	// 		component: 'AboutSettingsList',
+	// 		name: 'about-app',
+	// 		title: 'App Information',
+	// 	}
+	// ],
 } as any];

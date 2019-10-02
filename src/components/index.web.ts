@@ -4,8 +4,12 @@ export const components = {
 	DarkModeSwitch: import('./DarkModeSwitch'),
 	LanguageSetting: import('./LanguageSetting'),
 	LocalizationSettingsList: import('./LocalizationSettingsList'),
+	PrivacyPolicy: import('./PrivacyPolicy'),
 	SettingsAppIcon: import('./SettingsAppIcon'),
+	Support: import('./Support'),
+	Terms: import('./Terms'),
 	TextDirectionSetting: import('./TextDirectionSetting'),
 	ThemeSelectionSetting: import('./ThemeSelectionSetting'),
 	ThemeSettingsList: import('./ThemeSettingsList'),
+
 };
