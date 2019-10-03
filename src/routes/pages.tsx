@@ -37,56 +37,25 @@ export const pages: SettingsPageProps[] = [{
 			component: 'AboutSettingsList',
 			name: 'about-app',
 			title: 'App Information',
-		}
-	],
-}, {
-	name: 'Support',
-	path: 'support',
-
-	navigationOptions: {
-		drawerIcon: { type: 'icon', name: 'information' },
-		title: 'Support',
-	},
-
-	items: [
+		},
 		{
-			component: 'AboutSettingsList',
-			name: 'contact or support ',
-			title: 'support',
-		}
+			component: 'SupportSettingList',
+			description: 'View support and/or contact details',
+			name: 'Contact or support',
+			title: 'Support',
+		},
+		{
+			component: 'TermSettingList',
+			description: 'View Terms and conditions',
+			name: 'Terms and Conditions',
+			title: 'Terms',
+		},
+		{
+			component: 'PrivacySettingList',
+			description: 'View Privacy settings',
+			name: 'Privacy',
+			title: 'Privacy',
+		},
+
 	],
-},
-{
-	name: 'Terms',
-	path: 'terms',
-
-	navigationOptions: {
-		drawerIcon: { type: 'icon', name: 'information' },
-		title: 'Terms',
-	},
-
-	// items: [
-	// 	{
-	// 		component: 'AboutSettingsList',
-	// 		name: 'about-app',
-	// 		title: 'App Information',
-	// 	}
-	// ],
-},
-{
-	name: 'PrivacyPolicy',
-	path: 'privacy',
-
-	navigationOptions: {
-		drawerIcon: { type: 'icon', name: 'information' },
-		title: 'privacy',
-	},
-
-	// items: [
-	// 	{
-	// 		component: 'AboutSettingsList',
-	// 		name: 'about-app',
-	// 		title: 'App Information',
-	// 	}
-	// ],
 } as any];

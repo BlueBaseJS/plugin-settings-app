@@ -16,14 +16,14 @@ export class TextDirectionSetting extends React.PureComponent {
 			label: 'Auto',
 			value: 'auto',
 		}, {
-		description: 'Text will be displayed from Left to Right',
-		label: 'Left to Right',
-		value: 'ltr',
-	}, {
-		description: 'Text will be displayed from Right to Left',
-		label: 'Right to Left',
-		value: 'rtl',
-	}];
+			description: 'Text will be displayed from Left to Right',
+			label: 'Left to Right',
+			value: 'ltr',
+		}, {
+			description: 'Text will be displayed from Right to Left',
+			label: 'Right to Left',
+			value: 'rtl',
+		}];
 
 			toggleDialog = () => this.setState({ visible: !this.state.visible });
 

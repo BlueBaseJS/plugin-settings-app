@@ -7,9 +7,11 @@ export const components = {
 	PrivacyPolicy: import('./PrivacyPolicy'),
 	SettingsAppIcon: import('./SettingsAppIcon'),
 	Support: import('./Support'),
+	SupportSettingList: import('./SupportSettingList'),
 	Terms: import('./Terms'),
 	TextDirectionSetting: import('./TextDirectionSetting'),
 	ThemeSelectionSetting: import('./ThemeSelectionSetting'),
 	ThemeSettingsList: import('./ThemeSettingsList'),
+	
 
 };

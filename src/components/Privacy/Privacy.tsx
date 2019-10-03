@@ -1,0 +1,1 @@
+export const Privacy = () => ('please add privacy settings here');
