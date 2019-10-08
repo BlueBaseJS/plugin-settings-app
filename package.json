@@ -78,7 +78,7 @@
   },
   "dependencies": {
     "@bluebase/components": "^5.10.0",
-    "deepmerge": "^3.2.0",
+    "deepmerge": "^4.1.0",
     "expo": "^32.0.0",
     "react-native": "^0.57.8",
     "tslib": "^1.9.3"
