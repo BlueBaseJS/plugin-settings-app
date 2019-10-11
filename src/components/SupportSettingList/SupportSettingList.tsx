@@ -1,66 +1,162 @@
-import { Dialog, Divider, List, View, Text } from '@bluebase/components';
-import { IntlContext, IntlContextData } from '@bluebase/core';
-import { Support } from '../Support';
+import { Body2, Card, ListItem, List, View, H5 } from '@bluebase/components';
+import { BlueBase, BlueBaseContext, isMobile, Theme } from '@bluebase/core';
+import { Linking, LinkingStatic, Platform, StyleProp, TextStyle, ViewStyle } from 'react-native';
 import React from 'react';
 
-export class SupportSettingList extends React.PureComponent {
+export interface SupportListStyles {
+	root: StyleProp<ViewStyle>;
+	callNowText: StyleProp<TextStyle>;
+	callCenterClosedText: StyleProp<TextStyle>;
+	pageContainer: ViewStyle;
+	rowStyles: ViewStyle;
+	headerStyles: ViewStyle;
+	closeButton: ViewStyle;
+	p1: ViewStyle;
+	h2: ViewStyle;
+	component: ViewStyle;
+	textContainer: ViewStyle;
+}
 
-			static contextType = IntlContext;
+export interface SupportListItem {
+	description?: string | any;
+	leftIcon: string;
+	rightIcon?: string;
+	title: string;
+	disabled?: boolean;
+	href: string;
+}
 
-			readonly state = {
-			visible: false
-			};
+export interface SupportListProps {
+	supportList?: SupportListItem[];
+	styles?: Partial<SupportListStyles>;
+}
 
-			private values = [{
-				description: 'Click here for support.',
-				label: 'Support',
-				value: 'auto', 
-			}];
+export class SupportSettingList extends React.PureComponent<SupportListProps> {
+	static contextType = BlueBaseContext;
 
-			toggleDialog = () => this.setState({ visible: !this.state.visible });
+	readonly state = {
+		visible: false,
+	};
 
-			onPress = (value: string) => () => {
-			const { changeDirection }: IntlContextData = (this as any).context;
+	private values = [
+		{
+			description: 'Click here for support.',
+			label: 'Support',
+			value: 'auto',
+		},
+	];
 
-			changeDirection(value as any);
-			this.toggleDialog();
-			}
-			renderDialog = () => {
+	static defaultStyles = (theme: Theme) => ({
+		callCenterClosedText: {
+			color: theme.palette.error.main,
+		},
+		callNowText: {
+			color: theme.palette.success.main,
+		},
+		component: {
+			paddingTop: 30,
+		},
+		h2: {
+			paddingBottom: 10,
+			paddingTop: 11,
+		},
+		p1: {
+			flexWrap: 'wrap',
+			padding: 16,
+		},
 
-			return (
-			<Dialog
-				visible={this.state.visible}
-				onDismiss={this.toggleDialog}
-			>
+		headerStyles: {
+			display: 'flex',
+			flex: 1,
+		},
+		pageContainer: {
+			marginBottom: 10,
+		},
+		root: {},
+		rowStyles: {
+			display: 'flex',
+			flexDirection: 'row',
+			padding: 16,
+		},
+		textContainer: {
+			width: isMobile() ? (Platform.OS === 'web' ? '100vw' : '100%') : '100%',
+		},
+	});
 
+	getCallSupportValues = () => {
+		const BB: BlueBase = this.context;
+		const styles = this.props.styles! as SupportListStyles;
+
+		const opens = BB.Configs.getValue('usermanagement.call-center.opens');
+		const closes = BB.Configs.getValue('usermanagement.call-center.closes');
+		const phoneNumber = BB.Configs.getValue('usermanagement.call-center.number');
+
+		const currentHour = new Date().getHours();
+
+		const canCall = currentHour >= opens && currentHour <= closes ? true : false;
+
+		const description = canCall ? (
+			<Body2 style={styles.callNowText}>CALL NOW</Body2>
+		) : (
+			<Body2 style={styles.callCenterClosedText}>CALL CENTER CLOSED</Body2>
+		);
+
+		const onPress = () => this.callSupport(Linking, phoneNumber);
+		return { onPress, canCall, description };
+	};
+	callSupport = (liking: LinkingStatic, phoneNumber: string) => {
+		liking.openURL(`tel:${phoneNumber}`);
+	};
+	openEmailLink = () => {
+		const BB: BlueBase = this.context;
+		const email = BB.Configs.getValue('usermanagement.email');
+
+		Linking.openURL(`mailto:${email}`);
+	};
+	render() {
+		const { onPress, canCall, description } = this.getCallSupportValues();
+		const BB: BlueBase = this.context;
+		const email = BB.Configs.getValue('usermanagement.email');
+		const styles = this.props.styles as any;
+		const Component = !isMobile() ? Card : View;
+
+		return (
+			<React.Fragment>
 				{this.values.map(item => {
-
-
 					return (
-						<View testID="test-listItem" key={item.value} style={{padding: 10}}>
-							<Text style={{paddingBottom: 4, fontWeight: 'bold'}}>Support</Text>
-							<Divider/>
-							<Support/>
+						<View testID="test-listItem" key={item.value}>
+							<Component>
+								<View style={styles.pageContainer}>
+									{isMobile() ? null : (
+										<>
+											<View style={styles.rowStyles}>
+												<H5 style={styles.headerStyles}>Contact Us / Support</H5>
+											</View>
+										</>
+									)}
+									<List>
+										<ListItem
+											left={<List.Icon name={'phone'} />}
+											onPress={onPress}
+											title={'Call Support Center'}
+											description={description}
+											disabled={!canCall}
+										/>
+
+										<ListItem
+											left={<List.Icon name={'email'} />}
+											onPress={this.openEmailLink}
+											title={'Email'}
+											description={email}
+											disabled={!canCall}
+										/>
+									</List>
+								</View>
+							</Component>
 						</View>
 					);
 				})}
-			</Dialog>
-		);
-		}
-			render() {
-			const { __, direction }: IntlContextData = (this as any).context;
-			const current = this.values.find(v => v.value === direction) || this.values[0];
-
-			return (
-			<React.Fragment>
-				{this.renderDialog()}
-				<List.Item
-					left={<List.Icon name={'lifebuoy'} />}
-					title={__('Support')}
-					description={__(current.description)}
-					onPress={this.toggleDialog}
-				/>
 			</React.Fragment>
 		);
-		}
+	}
 }

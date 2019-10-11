@@ -1,3 +1,4 @@
+import { AboutList } from './AboutList';
 import { AboutSettingsList } from './AboutSettingsList';
 import { DarkModeSetting } from './DarkModeSetting';
 import { DarkModeSwitch } from './DarkModeSwitch';
@@ -17,6 +18,7 @@ import { ThemeSettingsList } from './ThemeSettingsList';
 
 
 export const components = {
+	AboutList,
 	AboutSettingsList,
 	DarkModeSetting,
 	DarkModeSwitch,

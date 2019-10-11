@@ -4,54 +4,48 @@ import { Privacy } from '../Privacy';
 import React from 'react';
 
 export class PrivacySettingList extends React.PureComponent {
+	static contextType = IntlContext;
 
-			static contextType = IntlContext;
+	readonly state = {
+		visible: false,
+	};
 
-			readonly state = {
-			visible: false
-			};
+	private values = [
+		{
+			description: 'Click here for privacy settings.',
+			label: 'Privacy',
+			value: 'auto',
+		},
+	];
 
-			private values = [{
-				description: 'Click here for privacy settings.',
-				label: 'Privacy',
-				value: 'auto', 
-			}];
+	toggleDialog = () => this.setState({ visible: !this.state.visible });
 
-			toggleDialog = () => this.setState({ visible: !this.state.visible });
+	onPress = (value: string) => () => {
+		const { changeDirection }: IntlContextData = (this as any).context;
 
-			onPress = (value: string) => () => {
-			const { changeDirection }: IntlContextData = (this as any).context;
-
-			changeDirection(value as any);
-			this.toggleDialog();
-			}
-			renderDialog = () => {
-
-			return (
-			<Dialog
-				visible={this.state.visible}
-				onDismiss={this.toggleDialog}
-			>
-
+		changeDirection(value as any);
+		this.toggleDialog();
+	};
+	renderDialog = () => {
+		return (
+			<Dialog visible={this.state.visible} onDismiss={this.toggleDialog}>
 				{this.values.map(item => {
-
-
 					return (
-						<View testID="test-listItem" key={item.value} style={{padding: 10}}>
-							<Text style={{paddingBottom: 4, fontWeight: 'bold'}}>Privacy</Text>
-							<Divider/>
-							<Privacy/>
+						<View testID="test-listItem" key={item.value} style={{ padding: 10 }}>
+							<Text style={{ paddingBottom: 4, fontWeight: 'bold' }}>Privacy</Text>
+							<Divider />
+							<Privacy />
 						</View>
 					);
 				})}
 			</Dialog>
 		);
-		}
-			render() {
-			const { __, direction }: IntlContextData = (this as any).context;
-			const current = this.values.find(v => v.value === direction) || this.values[0];
+	};
+	render() {
+		const { __, direction }: IntlContextData = (this as any).context;
+		const current = this.values.find(v => v.value === direction) || this.values[0];
 
-			return (
+		return (
 			<React.Fragment>
 				{this.renderDialog()}
 				<List.Item
@@ -62,5 +56,5 @@ export class PrivacySettingList extends React.PureComponent {
 				/>
 			</React.Fragment>
 		);
-		}
+	}
 }

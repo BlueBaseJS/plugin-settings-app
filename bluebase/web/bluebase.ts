@@ -1,6 +1,4 @@
 import { BootOptions } from '@bluebase/core';
-import MaterialUIPLugin from '@bluebase/plugin-material-ui';
-import ReactRouterPlugin from '@bluebase/plugin-react-router';
 import commonBootOptions from '../common/bluebase';
 import deepmerge from 'deepmerge';
 
@@ -11,11 +9,14 @@ import deepmerge from 'deepmerge';
  */
 const bootOptions: Partial<BootOptions> = {
 
-	plugins: [
-		MaterialUIPLugin,
-		ReactRouterPlugin,
-	],
+	// config: {
 
+	// 	wallpaper: {
+	// 		backgroundColor: 'white',
+	// 		resizeMode: 'cover',
+	// 		source: require('./../../assets/web/wallpaper.png'),
+	// 	},
+	// }
 };
 
 export default deepmerge(commonBootOptions, bootOptions);

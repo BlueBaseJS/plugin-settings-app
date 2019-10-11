@@ -17,7 +17,7 @@
   },
   "size-limit": [
     {
-      "limit": "36 KB",
+      "limit": "40 KB",
       "webpack": false,
       "path": "dist/**/*.js",
       "running": false
@@ -77,15 +77,24 @@
     "node": ">=8.9"
   },
   "dependencies": {
+    "@babel/runtime": "^7.6.2",
+    "@bluebase/cli": "^0.0.16",
+    "@bluebase/cli-web": "^0.0.31",
     "@bluebase/components": "^5.10.0",
+    "babel-loader": "^8.0.6",
+    "compression": "^1.7.4",
     "deepmerge": "^3.2.0",
-    "expo": "^32.0.0",
-    "react-native": "^0.57.8",
-    "tslib": "^1.9.3"
+    "expo": "^35.0.0",
+    "metro-react-native-babel-preset": "^0.56.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
+    "react-native-gesture-handler": "~1.3.0",
+    "source-map-support": "^0.5.13",
+    "tslib": "^1.9.3",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.4.3",
+    "@babel/core": "^7.6.2",
     "@bluebase/babel-preset-bluebase": "^2.4.1",
     "@bluebase/cli-essentials": "^0.0.4",
     "@bluebase/code-standards": "^1.4.0",
@@ -96,7 +105,7 @@
     "@bluebase/plugin-react-navigation": "^0.0.1-alpha.5",
     "@bluebase/plugin-react-router": "^0.0.1-aplha.9",
     "@bluebase/plugin-responsive-grid": "^0.0.6",
-    "@bluebase/plugin-vector-icons": "^0.1.1",
+    "@bluebase/plugin-vector-icons": "^0.2.0",
     "@bluebase/storybook-addon": "^3.0.0",
     "@blueeast/tslint-config-blueeast": "^0.7.0",
     "@storybook/addon-actions": "^5.0.6",
@@ -119,7 +128,6 @@
     "@types/uuid": "^3.4.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.3.1",
-    "babel-loader": "^8.0.5",
     "babel-preset-bluebase": "^2.3.0",
     "babel-preset-expo": "^5.0.0",
     "codacy-coverage": "^3.4.0",
