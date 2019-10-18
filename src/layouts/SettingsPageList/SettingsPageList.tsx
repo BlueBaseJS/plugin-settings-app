@@ -35,13 +35,13 @@ export class SettingsPageList extends React.PureComponent<SettingsPageListProps>
 				<HeaderComponent />
 				<List>
 					<NavigationActions>
-						{({ navigate }) =>
+						{({ navigate, state }) =>
 							(this.props.pages).map(page => {
 								const options = resolveThunk(page.navigationOptions || {});
 
 								const title = getTitle(options);
 								const left = getIcon(options);
-								const onPress = () => navigate(page.name);
+								const onPress = () => navigate(page.name, state.params);
 
 								return (
 									<List.Item key={page.name} onPress={onPress} title={__(title)} left={left} />
