@@ -12,7 +12,7 @@ export default createPlugin({
 	description: 'A settings app for the BlueBase framework!',
 	key: 'settings',
 	name: 'Settings',
-	version: '1.0.0',
+	version: VERSION,
 
 	icon: {
 		component: 'SettingsAppIcon',
