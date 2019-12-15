@@ -1,4 +1,5 @@
-import { BlueBase } from '@bluebase/core';
+import { BlueBase, IntlContextData } from '@bluebase/core';
+
 import { createSettingsRoutes } from '../lib';
 import { pages } from './pages';
 
@@ -11,8 +12,11 @@ export const routes = async (BB: BlueBase) => {
 			name: 'SettingsApp',
 			path: '',
 
-			navigationOptions: {
-				title: 'Settings',
+			navigationOptions: (opts: any) => {
+				const { __ }: IntlContextData = opts.screenProps.intl;
+				return {
+					title: __('Settings'),
+				};
 			},
 		},
 	});
