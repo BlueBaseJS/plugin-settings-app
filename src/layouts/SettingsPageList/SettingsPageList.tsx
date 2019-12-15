@@ -1,6 +1,7 @@
 import { IntlContext, IntlContextData, getComponent, resolveThunk } from '@bluebase/core';
-import { List, NavigationActions, NavigationOptions, Noop } from '@bluebase/components';
+import { List, NavigationOptions, Noop } from '@bluebase/components';
 
+import { ContextBundle } from '../ContextBundle';
 import React from 'react';
 import { SettingsPageProps } from '../SettingsPage';
 
@@ -25,7 +26,8 @@ export class SettingsPageList extends React.PureComponent<SettingsPageListProps>
 	}
 
 	render() {
-		const { __ }: IntlContextData = this.context;
+		const intl: IntlContextData = this.context;
+		const { __ } = intl;
 
 		const HeaderComponent = this.HeaderComponent || Noop;
 		const FooterComponent = this.FooterComponent || Noop;
@@ -34,21 +36,22 @@ export class SettingsPageList extends React.PureComponent<SettingsPageListProps>
 			<React.Fragment>
 				<HeaderComponent />
 				<List>
-					<NavigationActions>
-						{({ navigate, state }) =>
-							(this.props.pages).map(page => {
-								const options = resolveThunk(page.navigationOptions || {});
+					<ContextBundle>
+						{(opts): any =>
+							this.props.pages.map(page => {
+								const options = resolveThunk(page.navigationOptions || {}, opts);
 
 								const title = getTitle(options);
 								const left = getIcon(options);
-								const onPress = () => navigate(page.name, state.params);
+								const onPress = () =>
+									opts.navigation.navigate(page.name, opts.navigation.state.params);
 
 								return (
 									<List.Item key={page.name} onPress={onPress} title={__(title)} left={left} />
 								);
 							})
 						}
-					</NavigationActions>
+					</ContextBundle>
 				</List>
 				<FooterComponent />
 			</React.Fragment>
