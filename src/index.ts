@@ -1,10 +1,10 @@
+import { VERSION } from './version';
 import { components } from './components';
 import { createPlugin } from '@bluebase/core';
 import { defaultConfigs } from './configs';
 import { lang } from './lang';
 import { layouts } from './layouts';
 import { routes } from './routes';
-
 export { SettingsPageProps } from './layouts/SettingsPage';
 export { createSettingsRoutes } from './lib';
 
