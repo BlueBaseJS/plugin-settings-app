@@ -10,7 +10,7 @@ export class DarkModeSwitch extends React.PureComponent {
 		const theme = BB.Configs.getValue('theme.name');
 		const altTheme = await BB.Themes.resolveAlternate(theme);
 		changeTheme(altTheme.key);
-	};
+	}
 
 	render() {
 		const BB: BlueBase = (this as any).context;

@@ -29,7 +29,7 @@ export class SettingsPageDesktop extends React.PureComponent<SettingsPageDesktop
 		title: {
 			padding: theme.spacing.unit * 2,
 		},
-	});
+	})
 
 	renderLayout = (items: SettingsPageItemProps[], bundle: ContextBundleData) => {
 		const styles = this.props.styles as SettingsPageDesktopStyles;
@@ -57,7 +57,7 @@ export class SettingsPageDesktop extends React.PureComponent<SettingsPageDesktop
 				</View>
 			</ScrollView>
 		);
-	};
+	}
 
 	render() {
 		const { filter, items } = this.props;

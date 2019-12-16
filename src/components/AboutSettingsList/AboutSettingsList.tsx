@@ -21,14 +21,14 @@ export class AboutSettingsList extends React.PureComponent<AboutSettingsListProp
 			color: theme.palette.text.disabled,
 			transform: [{ scaleX: I18nManager.isRTL ? -1 : 1 }],
 		},
-	});
+	})
 
 	renderVersion = ({ __ }: IntlContextData) => {
 		const BB: BlueBase = this.context;
 		const version = BB.Configs.getValue('version');
 
 		return version && <List.Item title={__('Version')} description={__(version)} />;
-	};
+	}
 
 	renderAuthor = ({ __ }: IntlContextData) => {
 		const BB: BlueBase = this.context;
@@ -55,7 +55,7 @@ export class AboutSettingsList extends React.PureComponent<AboutSettingsListProp
 		props.right = <Icon name="open-in-new" style={styles.iconRight} />;
 
 		return <ExternalLink Component={List.Item} props={props} href={authorUrl} />;
-	};
+	}
 
 	render() {
 		return (

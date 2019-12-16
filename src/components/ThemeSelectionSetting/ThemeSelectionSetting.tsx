@@ -37,7 +37,7 @@ export class ThemeSelectionSetting extends React.PureComponent {
 	onPress = (theme: { changeTheme: (item: []) => void }, item: any[]) => () => {
 		theme.changeTheme(item[0]);
 		this.toggleDialog();
-	};
+	}
 	renderDialog = () => {
 		const BB: BlueBase = this.context;
 		const themes = [...BB.Themes.entries()];
@@ -63,7 +63,7 @@ export class ThemeSelectionSetting extends React.PureComponent {
 				)}
 			</AllBlueBase>
 		);
-	};
+	}
 	render() {
 		return (
 			<AllBlueBase>

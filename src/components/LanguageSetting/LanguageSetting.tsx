@@ -37,7 +37,7 @@ export class LanguageSetting extends React.PureComponent {
 				)}
 			</IntlContext.Consumer>
 		);
-	};
+	}
 	render() {
 		const BB: BlueBase = (this as any).context;
 		const localeOptions = BB.Configs.getValue('locale.options');
