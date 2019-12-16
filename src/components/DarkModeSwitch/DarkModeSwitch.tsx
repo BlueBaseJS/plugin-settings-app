@@ -4,19 +4,18 @@ import React from 'react';
 import { Switch } from '@bluebase/components';
 
 export class DarkModeSwitch extends React.PureComponent {
+	static contextType: React.Context<BlueBase> = BlueBaseContext;
 
-			static contextType = BlueBaseContext;
+	toggleDarkMode = (changeTheme: ThemeContextData['changeTheme'], BB: BlueBase) => async () => {
+		const theme = BB.Configs.getValue('theme.name');
+		const altTheme = await BB.Themes.resolveAlternate(theme);
+		changeTheme(altTheme.key);
+	}
 
-			toggleDarkMode = (changeTheme: ThemeContextData['changeTheme'], BB: BlueBase) => async () => {
-			const theme = BB.Configs.getValue('theme.name');
-			const altTheme = await BB.Themes.resolveAlternate(theme);
-			changeTheme(altTheme.key);
-		}
+	render() {
+		const BB: BlueBase = (this as any).context;
 
-			render() {
-			const BB: BlueBase = (this as any).context;
-
-			return (
+		return (
 			<ThemeContext.Consumer>
 				{({ changeTheme, theme }: ThemeContextData) => (
 					<Switch
@@ -28,5 +27,5 @@ export class DarkModeSwitch extends React.PureComponent {
 				)}
 			</ThemeContext.Consumer>
 		);
-		}
+	}
 }

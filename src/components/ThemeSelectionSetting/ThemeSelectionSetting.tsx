@@ -15,9 +15,9 @@ const AllBlueBase = ({ children }: { children: RenderPropChildren }) => (
 	<BlueBaseConsumer>
 		{(BB: BlueBase) => (
 			<ThemeConsumer>
-				{(theme) => (
+				{theme => (
 					<IntlConsumer>
-						{(intl) => renderChildrenWithProps(children, { BB, theme, intl })}
+						{intl => renderChildrenWithProps(children, { BB, theme, intl })}
 					</IntlConsumer>
 				)}
 			</ThemeConsumer>
@@ -26,35 +26,29 @@ const AllBlueBase = ({ children }: { children: RenderPropChildren }) => (
 );
 
 export class ThemeSelectionSetting extends React.PureComponent {
+	static contextType: React.Context<BlueBase> = BlueBaseContext;
 
-			static contextType = BlueBaseContext;
+	readonly state = {
+		visible: false,
+	};
 
-			readonly state = {
-			visible: false
-		};
+	toggleDialog = () => this.setState({ visible: !this.state.visible });
 
-			toggleDialog = () => this.setState({ visible: !this.state.visible });
+	onPress = (theme: { changeTheme: (item: []) => void }, item: any[]) => () => {
+		theme.changeTheme(item[0]);
+		this.toggleDialog();
+	}
+	renderDialog = () => {
+		const BB: BlueBase = this.context;
+		const themes = [...BB.Themes.entries()];
 
-			onPress = (theme: { changeTheme: (item: []) => void }, item: any[]) => () => {
-			theme.changeTheme(item[0]);
-			this.toggleDialog();
-		}
-			renderDialog = () => {
-
-			const BB: BlueBase = this.context;
-			const themes = [...BB.Themes.entries()];
-
-			return (
+		return (
 			<AllBlueBase>
 				{({ intl, theme }) => (
-					<Dialog
-						visible={this.state.visible}
-						onDismiss={this.toggleDialog}
-					>
+					<Dialog visible={this.state.visible} onDismiss={this.toggleDialog}>
 						<List>
 							<List.Subheader>{intl.__('Available Themes')}</List.Subheader>
 							{themes.map(item => {
-
 								return (
 									<List.Item
 										title={intl.__(item[1].name)}
@@ -69,9 +63,9 @@ export class ThemeSelectionSetting extends React.PureComponent {
 				)}
 			</AllBlueBase>
 		);
-		}
-			render() {
-			return (
+	}
+	render() {
+		return (
 			<AllBlueBase>
 				{({ intl, theme }) => (
 					<React.Fragment>
@@ -86,5 +80,5 @@ export class ThemeSelectionSetting extends React.PureComponent {
 				)}
 			</AllBlueBase>
 		);
-		}
+	}
 }

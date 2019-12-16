@@ -1,4 +1,5 @@
 import { BlueBaseFilter, Divider, FormattedMessage, H6, View } from '@bluebase/components';
+import { ContextBundle, ContextBundleData } from '../ContextBundle';
 import { ScrollView, StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Theme, getComponent, resolveThunk } from '@bluebase/core';
 
@@ -9,8 +10,8 @@ import { SettingsPageProps } from '../SettingsPage';
 const SettingsPageItemDesktop = getComponent('SettingsPageItemDesktop');
 
 export interface SettingsPageDesktopStyles {
-			title: StyleProp<TextStyle>;
-			root: StyleProp<ViewStyle>;
+	title: StyleProp<TextStyle>;
+	root: StyleProp<ViewStyle>;
 }
 
 export interface SettingsPageDesktopProps extends SettingsPageProps {
@@ -18,25 +19,25 @@ export interface SettingsPageDesktopProps extends SettingsPageProps {
 }
 
 export class SettingsPageDesktop extends React.PureComponent<SettingsPageDesktopProps> {
-			static defaultProps: Partial<SettingsPageDesktopProps> = {};
+	static defaultProps: Partial<SettingsPageDesktopProps> = {};
 
-			static defaultStyles = (theme: Theme): SettingsPageDesktopStyles => ({
-			root: {
+	static defaultStyles = (theme: Theme): SettingsPageDesktopStyles => ({
+		root: {
 			backgroundColor: theme.palette.background.default,
 			flex: 1,
 		},
-			title: {
+		title: {
 			padding: theme.spacing.unit * 2,
 		},
-		})
+	})
 
-			renderLayout = (items: SettingsPageItemProps[]) => {
-			const styles = this.props.styles as SettingsPageDesktopStyles;
+	renderLayout = (items: SettingsPageItemProps[], bundle: ContextBundleData) => {
+		const styles = this.props.styles as SettingsPageDesktopStyles;
 
-			const navigationOptions = resolveThunk(this.props.navigationOptions || {});
-			const title = navigationOptions.title || navigationOptions.headerTitle;
+		const navigationOptions = resolveThunk(this.props.navigationOptions || {}, bundle);
+		const title = navigationOptions.title || navigationOptions.headerTitle;
 
-			return (
+		return (
 			<ScrollView>
 				<View style={styles.root}>
 					{title && (
@@ -56,17 +57,19 @@ export class SettingsPageDesktop extends React.PureComponent<SettingsPageDesktop
 				</View>
 			</ScrollView>
 		);
-		}
+	}
 
-			render() {
-			const { filter, items } = this.props;
+	render() {
+		const { filter, items } = this.props;
 
-			return (
+		return (
 			<BlueBaseFilter filter={`${filter}.page.desktop`} value={items} args={this.props}>
-				{filteredItems => this.renderLayout(filteredItems)}
+				{filteredItems => (
+					<ContextBundle>{bundle => this.renderLayout(filteredItems, bundle)}</ContextBundle>
+				)}
 			</BlueBaseFilter>
 		);
-		}
+	}
 }
 
 export default SettingsPageDesktop;
