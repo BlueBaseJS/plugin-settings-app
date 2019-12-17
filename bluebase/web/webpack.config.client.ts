@@ -1,3 +1,3 @@
-export default function (input: any) {
+export default function(input: any) {
 	return input;
 }

@@ -1,31 +1,27 @@
 import { BlueBase, BlueBaseContext, IntlContext, IntlContextData } from '@bluebase/core';
 import { Dialog, List } from '@bluebase/components';
+
 import React from 'react';
 
 export class LanguageSetting extends React.PureComponent {
+	static contextType: React.Context<BlueBase> = BlueBaseContext;
 
-			static contextType = BlueBaseContext;
+	readonly state = {
+		visible: false,
+	};
 
-			readonly state = {
-			visible: false
-		};
+	toggleDialog = () => this.setState({ visible: !this.state.visible });
 
-			toggleDialog = () => this.setState({ visible: !this.state.visible });
+	renderDialog = () => {
+		const BB: BlueBase = (this as any).context;
+		const localeOptions = BB.Configs.getValue('locale.options');
 
-			renderDialog = () => {
-			const BB: BlueBase = (this as any).context;
-			const localeOptions = BB.Configs.getValue('locale.options');
-
-			return (
+		return (
 			<IntlContext.Consumer>
 				{({ changeLocale, locale }: IntlContextData) => (
-					<Dialog
-						visible={this.state.visible}
-						onDismiss={this.toggleDialog}
-					>
+					<Dialog visible={this.state.visible} onDismiss={this.toggleDialog}>
 						<List>
 							{Object.keys(localeOptions).map(localeKey => {
-
 								const onPress = () => changeLocale(localeKey);
 								return (
 									<List.Item
@@ -38,15 +34,15 @@ export class LanguageSetting extends React.PureComponent {
 							})}
 						</List>
 					</Dialog>
-			)}
+				)}
 			</IntlContext.Consumer>
 		);
-		}
-			render() {
-			const BB: BlueBase = (this as any).context;
-			const localeOptions = BB.Configs.getValue('locale.options');
+	}
+	render() {
+		const BB: BlueBase = (this as any).context;
+		const localeOptions = BB.Configs.getValue('locale.options');
 
-			return (
+		return (
 			<IntlContext.Consumer>
 				{({ __, locale }: IntlContextData) => (
 					<React.Fragment>
@@ -58,8 +54,8 @@ export class LanguageSetting extends React.PureComponent {
 							onPress={this.toggleDialog}
 						/>
 					</React.Fragment>
-			)}
+				)}
 			</IntlContext.Consumer>
 		);
-		}
+	}
 }

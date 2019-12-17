@@ -1,6 +1,7 @@
-import { Body2, Card, ListItem, List, View, H5 } from '@bluebase/components';
-import { BlueBase, BlueBaseContext, isMobile, Theme } from '@bluebase/core';
+import { BlueBase, BlueBaseContext, Theme, isMobile } from '@bluebase/core';
+import { Body2, Card, H5, List, ListItem, View } from '@bluebase/components';
 import { Linking, LinkingStatic, Platform, StyleProp, TextStyle, ViewStyle } from 'react-native';
+
 import React from 'react';
 
 export interface SupportListStyles {

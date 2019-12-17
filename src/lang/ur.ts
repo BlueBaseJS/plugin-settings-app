@@ -20,6 +20,7 @@ export const ur = (messages: IntlMessages) => ({
 	'Left to Right': 'بائیں سے دائیں',
 	'Right to Left': 'دائیں سے بائیں',
 	Setting: 'ترتیبات',
+	Settings: 'ترتیبات',
 	'Switch to Dark Mode': 'ڈارک موڈ میں تبدیل کریں',
 	'Text Direction': 'سمت ٕ متن',
 	'Text Direction will automatically changed based on selected language.':
