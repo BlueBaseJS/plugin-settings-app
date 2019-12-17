@@ -97,6 +97,8 @@ jobs:
     name: Expo Publish
     needs: test
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+
     container:
       image: bluebasejs/github-actions-image
       options: --privileged
