@@ -86,6 +86,7 @@
   "devDependencies": {
     "@babel/cli": "^7.7.5",
     "@babel/core": "^7.7.5",
+    "@bluebase/babel-preset-bluebase": "^2.4.1",
     "@bluebase/cli-essentials": "^0.0.5",
     "@bluebase/code-standards": "^1.4.0",
     "@bluebase/core": "^5.5.0",
