@@ -1,8 +1,8 @@
 import { Icon, List } from '@bluebase/components';
 import { useConfig, useIntl, useTheme } from '@bluebase/core';
 
-import ExternalLink from '../../components/ExternalLink';
 import React from 'react';
+import { openBrowserAsync } from 'expo-web-browser';
 
 export const DeveloperSetting = () => {
 	const { __, rtl } = useIntl();
@@ -16,26 +16,27 @@ export const DeveloperSetting = () => {
 		return null;
 	}
 
-	const props: any = {
-		description: __(author),
-		title: __('Developed by'),
-	};
+	const onPress = authorUrl ? () => openBrowserAsync(authorUrl) : undefined;
 
-	// If there is not authorUrl, only render name
-	if (!authorUrl) {
-		return <List.Item {...props} />;
-	}
-
-	props.right = (
-		<Icon
-			name="open-in-new"
-			style={{
-				color: theme.palette.text.disabled,
-				transform: [{ scaleX: rtl ? -1 : 1 }],
-			}}
+	return (
+		<List.Item
+			title={__('Developed by')}
+			description={__(author)}
+			left={<List.Icon name="domain" />}
+			onPress={onPress}
+			right={
+				authorUrl ? (
+					<Icon
+						name="open-in-new"
+						style={{
+							color: theme.palette.text.disabled,
+							transform: [{ scaleX: rtl ? -1 : 1 }],
+						}}
+					/>
+				) : (
+					undefined
+				)
+			}
 		/>
 	);
-	props.left = <List.Icon name="domain" />;
-
-	return <ExternalLink Component={List.Item} props={props} href={authorUrl} />;
 };
