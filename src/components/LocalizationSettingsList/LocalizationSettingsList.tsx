@@ -1,10 +1,9 @@
-import { BlueBase, BlueBaseContext, getComponent } from '@bluebase/core';
+import { BlueBase, BlueBaseContext } from '@bluebase/core';
 import { Divider, List } from '@bluebase/components';
 
+import LanguageSetting from '../../settings/LanguageSetting';
 import React from 'react';
-
-const TextDirectionSetting = getComponent('TextDirectionSetting', 'Noop');
-const LanguageSetting = getComponent('LanguageSetting', 'Noop');
+import TextDirectionSetting from '../../settings/TextDirectionSetting';
 
 export class LocalizationSettingsList extends React.PureComponent {
 	static contextType: React.Context<BlueBase> = BlueBaseContext;

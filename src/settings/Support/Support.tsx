@@ -149,7 +149,7 @@ export class Support extends React.PureComponent<SupportListProps> {
 							<ListItem
 								left={<List.Icon name={'email'} />}
 								onPress={this.openEmailLink}
-								title={'Email'}
+								title={'sdfsdfs'}
 								description={email}
 								disabled={!canCall}
 							/>

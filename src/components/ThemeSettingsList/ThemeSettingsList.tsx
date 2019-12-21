@@ -1,9 +1,9 @@
 import { BlueBase, BlueBaseContext, getComponent } from '@bluebase/core';
 import { Divider, List } from '@bluebase/components';
 
+import DarkModeSetting from '../../settings/DarkModeSetting';
 import React from 'react';
 
-const DarkModeSetting = getComponent('DarkModeSetting', 'Noop');
 const ThemeSelectionSetting = getComponent('ThemeSelectionSetting', 'Noop');
 
 export class ThemeSettingsList extends React.PureComponent {

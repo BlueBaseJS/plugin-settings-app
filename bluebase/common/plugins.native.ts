@@ -5,19 +5,11 @@ import ReactNativePaperPlugin from '@bluebase/plugin-react-native-paper';
 import ReactNavigationPlugin from '@bluebase/plugin-react-navigation';
 import ResponsiveGrid from '@bluebase/plugin-responsive-grid';
 
-export default {
-	plugins: [
-		MaterialCommunityIcons,
-		Launcher,
-		ResponsiveGrid,
-		ReactNativePaperPlugin,
-		ReactNavigationPlugin,
-		Plugin,
-	],
-
-	configs: {
-		author: 'BlueEast',
-		authorUrl: 'https://www.blueeast.com',
-		version: '2.3.1',
-	},
-};
+export const plugins = [
+	Launcher,
+	MaterialCommunityIcons,
+	ReactNativePaperPlugin,
+	ReactNavigationPlugin,
+	ResponsiveGrid,
+	Plugin,
+];
