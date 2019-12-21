@@ -1,16 +1,11 @@
-import { getComponent, useBlueBase } from '@bluebase/core';
-
 import { JsonLayoutProps } from '@bluebase/plugin-json-schema-components';
 import React from 'react';
+import { getComponent } from '@bluebase/core';
 
 const JsonLayout = getComponent<JsonLayoutProps>('JsonLayout');
 
 export const AppearanceSettingList = () => {
-	const BB = useBlueBase();
-
-	const items = ['DarkModeSetting']
-		.map(name => (BB.Components.has(name) ? name : undefined))
-		.filter(x => !!x);
+	const items = ['DarkModeSetting'];
 
 	return (
 		<JsonLayout

@@ -1,15 +1,27 @@
-import { Divider, View } from '@bluebase/components';
+import { Divider, List } from '@bluebase/components';
+import { getComponent, useBlueBase } from '@bluebase/core';
 
 import React from 'react';
-import { getComponent } from '@bluebase/core';
 
 export interface SettingListProps {
 	items: Array<string | React.ComponentType<any>>;
 }
 
-export const SettingList = ({ items }: SettingListProps) => {
+export const SettingList = (props: SettingListProps) => {
+	const BB = useBlueBase();
+
+	const items = props.items
+		.map(name => {
+			if (typeof name === 'string') {
+				return BB.Components.has(name) ? name : undefined;
+			}
+
+			return name;
+		})
+		.filter(x => !!x) as Array<string | React.ComponentType<any>>;
+
 	return (
-		<View>
+		<List>
 			{items.map((item, index) => {
 				const Component = getComponent(item, 'EmptyState');
 				return (
@@ -19,6 +31,6 @@ export const SettingList = ({ items }: SettingListProps) => {
 					</React.Fragment>
 				);
 			})}
-		</View>
+		</List>
 	);
 };

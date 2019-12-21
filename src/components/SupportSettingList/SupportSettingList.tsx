@@ -1,16 +1,11 @@
-import { getComponent, useBlueBase } from '@bluebase/core';
-
 import { JsonLayoutProps } from '@bluebase/plugin-json-schema-components';
 import React from 'react';
+import { getComponent } from '@bluebase/core';
 
 const JsonLayout = getComponent<JsonLayoutProps>('JsonLayout');
 
 export const SupportSettingList = () => {
-	const BB = useBlueBase();
-
-	const items = ['CallSupportSetting', 'EmailSupportSetting']
-		.map(name => (BB.Components.has(name) ? name : undefined))
-		.filter(x => !!x);
+	const items = ['CallSupportSetting', 'EmailSupportSetting'];
 
 	return (
 		<JsonLayout
