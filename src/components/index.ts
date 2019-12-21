@@ -1,30 +1,22 @@
-import { AboutList } from './AboutList';
-import { AboutSettingsList } from './AboutSettingsList';
-import { LanguageSetting } from './LanguageSetting';
-import { LocalizationSettingsList } from './LocalizationSettingsList';
-import { Privacy } from './Privacy';
+import { AppearanceSettingList } from './AppearanceSettingList';
+import { InformationSettingList } from './InformationSettingList';
+import { LanguageSettingList } from './LanguageSettingList';
+import { LegalSettingList } from './LegalSettingList';
 import { PrivacyPolicy } from './PrivacyPolicy';
-import { PrivacySettingList } from './PrivacySettingList';
+import { SettingList } from './SettingList';
 import { SettingsAppIcon } from './SettingsAppIcon';
 import { SupportSettingList } from './SupportSettingList';
-import { TermSettingList } from './TermSettingList';
-import { Terms } from './Terms';
-import { ThemeSelectionSetting } from './ThemeSelectionSetting';
-import { ThemeSettingsList } from './ThemeSettingsList';
+import { TermsOfService } from './TermsOfService';
 
 export const components = {
-	AboutList,
-	AboutSettingsList,
-	LanguageSetting,
-	LocalizationSettingsList,
-	Privacy,
-	PrivacyPolicy,
-	PrivacySettingList,
-	SettingsAppIcon,
+	AppearanceSettingList,
+	InformationSettingList,
+	LanguageSettingList,
+	LegalSettingList,
 	SupportSettingList,
-	Terms,
-	TextDirectionSetting,
-	TermSettingList,
-	ThemeSelectionSetting,
-	ThemeSettingsList,
+
+	PrivacyPolicy,
+	SettingList,
+	SettingsAppIcon,
+	TermsOfService,
 };

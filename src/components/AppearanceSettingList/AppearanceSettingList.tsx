@@ -5,10 +5,10 @@ import React from 'react';
 
 const JsonLayout = getComponent<JsonLayoutProps>('JsonLayout');
 
-export const SupportSettingList = () => {
+export const AppearanceSettingList = () => {
 	const BB = useBlueBase();
 
-	const items = ['CallSupportSetting', 'EmailSupportSetting']
+	const items = ['DarkModeSetting']
 		.map(name => (BB.Components.has(name) ? name : undefined))
 		.filter(x => !!x);
 

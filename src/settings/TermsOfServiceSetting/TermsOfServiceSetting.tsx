@@ -2,7 +2,7 @@ import { Dialog, Divider, List, Text, View } from '@bluebase/components';
 import React, { useState } from 'react';
 import { getComponent, useIntl } from '@bluebase/core';
 
-const TermsOfService = getComponent('TermsOfService', 'Noop');
+const TermsOfService = getComponent('TermsOfService', 'EmptyState');
 
 export const TermsOfServiceSetting = () => {
 	const { __ } = useIntl();

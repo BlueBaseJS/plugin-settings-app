@@ -2,7 +2,7 @@ import { Dialog, Divider, List, Text, View } from '@bluebase/components';
 import React, { useState } from 'react';
 import { getComponent, useIntl } from '@bluebase/core';
 
-const Privacy = getComponent('Privacy', 'Noop');
+const PrivacyPolicy = getComponent('PrivacyPolicy', 'EmptyState');
 
 export const PrivacySetting = () => {
 	const { __ } = useIntl();
@@ -17,7 +17,7 @@ export const PrivacySetting = () => {
 				<View testID="test-listItem" style={{ padding: 8 }}>
 					<Text style={{ paddingBottom: 4, fontWeight: 'bold' }}>{__('Privacy')}</Text>
 					<Divider />
-					<Privacy />
+					<PrivacyPolicy />
 				</View>
 			</Dialog>
 		</React.Fragment>

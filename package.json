@@ -90,6 +90,7 @@
     "@bluebase/cli-essentials": "^0.0.5",
     "@bluebase/code-standards": "2.2.4",
     "@bluebase/core": "^5.8.0",
+    "@bluebase/plugin-json-schema-components": "^2.5.2",
     "@bluebase/plugin-launcher": "^1.1.0",
     "@bluebase/plugin-material-ui": "^2.10.1",
     "@bluebase/plugin-react-native-paper": "^2.2.0",

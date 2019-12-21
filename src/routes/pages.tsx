@@ -12,15 +12,15 @@ export const pages: SettingsPageProps[] = [
 
 		items: [
 			{
-				component: 'ThemeSettingsList',
+				component: 'AppearanceSettingList',
 				description: 'All your theme related settings reside here.',
-				name: 'theme-settings',
+				name: 'appearance',
 				title: 'Appearance',
 			},
 			{
-				component: 'LocalizationSettingsList',
+				component: 'LanguageSettingList',
 				description: 'Change your language settings here',
-				name: 'language-settings',
+				name: 'language',
 				title: 'Language',
 			},
 		],
@@ -36,17 +36,19 @@ export const pages: SettingsPageProps[] = [
 
 		items: [
 			{
-				component: 'AboutList',
-				title: 'About',
-			},
-			{
 				component: 'SupportSettingList',
+				name: 'support',
 				title: 'Support',
 			},
 			{
-				component: 'TermSettingList',
-				name: 'Privacy and Terms',
-				title: 'Privacy and Terms',
+				component: 'InformationSettingList',
+				name: 'information',
+				title: 'Information',
+			},
+			{
+				component: 'LegalSettingList',
+				name: 'legal',
+				title: 'Legal',
 			},
 		],
 	} as any,

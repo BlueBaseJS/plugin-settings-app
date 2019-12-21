@@ -1,3 +1,4 @@
+import JsonSchemaComponents from '@bluebase/plugin-json-schema-components';
 import Launcher from '@bluebase/plugin-launcher';
 import { MaterialCommunityIcons } from '@bluebase/plugin-vector-icons';
 import MaterialUIPLugin from '@bluebase/plugin-material-ui';
@@ -11,5 +12,6 @@ export const plugins = [
 	MaterialUIPLugin,
 	ReactRouterPlugin,
 	ResponsiveGrid,
+	JsonSchemaComponents,
 	Plugin,
 ];

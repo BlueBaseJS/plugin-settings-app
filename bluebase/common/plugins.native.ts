@@ -1,3 +1,4 @@
+import JsonSchemaComponents from '@bluebase/plugin-json-schema-components';
 import Launcher from '@bluebase/plugin-launcher';
 import { MaterialCommunityIcons } from '@bluebase/plugin-vector-icons';
 import Plugin from '../../src';
@@ -11,5 +12,6 @@ export const plugins = [
 	ReactNativePaperPlugin,
 	ReactNavigationPlugin,
 	ResponsiveGrid,
+	JsonSchemaComponents,
 	Plugin,
 ];
