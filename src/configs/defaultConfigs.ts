@@ -1,32 +1,27 @@
 export const defaultConfigs = {
-	/** Enable appearnace page */
-	'plugin.settings-app.general': false,
-
-	/** Enable theme section, on appearnace page */
-	'plugin.settings-app.general.appearance': false,
-
-	/** Enable dark mode setting in theme section, on appearnace page */
-	'plugin.settings-app.general.appearance.dark-mode': true,
-
-	/** Enable theme selection setting in theme section, on appearnace page */
-	'plugin.settings-app.general.appearance.theme.selection': false,
-
-	/** Enable language section, on language page */
-	'plugin.settings-app.general.language': false,
-
-	/** Enable text direction setting in language section, on language page */
-	'plugin.settings-app.general.language.text-direction': true,
-
-	/** Enable language selection setting in language section, on language page */
-	'plugin.settings-app.general.language.selection': true,
-
-	/** Enable appearance page */
-	'plugin.settings-app.about': false,
-
-	'plugin.settings-app.about.information': false,
-
-	///////// Acceptable
+	/** Support email. If set, Email option is show in Support section of About page */
 	'plugin.settings-app.support.email': null,
+
+	/**
+	 * A Number, from 0 to 6, representing the day of the week.
+	 * Specifies the days support is available. Defaults to Mon-Fri.
+	 */
+	'plugin.settings-app.support.call.days': [1, 2, 3, 4, 5],
+
+	/**
+	 * Call support opening hour in HH format UTC.
+	 */
+	'plugin.settings-app.support.call.opens': null,
+
+	/**
+	 * Call support closing hour in HH format UTC.
+	 */
+	'plugin.settings-app.support.call.closes': null,
+
+	/**
+	 * Phone number for call center
+	 */
+	'plugin.settings-app.support.call.number': null,
 
 	/** Adds developer on about page  */
 	developer: 'Blueeast',

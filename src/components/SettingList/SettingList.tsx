@@ -23,10 +23,9 @@ export const SettingList = (props: SettingListProps) => {
 	return (
 		<List>
 			{items.map((item, index) => {
-				const Component = getComponent(item, 'EmptyState');
 				return (
 					<React.Fragment key={index}>
-						<Component />
+						{React.createElement(getComponent(item, 'EmptyState'))}
 						{index < items.length - 1 ? <Divider inset /> : null}
 					</React.Fragment>
 				);

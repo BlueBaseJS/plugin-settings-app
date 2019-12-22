@@ -1,13 +1,15 @@
+// tslint:disable: radix
 import { Body2, List } from '@bluebase/components';
+import React, { useEffect, useState } from 'react';
 import { Theme, getComponent, useConfig, useIntl } from '@bluebase/core';
 
 import { LinkingSettingItemProps } from '../../components/exports';
-import React from 'react';
 import { TextStyle } from 'react-native';
+import { isSupportOpen } from './isSupportOpen';
 
 export interface CallSupportSettingStyles {
 	callNowText: TextStyle;
-	callCenterClosedText: TextStyle;
+	closedText: TextStyle;
 }
 
 export interface CallSupportSettingProps {
@@ -19,37 +21,53 @@ const LinkingSettingItem = getComponent<LinkingSettingItemProps>('LinkingSetting
 export const CallSupportSetting = ({ styles = {} }: CallSupportSettingProps) => {
 	const { __ } = useIntl();
 
-	const [opens] = useConfig<number>('usermanagement.call-center.opens');
-	const [closes] = useConfig<number>('usermanagement.call-center.closes');
-	const [phoneNumber] = useConfig('usermanagement.call-center.number');
+	const [days] = useConfig('plugin.settings-app.support.call.days');
+	const [opens] = useConfig('plugin.settings-app.support.call.opens');
+	const [closes] = useConfig('plugin.settings-app.support.call.closes');
+	const [phoneNumber] = useConfig('plugin.settings-app.support.call.number');
 
-	const currentHour = new Date().getHours();
-	const canCall = currentHour >= opens && currentHour <= closes ? true : false;
+	const checkCanCall = () => isSupportOpen(new Date(), days, parseInt(opens), parseInt(closes));
 
-	const description = canCall ? (
-		<Body2 style={styles.callNowText}>{__('Call Now')}</Body2>
-	) : (
-		<Body2 style={styles.callCenterClosedText}>{__('Call Center Closed')}</Body2>
-	);
+	const [canCall, setCanCall] = useState(checkCanCall());
+
+	// Update every minute
+	useEffect(() => {
+		const id = setInterval(() => {
+			setCanCall(checkCanCall());
+		}, 60000);
+		return () => clearInterval(id);
+	});
 
 	return (
 		<LinkingSettingItem
 			url={`tel:${phoneNumber}`}
 			left={<List.Icon name="phone" />}
-			title={__('Call Support')}
-			description={description}
+			right={
+				canCall ? (
+					<Body2 style={styles.callNowText} testID="call-status">
+						{__('Call Now')}
+					</Body2>
+				) : (
+					<Body2 style={styles.closedText} testID="call-status">
+						{__('Closed')}
+					</Body2>
+				)
+			}
+			title={__('Call')}
+			description={phoneNumber}
 			disabled={!canCall}
 		/>
 	);
 };
 
 CallSupportSetting.defaultStyles = (theme: Theme): CallSupportSettingStyles => ({
-	callCenterClosedText: {
-		color: theme.palette.error.main,
-		textTransform: 'uppercase',
-	},
 	callNowText: {
 		color: theme.palette.success.main,
+		textTransform: 'uppercase',
+	},
+
+	closedText: {
+		color: theme.palette.error.main,
 		textTransform: 'uppercase',
 	},
 });
