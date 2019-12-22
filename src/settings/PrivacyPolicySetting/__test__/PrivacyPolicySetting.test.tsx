@@ -49,5 +49,6 @@ describe('PrivacyPolicySetting', () => {
 		).toBe(true);
 
 		expect(wrapper.find('PrivacyPolicy').exists()).toBe(true);
+		wrapper.unmount();
 	});
 });

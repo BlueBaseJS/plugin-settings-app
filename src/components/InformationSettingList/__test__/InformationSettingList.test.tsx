@@ -24,5 +24,6 @@ describe('InformationSettingList', () => {
 
 		expect(wrapper.find(VersionSetting).exists()).toBe(true);
 		expect(wrapper.find(DeveloperSetting).exists()).toBe(true);
+		wrapper.unmount();
 	});
 });

@@ -85,5 +85,6 @@ describe('TextDirectionSetting', () => {
 				.first()
 				.prop('name')
 		).toBe('format-textdirection-r-to-l');
+		wrapper.unmount();
 	});
 });

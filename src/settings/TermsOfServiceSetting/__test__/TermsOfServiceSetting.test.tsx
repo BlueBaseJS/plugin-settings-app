@@ -49,5 +49,6 @@ describe('TermsOfServiceSetting', () => {
 		).toBe(true);
 
 		expect(wrapper.find('TermsOfService').exists()).toBe(true);
+		wrapper.unmount();
 	});
 });

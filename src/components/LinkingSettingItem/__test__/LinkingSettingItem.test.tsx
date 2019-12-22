@@ -46,5 +46,6 @@ describe('LinkingSettingItem', () => {
 		onPress();
 
 		expect(Linking.openURL).toHaveBeenCalledTimes(1);
+		wrapper.unmount();
 	});
 });

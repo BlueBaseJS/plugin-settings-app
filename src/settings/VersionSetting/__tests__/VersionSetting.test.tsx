@@ -22,5 +22,6 @@ describe('VersionSetting', () => {
 				.first()
 				.prop('description')
 		).toBe('5.1.6');
+		wrapper.unmount();
 	});
 });

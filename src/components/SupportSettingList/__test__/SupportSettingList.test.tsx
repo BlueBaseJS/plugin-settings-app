@@ -24,5 +24,6 @@ describe('SupportSettingList', () => {
 
 		expect(wrapper.find(CallSupportSetting).exists()).toBe(true);
 		expect(wrapper.find(EmailSupportSetting).exists()).toBe(true);
+		wrapper.unmount();
 	});
 });

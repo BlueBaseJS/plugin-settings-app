@@ -39,5 +39,6 @@ describe('DarkModeSetting', () => {
 				.first()
 				.prop('checked')
 		).toBe(true);
+		wrapper.unmount();
 	});
 });

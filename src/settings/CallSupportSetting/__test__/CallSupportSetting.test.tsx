@@ -50,8 +50,8 @@ describe('CallSupportSetting', () => {
 				.text()
 		).toBe('Closed');
 
-		wrapper.unmount();
 		mockdate.reset();
+		wrapper.unmount();
 	});
 
 	it('should render CallSupportSetting with open status', async () => {
@@ -93,7 +93,7 @@ describe('CallSupportSetting', () => {
 				.text()
 		).toBe('Call Now');
 
-		wrapper.unmount();
 		mockdate.reset();
+		wrapper.unmount();
 	});
 });

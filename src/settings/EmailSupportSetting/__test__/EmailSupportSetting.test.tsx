@@ -35,5 +35,6 @@ describe('EmailSupportSetting', () => {
 				.first()
 				.prop('description')
 		).toBe('test@blueeast.com');
+		wrapper.unmount();
 	});
 });

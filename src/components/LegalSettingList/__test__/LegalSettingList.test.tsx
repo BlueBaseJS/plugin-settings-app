@@ -24,5 +24,6 @@ describe('LegalSettingList', () => {
 
 		expect(wrapper.find(TermsOfServiceSetting).exists()).toBe(true);
 		expect(wrapper.find(PrivacyPolicySetting).exists()).toBe(true);
+		wrapper.unmount();
 	});
 });

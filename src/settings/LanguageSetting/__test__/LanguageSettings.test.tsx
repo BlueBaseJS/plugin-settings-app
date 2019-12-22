@@ -69,5 +69,6 @@ describe('languageSetting', () => {
 				.first()
 				.prop('description')
 		).toBe('اُردُو');
+		wrapper.unmount();
 	});
 });

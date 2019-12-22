@@ -21,6 +21,7 @@ describe('DeveloperSetting', () => {
 		await waitForElement(wrapper, 'DeveloperSetting');
 
 		expect(wrapper.find(List.Item).exists()).toBe(false);
+		wrapper.unmount();
 	});
 
 	it('should render unpressable list item if developerUrl is null', async () => {
@@ -43,6 +44,7 @@ describe('DeveloperSetting', () => {
 				.first()
 				.prop('onPress')
 		).toBe(undefined);
+		wrapper.unmount();
 	});
 
 	it('should render pressable list item if developerUrl is not null', async () => {
@@ -75,6 +77,7 @@ describe('DeveloperSetting', () => {
 				.first()
 				.prop('onPress')
 		).toBeTruthy();
+		wrapper.unmount();
 	});
 
 	it('should render inverted right icon on rtl layout', async () => {
@@ -94,5 +97,6 @@ describe('DeveloperSetting', () => {
 				.last()
 				.prop('style') as any).transform
 		).toStrictEqual([{ scaleX: -1 }]);
+		wrapper.unmount();
 	});
 });
