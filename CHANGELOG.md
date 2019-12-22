@@ -1,3 +1,13 @@
+# [2.0.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v1.2.0...v2.0.0) (2019-12-22)
+
+### Features
+
+-   New API + Support Section ([#28](https://github.com/BlueBaseJS/plugin-settings-app/issues/28)) ([830dd1c](https://github.com/BlueBaseJS/plugin-settings-app/commit/830dd1c))
+
+### BREAKING CHANGES
+
+-   Config properties are changed.
+
 # [1.2.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v1.1.0...v1.2.0) (2019-12-18)
 
 ### Bug Fixes
