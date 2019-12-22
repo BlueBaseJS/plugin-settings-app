@@ -16,9 +16,7 @@ export const DeveloperSetting = () => {
 		return null;
 	}
 
-	const onPress = developerUrl
-		? () => openBrowserAsync(developerUrl, { showTitle: true })
-		: undefined;
+	const onPress = developerUrl ? () => openBrowserAsync(developerUrl) : undefined;
 
 	return (
 		<List.Item

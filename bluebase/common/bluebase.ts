@@ -7,7 +7,7 @@ export default {
 		'usermanagement.call-center.closes': 21,
 		'usermanagement.call-center.number': '042-111-258-378',
 		'usermanagement.call-center.opens': 8,
-		'usermanagement.email': 'humans@blueeast.com',
+		'plugin.settings-app.support.email': 'humans@blueeast.com',
 
 		developer: 'BlueEast',
 		developerUrl: 'https://www.blueeast.com',

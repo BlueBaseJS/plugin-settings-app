@@ -25,6 +25,9 @@ export const defaultConfigs = {
 
 	'plugin.settings-app.about.information': false,
 
+	///////// Acceptable
+	'plugin.settings-app.support.email': null,
+
 	/** Adds developer on about page  */
 	developer: 'Blueeast',
 

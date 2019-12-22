@@ -8,7 +8,7 @@ const LinkingSettingItem = getComponent<LinkingSettingItemProps>('LinkingSetting
 
 export const EmailSupportSetting = () => {
 	const { __ } = useIntl();
-	const [email] = useConfig('usermanagement.email');
+	const [email] = useConfig('plugin.settings-app.support.email');
 
 	return (
 		<LinkingSettingItem
