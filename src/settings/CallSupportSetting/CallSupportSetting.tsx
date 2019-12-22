@@ -1,8 +1,9 @@
 import { Body2, List } from '@bluebase/components';
-import { Linking, TextStyle } from 'react-native';
-import { Theme, useConfig, useIntl } from '@bluebase/core';
+import { Theme, getComponent, useConfig, useIntl } from '@bluebase/core';
 
+import { LinkingSettingItemProps } from '../../components/exports';
 import React from 'react';
+import { TextStyle } from 'react-native';
 
 export interface CallSupportSettingStyles {
 	callNowText: TextStyle;
@@ -12,6 +13,8 @@ export interface CallSupportSettingStyles {
 export interface CallSupportSettingProps {
 	styles?: Partial<CallSupportSettingStyles>;
 }
+
+const LinkingSettingItem = getComponent<LinkingSettingItemProps>('LinkingSettingItem');
 
 export const CallSupportSetting = ({ styles = {} }: CallSupportSettingProps) => {
 	const { __ } = useIntl();
@@ -29,12 +32,10 @@ export const CallSupportSetting = ({ styles = {} }: CallSupportSettingProps) => 
 		<Body2 style={styles.callCenterClosedText}>{__('Call Center Closed')}</Body2>
 	);
 
-	const onPress = () => Linking.openURL(`tel:${phoneNumber}`);
-
 	return (
-		<List.Item
+		<LinkingSettingItem
+			url={`tel:${phoneNumber}`}
 			left={<List.Icon name="phone" />}
-			onPress={onPress}
 			title={__('Call Support')}
 			description={description}
 			disabled={!canCall}

@@ -9,8 +9,8 @@ export default {
 		'usermanagement.call-center.opens': 8,
 		'usermanagement.email': 'humans@blueeast.com',
 
-		author: 'BlueEast',
-		authorUrl: 'https://www.blueeast.com',
+		developer: 'BlueEast',
+		developerUrl: 'https://www.blueeast.com',
 		version: '2.3.1',
 	},
 };

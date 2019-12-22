@@ -5,7 +5,7 @@ import { getComponent } from '@bluebase/core';
 const JsonLayout = getComponent<JsonLayoutProps>('JsonLayout');
 
 export const AppearanceSettingList = () => {
-	const items = ['DarkModeSetting'];
+	const items = ['DarkModeSetting', 'ThemeSelectionSetting'];
 
 	return (
 		<JsonLayout

@@ -2,6 +2,7 @@ import { AppearanceSettingList } from './AppearanceSettingList';
 import { InformationSettingList } from './InformationSettingList';
 import { LanguageSettingList } from './LanguageSettingList';
 import { LegalSettingList } from './LegalSettingList';
+import { LinkingSettingItem } from './LinkingSettingItem';
 import { PrivacyPolicy } from './PrivacyPolicy';
 import { SettingList } from './SettingList';
 import { SettingsAppIcon } from './SettingsAppIcon';
@@ -15,6 +16,7 @@ export const components = {
 	LegalSettingList,
 	SupportSettingList,
 
+	LinkingSettingItem,
 	PrivacyPolicy,
 	SettingList,
 	SettingsAppIcon,

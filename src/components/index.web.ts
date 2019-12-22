@@ -5,6 +5,7 @@ export const components = {
 	LegalSettingList: import('./LegalSettingList'),
 	SupportSettingList: import('./SupportSettingList'),
 
+	LinkingSettingItem: import('./LinkingSettingItem'),
 	PrivacyPolicy: import('./PrivacyPolicy'),
 	SettingList: import('./SettingList'),
 	SettingsAppIcon: import('./SettingsAppIcon'),

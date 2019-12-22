@@ -7,15 +7,15 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
-const ThemeSelectionSetting = getComponent('ThemeSelectionSetting');
+const TermsOfServiceSetting = getComponent('TermsOfServiceSetting');
 
-describe('ThemeSelectionSetting', () => {
-	it('should render ThemeSelectionSetting', async () => {
+describe('TermsOfServiceSetting', () => {
+	it('should render TermsOfServiceSetting', async () => {
 		// mount components
 
 		const wrapper: any = mount(
 			<BlueBaseApp plugins={[Plugin, MUI]}>
-				<ThemeSelectionSetting />
+				<TermsOfServiceSetting />
 			</BlueBaseApp>
 		);
 		await waitForElement(wrapper, 'Dialog');
@@ -30,13 +30,7 @@ describe('ThemeSelectionSetting', () => {
 				.find(List.Item)
 				.first()
 				.prop('title')
-		).toBe('Themes');
-		expect(
-			wrapper
-				.find(List.Item)
-				.first()
-				.prop('description')
-		).toBe('BlueBase Light');
+		).toBe('Terms of Service');
 		expect(
 			wrapper
 				.find('Dialog')
@@ -54,21 +48,6 @@ describe('ThemeSelectionSetting', () => {
 				.prop('visible')
 		).toBe(true);
 
-		const select: any = wrapper
-			.find(List.Item)
-			.find('[title="BlueBase Dark"]')
-			.first()
-			.prop('onPress');
-
-		select();
-
-		await waitForElement(wrapper, '[title="BlueBase Dark"]');
-
-		expect(
-			wrapper
-				.find(List.Item)
-				.first()
-				.prop('description')
-		).toBe('BlueBase Dark');
+		expect(wrapper.find('TermsOfService').exists()).toBe(true);
 	});
 });

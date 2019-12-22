@@ -3,7 +3,7 @@ import { DarkModeSetting } from './DarkModeSetting';
 import { DeveloperSetting } from './DeveloperSetting';
 import { EmailSupportSetting } from './EmailSupportSetting';
 import { LanguageSetting } from './LanguageSetting';
-import { PrivacySetting } from './PrivacySetting';
+import { PrivacyPolicySetting } from './PrivacyPolicySetting';
 import { TermsOfServiceSetting } from './TermsOfServiceSetting';
 import { TextDirectionSetting } from './TextDirectionSetting';
 import { ThemeSelectionSetting } from './ThemeSelectionSetting';
@@ -15,7 +15,7 @@ export const settings = {
 	DeveloperSetting,
 	EmailSupportSetting,
 	LanguageSetting,
-	PrivacySetting,
+	PrivacyPolicySetting,
 	TermsOfServiceSetting,
 	TextDirectionSetting,
 	ThemeSelectionSetting,

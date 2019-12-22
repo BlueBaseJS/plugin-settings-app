@@ -23,9 +23,11 @@ export const defaultConfigs = {
 	/** Enable appearance page */
 	'plugin.settings-app.about': false,
 
-	/** Adds author on about page  */
-	author: 'Blueeast',
+	'plugin.settings-app.about.information': false,
 
-	/** Adds author  redirect url  */
-	authorUrl: 'https://www.blueeast.com/',
+	/** Adds developer on about page  */
+	developer: 'Blueeast',
+
+	/** Adds developer  redirect url  */
+	developerUrl: 'https://www.blueeast.com/',
 };

@@ -5,7 +5,7 @@ import { getComponent } from '@bluebase/core';
 const JsonLayout = getComponent<JsonLayoutProps>('JsonLayout');
 
 export const LegalSettingList = () => {
-	const items = ['TermsOfServiceSetting', 'PrivacySetting'];
+	const items = ['TermsOfServiceSetting', 'PrivacyPolicySetting'];
 
 	return (
 		<JsonLayout

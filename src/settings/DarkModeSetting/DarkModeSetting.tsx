@@ -20,7 +20,11 @@ export const DarkModeSetting = () => {
 			title={__('Dark Mode')}
 			description={__('Change to Dark Mode')}
 			onPress={toggleDarkMode}
-			right={<Switch checked={theme.mode === 'dark'} onValueChange={toggleDarkMode} />}
+			right={
+				<Switch checked={theme.mode === 'dark'} onValueChange={toggleDarkMode} testID={themeName} />
+			}
 		/>
 	);
 };
+
+DarkModeSetting.displayName = 'DarkModeSetting';

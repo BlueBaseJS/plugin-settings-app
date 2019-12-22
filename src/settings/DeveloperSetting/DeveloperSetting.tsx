@@ -8,24 +8,26 @@ export const DeveloperSetting = () => {
 	const { __, rtl } = useIntl();
 	const { theme } = useTheme();
 
-	const [author] = useConfig('author');
-	const [authorUrl] = useConfig('authorUrl');
+	const [developer] = useConfig('developer');
+	const [developerUrl] = useConfig('developerUrl');
 
-	// If there is not author, return null
-	if (!author) {
+	// If there is not developer, return null
+	if (!developer) {
 		return null;
 	}
 
-	const onPress = authorUrl ? () => openBrowserAsync(authorUrl) : undefined;
+	const onPress = developerUrl
+		? () => openBrowserAsync(developerUrl, { showTitle: true })
+		: undefined;
 
 	return (
 		<List.Item
 			title={__('Developed by')}
-			description={__(author)}
+			description={__(developer)}
 			left={<List.Icon name="domain" />}
 			onPress={onPress}
 			right={
-				authorUrl ? (
+				developerUrl ? (
 					<Icon
 						name="open-in-new"
 						style={{

@@ -1,84 +1,44 @@
-import {
-	BlueBase,
-	BlueBaseConsumer,
-	BlueBaseContext,
-	IntlConsumer,
-	RenderPropChildren,
-	ThemeConsumer,
-	renderChildrenWithProps,
-} from '@bluebase/core';
-import { Dialog, List } from '@bluebase/components';
+import { Dialog, Divider, List } from '@bluebase/components';
+import React, { useState } from 'react';
+import { useBlueBase, useIntl, useTheme } from '@bluebase/core';
 
-import React from 'react';
+export const ThemeSelectionSetting = () => {
+	const BB = useBlueBase();
+	const { __ } = useIntl();
+	const { theme, changeTheme } = useTheme();
 
-const AllBlueBase = ({ children }: { children: RenderPropChildren }) => (
-	<BlueBaseConsumer>
-		{(BB: BlueBase) => (
-			<ThemeConsumer>
-				{theme => (
-					<IntlConsumer>
-						{intl => renderChildrenWithProps(children, { BB, theme, intl })}
-					</IntlConsumer>
-				)}
-			</ThemeConsumer>
-		)}
-	</BlueBaseConsumer>
-);
+	const themes = [...BB.Themes.entries()];
 
-export class ThemeSelectionSetting extends React.PureComponent {
-	static contextType: React.Context<BlueBase> = BlueBaseContext;
+	const [visible, setVisible] = useState(false);
+	const toggle = () => setVisible(!visible);
 
-	readonly state = {
-		visible: false,
+	const select = (slug: string) => () => {
+		changeTheme(slug);
+		toggle();
 	};
 
-	toggleDialog = () => this.setState({ visible: !this.state.visible });
-
-	onPress = (theme: { changeTheme: (item: []) => void }, item: any[]) => () => {
-		theme.changeTheme(item[0]);
-		this.toggleDialog();
-	}
-	renderDialog = () => {
-		const BB: BlueBase = this.context;
-		const themes = [...BB.Themes.entries()];
-
-		return (
-			<AllBlueBase>
-				{({ intl, theme }) => (
-					<Dialog visible={this.state.visible} onDismiss={this.toggleDialog}>
-						<List>
-							<List.Subheader>{intl.__('Available Themes')}</List.Subheader>
-							{themes.map(item => {
-								return (
-									<List.Item
-										title={intl.__(item[1].name)}
-										onPress={this.onPress(theme, item)}
-										key={item[0]}
-										selected={BB.Configs.getValue('theme.name') === item[0]}
-									/>
-								);
-							})}
-						</List>
-					</Dialog>
-				)}
-			</AllBlueBase>
-		);
-	}
-	render() {
-		return (
-			<AllBlueBase>
-				{({ intl, theme }) => (
-					<React.Fragment>
-						{this.renderDialog()}
+	return (
+		<React.Fragment>
+			<List.Item
+				left={<List.Icon name="brush" />}
+				title={__('Themes')}
+				description={__(theme.name)}
+				onPress={toggle}
+			/>
+			<Dialog visible={visible} onDismiss={toggle}>
+				<List.Subheader>{__('Available Themes')}</List.Subheader>
+				<Divider />
+				{themes.map(item => {
+					return (
 						<List.Item
-							left={<List.Icon name="brush" />}
-							title={intl.__('Theme')}
-							description={intl.__(theme.theme.name)}
-							onPress={this.toggleDialog}
+							title={__(item[1].name)}
+							onPress={select(item[0])}
+							key={item[0]}
+							selected={theme.name === item[0]}
 						/>
-					</React.Fragment>
-				)}
-			</AllBlueBase>
-		);
-	}
-}
+					);
+				})}
+			</Dialog>
+		</React.Fragment>
+	);
+};

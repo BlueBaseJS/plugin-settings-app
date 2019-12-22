@@ -1,11 +1,12 @@
-import { Dialog, Divider, List, Text, View } from '@bluebase/components';
+import { Dialog, Divider, List, View } from '@bluebase/components';
 import React, { useState } from 'react';
-import { getComponent, useIntl } from '@bluebase/core';
+import { getComponent, useIntl, useTheme } from '@bluebase/core';
 
 const PrivacyPolicy = getComponent('PrivacyPolicy', 'EmptyState');
 
-export const PrivacySetting = () => {
+export const PrivacyPolicySetting = () => {
 	const { __ } = useIntl();
+	const { theme } = useTheme();
 
 	const [visible, setVisible] = useState(false);
 	const toggle = () => setVisible(!visible);
@@ -14,10 +15,12 @@ export const PrivacySetting = () => {
 		<React.Fragment>
 			<List.Item left={<List.Icon name="shield-check" />} title={__('Privacy')} onPress={toggle} />
 			<Dialog visible={visible} onDismiss={toggle}>
-				<View testID="test-listItem" style={{ padding: 8 }}>
-					<Text style={{ paddingBottom: 4, fontWeight: 'bold' }}>{__('Privacy')}</Text>
+				<View testID="test-listItem">
+					<List.Subheader>{__('Privacy Policy')}</List.Subheader>
 					<Divider />
-					<PrivacyPolicy />
+					<View style={{ padding: theme.spacing.unit * 2 }}>
+						<PrivacyPolicy />
+					</View>
 				</View>
 			</Dialog>
 		</React.Fragment>

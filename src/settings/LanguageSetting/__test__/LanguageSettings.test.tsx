@@ -1,5 +1,6 @@
 import { BlueBaseApp, getComponent } from '@bluebase/core';
 
+import { List } from '@bluebase/components';
 import MUI from '@bluebase/plugin-material-ui';
 import Plugin from '../../../index';
 import React from 'react';
@@ -7,40 +8,66 @@ import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
 const LanguageSetting = getComponent('LanguageSetting');
-jest.mock('expo', () => { });
-
 
 describe('languageSetting', () => {
-
 	it('should return languageSetting with rtl true', async () => {
 		// mount components
 
-
 		const wrapper: any = mount(
-			<BlueBaseApp plugins={[Plugin, MUI,]}>
+			<BlueBaseApp plugins={[Plugin, MUI]}>
 				<LanguageSetting />
 			</BlueBaseApp>
 		);
 		await waitForElement(wrapper, 'Dialog');
 
-		// wrapper.context = {
-		// 	rtl: true, changeDirection: () => ''
-		// };
-		const wrappers: any = wrapper
-			.find('LanguageSetting')
-			.last()
-			.instance();
-		wrappers.toggleDialog();
-		const wrapperss: any = wrapper
-			.find('ListItem')
+		const onPress: any = wrapper
+			.find(List.Item)
 			.first()
 			.prop('onPress');
-		wrapperss();
-		expect(wrapper.find('Dialog').first().prop('visible')).toBe(false);
 
+		expect(
+			wrapper
+				.find(List.Item)
+				.first()
+				.prop('title')
+		).toBe('Language');
+		expect(
+			wrapper
+				.find(List.Item)
+				.first()
+				.prop('description')
+		).toBe('English');
+		expect(
+			wrapper
+				.find('Dialog')
+				.first()
+				.prop('visible')
+		).toBe(false);
 
+		onPress();
+		wrapper.update();
+
+		expect(
+			wrapper
+				.find('Dialog')
+				.first()
+				.prop('visible')
+		).toBe(true);
+
+		const select: any = wrapper
+			.find(List.Item)
+			.find('[title="اُردُو"]')
+			.first()
+			.prop('onPress');
+
+		select();
+		wrapper.update();
+
+		expect(
+			wrapper
+				.find(List.Item)
+				.first()
+				.prop('description')
+		).toBe('اُردُو');
 	});
-
 });
-
-

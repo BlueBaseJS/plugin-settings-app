@@ -4,7 +4,7 @@ export const settings = {
 	DeveloperSetting: import('./DeveloperSetting'),
 	EmailSupportSetting: import('./EmailSupportSetting'),
 	LanguageSetting: import('./LanguageSetting'),
-	PrivacySetting: import('./PrivacySetting'),
+	PrivacyPolicySetting: import('./PrivacyPolicySetting'),
 	TermsOfServiceSetting: import('./TermsOfServiceSetting'),
 	TextDirectionSetting: import('./TextDirectionSetting'),
 	ThemeSelectionSetting: import('./ThemeSelectionSetting'),
