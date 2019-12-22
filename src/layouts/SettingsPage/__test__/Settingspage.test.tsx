@@ -1,8 +1,9 @@
 import { BlueBaseApp, getComponent } from '@bluebase/core';
 
+import BlueBaseJsonSchemaPlugin from '@bluebase/plugin-json-schema-components';
 // import { HeaderTitle } from '@bluebase/components';
 import MUI from '@bluebase/plugin-material-ui';
-import Plugin from '../../../../src'
+import Plugin from '../../../../src';
 import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
@@ -10,182 +11,203 @@ import { waitForElement } from 'enzyme-async-helpers';
 const SettingsPageDesktop = getComponent('SettingsPageDesktop');
 const SettingsPageMobile = getComponent('SettingsPageMobile');
 
-
 jest.mock('Platform', () => {
-    const Platform = require.requireActual('Platform');
-    Platform.OS = 'ios';
-    return Platform;
+	const Platform = require.requireActual('Platform');
+	Platform.OS = 'ios';
+	return Platform;
 });
 
-jest.mock('expo', () => { });
+jest.mock('expo', () => {});
 describe('SettingsPageDesktop', () => {
-    const item = {
+	const item = {
+		name: 'AppearanceSettingsPage',
+		path: 'appearance',
 
-        name: 'AppearanceSettingsPage',
-        path: 'appearance',
+		items: [
+			{
+				component: 'DarkModeSetting',
+				description: 'All your theme related settings reside here.',
+				name: 'theme-settings-1',
+				title: 'Theme',
+			},
+			{
+				component: 'ThemeSelectionSetting',
+				description: 'Select you language settings here',
+				name: 'theme-settings-2',
+				title: 'Localization',
+			},
+		],
 
-        items: [{
-            component: 'ThemeSettingsList',
-            description: 'All your theme related settings reside here.',
-            name: 'theme-settings-1',
-            title: 'Theme',
-        }, {
-            component: 'LocalizationSettingsList',
-            description: 'Select you language settings here',
-            name: 'theme-settings-2',
-            title: 'Localization',
-        }],
+		navigationOptions: {
+			title: 'Appearance',
+		},
+	};
 
-        navigationOptions: {
-            title: 'Appearance'
-        }
-    };
+	const items = {
+		name: 'AppearanceSettingsPage',
+		path: 'appearance',
 
+		items: [
+			{
+				component: 'AppearanceSettingList',
+				description: 'All your theme related settings reside here.',
+				name: 'theme-settings-1',
+				title: 'Theme',
+			},
+			{
+				component: 'LanguageSettingList',
+				description: 'Select you language settings here',
+				name: 'theme-settings-2',
+				title: 'Localization',
+			},
+		],
+	};
 
-    const items = {
+	it('should return SettingsPageDesktop', async () => {
+		// mount componentz
+		require('../../../components/index.web.ts');
+		require('../index.ts');
+		const wrapper = mount(
+			<BlueBaseApp plugins={[Plugin, MUI]}>
+				<SettingsPageDesktop title="settings" {...item} isMobile={false} />
+			</BlueBaseApp>
+		);
+		await waitForElement(wrapper, 'FormattedMessage');
+		expect(
+			wrapper
+				.find('FormattedMessage')
+				.first()
+				.prop('children')
+		).toBeDefined();
+	});
 
-        name: 'AppearanceSettingsPage',
-        path: 'appearance',
+	it('should return SettingsPageDesktop', async () => {
+		// mount componentz
+		require('../../../components/index.web.ts');
+		require('../index.ts');
+		const wrapper = mount(
+			<BlueBaseApp plugins={[Plugin, MUI]}>
+				<SettingsPageDesktop title="settings" {...item} isMobile={false} />
+			</BlueBaseApp>
+		);
+		await waitForElement(wrapper, 'FormattedMessage');
+		expect(
+			wrapper
+				.find('FormattedMessage')
+				.first()
+				.prop('children')
+		).toBeDefined();
+	});
 
-        items: [{
-            component: 'ThemeSettingsList',
-            description: 'All your theme related settings reside here.',
-            name: 'theme-settings-1',
-            title: 'Theme',
-        }, {
-            component: 'LocalizationSettingsList',
-            description: 'Select you language settings here',
-            name: 'theme-settings-2',
-            title: 'Localization',
-        }],
+	it('should return SettingsPageDesktop', async () => {
+		// mount componentz
+		require('../../../components/index.web.ts');
+		require('../index.ts');
+		const wrapper = mount(
+			<BlueBaseApp plugins={[Plugin, MUI]}>
+				<SettingsPageDesktop
+					title="settings"
+					navigationOptions={{ title: 'title', headerTitle: 'settings' }}
+					filter="settings"
+					{...item}
+					isMobile={false}
+				/>
+			</BlueBaseApp>
+		);
+		await waitForElement(wrapper, 'FormattedMessage');
 
+		expect(
+			wrapper
+				.find('FormattedMessage')
+				.last()
+				.prop('children')
+		).toBeDefined();
+	});
 
-    };
+	it('should return SettingsPageDesktop', async () => {
+		// mount componentz
+		require('../../../components/index.web.ts');
+		require('../index.ts');
+		const wrapper = mount(
+			<BlueBaseApp plugins={[Plugin, MUI, BlueBaseJsonSchemaPlugin]}>
+				<SettingsPageDesktop title="settings" filter="settings" {...items} isMobile={false} />
+			</BlueBaseApp>
+		);
+		await waitForElement(wrapper, 'FormattedMessage');
 
-    it('should return SettingsPageDesktop', async () => {
-        // mount componentz
-        require('../../../components/index.web.ts');
-        require('../index.ts');
-        const wrapper = mount(
-            <BlueBaseApp plugins={[Plugin, MUI]}>
-                <SettingsPageDesktop title='settings' {...item} isMobile={false} />
-            </BlueBaseApp>
-        );
-        await waitForElement(wrapper, 'FormattedMessage');
-        expect(wrapper.find('FormattedMessage').first().prop('children')).toBeDefined();
+		expect(
+			wrapper
+				.find('FormattedMessage')
+				.last()
+				.prop('children')
+		).toBeDefined();
+	});
 
-    });
+	it('should return SettingsMobileDesktop', async () => {
+		// mount componentz
+		require('../../../createSettingsRoutes/createDesktopNavigator');
+		const wrapper = mount(
+			<BlueBaseApp plugins={[Plugin, MUI]}>
+				<SettingsPageMobile />
+			</BlueBaseApp>
+		);
+		await waitForElement(wrapper, 'SafeAreaView');
+		const placeGridInstance: any = wrapper
+			.find('SettingsPageMobile')
+			.last()
+			.instance();
+		placeGridInstance.renderLayout([{ title: 'string' }]);
 
+		expect(
+			wrapper
+				.find('View')
+				.last()
+				.prop('children')
+		).toBeDefined();
+	});
 
+	it('should return SettingsMobileDesktop', async () => {
+		// mount componentz
+		require('../../../createSettingsRoutes/createDesktopNavigator');
+		const wrapper = mount(
+			<BlueBaseApp plugins={[Plugin, MUI]}>
+				<SettingsPageMobile filter={'filter'} items={[]} />
+			</BlueBaseApp>
+		);
+		await waitForElement(wrapper, 'SafeAreaView');
+		const placeGridInstance: any = wrapper
+			.find('SettingsPageMobile')
+			.last()
+			.instance();
+		placeGridInstance.renderLayout([{ title: 'string' }]);
 
+		expect(
+			wrapper
+				.find('View')
+				.last()
+				.prop('children')
+		).toBeDefined();
+	});
 
-    it('should return SettingsPageDesktop', async () => {
-        // mount componentz
-        require('../../../components/index.web.ts');
-        require('../index.ts');
-        const wrapper = mount(
-            <BlueBaseApp plugins={[Plugin, MUI]}>
-                <SettingsPageDesktop title='settings' {...item} isMobile={false} />
-            </BlueBaseApp>
-        );
-        await waitForElement(wrapper, 'FormattedMessage');
-        expect(wrapper.find('FormattedMessage').first().prop('children')).toBeDefined();
-
-    });
-
-    it('should return SettingsPageDesktop', async () => {
-        // mount componentz
-        require('../../../components/index.web.ts');
-        require('../index.ts');
-        const wrapper = mount(
-            <BlueBaseApp plugins={[Plugin, MUI]}>
-                <SettingsPageDesktop title='settings' navigationOptions={{ title: 'title', headerTitle: 'settings' }} filter="settings"  {...item} isMobile={false} />
-            </BlueBaseApp>
-        );
-        await waitForElement(wrapper, 'FormattedMessage');
-
-
-        expect(wrapper.find('FormattedMessage').last().prop('children')).toBeDefined();
-
-    });
-
-
-
-    it('should return SettingsPageDesktop', async () => {
-        // mount componentz
-        require('../../../components/index.web.ts');
-        require('../index.ts');
-        const wrapper = mount(
-            <BlueBaseApp plugins={[Plugin, MUI]}>
-                <SettingsPageDesktop title='settings' filter="settings"  {...items} isMobile={false} />
-            </BlueBaseApp>
-        );
-        await waitForElement(wrapper, 'FormattedMessage');
-
-        expect(wrapper.find('FormattedMessage').last().prop('children')).toBeDefined();
-
-    });
-
-
-
-
-    it('should return SettingsMobileDesktop', async () => {
-        // mount componentz
-        require('../../../createSettingsRoutes/createDesktopNavigator');
-        const wrapper = mount(
-            <BlueBaseApp plugins={[Plugin, MUI]}>
-                <SettingsPageMobile />
-            </BlueBaseApp>
-        );
-        await waitForElement(wrapper, 'SafeAreaView');
-        const placeGridInstance: any = wrapper
-            .find('SettingsPageMobile')
-            .last()
-            .instance();
-        placeGridInstance.renderLayout([{ title: 'string' }]);
-
-
-        expect(wrapper.find('View').last().prop('children')).toBeDefined();
-
-    });
-
-    it('should return SettingsMobileDesktop', async () => {
-        // mount componentz
-        require('../../../createSettingsRoutes/createDesktopNavigator');
-        const wrapper = mount(
-            <BlueBaseApp plugins={[Plugin, MUI]}>
-                <SettingsPageMobile filter={'filter'} items={[]} />
-            </BlueBaseApp>
-        );
-        await waitForElement(wrapper, 'SafeAreaView');
-        const placeGridInstance: any = wrapper
-            .find('SettingsPageMobile')
-            .last()
-            .instance();
-        placeGridInstance.renderLayout([{ title: 'string' }]);
-
-
-        expect(wrapper.find('View').last().prop('children')).toBeDefined();
-
-    });
-
-    it('should return SettingsPageDesktop', async () => {
-        // mount componentz
-        require('../../../createSettingsRoutes/createDesktopNavigator');
-        const wrapper = mount(
-            <BlueBaseApp plugins={[Plugin, MUI]}>
-                <SettingsPageMobile filter={'filter'} items={[]} />
-            </BlueBaseApp>
-        );
-        await waitForElement(wrapper, 'SafeAreaView');
-        const placeGridInstance: any = wrapper
-            .find('SettingsPageMobile')
-            .last()
-            .instance();
-        placeGridInstance.renderLayout([{ title: 'string' }]);
-        expect(wrapper.find('View').last().prop('children')).toBeDefined();
-
-    });
+	it('should return SettingsPageDesktop', async () => {
+		// mount componentz
+		require('../../../createSettingsRoutes/createDesktopNavigator');
+		const wrapper = mount(
+			<BlueBaseApp plugins={[Plugin, MUI]}>
+				<SettingsPageMobile filter={'filter'} items={[]} />
+			</BlueBaseApp>
+		);
+		await waitForElement(wrapper, 'SafeAreaView');
+		const placeGridInstance: any = wrapper
+			.find('SettingsPageMobile')
+			.last()
+			.instance();
+		placeGridInstance.renderLayout([{ title: 'string' }]);
+		expect(
+			wrapper
+				.find('View')
+				.last()
+				.prop('children')
+		).toBeDefined();
+	});
 });
-
-

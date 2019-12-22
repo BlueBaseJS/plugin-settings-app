@@ -13,7 +13,11 @@ export const PrivacyPolicySetting = () => {
 
 	return (
 		<React.Fragment>
-			<List.Item left={<List.Icon name="shield-check" />} title={__('Privacy')} onPress={toggle} />
+			<List.Item
+				left={<List.Icon name="shield-check" />}
+				title={__('Privacy Policy')}
+				onPress={toggle}
+			/>
 			<Dialog visible={visible} onDismiss={toggle}>
 				<View testID="test-listItem">
 					<List.Subheader>{__('Privacy Policy')}</List.Subheader>
