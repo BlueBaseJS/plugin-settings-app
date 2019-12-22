@@ -25,7 +25,7 @@ export class SettingsPageMobile extends React.PureComponent<SettingsPageMobilePr
 			// ? theme.palette.background.default
 			// : theme.palette.background.card,
 		},
-	});
+	})
 
 	renderLayout = (items: SettingsPageItemProps[]) => {
 		const styles = this.props.styles as SettingsPageMobileStyles;
@@ -44,7 +44,7 @@ export class SettingsPageMobile extends React.PureComponent<SettingsPageMobilePr
 				</SafeAreaView>
 			</ScrollView>
 		);
-	};
+	}
 
 	render() {
 		const { filter, items = [] } = this.props;
