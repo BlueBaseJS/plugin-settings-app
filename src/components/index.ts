@@ -1,21 +1,24 @@
-import { AboutSettingsList } from './AboutSettingsList';
-import { DarkModeSetting } from './DarkModeSetting';
-import { DarkModeSwitch } from './DarkModeSwitch';
-import { LanguageSetting } from './LanguageSetting';
-import { LocalizationSettingsList } from './LocalizationSettingsList';
+import { AppearanceSettingList } from './AppearanceSettingList';
+import { InformationSettingList } from './InformationSettingList';
+import { LanguageSettingList } from './LanguageSettingList';
+import { LegalSettingList } from './LegalSettingList';
+import { LinkingSettingItem } from './LinkingSettingItem';
+import { PrivacyPolicy } from './PrivacyPolicy';
+import { SettingList } from './SettingList';
 import { SettingsAppIcon } from './SettingsAppIcon';
-import { TextDirectionSetting } from './TextDirectionSetting';
-import { ThemeSelectionSetting } from './ThemeSelectionSetting';
-import { ThemeSettingsList } from './ThemeSettingsList';
+import { SupportSettingList } from './SupportSettingList';
+import { TermsOfService } from './TermsOfService';
 
 export const components = {
-	AboutSettingsList,
-	DarkModeSetting,
-	DarkModeSwitch,
-	LanguageSetting,
-	LocalizationSettingsList,
+	AppearanceSettingList,
+	InformationSettingList,
+	LanguageSettingList,
+	LegalSettingList,
+	SupportSettingList,
+
+	LinkingSettingItem,
+	PrivacyPolicy,
+	SettingList,
 	SettingsAppIcon,
-	TextDirectionSetting,
-	ThemeSelectionSetting,
-	ThemeSettingsList,
+	TermsOfService,
 };

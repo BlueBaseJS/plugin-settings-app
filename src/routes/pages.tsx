@@ -1,4 +1,3 @@
-import { IntlContextData } from '@bluebase/core';
 import { SettingsPageProps } from '../layouts/SettingsPage';
 
 export const pages: SettingsPageProps[] = [
@@ -6,25 +5,22 @@ export const pages: SettingsPageProps[] = [
 		name: 'GeneralSettingsPage',
 		path: 'general',
 
-		navigationOptions: (opts: any) => {
-			const { __ }: IntlContextData = opts.screenProps.intl;
-			return {
-				drawerIcon: { type: 'icon', name: 'settings' },
-				title: __('General'),
-			};
+		navigationOptions: {
+			drawerIcon: { type: 'icon', name: 'settings' },
+			title: 'General',
 		},
 
 		items: [
 			{
-				component: 'ThemeSettingsList',
+				component: 'AppearanceSettingList',
 				description: 'All your theme related settings reside here.',
-				name: 'theme-settings',
+				name: 'appearance',
 				title: 'Appearance',
 			},
 			{
-				component: 'LocalizationSettingsList',
+				component: 'LanguageSettingList',
 				description: 'Change your language settings here',
-				name: 'language-settings',
+				name: 'language',
 				title: 'Language',
 			},
 		],
@@ -33,20 +29,27 @@ export const pages: SettingsPageProps[] = [
 		name: 'AboutSettingsPage',
 		path: 'about',
 
-		navigationOptions: (opts: any) => {
-			const { __ }: IntlContextData = opts.screenProps.intl;
-			return {
-				drawerIcon: { type: 'icon', name: 'information' },
-				title: __('About'),
-			};
+		navigationOptions: {
+			drawerIcon: { type: 'icon', name: 'information' },
+			title: 'About',
 		},
 
 		items: [
 			{
-				component: 'AboutSettingsList',
-				name: 'about-app',
-				title: 'App Information',
+				component: 'SupportSettingList',
+				name: 'support',
+				title: 'Support',
+			},
+			{
+				component: 'InformationSettingList',
+				name: 'information',
+				title: 'Information',
+			},
+			{
+				component: 'LegalSettingList',
+				name: 'legal',
+				title: 'Legal',
 			},
 		],
-	},
+	} as any,
 ];

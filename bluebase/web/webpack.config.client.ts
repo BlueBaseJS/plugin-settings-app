@@ -25,7 +25,7 @@ export default function(config: any) {
 	};
 	config.module.rules.push({
 		test: /\.js$/,
-		exclude: /node_modules\/(?!(@bluebase\/plugin-vector-icons\/node_modules\/react-native-vector-icons|rn-placeholder|react-native-elements|react-native-vector-icons|expo-image-picker|react-native-animatable|react-native-svg|react-native-reanimated|expo-face-detector|react-native-gesture-handler|expo-linear-gradient|expo-payments-stripe|expo-gl|expo-av|expo-camera|expo|expo-barcode-scanner|expo-ads-admob|expo-blur|@expo\/vector-icons|@unimodules\/react-native-adapter)\/).*/,
+		exclude: /node_modules\/(?!(rn-placeholder|react-native-elements|@bluebase\/plugin-vector-icons\/node_modules\/react-native-vector-icons|react-native-vector-icons|expo-image-picker|react-native-animatable|react-native-svg|react-native-reanimated|expo-face-detector|react-native-gesture-handler|expo-linear-gradient|expo-payments-stripe|expo-gl|expo-av|expo-camera|expo|expo-barcode-scanner|expo-ads-admob|expo-blur|@expo\/vector-icons|@unimodules\/react-native-adapter)\/).*/,
 		loader: 'babel-loader',
 	});
 

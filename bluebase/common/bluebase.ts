@@ -1,23 +1,22 @@
-import Launcher from '@bluebase/plugin-launcher';
-import { MaterialCommunityIcons } from '@bluebase/plugin-vector-icons';
-import MaterialUIPLugin from '@bluebase/plugin-material-ui';
-import Plugin from '../../src';
-import ReactRouterPlugin from '@bluebase/plugin-react-router';
-import ResponsiveGrid from '@bluebase/plugin-responsive-grid';
+import { VERSION } from '../../src/version';
+import { plugins } from './plugins';
 
 export default {
-	plugins: [
-		MaterialCommunityIcons,
-		Launcher,
-		ResponsiveGrid,
-		MaterialUIPLugin,
-		ReactRouterPlugin,
-		Plugin,
-	],
+	plugins,
 
 	configs: {
-		author: 'BlueEast',
-		authorUrl: 'https://www.blueeast.com',
-		version: '2.3.1',
+		'plugin.settings-app.support.call.number': '+92-42-111-258-378',
+
+		/** 8:00 am in Pakistan is 3:00 am in UTC */
+		'plugin.settings-app.support.call.opens': 3,
+
+		/** 5:00 pm in Pakistan is noon in UTC */
+		'plugin.settings-app.support.call.closes': 12,
+
+		'plugin.settings-app.support.email': 'humans@blueeast.com',
+
+		developer: 'BlueEast',
+		developerUrl: 'https://www.blueeast.com',
+		version: VERSION,
 	},
 };

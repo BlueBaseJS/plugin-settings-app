@@ -1,31 +1,31 @@
 export const defaultConfigs = {
-	/** Enable appearnace page */
-	'plugin.settings-app.general': false,
+	/** Support email. If set, Email option is show in Support section of About page */
+	'plugin.settings-app.support.email': null,
 
-	/** Enable theme section, on appearnace page */
-	'plugin.settings-app.general.appearance': false,
+	/**
+	 * A Number, from 0 to 6, representing the day of the week.
+	 * Specifies the days support is available. Defaults to Mon-Fri.
+	 */
+	'plugin.settings-app.support.call.days': [1, 2, 3, 4, 5],
 
-	/** Enable dark mode setting in theme section, on appearnace page */
-	'plugin.settings-app.general.appearance.dark-mode': true,
+	/**
+	 * Call support opening hour in HH format UTC.
+	 */
+	'plugin.settings-app.support.call.opens': null,
 
-	/** Enable theme selection setting in theme section, on appearnace page */
-	'plugin.settings-app.general.appearance.theme.selection': false,
+	/**
+	 * Call support closing hour in HH format UTC.
+	 */
+	'plugin.settings-app.support.call.closes': null,
 
-	/** Enable language section, on language page */
-	'plugin.settings-app.general.language': false,
+	/**
+	 * Phone number for call center
+	 */
+	'plugin.settings-app.support.call.number': null,
 
-	/** Enable text direction setting in language section, on language page */
-	'plugin.settings-app.general.language.text-direction': true,
+	/** Adds developer on about page  */
+	developer: 'Blueeast',
 
-	/** Enable language selection setting in language section, on language page */
-	'plugin.settings-app.general.language.selection': true,
-
-	/** Enable appearance page */
-	'plugin.settings-app.about': false,
-
-	/** Adds author on about page  */
-	author: 'Blueeast',
-
-	/** Adds author  redirect url  */
-	authorUrl: 'https://www.blueeast.com/',
+	/** Adds developer  redirect url  */
+	developerUrl: 'https://www.blueeast.com/',
 };
