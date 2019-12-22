@@ -17,7 +17,7 @@
   },
   "size-limit": [
     {
-      "limit": "41 KB",
+      "limit": "42 KB",
       "webpack": false,
       "path": "dist/**/*.js",
       "running": false
