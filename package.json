@@ -89,7 +89,7 @@
     "@babel/core": "^7.7.7",
     "@bluebase/babel-preset-bluebase": "^2.4.1",
     "@bluebase/cli-essentials": "^0.0.5",
-    "@bluebase/code-standards": "2.2.4",
+    "@bluebase/code-standards": "2.4.2",
     "@bluebase/core": "^5.8.0",
     "@bluebase/plugin-json-schema-components": "^2.5.2",
     "@bluebase/plugin-launcher": "^1.1.0",
