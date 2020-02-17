@@ -1,6 +1,6 @@
 import { Icon } from '@bluebase/components';
 import { Platform } from 'react-native';
-import React from 'react'
+import React from 'react';
 import { SettingsPageProps } from '../layouts/SettingsPage';
 export const pages: SettingsPageProps[] = [
 
