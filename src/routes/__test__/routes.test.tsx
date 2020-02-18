@@ -1,5 +1,13 @@
+
 describe('routes', () => {
 	it('shoul render header with title on mobile', async () => {
+
+		jest.mock('Platform', () => {
+			const Platform = jest.requireActual('Platform');
+			Platform.OS = 'web';
+			return Platform;
+		});
+
 		const { routes } = require('../routes');
 		const BB = {
 			Filters: {
