@@ -142,7 +142,7 @@
     "remark-cli": "^6.0.1",
     "remark-preset-lint-recommended": "^3.0.2",
     "schedule": "^0.5.0",
-    "size-limit": "^0.21.1",
+    "size-limit": "^4.4.0",
     "trash-cli": "^3.0.0",
     "ts-jest": "^24.2.0",
     "tslint": "5.20.1",
