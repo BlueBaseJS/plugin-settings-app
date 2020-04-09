@@ -81,7 +81,7 @@
     "deepmerge": "^4.2.2",
     "expo": "^35.0.0",
     "expo-web-browser": "^8.0.0",
-    "react-native": "^0.59.8",
+    "react-native": "^0.62.2",
     "tslib": "^1.10.0"
   },
   "devDependencies": {
