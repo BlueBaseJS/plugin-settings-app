@@ -9,19 +9,19 @@ export interface SettingListProps {
 
 export const SettingList = (props: SettingListProps) => {
 	const BB = useBlueBase();
-	const [Items, setItems] = React.useState();
+	const [Items, setItems] = React.useState(props.items);
 	React.useEffect(() => {
 		setItems(props.items);
 	}, [props.items]);
 
-	const items = Items.map((name: string) => {
+	const items = Items.map((name) => {
 		if (typeof name === 'string') {
 			return BB.Components.has(name) ? name : undefined;
 		}
 
 		return name;
 	})
-		.filter((x: string) => !!x) as Array<string | React.ComponentType<any>>;
+		.filter((x) => !!x) as Array<string | React.ComponentType<any>>;
 
 	return (
 		<List>
