@@ -1,15 +1,12 @@
-import { Icon } from '@bluebase/components';
-import { Platform } from 'react-native';
-import React from 'react';
 import { SettingsPageProps } from '../layouts/SettingsPage';
-export const pages: SettingsPageProps[] = [
 
+export const pages: SettingsPageProps[] = [
 	{
 		name: 'GeneralSettingsPage',
 		path: 'general',
 
 		navigationOptions: {
-			drawerIcon: Platform.OS === 'web' ? { type: 'icon', name: 'settings' } : <Icon name="settings" />,
+			drawerIcon: { type: 'icon', name: 'settings' },
 			title: 'General',
 		},
 
@@ -33,7 +30,7 @@ export const pages: SettingsPageProps[] = [
 		path: 'about',
 
 		navigationOptions: {
-			drawerIcon: Platform.OS === 'web' ? { type: 'icon', name: 'information' } : <Icon name="information" />,
+			drawerIcon: { type: 'icon', name: 'information' },
 			title: 'About',
 		},
 

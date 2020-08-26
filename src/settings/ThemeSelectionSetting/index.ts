@@ -1,2 +1,4 @@
+import { ThemeSelectionSetting } from './ThemeSelectionSetting';
+
 export * from './ThemeSelectionSetting';
-export { ThemeSelectionSetting as default } from './ThemeSelectionSetting';
+export default ThemeSelectionSetting;

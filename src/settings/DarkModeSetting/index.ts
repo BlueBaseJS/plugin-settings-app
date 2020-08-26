@@ -1,2 +1,4 @@
+import { DarkModeSetting } from './DarkModeSetting';
+
 export * from './DarkModeSetting';
-export { DarkModeSetting as default } from './DarkModeSetting';
+export default DarkModeSetting;

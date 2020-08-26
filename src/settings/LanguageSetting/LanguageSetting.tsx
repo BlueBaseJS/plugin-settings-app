@@ -22,7 +22,7 @@ export const LanguageSetting = () => {
 				description={localeOptions[locale]}
 				onPress={toggle}
 			/>
-			<Dialog visible={visible} onDismiss={toggle}>
+			<Dialog dismissable visible={visible} onDismiss={toggle}>
 				<List.Subheader>{__('Language')}</List.Subheader>
 
 				{Object.keys(localeOptions).map(localeKey => (

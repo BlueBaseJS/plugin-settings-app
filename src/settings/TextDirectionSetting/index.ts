@@ -1,2 +1,4 @@
+import { TextDirectionSetting } from './TextDirectionSetting';
+
 export * from './TextDirectionSetting';
-export { TextDirectionSetting as default } from './TextDirectionSetting';
+export default TextDirectionSetting;

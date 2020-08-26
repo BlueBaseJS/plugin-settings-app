@@ -1,2 +1,4 @@
+import { LanguageSetting } from './LanguageSetting';
+
 export * from './LanguageSetting';
-export { LanguageSetting as default } from './LanguageSetting';
+export default LanguageSetting;

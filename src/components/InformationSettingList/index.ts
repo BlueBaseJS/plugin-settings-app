@@ -1,2 +1,4 @@
+import { InformationSettingList } from './InformationSettingList';
+
 export * from './InformationSettingList';
-export { InformationSettingList as default } from './InformationSettingList';
+export default InformationSettingList;

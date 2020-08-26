@@ -10,7 +10,6 @@ node_js:
 script:
   - yarn run test
   - yarn run build
-  - yarn run size
 after_success:
   - test $TRAVIS_BRANCH = "master" && yarn run doc
   - npx semantic-release@beta

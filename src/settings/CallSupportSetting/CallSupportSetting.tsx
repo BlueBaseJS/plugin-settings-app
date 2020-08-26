@@ -1,7 +1,7 @@
 // tslint:disable: radix
 import { Body2, List } from '@bluebase/components';
 import React, { useEffect, useState } from 'react';
-import { Theme, getComponent, useConfig, useIntl } from '@bluebase/core';
+import { Theme, getComponent, useConfig, useIntl, useStyles } from '@bluebase/core';
 
 import { LinkingSettingItemProps } from '../../components/exports';
 import { TextStyle } from 'react-native';
@@ -18,7 +18,20 @@ export interface CallSupportSettingProps {
 
 const LinkingSettingItem = getComponent<LinkingSettingItemProps>('LinkingSettingItem');
 
-export const CallSupportSetting = ({ styles = {} }: CallSupportSettingProps) => {
+const defaultStyles = (theme: Theme): CallSupportSettingStyles => ({
+	callNowText: {
+		color: theme.palette.success.main,
+		textTransform: 'uppercase',
+	},
+
+	closedText: {
+		color: theme.palette.error.main,
+		textTransform: 'uppercase',
+	},
+});
+
+export const CallSupportSetting = (props: CallSupportSettingProps) => {
+	const styles = useStyles('CallSupportSetting', props, defaultStyles);
 	const { __ } = useIntl();
 
 	const [days] = useConfig('plugin.settings-app.support.call.days');
@@ -59,15 +72,3 @@ export const CallSupportSetting = ({ styles = {} }: CallSupportSettingProps) => 
 		/>
 	);
 };
-
-CallSupportSetting.defaultStyles = (theme: Theme): CallSupportSettingStyles => ({
-	callNowText: {
-		color: theme.palette.success.main,
-		textTransform: 'uppercase',
-	},
-
-	closedText: {
-		color: theme.palette.error.main,
-		textTransform: 'uppercase',
-	},
-});

@@ -1,2 +1,4 @@
+import { LegalSettingList } from './LegalSettingList';
+
 export * from './LegalSettingList';
-export { LegalSettingList as default } from './LegalSettingList';
+export default LegalSettingList;

@@ -1,10 +1,10 @@
-import { BlueBase, IntlContextData } from '@bluebase/core';
+import { IntlContextData, RouteOptions } from '@bluebase/core';
 
 import { RouteConfig } from '@bluebase/components';
 import { createSettingsRoutes } from '../lib';
 import { pages } from './pages';
 
-export const routes = async (BB: BlueBase): Promise<RouteConfig[]> => {
+export const routes = async ({ BB }: RouteOptions): Promise<RouteConfig[]> => {
 	return [
 		...createSettingsRoutes({
 			filter: 'bluebase.plugin.setting-app',

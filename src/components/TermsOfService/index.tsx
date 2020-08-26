@@ -1,2 +1,4 @@
+import { TermsOfService } from './TermsOfService';
+
 export * from './TermsOfService';
-export { TermsOfService as default } from './TermsOfService';
+export default TermsOfService;

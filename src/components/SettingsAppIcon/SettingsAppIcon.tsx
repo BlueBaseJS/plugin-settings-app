@@ -4,13 +4,13 @@ import React from 'react';
 import { Theme } from '@bluebase/core';
 
 export interface SettingsAppIconStyles {
-			iconColor: { color: TextStyle['color'] },
-			root: StyleProp<ViewStyle>
+	iconColor: { color: TextStyle['color'] },
+	root: StyleProp<ViewStyle>
 }
 
 export interface SettingsAppIconProps {
-			size: number;
-			styles?: Partial<SettingsAppIconStyles>
+	size: number;
+	styles?: Partial<SettingsAppIconStyles>
 }
 
 export const SettingsAppIcon = ({ size, styles: _styles }: SettingsAppIconProps) => {

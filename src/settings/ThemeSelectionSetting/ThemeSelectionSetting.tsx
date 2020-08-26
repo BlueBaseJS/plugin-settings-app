@@ -25,16 +25,16 @@ export const ThemeSelectionSetting = () => {
 				description={__(theme.name)}
 				onPress={toggle}
 			/>
-			<Dialog visible={visible} onDismiss={toggle}>
+			<Dialog dismissable visible={visible} onDismiss={toggle}>
 				<List.Subheader>{__('Available Themes')}</List.Subheader>
 				<Divider />
-				{themes.map(item => {
+				{themes.map(([key, item]) => {
 					return (
 						<List.Item
-							title={__(item[1].name)}
-							onPress={select(item[0])}
-							key={item[0]}
-							selected={theme.name === item[0]}
+							title={__(item.value.name)}
+							onPress={select(key)}
+							key={key}
+							selected={theme.name === key}
 						/>
 					);
 				})}

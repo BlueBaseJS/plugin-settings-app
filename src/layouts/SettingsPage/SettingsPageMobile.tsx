@@ -1,12 +1,11 @@
-import { BlueBaseFilter, Divider, View } from '@bluebase/components';
+import { Divider, View } from '@bluebase/components';
 import { SafeAreaView, ScrollView, StyleProp, ViewStyle } from 'react-native';
-import { Theme, getComponent } from '@bluebase/core';
+import { SettingsPageItemMobile, SettingsPageItemProps } from '../SettingsPageItem';
+import { Theme, useFilter, useStyles } from '@bluebase/core';
 
 import React from 'react';
-import { SettingsPageItemProps } from '../SettingsPageItem';
 import { SettingsPageProps } from '../SettingsPage';
-
-const SettingsPageItemMobile = getComponent('SettingsPageItemMobile');
+import get from 'lodash.get';
 
 export interface SettingsPageMobileStyles {
 	root: StyleProp<ViewStyle>;
@@ -16,45 +15,34 @@ export interface SettingsPageMobileProps extends SettingsPageProps {
 	styles?: Partial<SettingsPageMobileStyles>;
 }
 
-export class SettingsPageMobile extends React.PureComponent<SettingsPageMobileProps> {
-	static defaultProps: Partial<SettingsPageMobileProps> = {};
+const defaultStyles = (_theme: Theme): SettingsPageMobileStyles => ({
+	root: {},
+});
 
-	static defaultStyles = (_theme: Theme): SettingsPageMobileStyles => ({
-		root: {
-			// backgroundColor: Platform.OS === 'ios'
-			// ? theme.palette.background.default
-			// : theme.palette.background.card,
-		},
-	})
+export const SettingsPageMobile = (props: SettingsPageMobileProps) => {
+	const { filter } = props;
+	const styles = useStyles('SettingsPageMobile', props, defaultStyles);
+	const { value: items } = useFilter(
+		`${filter}.page.mobile`,
+		get(props, 'items', []) as SettingsPageItemProps[],
+		props
+	);
 
-	renderLayout = (items: SettingsPageItemProps[]) => {
-		const styles = this.props.styles as SettingsPageMobileStyles;
+	return (
+		<ScrollView>
+			<SafeAreaView>
+				<View style={styles.root}>
+					{items.map((item, index) => (
+						<React.Fragment key={item.name}>
+							<SettingsPageItemMobile {...item} />
+							{index < items.length - 1 && <Divider />}
+						</React.Fragment>
+					))}
+				</View>
+			</SafeAreaView>
+		</ScrollView>
+	);
+};
 
-		return (
-			<ScrollView>
-				<SafeAreaView>
-					<View style={styles.root}>
-						{items.map((item, index) => (
-							<React.Fragment key={item.name}>
-								<SettingsPageItemMobile {...item} />
-								{index < items.length - 1 && <Divider />}
-							</React.Fragment>
-						))}
-					</View>
-				</SafeAreaView>
-			</ScrollView>
-		);
-	}
-
-	render() {
-		const { filter, items = [] } = this.props;
-
-		return (
-			<BlueBaseFilter filter={`${filter}.page.mobile`} value={items} args={this.props}>
-				{filteredItems => this.renderLayout(filteredItems)}
-			</BlueBaseFilter>
-		);
-	}
-}
-
+SettingsPageMobile.displayName = 'SettingsPageMobile';
 export default SettingsPageMobile;

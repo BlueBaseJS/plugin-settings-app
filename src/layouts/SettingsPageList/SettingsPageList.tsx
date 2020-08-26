@@ -11,7 +11,7 @@ export interface SettingsPageListProps {
 }
 
 export class SettingsPageList extends React.PureComponent<SettingsPageListProps> {
-	static contextType = IntlContext;
+	static contextType: React.Context<IntlContextData> = IntlContext;
 
 	private HeaderComponent?: React.ComponentType<any>;
 	private FooterComponent?: React.ComponentType<any>;
