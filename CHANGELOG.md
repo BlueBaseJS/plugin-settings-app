@@ -1,3 +1,9 @@
+## [2.0.1](https://github.com/BlueBaseJS/plugin-settings-app/compare/v2.0.0...v2.0.1) (2020-02-18)
+
+### Bug Fixes
+
+-   **Ipad3:** route issue on setting icon ([#111](https://github.com/BlueBaseJS/plugin-settings-app/issues/111)) ([#112](https://github.com/BlueBaseJS/plugin-settings-app/issues/112)) ([53c3ff2](https://github.com/BlueBaseJS/plugin-settings-app/commit/53c3ff2))
+
 # [2.0.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v1.2.0...v2.0.0) (2019-12-22)
 
 ### Features
