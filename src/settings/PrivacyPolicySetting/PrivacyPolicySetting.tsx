@@ -18,7 +18,7 @@ export const PrivacyPolicySetting = () => {
 				title={__('Privacy Policy')}
 				onPress={toggle}
 			/>
-			<Dialog visible={visible} onDismiss={toggle}>
+			<Dialog dismissable visible={visible} onDismiss={toggle}>
 				<View testID="test-listItem">
 					<List.Subheader>{__('Privacy Policy')}</List.Subheader>
 					<Divider />

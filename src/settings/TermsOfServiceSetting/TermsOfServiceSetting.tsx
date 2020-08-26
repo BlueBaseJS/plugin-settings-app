@@ -19,7 +19,7 @@ export const TermsOfServiceSetting = () => {
 				title={__('Terms of Service')}
 				onPress={toggle}
 			/>
-			<Dialog visible={visible} onDismiss={toggle}>
+			<Dialog dismissable visible={visible} onDismiss={toggle}>
 				<View testID="test-listItem">
 					<List.Subheader>{__('Terms of Service')}</List.Subheader>
 					<Divider />
