@@ -1,6 +1,6 @@
 import { Caption, FormattedMessage, List, View } from '@bluebase/components';
 import { StyleProp, TextStyle, ViewStyle } from 'react-native';
-import { Theme, getComponent } from '@bluebase/core';
+import { Theme, useComponent, useStyles } from '@bluebase/core';
 
 import React from 'react';
 import { SettingsPageItemProps } from '../SettingsPageItem';
@@ -18,60 +18,49 @@ export interface SettingsPageItemMobileProps extends SettingsPageItemProps {
 	styles?: Partial<SettingsPageItemMobileStyles>;
 }
 
-export class SettingsPageItemMobile extends React.PureComponent<SettingsPageItemMobileProps> {
-	static defaultProps: Partial<SettingsPageItemMobileProps> = {};
+const defaultStyles = (theme: Theme): SettingsPageItemMobileStyles => ({
+	contentStyles: {},
+	descriptionStyles: {
+		color: theme.palette.text.hint,
+		paddingHorizontal: theme.spacing.unit * 2,
+		paddingVertical: theme.spacing.unit * 2,
+	},
+	root: {},
+	titleStyles: {
+		paddingHorizontal: theme.spacing.unit * 2,
+		paddingVertical: theme.spacing.unit * 2,
+	},
+});
 
-	private Component =
-		this.props.component && typeof this.props.component === 'string'
-			? getComponent(this.props.component)
-			: this.props.component;
+export const SettingsPageItemMobile = (props: SettingsPageItemMobileProps) => {
+	const { description, descriptionStyle, title, titleStyle } = props;
+	const ItemComponent = useComponent(props.component);
 
-	static defaultStyles = (theme: Theme): SettingsPageItemMobileStyles => ({
-		contentStyles: {},
-		descriptionStyles: {
-			color: theme.palette.text.hint,
-			paddingHorizontal: theme.spacing.unit * 2,
-			paddingVertical: theme.spacing.unit * 2,
-		},
-		root: {},
-		titleStyles: {
-			paddingHorizontal: theme.spacing.unit * 2,
-			paddingVertical: theme.spacing.unit * 2,
-		},
-	})
+	const styles = useStyles('SettingsPageItemDesktop', props, defaultStyles);
 
-	render() {
-		const { description, descriptionStyle, title, titleStyle } = this.props;
-		const ItemComponent = this.Component;
+	const titleNode = !!title ? (
+		<FormattedMessage component={List.Subheader} style={[styles.titleStyles, titleStyle]}>
+			{title}
+		</FormattedMessage>
+	) : null;
 
-		const styles = this.props.styles as SettingsPageItemMobileStyles;
+	const descNode = !!description ? (
+		<FormattedMessage component={Caption} style={[styles.descriptionStyles, descriptionStyle]}>
+			{description}
+		</FormattedMessage>
+	) : null;
 
-		const titleNode = !!title ? (
-			<FormattedMessage component={List.Subheader} style={[styles.titleStyles, titleStyle]}>
-				{title}
-			</FormattedMessage>
-		) : null;
-
-		const descNode = !!description ? (
-			<FormattedMessage component={Caption} style={[styles.descriptionStyles, descriptionStyle]}>
-				{description}
-			</FormattedMessage>
-		) : null;
-
-		const componentNode = !!ItemComponent ? (
+	return (
+		<View style={styles.root}>
+			{titleNode}
 			<View style={styles.contentStyles}>
 				<ItemComponent />
 			</View>
-		) : null;
+			{descNode}
+		</View>
+	);
+};
 
-		return (
-			<View style={styles.root}>
-				{titleNode}
-				{componentNode}
-				{descNode}
-			</View>
-		);
-	}
-}
+SettingsPageItemMobile.displayName = 'SettingsPageItemMobile';
 
 export default SettingsPageItemMobile;
