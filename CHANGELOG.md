@@ -1,3 +1,9 @@
+## [3.0.1](https://github.com/BlueBaseJS/plugin-settings-app/compare/v3.0.0...v3.0.1) (2020-08-26)
+
+### Bug Fixes
+
+-   **DarkModeSetting:** Fixed typo ([ef9a0cd](https://github.com/BlueBaseJS/plugin-settings-app/commit/ef9a0cd))
+
 # [3.0.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v2.0.1...v3.0.0) (2020-08-26)
 
 ### Bug Fixes
