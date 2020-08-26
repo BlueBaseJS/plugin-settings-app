@@ -1,3 +1,17 @@
+# [3.0.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v2.0.1...v3.0.0) (2020-08-26)
+
+### Bug Fixes
+
+-   **settingsApp:** added settingsApp ([#111](https://github.com/BlueBaseJS/plugin-settings-app/issues/111)) ([0e64383](https://github.com/BlueBaseJS/plugin-settings-app/commit/0e64383))
+
+### Features
+
+-   Update to BlueBase 6 ([#180](https://github.com/BlueBaseJS/plugin-settings-app/issues/180)) ([4c44dc0](https://github.com/BlueBaseJS/plugin-settings-app/commit/4c44dc0))
+
+### BREAKING CHANGES
+
+-   This plugin will stop working with BlueBase versions below 6
+
 ## [2.0.1](https://github.com/BlueBaseJS/plugin-settings-app/compare/v2.0.0...v2.0.1) (2020-02-18)
 
 ### Bug Fixes
