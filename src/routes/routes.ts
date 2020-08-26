@@ -1,4 +1,4 @@
-import { BlueBase, IntlContextData, RouteOptions } from '@bluebase/core';
+import { IntlContextData, RouteOptions } from '@bluebase/core';
 
 import { RouteConfig } from '@bluebase/components';
 import { createSettingsRoutes } from '../lib';

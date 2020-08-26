@@ -1,16 +1,16 @@
 import { Body1, Body2, Card, FormattedMessage, View } from '@bluebase/components';
-import { Platform, StyleProp, TextStyle, ViewStyle } from 'react-native';
+import { Platform, TextStyle, ViewStyle } from 'react-native';
 import { Theme, getComponent } from '@bluebase/core';
 
 import React from 'react';
 import { SettingsPageItemProps } from '../SettingsPageItem';
 
 export interface SettingsPageItemDesktopStyles {
-	contentStyles: StyleProp<ViewStyle>;
-	descriptionStyles: StyleProp<TextStyle>;
-	root: StyleProp<ViewStyle>;
-	textColumn: StyleProp<ViewStyle>;
-	titleStyles: StyleProp<TextStyle>;
+	contentStyles: ViewStyle;
+	descriptionStyles: TextStyle;
+	root: ViewStyle;
+	textColumn: ViewStyle;
+	titleStyles: TextStyle;
 }
 
 export interface SettingsPageItemDesktopProps extends SettingsPageItemProps {

@@ -8,7 +8,10 @@ export default (input: any) => {
 		// app.json is generated from manifest
 		manifest: {
 			name: 'My BlueBase App',
-			userInterfaceStyle: 'automatic',
+
+			ios: {
+				userInterfaceStyle: 'automatic',
+			},
 		},
 	});
 };
