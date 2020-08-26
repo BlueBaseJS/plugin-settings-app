@@ -11,8 +11,8 @@ import { waitForElement } from 'enzyme-async-helpers';
 const SettingsPageDesktop = getComponent('SettingsPageDesktop');
 const SettingsPageMobile = getComponent('SettingsPageMobile');
 
-jest.mock('Platform', () => {
-	const Platform = require.requireActual('Platform');
+jest.mock('react-native/Libraries/Utilities/Platform', () => {
+	const Platform = require.requireActual('react-native/Libraries/Utilities/Platform');
 	Platform.OS = 'ios';
 	return Platform;
 });
@@ -107,9 +107,9 @@ describe('SettingsPageDesktop', () => {
 			<BlueBaseApp plugins={[Plugin, MUI]}>
 				<SettingsPageDesktop
 					title="settings"
-					navigationOptions={{ title: 'title', headerTitle: 'settings' }}
 					filter="settings"
 					{...item}
+					navigationOptions={{ title: 'title', headerTitle: 'settings' }}
 					isMobile={false}
 				/>
 			</BlueBaseApp>
