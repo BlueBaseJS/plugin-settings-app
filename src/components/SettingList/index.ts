@@ -1,2 +1,4 @@
+import { SettingList } from './SettingList';
+
 export * from './SettingList';
-export { SettingList as default } from './SettingList';
+export default SettingList;

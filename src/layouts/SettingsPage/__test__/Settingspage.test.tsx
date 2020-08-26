@@ -9,7 +9,6 @@ import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
 const SettingsPageDesktop = getComponent('SettingsPageDesktop');
-const SettingsPageMobile = getComponent('SettingsPageMobile');
 
 jest.mock('react-native/Libraries/Utilities/Platform', () => {
 	const Platform = require.requireActual('react-native/Libraries/Utilities/Platform');
@@ -143,71 +142,71 @@ describe('SettingsPageDesktop', () => {
 		).toBeDefined();
 	});
 
-	it('should return SettingsMobileDesktop', async () => {
-		// mount componentz
-		require('../../../createSettingsRoutes/createDesktopNavigator');
-		const wrapper = mount(
-			<BlueBaseApp plugins={[Plugin, MUI]}>
-				<SettingsPageMobile />
-			</BlueBaseApp>
-		);
-		await waitForElement(wrapper, 'SafeAreaView');
-		const placeGridInstance: any = wrapper
-			.find('SettingsPageMobile')
-			.last()
-			.instance();
-		placeGridInstance.renderLayout([{ title: 'string' }]);
+	// it('should return SettingsMobileDesktop', async () => {
+	// 	// mount componentz
+	// 	require('../../../createSettingsRoutes/createDesktopNavigator');
+	// 	const wrapper = mount(
+	// 		<BlueBaseApp plugins={[Plugin, MUI]}>
+	// 			<SettingsPageMobile />
+	// 		</BlueBaseApp>
+	// 	);
+	// 	await waitForElement(wrapper, 'SafeAreaView');
+	// 	const placeGridInstance: any = wrapper
+	// 		.find('SettingsPageMobile')
+	// 		.last()
+	// 		.instance();
+	// 	placeGridInstance.renderLayout([{ title: 'string' }]);
 
-		expect(
-			wrapper
-				.find('View')
-				.last()
-				.prop('children')
-		).toBeDefined();
-	});
+	// 	expect(
+	// 		wrapper
+	// 			.find('View')
+	// 			.last()
+	// 			.prop('children')
+	// 	).toBeDefined();
+	// });
 
-	it('should return SettingsMobileDesktop', async () => {
-		// mount componentz
-		require('../../../createSettingsRoutes/createDesktopNavigator');
-		const wrapper = mount(
-			<BlueBaseApp plugins={[Plugin, MUI]}>
-				<SettingsPageMobile filter={'filter'} items={[]} />
-			</BlueBaseApp>
-		);
-		await waitForElement(wrapper, 'SafeAreaView');
-		const placeGridInstance: any = wrapper
-			.find('SettingsPageMobile')
-			.last()
-			.instance();
-		placeGridInstance.renderLayout([{ title: 'string' }]);
+	// it('should return SettingsMobileDesktop', async () => {
+	// 	// mount componentz
+	// 	require('../../../createSettingsRoutes/createDesktopNavigator');
+	// 	const wrapper = mount(
+	// 		<BlueBaseApp plugins={[Plugin, MUI]}>
+	// 			<SettingsPageMobile filter={'filter'} items={[]} />
+	// 		</BlueBaseApp>
+	// 	);
+	// 	await waitForElement(wrapper, SettingsPageMobile);
+	// 	const placeGridInstance: any = wrapper
+	// 		.find(SettingsPageMobile)
+	// 		.last()
+	// 		.instance();
+	// 	placeGridInstance.renderLayout([{ title: 'string' }]);
 
-		expect(
-			wrapper
-				.find('View')
-				.last()
-				.prop('children')
-		).toBeDefined();
-	});
+	// 	expect(
+	// 		wrapper
+	// 			.find('View')
+	// 			.last()
+	// 			.prop('children')
+	// 	).toBeDefined();
+	// });
 
-	it('should return SettingsPageDesktop', async () => {
-		// mount componentz
-		require('../../../createSettingsRoutes/createDesktopNavigator');
-		const wrapper = mount(
-			<BlueBaseApp plugins={[Plugin, MUI]}>
-				<SettingsPageMobile filter={'filter'} items={[]} />
-			</BlueBaseApp>
-		);
-		await waitForElement(wrapper, 'SafeAreaView');
-		const placeGridInstance: any = wrapper
-			.find('SettingsPageMobile')
-			.last()
-			.instance();
-		placeGridInstance.renderLayout([{ title: 'string' }]);
-		expect(
-			wrapper
-				.find('View')
-				.last()
-				.prop('children')
-		).toBeDefined();
-	});
+	// it('should return SettingsPageDesktop', async () => {
+	// 	// mount componentz
+	// 	require('../../../createSettingsRoutes/createDesktopNavigator');
+	// 	const wrapper = mount(
+	// 		<BlueBaseApp plugins={[Plugin, MUI]}>
+	// 			<SettingsPageMobile filter={'filter'} items={[]} />
+	// 		</BlueBaseApp>
+	// 	);
+	// 	await waitForElement(wrapper, SettingsPageMobile);
+	// 	const placeGridInstance: any = wrapper
+	// 		.find(SettingsPageMobile)
+	// 		.last()
+	// 		.instance();
+	// 	placeGridInstance.renderLayout([{ title: 'string' }]);
+	// 	expect(
+	// 		wrapper
+	// 			.find('View')
+	// 			.last()
+	// 			.prop('children')
+	// 	).toBeDefined();
+	// });
 });

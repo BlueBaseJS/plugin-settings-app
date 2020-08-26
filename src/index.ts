@@ -9,6 +9,8 @@ import { settings } from './settings';
 export { SettingsPageProps } from './layouts/SettingsPage';
 export { createSettingsRoutes } from './lib';
 
+export * from './components/exports';
+
 export default createPlugin({
 	description: 'A settings app for the BlueBase framework!',
 	key: 'settings',

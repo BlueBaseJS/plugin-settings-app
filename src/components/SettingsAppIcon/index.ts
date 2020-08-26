@@ -1,2 +1,4 @@
+import { SettingsAppIcon } from './SettingsAppIcon';
+
 export * from './SettingsAppIcon';
-export { SettingsAppIcon as default } from './SettingsAppIcon';
+export default SettingsAppIcon;
