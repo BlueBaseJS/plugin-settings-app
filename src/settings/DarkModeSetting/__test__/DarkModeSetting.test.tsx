@@ -9,36 +9,69 @@ import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
 describe('DarkModeSetting', () => {
-	it('DarkModeSetting', async () => {
-		// mount component
-		const wrapper = mount(
+	it('should render ThemeSelectionSetting', async () => {
+		// mount components
+
+		const wrapper: any = mount(
 			<BlueBaseApp plugins={[Plugin, MUI]}>
 				<DarkModeSetting />
 			</BlueBaseApp>
 		);
+		await waitForElement(wrapper, 'Dialog');
 
-		await waitForElement(wrapper, 'DarkModeSetting');
-		const node = wrapper.find(List.Item).first();
-		const onPress: any = node.prop('onPress');
-
-		expect(node.prop('title')).toBe('Dark Mode');
-		expect(
-			node
-				.find('Switch')
-				.first()
-				.prop('checked')
-		).toBe(false);
-
-		await onPress();
-
-		await waitForElement(wrapper, 'Switch[testID="bluebase-dark"]');
+		const onPress: any = wrapper
+			.find(List.Item)
+			.first()
+			.prop('onPress');
 
 		expect(
 			wrapper
-				.find('Switch')
+				.find(List.Item)
 				.first()
-				.prop('checked')
+				.prop('title')
+		).toBe('Dark Mode');
+
+		expect(
+			wrapper
+				.find(List.Item)
+				.first()
+				.prop('description')
+		).toBe('System');
+
+		expect(
+			wrapper
+				.find('Dialog')
+				.first()
+				.prop('visible')
+		).toBe(false);
+
+		onPress();
+		wrapper.update();
+
+		expect(
+			wrapper
+				.find('Dialog')
+				.first()
+				.prop('visible')
 		).toBe(true);
+
+		const select: any = wrapper
+			.find(List.Item)
+			.find('[title="Dark"]')
+			.first()
+			.prop('onPress');
+
+		select();
+
+		await waitForElement(wrapper, '[title="Dark Mode"]');
+
+		expect(
+			wrapper
+				.find(List.Item)
+				.first()
+				.prop('description')
+		).toBe('Dark');
+
 		wrapper.unmount();
 	});
 });
