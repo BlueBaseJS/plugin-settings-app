@@ -29,7 +29,7 @@ export const DarkModeSetting = () => {
 				onPress={toggle}
 			/>
 			<Dialog dismissable visible={visible} onDismiss={toggle}>
-				<List.Subheader>{__('Available Themes')}</List.Subheader>
+				<List.Subheader>{__('Dark Mode')}</List.Subheader>
 				<Divider />
 				<List.Item
 					title={__(ModeName.auto)}
