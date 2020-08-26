@@ -1,2 +1,4 @@
+import { LinkingSettingItem } from './LinkingSettingItem';
+
 export * from './LinkingSettingItem';
-export { LinkingSettingItem as default } from './LinkingSettingItem';
+export default LinkingSettingItem;

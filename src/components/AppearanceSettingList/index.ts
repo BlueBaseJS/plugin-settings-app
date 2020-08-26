@@ -1,2 +1,4 @@
+import { AppearanceSettingList } from './AppearanceSettingList';
+
 export * from './AppearanceSettingList';
-export { AppearanceSettingList as default } from './AppearanceSettingList';
+export default AppearanceSettingList;

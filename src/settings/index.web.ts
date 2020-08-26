@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 export const settings = {
 	CallSupportSetting: import('./CallSupportSetting'),
 	DarkModeSetting: import('./DarkModeSetting'),

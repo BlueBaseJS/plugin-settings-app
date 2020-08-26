@@ -38,13 +38,12 @@ export const TextDirectionSetting = () => {
 		<React.Fragment>
 			<List.Item
 				left={
-					<List.Icon name={!!rtl ? 'format-textdirection-r-to-l' : 'format-textdirection-l-to-r'} />
-				}
+					<List.Icon name={!!rtl ? 'format-textdirection-r-to-l' : 'format-textdirection-l-to-r'} />}
 				title={__('Text Direction')}
 				description={__(current.description)}
 				onPress={toggle}
 			/>
-			<Dialog visible={visible} onDismiss={toggle}>
+			<Dialog dismissable visible={visible} onDismiss={toggle}>
 				<List.Subheader>{__('Text Direction')}</List.Subheader>
 
 				{values.map(item => {

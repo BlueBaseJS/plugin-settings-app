@@ -17,6 +17,10 @@ import { isSupportOpen } from '../isSupportOpen';
 
 describe('CallSupportSetting', () => {
 	describe('isSupportOpen', () => {
+		it('should return false if days is not array', () => {
+			expect(isSupportOpen(new Date('23 Dec 2019 11:12:00 GMT'), null as any, 3, 12)).toBe(false);
+		});
+
 		it('should be open', () => {
 			expect(isSupportOpen(new Date('23 Dec 2019 11:12:00 GMT'), [1, 2, 3, 4, 5], 3, 12)).toBe(
 				true
@@ -39,10 +43,6 @@ describe('CallSupportSetting', () => {
 			expect(isSupportOpen(new Date('23 Dec 2019 12:12:00 GMT'), [1, 2, 3, 4, 5], 3, 12)).toBe(
 				false
 			);
-		});
-
-		it('should be closed because days is not an array', () => {
-			expect(isSupportOpen(new Date('23 Dec 2019 12:12:00 GMT'), 'foo' as any, 3, 12)).toBe(false);
 		});
 	});
 });

@@ -1,75 +1,65 @@
-import { BlueBaseFilter, Divider, FormattedMessage, H6, View } from '@bluebase/components';
-import { ContextBundle, ContextBundleData } from '../ContextBundle';
-import { ScrollView, StyleProp, TextStyle, ViewStyle } from 'react-native';
-import { Theme, getComponent, resolveThunk } from '@bluebase/core';
+import { Divider, H6, NavigationOptions, View } from '@bluebase/components';
+import { ScrollView, TextStyle, ViewStyle } from 'react-native';
+import { Theme, resolveThunk, useFilter, useIntl, useStyles } from '@bluebase/core';
 
 import React from 'react';
-import { SettingsPageItemProps } from '../SettingsPageItem';
+import { SettingsPageItemDesktop } from '../SettingsPageItem';
 import { SettingsPageProps } from '../SettingsPage';
-
-const SettingsPageItemDesktop = getComponent('SettingsPageItemDesktop');
+import get from 'lodash.get';
+import { useScreenProps } from '../../hooks';
 
 export interface SettingsPageDesktopStyles {
-	title: StyleProp<TextStyle>;
-	root: StyleProp<ViewStyle>;
+	title: TextStyle;
+	root: ViewStyle;
 }
 
 export interface SettingsPageDesktopProps extends SettingsPageProps {
 	styles?: Partial<SettingsPageDesktopStyles>;
 }
 
-export class SettingsPageDesktop extends React.PureComponent<SettingsPageDesktopProps> {
-	static defaultProps: Partial<SettingsPageDesktopProps> = {};
+const defaultStyles = (theme: Theme): SettingsPageDesktopStyles => ({
+	root: {
+		backgroundColor: theme.palette.background.default,
+		flex: 1,
+	},
+	title: {
+		padding: theme.spacing.unit * 2,
+	},
+});
 
-	static defaultStyles = (theme: Theme): SettingsPageDesktopStyles => ({
-		root: {
-			backgroundColor: theme.palette.background.default,
-			flex: 1,
-		},
-		title: {
-			padding: theme.spacing.unit * 2,
-		},
-	})
+export const SettingsPageDesktop = (props: SettingsPageDesktopProps) => {
+	const { filter, items } = props;
+	const { __ } = useIntl();
 
-	renderLayout = (items: SettingsPageItemProps[], bundle: ContextBundleData) => {
-		const styles = this.props.styles as SettingsPageDesktopStyles;
+	const screenProps = useScreenProps();
+	const styles = useStyles('SettingsPageDesktop', props, defaultStyles);
+	const { value: filteredItems } = useFilter(`${filter}.page.desktop`, items, props);
 
-		const navigationOptions = resolveThunk(this.props.navigationOptions || {}, bundle);
-		const title = navigationOptions.title || navigationOptions.headerTitle;
+	const navigationOptions: NavigationOptions = resolveThunk(
+		get(props, 'navigationOptions', {}),
+		screenProps
+	);
+	const title = get(navigationOptions, 'title', navigationOptions.headerTitle) as string;
 
-		return (
-			<ScrollView>
-				<View style={styles.root}>
-					{title && (
-						<React.Fragment>
-							<FormattedMessage component={H6} style={styles.title}>
-								{title}
-							</FormattedMessage>
-							<Divider />
-						</React.Fragment>
-					)}
-					{items.map((item, index) => (
-						<React.Fragment key={item.name}>
-							<SettingsPageItemDesktop {...item} />
-							{index < items.length - 1 && <Divider />}
-						</React.Fragment>
-					))}
-				</View>
-			</ScrollView>
-		);
-	}
-
-	render() {
-		const { filter, items } = this.props;
-
-		return (
-			<BlueBaseFilter filter={`${filter}.page.desktop`} value={items} args={this.props}>
-				{filteredItems => (
-					<ContextBundle>{bundle => this.renderLayout(filteredItems, bundle)}</ContextBundle>
+	return (
+		<ScrollView>
+			<View style={styles.root}>
+				{title && (
+					<React.Fragment>
+						<H6 style={styles.title}>{__(title)}</H6>
+						<Divider />
+					</React.Fragment>
 				)}
-			</BlueBaseFilter>
-		);
-	}
-}
+				{filteredItems.map((item, index) => (
+					<React.Fragment key={item.name}>
+						<SettingsPageItemDesktop {...item} />
+						{index < filteredItems.length - 1 && <Divider />}
+					</React.Fragment>
+				))}
+			</View>
+		</ScrollView>
+	);
+};
 
+SettingsPageDesktop.displayName = 'SettingsPageDesktop';
 export default SettingsPageDesktop;

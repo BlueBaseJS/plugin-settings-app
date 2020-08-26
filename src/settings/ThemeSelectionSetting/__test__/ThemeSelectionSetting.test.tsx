@@ -36,7 +36,7 @@ describe('ThemeSelectionSetting', () => {
 				.find(List.Item)
 				.first()
 				.prop('description')
-		).toBe('BlueBase Light');
+		).toBe('BlueBase Theme');
 		expect(
 			wrapper
 				.find('Dialog')
@@ -56,19 +56,19 @@ describe('ThemeSelectionSetting', () => {
 
 		const select: any = wrapper
 			.find(List.Item)
-			.find('[title="BlueBase Dark"]')
+			.find('[title="BlueBase Theme"]')
 			.first()
 			.prop('onPress');
 
 		select();
 
-		await waitForElement(wrapper, '[title="BlueBase Dark"]');
+		await waitForElement(wrapper, '[title="BlueBase Theme"]');
 
 		expect(
 			wrapper
 				.find(List.Item)
 				.first()
 				.prop('description')
-		).toBe('BlueBase Dark');
+		).toBe('BlueBase Theme');
 	});
 });
