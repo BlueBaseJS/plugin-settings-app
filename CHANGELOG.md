@@ -1,3 +1,9 @@
+## [3.0.2](https://github.com/BlueBaseJS/plugin-settings-app/compare/v3.0.1...v3.0.2) (2020-09-18)
+
+### Bug Fixes
+
+-   Updated icon names to match latest vector icons version ([51b803c](https://github.com/BlueBaseJS/plugin-settings-app/commit/51b803c))
+
 ## [3.0.1](https://github.com/BlueBaseJS/plugin-settings-app/compare/v3.0.0...v3.0.1) (2020-08-26)
 
 ### Bug Fixes
