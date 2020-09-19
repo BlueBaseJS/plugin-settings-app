@@ -39,7 +39,7 @@ export class SettingsPageList extends React.PureComponent<SettingsPageListProps>
 					<ContextBundle>
 						{(opts): any =>
 							this.props.pages.map(page => {
-								const options = resolveThunk(page.navigationOptions || {}, opts);
+								const options = resolveThunk(page.options || {}, opts);
 
 								const title = getTitle(options);
 								const left = getIcon(options);

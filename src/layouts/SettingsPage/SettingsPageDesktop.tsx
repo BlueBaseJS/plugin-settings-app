@@ -35,11 +35,8 @@ export const SettingsPageDesktop = (props: SettingsPageDesktopProps) => {
 	const styles = useStyles('SettingsPageDesktop', props, defaultStyles);
 	const { value: filteredItems } = useFilter(`${filter}.page.desktop`, items, props);
 
-	const navigationOptions: NavigationOptions = resolveThunk(
-		get(props, 'navigationOptions', {}),
-		screenProps
-	);
-	const title = get(navigationOptions, 'title', navigationOptions.headerTitle) as string;
+	const options: NavigationOptions = resolveThunk(get(props, 'options', {}), screenProps);
+	const title = get(options, 'title', options.headerTitle) as string;
 
 	return (
 		<ScrollView>

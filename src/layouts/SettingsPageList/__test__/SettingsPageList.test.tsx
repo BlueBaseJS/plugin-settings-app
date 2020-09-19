@@ -38,7 +38,7 @@ it('should return SettingsPageList with Icon name', async () => {
 				name="settings"
 				pages={[
 					{
-						navigationOptions: { drawerIcon: { name: 'domain', type: 'string' } },
+						options: { drawerIcon: { name: 'domain', type: 'string' } },
 						name: 'launcher',
 						title: 'Launcher',
 						path: '/',
@@ -65,7 +65,7 @@ it('should return SettingsPageList with Icon  as function', async () => {
 				name="settings"
 				pages={[
 					{
-						navigationOptions: { drawerIcon: () => 'domain' },
+						options: { drawerIcon: () => 'domain' },
 						name: 'launcher',
 						title: 'Launcher',
 						path: '/',

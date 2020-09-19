@@ -1,10 +1,9 @@
-import { IntlContextData, RouteOptions } from '@bluebase/core';
-
 import { RouteConfig } from '@bluebase/components';
+import { RouteOptions } from '@bluebase/core';
 import { createSettingsRoutes } from '../lib';
 import { pages } from './pages';
 
-export const routes = async ({ BB }: RouteOptions): Promise<RouteConfig[]> => {
+export const routes = async ({ BB, intl }: RouteOptions): Promise<RouteConfig[]> => {
 	return [
 		...createSettingsRoutes({
 			filter: 'bluebase.plugin.setting-app',
@@ -14,11 +13,8 @@ export const routes = async ({ BB }: RouteOptions): Promise<RouteConfig[]> => {
 				name: 'SettingsApp',
 				path: '',
 
-				navigationOptions: (opts: any) => {
-					const { __ }: IntlContextData = opts.screenProps.intl;
-					return {
-						title: __('Settings'),
-					};
+				options: {
+					title: intl.__('Settings'),
 				},
 			},
 		}),

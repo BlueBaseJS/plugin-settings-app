@@ -28,7 +28,7 @@ const item = {
 		},
 	],
 
-	navigationOptions: {
+	options: {
 		title: 'Appearance',
 	},
 };

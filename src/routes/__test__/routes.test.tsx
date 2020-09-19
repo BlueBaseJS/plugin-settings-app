@@ -14,9 +14,8 @@ describe('routes', () => {
 				},
 			},
 		};
-		const route: any = await routes({ BB });
-		const navigation = route[0].navigationOptions;
-		const opt = { screenProps: { intl: { __: (message: string) => message } } };
-		expect(navigation(opt).title).toBe('Settings');
+		const route: any = await routes({ BB, intl: { __: (message: string) => message } });
+		const navigation = route[0].options;
+		expect(navigation.title).toBe('Settings');
 	});
 });
