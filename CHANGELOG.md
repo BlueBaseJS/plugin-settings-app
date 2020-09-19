@@ -1,3 +1,9 @@
+# [3.1.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v3.0.2...v3.1.0) (2020-09-19)
+
+### Features
+
+-   Uses options prop instead of navigationOptions ([3209199](https://github.com/BlueBaseJS/plugin-settings-app/commit/3209199))
+
 ## [3.0.2](https://github.com/BlueBaseJS/plugin-settings-app/compare/v3.0.1...v3.0.2) (2020-09-18)
 
 ### Bug Fixes
