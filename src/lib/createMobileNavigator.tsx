@@ -27,6 +27,7 @@ export const createMobileRoutes = ({
 		...pages.map(page => ({
 			...page,
 			exact: true,
+			path: `${route.path.replace(/\/$/, '')}/${page.path}`,
 			screen: (props: any) => <SettingsPageMobile filter={filter} items={page.items} {...props} />,
 		})),
 	];
