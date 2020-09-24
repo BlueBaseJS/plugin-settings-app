@@ -3,6 +3,7 @@ import React from 'react';
 import { RouteConfig } from '@bluebase/components';
 import { SettingsPageListProps } from '../layouts/SettingsPageList';
 import { SettingsPageProps } from '../layouts/SettingsPage';
+import get from 'lodash.get';
 import { getComponent } from '@bluebase/core';
 
 const SettingsPageList = getComponent<SettingsPageListProps>('SettingsPageList');
@@ -27,7 +28,7 @@ export const createMobileRoutes = ({
 		...pages.map(page => ({
 			...page,
 			exact: true,
-			path: `${route.path.replace(/\/$/, '')}/${page.path}`,
+			path: `${get(route, 'path', '').replace(/\/$/, '')}/${get(page, 'path', '')}`,
 			screen: (props: any) => <SettingsPageMobile filter={filter} items={page.items} {...props} />,
 		})),
 	];
