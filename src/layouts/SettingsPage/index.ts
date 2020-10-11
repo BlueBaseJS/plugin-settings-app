@@ -6,6 +6,8 @@ import { SettingsPageItemProps } from '../SettingsPageItem';
  */
 export interface SettingsPageProps extends RouteConfig {
 	items: SettingsPageItemProps[];
+	onPress?: () => void;
+	right?: React.ReactNode;
 }
 
 export * from './SettingsPageDesktop';

@@ -6,7 +6,7 @@ import { Theme } from '@bluebase/core';
 
 export interface SettingsAppIconStyles {
 	iconColor: { color: TextStyle['color'] };
-	root: StyleProp<ViewStyle>;
+	root: ViewStyle;
 }
 
 export interface SettingsAppIconProps {

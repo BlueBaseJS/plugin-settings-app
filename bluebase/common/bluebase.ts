@@ -1,4 +1,5 @@
 import { VERSION } from '../../src/version';
+import { filters } from './filters';
 import { plugins } from './plugins';
 
 export default {
@@ -19,4 +20,6 @@ export default {
 		developerUrl: 'https://www.blueeast.com',
 		version: VERSION,
 	},
+
+	filters,
 };

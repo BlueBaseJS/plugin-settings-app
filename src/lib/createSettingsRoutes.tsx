@@ -1,6 +1,6 @@
 import { RouteConfig } from '@bluebase/components';
 import { SettingsPageProps } from '../layouts/SettingsPage';
-import { createDesktopNavigator } from './createDesktopNavigator';
+import { createDesktopRoutes } from './createDesktopNavigator';
 import { createMobileRoutes } from './createMobileNavigator';
 import { isMobile } from '@bluebase/core';
 
@@ -17,5 +17,5 @@ export const createSettingsRoutes = ({
 }: CreateSettingsRoutesOptions) => {
 	return isMobile()
 		? createMobileRoutes({ mainRoute, pages, filter })
-		: [{ ...mainRoute, navigator: createDesktopNavigator({ mainRoute, pages, filter }) }];
+		: createDesktopRoutes({ mainRoute, pages, filter });
 };

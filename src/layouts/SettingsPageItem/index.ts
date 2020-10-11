@@ -1,4 +1,5 @@
 import { StyleProp, TextStyle } from 'react-native';
+
 import React from 'react';
 
 /**
@@ -20,10 +21,10 @@ export interface SettingsPageItemProps {
 	description?: React.ReactNode;
 
 	/** Styles to apply to the title component */
-	titleStyle?: StyleProp<TextStyle>;
+	titleStyle?: TextStyle;
 
 	/** Styles to apply to the description component */
-	descriptionStyle?: StyleProp<TextStyle>;
+	descriptionStyle?: TextStyle;
 }
 
 export * from './SettingsPageItemDesktop';

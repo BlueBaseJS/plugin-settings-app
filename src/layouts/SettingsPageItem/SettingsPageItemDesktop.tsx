@@ -1,15 +1,15 @@
-import { Body1, Body2, Card, FormattedMessage, View } from '@bluebase/components';
+import { Body1, Body2, View } from '@bluebase/components';
 import { Platform, TextStyle, ViewStyle } from 'react-native';
-import { Theme, useComponent, useStyles } from '@bluebase/core';
+import { Theme, useComponent, useIntl, useStyles } from '@bluebase/core';
 
 import React from 'react';
 import { SettingsPageItemProps } from '../SettingsPageItem';
 
 export interface SettingsPageItemDesktopStyles {
-	contentStyles: ViewStyle;
+	content: ViewStyle;
 	descriptionStyles: TextStyle;
 	root: ViewStyle;
-	textColumn: ViewStyle;
+	header: ViewStyle;
 	titleStyles: TextStyle;
 }
 
@@ -18,60 +18,68 @@ export interface SettingsPageItemDesktopProps extends SettingsPageItemProps {
 }
 
 const defaultStyles = (theme: Theme): SettingsPageItemDesktopStyles => ({
-	contentStyles: {
+	root: {
+		backgroundColor: theme.palette.background.card,
+		borderColor: theme.palette.divider,
+		borderRadius: theme.shape.borderRadius * 2,
+		borderWidth: 1,
+	},
+
+	header: {
+		borderBottomColor: theme.palette.divider,
+		borderBottomWidth: 1,
+		paddingHorizontal: theme.spacing.unit * 2,
+		paddingVertical: theme.spacing.unit,
+	},
+
+	titleStyles: {
+		paddingVertical: theme.spacing.unit,
+	},
+
+	descriptionStyles: {
+		color: theme.palette.text.hint,
+		paddingVertical: theme.spacing.unit,
+	},
+
+	content: {
 		// backgroundColor: theme.palette.background.card,
 		borderBottomWidth: Platform.select({ default: undefined, ios: 1 }),
 		borderColor: Platform.select({ default: undefined, ios: theme.palette.divider }),
 		borderTopWidth: Platform.select({ default: undefined, ios: 1 }),
 		flex: 1,
 	},
-	descriptionStyles: {
-		color: theme.palette.text.hint,
-	},
-	root: {
-		backgroundColor: theme.palette.background.default,
-		flexDirection: 'row',
-		padding: theme.spacing.unit * 2,
-	},
-	textColumn: {
-		paddingRight: theme.spacing.unit * 2,
-		paddingVertical: theme.spacing.unit * 2,
-		width: '40%',
-	},
-	titleStyles: {
-		// color: theme.palette.primary.main,
-		paddingBottom: theme.spacing.unit,
-		// fontWeight: theme.typography.fontWeightMedium,
-	},
 });
 
 export const SettingsPageItemDesktop = (props: SettingsPageItemDesktopProps) => {
 	const { description, descriptionStyle, title, titleStyle } = props;
 	const ItemComponent = useComponent(props.component);
+	const { __ } = useIntl();
 
 	const styles = useStyles('SettingsPageItemDesktop', props, defaultStyles);
 
-	const titleNode = !!title ? (
-		<FormattedMessage component={Body1} style={[styles.titleStyles, titleStyle]}>
-			{title}
-		</FormattedMessage>
-	) : null;
+	const titleNode =
+		typeof title === 'string' ? (
+			<Body1 style={[styles.titleStyles, titleStyle]}>{__(title)}</Body1>
+		) : (
+			title
+		);
 
-	const descNode = !!description ? (
-		<FormattedMessage component={Body2} style={[styles.descriptionStyles, descriptionStyle]}>
-			{description}
-		</FormattedMessage>
-	) : null;
+	const descNode =
+		typeof description === 'string' ? (
+			<Body2 style={[styles.descriptionStyles, descriptionStyle]}>{__(description)}</Body2>
+		) : (
+			description
+		);
 
 	return (
 		<View style={styles.root}>
-			<View style={styles.textColumn}>
+			<View style={styles.header}>
 				{titleNode}
 				{descNode}
 			</View>
-			<Card style={styles.contentStyles}>
+			<View style={styles.content}>
 				<ItemComponent />
-			</Card>
+			</View>
 		</View>
 	);
 };

@@ -1,25 +1,30 @@
 import { CreateSettingsRoutesOptions } from './createSettingsRoutes';
-import { NavigatorProps } from '@bluebase/components';
 import React from 'react';
-import { SettingsPageProps } from '../layouts/SettingsPage';
-import { getComponent } from '@bluebase/core';
+import { RouteConfig } from '@bluebase/components';
+import { SettingsLayoutDesktop } from '../layouts/SettingsLayoutDesktop';
+import get from 'lodash.get';
 
-const SettingsPageDesktop = getComponent<SettingsPageProps>('SettingsPageDesktop');
-
-export const createDesktopNavigator = ({
+export const createDesktopRoutes = ({
+	mainRoute,
 	pages,
 	filter,
-}: CreateSettingsRoutesOptions): NavigatorProps => {
-	return {
-		drawerType: 'slide',
-		drawerWidth: 225,
-		open: true,
-		type: 'drawer',
-
-		routes: pages.map(page => ({
+}: CreateSettingsRoutesOptions): RouteConfig[] => {
+	return [
+		// Sub routes
+		...pages.map(page => ({
 			...page,
-			exact: true,
-			screen: (props: any) => <SettingsPageDesktop filter={filter} {...page} {...props} />,
+			options: mainRoute.options,
+			path: `${get(mainRoute, 'path', '').replace(/\/$/, '')}/${get(page, 'path', '')}`,
+			screen: (props: any) => (
+				<SettingsLayoutDesktop
+					filter={filter}
+					items={page.items}
+					pages={pages}
+					page={page.name}
+					mainRoute={mainRoute}
+					{...props}
+				/>
+			),
 		})),
-	};
+	];
 };

@@ -41,17 +41,13 @@ export const SettingsPageDesktop = (props: SettingsPageDesktopProps) => {
 	return (
 		<ScrollView>
 			<View style={styles.root}>
-				{title && (
-					<React.Fragment>
-						<H6 style={styles.title}>{__(title)}</H6>
-						<Divider />
-					</React.Fragment>
-				)}
-				{filteredItems.map((item, index) => (
-					<React.Fragment key={item.name}>
-						<SettingsPageItemDesktop {...item} />
-						{index < filteredItems.length - 1 && <Divider />}
-					</React.Fragment>
+				{title && <H6 style={styles.title}>{__(title)}</H6>}
+				{filteredItems.map(item => (
+					<SettingsPageItemDesktop
+						key={item.name}
+						{...item}
+						styles={{ root: { marginVertical: 8 } }}
+					/>
 				))}
 			</View>
 		</ScrollView>
@@ -59,4 +55,7 @@ export const SettingsPageDesktop = (props: SettingsPageDesktopProps) => {
 };
 
 SettingsPageDesktop.displayName = 'SettingsPageDesktop';
+SettingsPageDesktop.defaultProps = {
+	items: [],
+};
 export default SettingsPageDesktop;

@@ -8,7 +8,7 @@ import { SettingsPageProps } from '../SettingsPage';
 import get from 'lodash.get';
 
 export interface SettingsPageMobileStyles {
-	root: StyleProp<ViewStyle>;
+	root: ViewStyle;
 }
 
 export interface SettingsPageMobileProps extends SettingsPageProps {
@@ -45,4 +45,7 @@ export const SettingsPageMobile = (props: SettingsPageMobileProps) => {
 };
 
 SettingsPageMobile.displayName = 'SettingsPageMobile';
+SettingsPageMobile.defaultProps = {
+	items: [],
+};
 export default SettingsPageMobile;

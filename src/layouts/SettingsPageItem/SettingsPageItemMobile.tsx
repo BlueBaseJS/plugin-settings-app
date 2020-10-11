@@ -1,15 +1,16 @@
-import { Caption, FormattedMessage, List, View } from '@bluebase/components';
+import { Caption, List, View } from '@bluebase/components';
 import { StyleProp, TextStyle, ViewStyle } from 'react-native';
-import { Theme, useComponent, useStyles } from '@bluebase/core';
+import { Theme, useComponent, useIntl, useStyles } from '@bluebase/core';
 
 import React from 'react';
 import { SettingsPageItemProps } from '../SettingsPageItem';
 
 export interface SettingsPageItemMobileStyles {
-	contentStyles: StyleProp<ViewStyle>;
-	descriptionStyles: StyleProp<TextStyle>;
-	root: StyleProp<ViewStyle>;
-	titleStyles: StyleProp<TextStyle>;
+	contentStyles: ViewStyle;
+	descriptionStyles: TextStyle;
+	root: ViewStyle;
+	header: ViewStyle;
+	titleStyles: TextStyle;
 }
 
 export interface SettingsPageItemMobileProps extends SettingsPageItemProps {
@@ -20,43 +21,53 @@ export interface SettingsPageItemMobileProps extends SettingsPageItemProps {
 
 const defaultStyles = (theme: Theme): SettingsPageItemMobileStyles => ({
 	contentStyles: {},
+
 	descriptionStyles: {
 		color: theme.palette.text.hint,
 		paddingHorizontal: theme.spacing.unit * 2,
-		paddingVertical: theme.spacing.unit * 2,
 	},
+
 	root: {},
+
+	header: {
+		paddingVertical: theme.spacing.unit,
+	},
+
 	titleStyles: {
-		paddingHorizontal: theme.spacing.unit * 2,
-		paddingVertical: theme.spacing.unit * 2,
+		paddingHorizontal: 0,
 	},
 });
 
 export const SettingsPageItemMobile = (props: SettingsPageItemMobileProps) => {
 	const { description, descriptionStyle, title, titleStyle } = props;
 	const ItemComponent = useComponent(props.component);
+	const { __ } = useIntl();
 
 	const styles = useStyles('SettingsPageItemDesktop', props, defaultStyles);
 
-	const titleNode = !!title ? (
-		<FormattedMessage component={List.Subheader} style={[styles.titleStyles, titleStyle]}>
-			{title}
-		</FormattedMessage>
-	) : null;
+	const titleNode =
+		typeof title === 'string' ? (
+			<List.Subheader style={[styles.titleStyles, titleStyle]}>{__(title)}</List.Subheader>
+		) : (
+			title
+		);
 
-	const descNode = !!description ? (
-		<FormattedMessage component={Caption} style={[styles.descriptionStyles, descriptionStyle]}>
-			{description}
-		</FormattedMessage>
-	) : null;
+	const descNode =
+		typeof description === 'string' ? (
+			<Caption style={[styles.descriptionStyles, descriptionStyle]}>{__(description)}</Caption>
+		) : (
+			description
+		);
 
 	return (
 		<View style={styles.root}>
-			{titleNode}
+			<View style={styles.header}>
+				{titleNode}
+				{descNode}
+			</View>
 			<View style={styles.contentStyles}>
 				<ItemComponent />
 			</View>
-			{descNode}
 		</View>
 	);
 };
