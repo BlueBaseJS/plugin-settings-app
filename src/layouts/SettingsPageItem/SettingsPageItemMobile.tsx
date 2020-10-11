@@ -1,5 +1,5 @@
 import { Caption, List, View } from '@bluebase/components';
-import { StyleProp, TextStyle, ViewStyle } from 'react-native';
+import { TextStyle, ViewStyle } from 'react-native';
 import { Theme, useComponent, useIntl, useStyles } from '@bluebase/core';
 
 import React from 'react';

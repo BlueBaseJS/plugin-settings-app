@@ -1,5 +1,5 @@
 import { DynamicIcon, View } from '@bluebase/components';
-import { StyleProp, TextStyle, ViewStyle } from 'react-native';
+import { TextStyle, ViewStyle } from 'react-native';
 
 import React from 'react';
 import { Theme } from '@bluebase/core';

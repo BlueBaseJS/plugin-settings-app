@@ -1,5 +1,5 @@
 import { Divider, View } from '@bluebase/components';
-import { SafeAreaView, ScrollView, StyleProp, ViewStyle } from 'react-native';
+import { SafeAreaView, ScrollView, ViewStyle } from 'react-native';
 import { SettingsPageItemMobile, SettingsPageItemProps } from '../SettingsPageItem';
 import { Theme, useFilter, useStyles } from '@bluebase/core';
 

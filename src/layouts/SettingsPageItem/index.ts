@@ -1,6 +1,5 @@
-import { StyleProp, TextStyle } from 'react-native';
-
 import React from 'react';
+import { TextStyle } from 'react-native';
 
 /**
  * A UI item displayed on a settings details page

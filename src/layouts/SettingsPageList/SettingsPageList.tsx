@@ -1,4 +1,4 @@
-import { List, NavigationOptions } from '@bluebase/components';
+import { Icon, List, NavigationOptions } from '@bluebase/components';
 import {
 	resolveThunk,
 	useBlueBase,
@@ -10,6 +10,7 @@ import {
 
 import React from 'react';
 import { SettingsPageProps } from '../SettingsPage';
+import { openBrowserAsync } from 'expo-web-browser';
 
 export interface SettingsPageListProps {
 	name: string;
@@ -56,19 +57,24 @@ export const SettingsPageList = (props: SettingsPageListProps) => {
 			<HeaderComponent />
 			<List>
 				{pages.map(page => {
+					const { name: pageName, browserParams, right, url } = page;
+
 					const options = resolveThunk(page.options || {}, contextBundle);
 
 					const title = getTitle(options);
 					const left = getIcon(options);
-					const onPress = page.onPress ? page.onPress : () => navigate(page.name, state.params);
+					const onPress = page.onPress ? page.onPress : () => navigate(pageName, state.params);
+
+					const openUrl = () => openBrowserAsync(url!, browserParams);
+					const openUrlIcon = <Icon name="open-in-new" size={20} color={theme.palette.text.icon} />;
 
 					return (
 						<List.Item
-							key={page.name}
-							onPress={onPress}
+							key={pageName}
+							onPress={url ? openUrl : onPress}
 							title={__(title)}
 							left={left}
-							right={page.right}
+							right={url ? openUrlIcon : right}
 						/>
 					);
 				})}

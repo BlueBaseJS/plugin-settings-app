@@ -1,4 +1,4 @@
-import { Divider, H6, NavigationOptions, View } from '@bluebase/components';
+import { H6, NavigationOptions, View } from '@bluebase/components';
 import { ScrollView, TextStyle, ViewStyle } from 'react-native';
 import { Theme, resolveThunk, useFilter, useIntl, useStyles } from '@bluebase/core';
 
