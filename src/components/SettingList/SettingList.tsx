@@ -1,4 +1,4 @@
-import { Divider, List } from '@bluebase/components';
+import { Divider, View } from '@bluebase/components';
 import { getComponent, useBlueBase } from '@bluebase/core';
 
 import React from 'react';
@@ -21,7 +21,7 @@ export const SettingList = (props: SettingListProps) => {
 		.filter(x => !!x) as Array<string | React.ComponentType<any>>;
 
 	return (
-		<List>
+		<View>
 			{items.map((item, index) => {
 				return (
 					<React.Fragment key={index}>
@@ -30,6 +30,6 @@ export const SettingList = (props: SettingListProps) => {
 					</React.Fragment>
 				);
 			})}
-		</List>
+		</View>
 	);
 };

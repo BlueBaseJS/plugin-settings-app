@@ -1,5 +1,5 @@
 import { Divider, View } from '@bluebase/components';
-import { SafeAreaView, ScrollView, StyleProp, ViewStyle } from 'react-native';
+import { SafeAreaView, ScrollView, ViewStyle } from 'react-native';
 import { SettingsPageItemMobile, SettingsPageItemProps } from '../SettingsPageItem';
 import { Theme, useFilter, useStyles } from '@bluebase/core';
 
@@ -8,7 +8,7 @@ import { SettingsPageProps } from '../SettingsPage';
 import get from 'lodash.get';
 
 export interface SettingsPageMobileStyles {
-	root: StyleProp<ViewStyle>;
+	root: ViewStyle;
 }
 
 export interface SettingsPageMobileProps extends SettingsPageProps {
@@ -45,4 +45,7 @@ export const SettingsPageMobile = (props: SettingsPageMobileProps) => {
 };
 
 SettingsPageMobile.displayName = 'SettingsPageMobile';
+SettingsPageMobile.defaultProps = {
+	items: [],
+};
 export default SettingsPageMobile;
