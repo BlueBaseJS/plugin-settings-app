@@ -1,3 +1,13 @@
+# [4.0.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v3.1.1...v4.0.0) (2020-10-11)
+
+### Features
+
+-   New Desktop Layout ([#185](https://github.com/BlueBaseJS/plugin-settings-app/issues/185)) ([d133c9a](https://github.com/BlueBaseJS/plugin-settings-app/commit/d133c9a8c986d6c053549734dacb03f206a7e680))
+
+### BREAKING CHANGES
+
+-   The desktop layout is changed.
+
 ## [3.1.1](https://github.com/BlueBaseJS/plugin-settings-app/compare/v3.1.0...v3.1.1) (2020-09-30)
 
 ### Bug Fixes
