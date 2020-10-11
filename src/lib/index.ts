@@ -1,3 +1,3 @@
-export * from './createDesktopNavigator';
-export * from './createMobileNavigator';
+export * from './createDesktopRoutes';
+export * from './createMobileRoutes';
 export * from './createSettingsRoutes';

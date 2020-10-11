@@ -1,5 +1,6 @@
+import { Icon } from '@bluebase/components';
 import React from 'react';
-import { SettingsPageList } from '../SettingsPageList';
+import { SettingsLayoutDesktop } from '../SettingsLayoutDesktop';
 import { SettingsPageProps } from '../../SettingsPage';
 import storiesOf from '@bluebase/storybook-addon';
 
@@ -55,8 +56,24 @@ export const pages: SettingsPageProps[] = [
 			},
 		],
 	} as any,
+
+	{
+		name: 'AccountSettings',
+		path: 'account',
+		right: <Icon name="open-in-new" size={20} />,
+
+		options: {
+			drawerIcon: { type: 'icon', name: 'account' },
+
+			title: 'Account',
+		},
+	},
 ];
 
-storiesOf('Layouts / SettingsPageList', module).add('SettingsPageList', () => (
-	<SettingsPageList name="test" pages={pages} />
+storiesOf('Layouts / SettingsLayoutDesktop', module).add('SettingsLayoutDesktop', () => (
+	<SettingsLayoutDesktop
+		mainRoute={{ name: 'test' } as any}
+		pages={pages}
+		page="GeneralSettingsPage"
+	/>
 ));

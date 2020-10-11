@@ -1,62 +1,21 @@
-import { IntlContext, IntlContextData, getComponent, resolveThunk } from '@bluebase/core';
-import { List, NavigationOptions, Noop } from '@bluebase/components';
+import { Icon, List, NavigationOptions, StatefulComponent } from '@bluebase/components';
+import {
+	resolveThunk,
+	useBlueBase,
+	useComponent,
+	useFilter,
+	useIntl,
+	useNavigation,
+	useTheme,
+} from '@bluebase/core';
 
-import { ContextBundle } from '../ContextBundle';
 import React from 'react';
 import { SettingsPageProps } from '../SettingsPage';
+import { openBrowserAsync } from 'expo-web-browser';
 
 export interface SettingsPageListProps {
 	name: string;
 	pages: SettingsPageProps[];
-}
-
-export class SettingsPageList extends React.PureComponent<SettingsPageListProps> {
-	static contextType: React.Context<IntlContextData> = IntlContext;
-
-	private HeaderComponent?: React.ComponentType<any>;
-	private FooterComponent?: React.ComponentType<any>;
-
-	componentWillMount() {
-		const { name } = this.props;
-
-		if (name) {
-			this.HeaderComponent = getComponent(`${name}RootPageHeader`, 'Noop');
-			this.FooterComponent = getComponent(`${name}RootPageFooter`, 'Noop');
-		}
-	}
-
-	render() {
-		const intl: IntlContextData = this.context;
-		const { __ } = intl;
-
-		const HeaderComponent = this.HeaderComponent || Noop;
-		const FooterComponent = this.FooterComponent || Noop;
-
-		return (
-			<React.Fragment>
-				<HeaderComponent />
-				<List>
-					<ContextBundle>
-						{(opts): any =>
-							this.props.pages.map(page => {
-								const options = resolveThunk(page.options || {}, opts);
-
-								const title = getTitle(options);
-								const left = getIcon(options);
-								const onPress = () =>
-									opts.navigation.navigate(page.name, opts.navigation.state.params);
-
-								return (
-									<List.Item key={page.name} onPress={onPress} title={__(title)} left={left} />
-								);
-							})
-						}
-					</ContextBundle>
-				</List>
-				<FooterComponent />
-			</React.Fragment>
-		);
-	}
 }
 
 function getTitle(options: NavigationOptions) {
@@ -78,5 +37,59 @@ function getIcon(options: NavigationOptions) {
 		return <List.Icon {...icon} />;
 	}
 }
+
+export const SettingsPageList = (props: SettingsPageListProps) => {
+	const { name, pages } = props;
+
+	const intl = useIntl();
+	const BB = useBlueBase();
+	const { theme } = useTheme();
+	const navigation = useNavigation();
+	const contextBundle = { navigation, screenProps: { BB, intl, theme } };
+
+	const { __ } = intl;
+	const { navigate, state } = navigation;
+
+	const HeaderComponent = useComponent(`${name}RootPageHeader`, 'Noop');
+	const FooterComponent = useComponent(`${name}RootPageFooter`, 'Noop');
+
+	const listItems = pages.map(page => {
+		const { name: pageName, browserParams, right, url } = page;
+
+		const options = resolveThunk(page.options || {}, contextBundle);
+
+		const title = getTitle(options);
+		const left = getIcon(options);
+		const onPress = page.onPress ? page.onPress : () => navigate(pageName, state.params);
+
+		const openUrl = () => openBrowserAsync(url!, browserParams);
+		const openUrlIcon = <Icon name="open-in-new" size={20} color={theme.palette.text.icon} />;
+
+		return {
+			Component: List.Item,
+			key: pageName,
+			left,
+			onPress: url ? openUrl : onPress,
+			right: url ? openUrlIcon : right,
+			title: __(title),
+		};
+	});
+
+	const { loading, value: items, error } = useFilter(`${name}.settings.list.items`, listItems);
+
+	return (
+		<React.Fragment>
+			<HeaderComponent />
+			<StatefulComponent loading={loading} error={error} data={items}>
+				<List>
+					{items.map(({ Component, key, ...rest }, index) => (
+						<Component key={key || index} {...rest} />
+					))}
+				</List>
+			</StatefulComponent>
+			<FooterComponent />
+		</React.Fragment>
+	);
+};
 
 export default SettingsPageList;

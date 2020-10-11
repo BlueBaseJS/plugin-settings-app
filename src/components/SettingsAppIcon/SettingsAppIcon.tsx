@@ -1,12 +1,12 @@
 import { DynamicIcon, View } from '@bluebase/components';
-import { StyleProp, TextStyle, ViewStyle } from 'react-native';
+import { TextStyle, ViewStyle } from 'react-native';
 
 import React from 'react';
 import { Theme } from '@bluebase/core';
 
 export interface SettingsAppIconStyles {
 	iconColor: { color: TextStyle['color'] };
-	root: StyleProp<ViewStyle>;
+	root: ViewStyle;
 }
 
 export interface SettingsAppIconProps {

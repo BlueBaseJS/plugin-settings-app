@@ -1,3 +1,9 @@
+## [3.1.1](https://github.com/BlueBaseJS/plugin-settings-app/compare/v3.1.0...v3.1.1) (2020-09-30)
+
+### Bug Fixes
+
+-   Fixes bad route paths on mobile ([2ca183a](https://github.com/BlueBaseJS/plugin-settings-app/commit/2ca183a))
+
 # [3.1.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v3.0.2...v3.1.0) (2020-09-19)
 
 ### Features

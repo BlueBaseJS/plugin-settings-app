@@ -1,47 +1,150 @@
-const mockGetDimensions = jest.fn().mockReturnValue({
-    height: 800,
-    width: 300,
-});
-jest.mock('expo', () => ({}));
-jest.mock('react-native/Libraries/Utilities/Dimensions', () => {
-    const DimensionsActual = require.requireActual('react-native/Libraries/Utilities/Dimensions');
-    return class extends DimensionsActual {
-        static get = mockGetDimensions;
-    };
-});
+import React, { createElement } from 'react';
+import { SettingsPageMobile, SettingsPageProps } from '../layouts/SettingsPage';
 
-import { createDesktopNavigator } from './createDesktopNavigator';
-import { createMobileRoutes } from './createMobileNavigator';
+import { BlueBaseApp } from '@bluebase/core';
+import MUI from '@bluebase/plugin-material-ui';
+import { Noop } from '@bluebase/components';
+import Plugin from '../';
+import { SettingsLayoutDesktop } from '../layouts/SettingsLayoutDesktop';
+import { SettingsPageList } from '../layouts/SettingsPageList';
+import { View } from 'react-native';
+import { createDesktopRoutes } from '.';
+import { createMobileRoutes } from './createMobileRoutes';
 import { createSettingsRoutes } from './createSettingsRoutes';
-import { createDesktopNavigator as navigator } from '../createSettingsRoutes/createDesktopNavigator';
+import { mount } from 'enzyme';
+import { waitForElement } from 'enzyme-async-helpers';
 
-jest.mock('expo', () => { });
+export const pages: SettingsPageProps[] = [
+	{
+		name: 'GeneralSettingsPage',
+		path: 'general',
 
-export let Component: any;
+		options: {
+			drawerIcon: { type: 'icon', name: 'cog' },
+			title: 'General',
+		},
+
+		items: [
+			{
+				component: 'AppearanceSettingList',
+				description: 'All your theme related settings reside here.',
+				name: 'appearance',
+				title: 'Appearance',
+			},
+			{
+				component: 'LanguageSettingList',
+				description: 'Change your language settings here',
+				name: 'language',
+				title: 'Language',
+			},
+		],
+	},
+	{
+		name: 'AboutSettingsPage',
+		path: 'about',
+
+		options: {
+			drawerIcon: { type: 'icon', name: 'information' },
+			title: 'About',
+		},
+
+		items: [
+			{
+				component: 'SupportSettingList',
+				name: 'support',
+				title: 'Support',
+			},
+			{
+				component: 'InformationSettingList',
+				name: 'information',
+				title: 'Information',
+			},
+			{
+				component: 'LegalSettingList',
+				name: 'legal',
+				title: 'Legal',
+			},
+		],
+	} as any,
+];
+
 describe('SettingsPageList', () => {
-    const Desktop: any = createDesktopNavigator;
-    it('should return SettingsPageList', async () => {
-        mockGetDimensions.mockReturnValue({
-            height: 1300,
-            width: 1200,
-        });
-        require('../index');
+	it('createMobileRoutes', async () => {
+		const mobileRoutes: any = createMobileRoutes({
+			mainRoute: { name: 'screen' } as any,
+			pages: pages,
+		});
 
-        const data: any = Desktop({ pages: [{ title: 'setting' }] });
-        data.routes[0].screen();
-        const datas: any = navigator({ pages: [{ title: 'setting' }] as any });
-        datas.routes[0].screen();
-        const datass: any =
-            createMobileRoutes({ mainRoute: { name: 'screen' } as any, pages: [{ title: 'setting' }] as any });
-        datass[0].screen();
-        datass[1].screen();
-        createSettingsRoutes({ pages: [{ title: 'setting' }] as any } as any);
+		expect(mobileRoutes).toHaveLength(3);
 
-        expect(data).toBeDefined();
-    });
+		// First Page
+		const wrapper = mount(
+			<BlueBaseApp
+				plugins={[Plugin, MUI]}
+				components={{ Container: View, Row: View, Column: View, JsonLayout: Noop }}
+			>
+				{createElement(mobileRoutes[0].screen)}
+			</BlueBaseApp>
+		);
 
+		await waitForElement(wrapper, SettingsPageList);
+		expect(wrapper.find(SettingsPageList).exists()).toBe(true);
 
+		// Detail Page
+		const wrapper2 = mount(
+			<BlueBaseApp
+				plugins={[Plugin, MUI]}
+				components={{ Container: View, Row: View, Column: View, JsonLayout: Noop }}
+			>
+				{createElement(mobileRoutes[1].screen)}
+			</BlueBaseApp>
+		);
 
+		await waitForElement(wrapper2, SettingsPageMobile);
+		expect(wrapper2.find(SettingsPageMobile).exists()).toBe(true);
+	});
+
+	it('createDesktopRoutes', async () => {
+		const desktopRoutes: any = createDesktopRoutes({
+			mainRoute: { name: 'screen' } as any,
+			pages: pages,
+		});
+
+		expect(desktopRoutes).toHaveLength(3);
+
+		// First Page
+		const wrapper = mount(
+			<BlueBaseApp
+				plugins={[Plugin, MUI]}
+				components={{ Container: View, Row: View, Column: View, JsonLayout: Noop }}
+			>
+				{createElement(desktopRoutes[0].screen)}
+			</BlueBaseApp>
+		);
+
+		await waitForElement(wrapper, SettingsLayoutDesktop);
+		expect(wrapper.find(SettingsLayoutDesktop).exists()).toBe(true);
+
+		// Detail Page
+		const wrapper2 = mount(
+			<BlueBaseApp
+				plugins={[Plugin, MUI]}
+				components={{ Container: View, Row: View, Column: View, JsonLayout: Noop }}
+			>
+				{createElement(desktopRoutes[2].screen)}
+			</BlueBaseApp>
+		);
+
+		await waitForElement(wrapper2, SettingsLayoutDesktop);
+		expect(wrapper2.find(SettingsLayoutDesktop).exists()).toBe(true);
+	});
+
+	it('createSettingsRoutes', async () => {
+		const mobileRoutes: any = createSettingsRoutes({
+			mainRoute: { name: 'screen' } as any,
+			pages: pages,
+		});
+
+		expect(mobileRoutes).toHaveLength(3);
+	});
 });
-
-
