@@ -1,3 +1,5 @@
+import { List } from '@bluebase/components';
+import React from 'react';
 import { SettingsPageProps } from '../../src';
 
 export const filters = {
@@ -40,6 +42,21 @@ export const filters = {
 				// 	// },
 				// 	,
 				// ];
+			},
+		},
+	],
+
+	'SettingsApp.settings.list.items': [
+		{
+			key: 'bluebase-settings-list-items',
+			priority: 20,
+
+			value: (items: any[]) => {
+				const Logout = () => (
+					<List.Item title="Logout" left={<List.Icon name="logout" />} onPress={() => {}} />
+				);
+
+				return [...items, { Component: Logout, key: 'logout' }];
 			},
 		},
 	],

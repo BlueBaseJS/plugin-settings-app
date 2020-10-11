@@ -1,37 +1,130 @@
-import { BlueBaseApp } from '@bluebase/core';
+import { BlueBaseApp, NavigationContext } from '@bluebase/core';
+
+import { List } from '@bluebase/components';
 import MUI from '@bluebase/plugin-material-ui';
 import Plugin from '../../../../src';
 import React from 'react';
 import { SettingsPageList } from '../SettingsPageList';
 import { mount } from 'enzyme';
+import { openBrowserAsync } from 'expo-web-browser';
 import { waitForElement } from 'enzyme-async-helpers';
 
-jest.mock('expo', () => {});
+jest.mock('expo-web-browser');
+
+const pages: any[] = [
+	{
+		name: 'GeneralSettingsPage',
+		path: 'general',
+
+		options: {
+			drawerIcon: { type: 'icon', name: 'cog' },
+			title: 'General',
+		},
+
+		items: [
+			{
+				component: 'AppearanceSettingList',
+				description: 'All your theme related settings reside here.',
+				name: 'appearance',
+				title: 'Appearance',
+			},
+			{
+				component: 'LanguageSettingList',
+				description: 'Change your language settings here',
+				name: 'language',
+				title: 'Language',
+			},
+		],
+	},
+	{
+		name: 'AboutSettingsPage',
+		path: 'about',
+
+		options: {
+			drawerIcon: { type: 'icon', name: 'information' },
+			title: 'About',
+		},
+
+		items: [
+			{
+				component: 'SupportSettingList',
+				name: 'support',
+				title: 'Support',
+			},
+			{
+				component: 'InformationSettingList',
+				name: 'information',
+				title: 'Information',
+			},
+			{
+				component: 'LegalSettingList',
+				name: 'legal',
+				title: 'Legal',
+			},
+		],
+	},
+	{
+		browserParams: { windowFeatures: { width: 800 } },
+		url: 'https://blueeast.com',
+	},
+];
+
 describe('SettingsPageList', () => {
 	it('should return SettingsPageList', async () => {
-		// mount componentz
-		require('../index');
+		const customOnPress = jest.fn();
+		const navigate = jest.fn();
+
 		const wrapper = mount(
 			<BlueBaseApp plugins={[Plugin, MUI]}>
-				<SettingsPageList
-					name=""
-					pages={[{ name: 'launcher', title: 'Launcher', path: '/' } as any]}
-				/>
+				<NavigationContext.Provider value={{ navigate, state: { params: { foo: 'bar' } } } as any}>
+					<SettingsPageList
+						name="Test"
+						pages={[...pages, { name: 'onPress', onPress: customOnPress, title: 'OnPress' }]}
+					/>
+				</NavigationContext.Provider>
 			</BlueBaseApp>
 		);
 		await waitForElement(wrapper, 'List');
-		expect(
-			wrapper
-				.find('List')
-				.first()
-				.prop('children')
-		).toBeDefined();
+
+		expect(wrapper.find(List.Item)).toHaveLength(4);
+
+		// Navigate on Press
+		const onNavigate: any = wrapper
+			.find(List.Item)
+			.at(0)
+			.prop('onPress');
+
+		onNavigate();
+
+		expect(navigate).toHaveBeenCalledTimes(1);
+		expect(navigate).toHaveBeenLastCalledWith('GeneralSettingsPage', { foo: 'bar' });
+
+		// Fire custom onPress
+		const onPressItem: any = wrapper
+			.find(List.Item)
+			.at(3)
+			.prop('onPress');
+
+		onPressItem();
+
+		expect(customOnPress).toHaveBeenCalledTimes(1);
+
+		// Open browser for url items
+		const urlItem: any = wrapper
+			.find(List.Item)
+			.at(2)
+			.prop('onPress');
+
+		urlItem();
+
+		expect(openBrowserAsync).toHaveBeenCalledTimes(1);
+		expect(openBrowserAsync).toHaveBeenLastCalledWith('https://blueeast.com', {
+			windowFeatures: { width: 800 },
+		});
 	});
 });
 
 it('should return SettingsPageList with Icon name', async () => {
-	// mount componentz
-	require('../index');
 	const wrapper = mount(
 		<BlueBaseApp plugins={[Plugin, MUI]}>
 			<SettingsPageList
@@ -56,9 +149,7 @@ it('should return SettingsPageList with Icon name', async () => {
 	).toBeDefined();
 });
 
-it('should return SettingsPageList with Icon  as function', async () => {
-	// mount componentz
-	require('../index');
+it('should return SettingsPageList with Icon as function', async () => {
 	const wrapper = mount(
 		<BlueBaseApp plugins={[Plugin, MUI]}>
 			<SettingsPageList

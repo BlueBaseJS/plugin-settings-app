@@ -1,7 +1,7 @@
 import { RouteConfig } from '@bluebase/components';
 import { SettingsPageProps } from '../layouts/SettingsPage';
-import { createDesktopRoutes } from './createDesktopNavigator';
-import { createMobileRoutes } from './createMobileNavigator';
+import { createDesktopRoutes } from './createDesktopRoutes';
+import { createMobileRoutes } from './createMobileRoutes';
 import { isMobile } from '@bluebase/core';
 
 export interface CreateSettingsRoutesOptions {

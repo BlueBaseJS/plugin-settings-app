@@ -26,5 +26,21 @@ export const createDesktopRoutes = ({
 				/>
 			),
 		})),
+
+		// Index Route
+		{
+			...mainRoute,
+			exact: true,
+			screen: (props: any) => (
+				<SettingsLayoutDesktop
+					filter={filter}
+					pages={pages}
+					mainRoute={mainRoute}
+					{...pages[0]}
+					page={pages[0].name}
+					{...props}
+				/>
+			),
+		},
 	];
 };

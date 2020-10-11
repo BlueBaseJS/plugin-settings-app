@@ -1,8 +1,9 @@
-import { Icon, List, NavigationOptions } from '@bluebase/components';
+import { Icon, List, NavigationOptions, StatefulComponent } from '@bluebase/components';
 import {
 	resolveThunk,
 	useBlueBase,
 	useComponent,
+	useFilter,
 	useIntl,
 	useNavigation,
 	useTheme,
@@ -52,33 +53,40 @@ export const SettingsPageList = (props: SettingsPageListProps) => {
 	const HeaderComponent = useComponent(`${name}RootPageHeader`, 'Noop');
 	const FooterComponent = useComponent(`${name}RootPageFooter`, 'Noop');
 
+	const listItems = pages.map(page => {
+		const { name: pageName, browserParams, right, url } = page;
+
+		const options = resolveThunk(page.options || {}, contextBundle);
+
+		const title = getTitle(options);
+		const left = getIcon(options);
+		const onPress = page.onPress ? page.onPress : () => navigate(pageName, state.params);
+
+		const openUrl = () => openBrowserAsync(url!, browserParams);
+		const openUrlIcon = <Icon name="open-in-new" size={20} color={theme.palette.text.icon} />;
+
+		return {
+			Component: List.Item,
+			key: pageName,
+			left,
+			onPress: url ? openUrl : onPress,
+			right: url ? openUrlIcon : right,
+			title: __(title),
+		};
+	});
+
+	const { loading, value: items, error } = useFilter(`${name}.settings.list.items`, listItems);
+
 	return (
 		<React.Fragment>
 			<HeaderComponent />
-			<List>
-				{pages.map(page => {
-					const { name: pageName, browserParams, right, url } = page;
-
-					const options = resolveThunk(page.options || {}, contextBundle);
-
-					const title = getTitle(options);
-					const left = getIcon(options);
-					const onPress = page.onPress ? page.onPress : () => navigate(pageName, state.params);
-
-					const openUrl = () => openBrowserAsync(url!, browserParams);
-					const openUrlIcon = <Icon name="open-in-new" size={20} color={theme.palette.text.icon} />;
-
-					return (
-						<List.Item
-							key={pageName}
-							onPress={url ? openUrl : onPress}
-							title={__(title)}
-							left={left}
-							right={url ? openUrlIcon : right}
-						/>
-					);
-				})}
-			</List>
+			<StatefulComponent loading={loading} error={error} data={items}>
+				<List>
+					{items.map(({ Component, key, ...rest }, index) => (
+						<Component key={key || index} {...rest} />
+					))}
+				</List>
+			</StatefulComponent>
 			<FooterComponent />
 		</React.Fragment>
 	);
