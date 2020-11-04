@@ -33,9 +33,7 @@ const defaultStyles = (theme: Theme): SettingsPageItemMobileStyles => ({
 		paddingVertical: theme.spacing.unit,
 	},
 
-	titleStyles: {
-		paddingHorizontal: 0,
-	},
+
 });
 
 export const SettingsPageItemMobile = (props: SettingsPageItemMobileProps) => {
@@ -47,17 +45,17 @@ export const SettingsPageItemMobile = (props: SettingsPageItemMobileProps) => {
 
 	const titleNode =
 		typeof title === 'string' ? (
-			<List.Subheader style={[styles.titleStyles, titleStyle]}>{__(title)}</List.Subheader>
+			<List.Subheader style={[titleStyle]}>{__(title)}</List.Subheader>
 		) : (
-			title
-		);
+				title
+			);
 
 	const descNode =
 		typeof description === 'string' ? (
 			<Caption style={[styles.descriptionStyles, descriptionStyle]}>{__(description)}</Caption>
 		) : (
-			description
-		);
+				description
+			);
 
 	return (
 		<View style={styles.root}>
