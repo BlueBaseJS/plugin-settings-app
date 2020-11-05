@@ -10,7 +10,6 @@ export interface SettingsPageItemMobileStyles {
 	descriptionStyles: TextStyle;
 	root: ViewStyle;
 	header: ViewStyle;
-	titleStyles: TextStyle;
 }
 
 export interface SettingsPageItemMobileProps extends SettingsPageItemProps {
