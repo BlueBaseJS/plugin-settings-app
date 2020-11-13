@@ -33,13 +33,6 @@ describe('DarkModeSetting', () => {
 
 		expect(
 			wrapper
-				.find(List.Item)
-				.first()
-				.prop('description')
-		).toBe('System');
-
-		expect(
-			wrapper
 				.find('Dialog')
 				.first()
 				.prop('visible')
