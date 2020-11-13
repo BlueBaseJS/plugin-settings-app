@@ -39,18 +39,16 @@ export const SettingsPageDesktop = (props: SettingsPageDesktopProps) => {
 	const title = get(options, 'title', options.headerTitle) as string;
 
 	return (
-		<ScrollView>
-			<View style={styles.root}>
-				{title && <H6 style={styles.title}>{__(title)}</H6>}
-				{filteredItems.map(item => (
-					<SettingsPageItemDesktop
-						key={item.name}
-						{...item}
-						styles={{ root: { marginVertical: 8 } }}
-					/>
-				))}
-			</View>
-		</ScrollView>
+		<View style={styles.root}>
+			{title && <H6 style={styles.title}>{__(title)}</H6>}
+			{filteredItems.map(item => (
+				<SettingsPageItemDesktop
+					key={item.name}
+					{...item}
+					styles={{ root: { marginVertical: 8 } }}
+				/>
+			))}
+		</View>
 	);
 };
 

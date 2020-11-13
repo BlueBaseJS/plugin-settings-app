@@ -5,7 +5,6 @@ import { useConfig, useIntl, useTheme } from '@bluebase/core';
 import { Configs } from '@bluebase/core/dist/Configs';
 
 const ModeName: { [key: string]: string } = {
-	auto: 'System',
 	dark: 'Dark',
 	light: 'Light',
 };
@@ -31,11 +30,6 @@ export const DarkModeSetting = () => {
 			<Dialog dismissable visible={visible} onDismiss={toggle}>
 				<List.Subheader>{__('Dark Mode')}</List.Subheader>
 				<Divider />
-				<List.Item
-					title={__(ModeName.auto)}
-					onPress={changeModeSetting('auto')}
-					selected={themeMode === 'auto'}
-				/>
 				<List.Item
 					title={__(ModeName.light)}
 					onPress={changeModeSetting('light')}
