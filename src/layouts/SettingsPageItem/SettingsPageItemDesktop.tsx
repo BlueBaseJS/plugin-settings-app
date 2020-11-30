@@ -1,4 +1,4 @@
-import {Body2, H6, View } from '@bluebase/components';
+import { Body2, H6, View } from '@bluebase/components';
 import { Platform, TextStyle, ViewStyle } from 'react-native';
 import { Theme, useComponent, useIntl, useStyles } from '@bluebase/core';
 
