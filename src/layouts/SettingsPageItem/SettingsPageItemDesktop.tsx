@@ -1,4 +1,4 @@
-import { Body2, H6, View } from '@bluebase/components';
+import { Body1, Body2, View } from '@bluebase/components';
 import { Platform, TextStyle, ViewStyle } from 'react-native';
 import { Theme, useComponent, useIntl, useStyles } from '@bluebase/core';
 
@@ -59,7 +59,7 @@ export const SettingsPageItemDesktop = (props: SettingsPageItemDesktopProps) => 
 
 	const titleNode =
 		typeof title === 'string' ? (
-			<H6 style={[styles.titleStyles, titleStyle]}>{__(title)}</H6>
+			<Body1 style={[styles.titleStyles, titleStyle]}>{__(title)}</Body1>
 		) : (
 			title
 		);

@@ -1,4 +1,4 @@
-import { Body2, H6, Noop } from '@bluebase/components';
+import { Body1, Body2, Noop } from '@bluebase/components';
 
 import { BlueBaseApp } from '@bluebase/core';
 import DarkModeSetting from '../../../settings/DarkModeSetting';
@@ -51,7 +51,7 @@ describe('SettingsPageItemDesktop', () => {
 
 		await waitForElement(wrapper, SettingsPageItemDesktop);
 
-		expect(wrapper.find(H6).text()).toBe('settings');
+		expect(wrapper.find(Body1).text()).toBe('settings');
 		expect(wrapper.find(Body2).text()).toBe('desc');
 	});
 
@@ -72,7 +72,7 @@ describe('SettingsPageItemDesktop', () => {
 
 		await waitForElement(wrapper, SettingsPageItemDesktop);
 
-		expect(wrapper.find(H6).exists()).toBe(false);
+		expect(wrapper.find(Body1).exists()).toBe(false);
 		expect(wrapper.find(Body2).exists()).toBe(false);
 	});
 });

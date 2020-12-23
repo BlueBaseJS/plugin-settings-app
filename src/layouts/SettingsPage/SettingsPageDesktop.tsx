@@ -1,4 +1,4 @@
-import { H6, NavigationOptions, View } from '@bluebase/components';
+import { Body1, NavigationOptions, View } from '@bluebase/components';
 import { ScrollView, TextStyle, ViewStyle } from 'react-native';
 import { Theme, resolveThunk, useFilter, useIntl, useStyles } from '@bluebase/core';
 
@@ -41,7 +41,7 @@ export const SettingsPageDesktop = (props: SettingsPageDesktopProps) => {
 	return (
 		<ScrollView>
 			<View style={styles.root}>
-				{title && <H6 style={styles.title}>{__(title)}</H6>}
+				{title && <Body1 style={styles.title}>{__(title)}</Body1>}
 				{filteredItems.map(item => (
 					<SettingsPageItemDesktop
 						key={item.name}
