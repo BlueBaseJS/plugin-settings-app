@@ -5,9 +5,9 @@ import { useConfig, useIntl, useTheme } from '@bluebase/core';
 import { Configs } from '@bluebase/core/dist/Configs';
 
 const ModeName: { [key: string]: string } = {
-	auto: 'System',
-	dark: 'Dark',
+	auto: 'Light',
 	light: 'Light',
+	dark: 'Dark',
 };
 
 export const DarkModeSetting = () => {
@@ -20,26 +20,23 @@ export const DarkModeSetting = () => {
 
 	const changeModeSetting = (mode: Configs['theme.mode']) => () => changeMode(mode);
 
+	console.log(themeMode);
+
 	return (
 		<React.Fragment>
 			<List.Item
 				left={<List.Icon name="brightness-3" />}
-				title={__('Dark Mode')}
+				title={ModeName[themeMode] === 'Dark' ? __('Dark Mode') : __('Light Mode')}
 				description={__(ModeName[themeMode])}
 				onPress={toggle}
 			/>
 			<Dialog dismissable visible={visible} onDismiss={toggle}>
-				<List.Subheader>{__('Dark Mode')}</List.Subheader>
+				<List.Subheader>{__('Mode')}</List.Subheader>
 				<Divider />
-				<List.Item
-					title={__(ModeName.auto)}
-					onPress={changeModeSetting('auto')}
-					selected={themeMode === 'auto'}
-				/>
 				<List.Item
 					title={__(ModeName.light)}
 					onPress={changeModeSetting('light')}
-					selected={themeMode === 'light'}
+					selected={themeMode === ('light')}
 				/>
 				<List.Item
 					title={__(ModeName.dark)}
