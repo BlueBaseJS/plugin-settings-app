@@ -1,4 +1,4 @@
-import { Noop } from '@bluebase/components';
+import { H6, Noop } from '@bluebase/components';
 
 import { BlueBaseApp } from '@bluebase/core';
 import DarkModeSetting from '../../../settings/DarkModeSetting';
@@ -43,6 +43,7 @@ describe('SettingsPageDesktop', () => {
 
 		await waitForElement(wrapper, SettingsPageDesktop);
 
+		expect(wrapper.find(H6).text()).toBe('Appearance');
 		expect(wrapper.find(SettingsPageItemDesktop)).toHaveLength(2);
 	});
 });
