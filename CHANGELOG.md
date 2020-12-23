@@ -1,10 +1,8 @@
-## [4.0.1](https://github.com/BlueBaseJS/plugin-settings-app/compare/v4.0.0...v4.0.1) (2020-11-06)
 
 ### Bug Fixes
 
 -   **Setting:** styling issue in settings app for mobile layout ([#200](https://github.com/BlueBaseJS/plugin-settings-app/issues/200)) ([#201](https://github.com/BlueBaseJS/plugin-settings-app/issues/201)) ([d41aee9](https://github.com/BlueBaseJS/plugin-settings-app/commit/d41aee96f5fd5049affc8386e3335cc29fd33539))
 
-# [4.0.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v3.1.1...v4.0.0) (2020-10-11)
 
 ### Features
 
