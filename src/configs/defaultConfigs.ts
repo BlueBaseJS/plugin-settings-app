@@ -24,7 +24,7 @@ export const defaultConfigs = {
 	'plugin.settings-app.support.call.number': null,
 
 	/** Adds developer on about page  */
-	developer: 'Blueeast',
+	developer: 'BlueEast (Pvt.) Ltd.',
 
 	/** Adds developer  redirect url  */
 	developerUrl: 'https://www.blueeast.com/',
