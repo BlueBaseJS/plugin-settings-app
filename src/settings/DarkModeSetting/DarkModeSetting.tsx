@@ -20,7 +20,6 @@ export const DarkModeSetting = () => {
 
 	const changeModeSetting = (mode: Configs['theme.mode']) => () => changeMode(mode);
 
-	console.log(themeMode);
 
 	return (
 		<React.Fragment>
