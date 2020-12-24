@@ -83,6 +83,7 @@
     "@bluebase/cli-essentials": "^2.2.0",
     "@bluebase/code-standards": "2.8.0",
     "@bluebase/core": "^6.0.0",
+    "@mevris/client-plugin-taskbar": "^4.0.0",
     "@bluebase/plugin-json-schema-components": "^3.2.1",
     "@bluebase/plugin-launcher": "^1.2.0",
     "@bluebase/plugin-material-ui": "^3.4.1",
