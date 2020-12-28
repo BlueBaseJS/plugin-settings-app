@@ -22,6 +22,7 @@ describe('AppearanceSettingList', () => {
 		);
 		await waitForElement(wrapper, 'SettingList');
 
+		// expect it
 		expect(wrapper.find(DarkModeSetting).exists()).toBe(true);
 		expect(wrapper.find(ThemeSelectionSetting).exists()).toBe(true);
 		wrapper.unmount();
