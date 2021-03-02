@@ -29,14 +29,14 @@ describe('DarkModeSetting', () => {
 				.find(List.Item)
 				.first()
 				.prop('title')
-		).toBe('Dark Mode');
+		).toBe('Light Mode');
 
 		expect(
 			wrapper
 				.find(List.Item)
 				.first()
 				.prop('description')
-		).toBe('System');
+		).toBe('Light');
 
 		expect(
 			wrapper
