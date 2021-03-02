@@ -1,5 +1,5 @@
 import { H6, NavigationOptions, View } from '@bluebase/components';
-import { ScrollView, TextStyle, ViewStyle } from 'react-native';
+import { ScrollView, TextStyle, ViewStyle, Dimensions } from 'react-native';
 import { Theme, resolveThunk, useFilter, useIntl, useStyles } from '@bluebase/core';
 
 import React from 'react';
@@ -11,11 +11,14 @@ import { useScreenProps } from '../../hooks';
 export interface SettingsPageDesktopStyles {
 	title: TextStyle;
 	root: ViewStyle;
+	scrollViewContainer: ViewStyle;
 }
 
 export interface SettingsPageDesktopProps extends SettingsPageProps {
 	styles?: Partial<SettingsPageDesktopStyles>;
 }
+
+const { height } = Dimensions.get('window');
 
 const defaultStyles = (theme: Theme): SettingsPageDesktopStyles => ({
 	root: {
@@ -25,6 +28,7 @@ const defaultStyles = (theme: Theme): SettingsPageDesktopStyles => ({
 	title: {
 		padding: theme.spacing.unit * 2,
 	},
+	scrollViewContainer: { height: height - theme.spacing.unit * 10 },
 });
 
 export const SettingsPageDesktop = (props: SettingsPageDesktopProps) => {
@@ -39,9 +43,13 @@ export const SettingsPageDesktop = (props: SettingsPageDesktopProps) => {
 	const title = get(options, 'title', options.headerTitle) as string;
 
 	return (
-		<ScrollView>
+		<ScrollView
+			style={{ flex: 1 }}
+			contentContainerStyle={styles.scrollViewContainer}
+			showsVerticalScrollIndicator={false}
+		>
 			<View style={styles.root}>
-			{title && <H6 style={styles.title}>{__(title)}</H6>}
+				{title && <H6 style={styles.title}>{__(title)}</H6>}
 				{filteredItems.map(item => (
 					<SettingsPageItemDesktop
 						key={item.name}
