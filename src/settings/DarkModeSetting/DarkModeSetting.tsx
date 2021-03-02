@@ -6,8 +6,8 @@ import { Configs } from '@bluebase/core/dist/Configs';
 
 const ModeName: { [key: string]: string } = {
 	auto: 'Light',
-	light: 'Light',
 	dark: 'Dark',
+	light: 'Light',
 };
 
 export const DarkModeSetting = () => {
@@ -19,7 +19,6 @@ export const DarkModeSetting = () => {
 	const toggle = () => setVisible(!visible);
 
 	const changeModeSetting = (mode: Configs['theme.mode']) => () => changeMode(mode);
-
 
 	return (
 		<React.Fragment>
@@ -35,7 +34,7 @@ export const DarkModeSetting = () => {
 				<List.Item
 					title={__(ModeName.light)}
 					onPress={changeModeSetting('light')}
-					selected={themeMode === ('light')}
+					selected={themeMode === 'light'}
 				/>
 				<List.Item
 					title={__(ModeName.dark)}

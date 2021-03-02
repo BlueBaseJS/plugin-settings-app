@@ -1,7 +1,6 @@
+import { Dimensions, ScrollView, TextStyle, ViewStyle } from 'react-native';
 import { H6, NavigationOptions, View } from '@bluebase/components';
-import { ScrollView, TextStyle, ViewStyle, Dimensions } from 'react-native';
 import { Theme, resolveThunk, useFilter, useIntl, useStyles } from '@bluebase/core';
-
 import React from 'react';
 import { SettingsPageItemDesktop } from '../SettingsPageItem';
 import { SettingsPageProps } from '../SettingsPage';
@@ -25,10 +24,12 @@ const defaultStyles = (theme: Theme): SettingsPageDesktopStyles => ({
 		backgroundColor: theme.palette.background.default,
 		flex: 1,
 	},
+	scrollViewContainer: {
+		height: height - theme.spacing.unit * 10,
+	},
 	title: {
 		padding: theme.spacing.unit * 2,
 	},
-	scrollViewContainer: { height: height - theme.spacing.unit * 10 },
 });
 
 export const SettingsPageDesktop = (props: SettingsPageDesktopProps) => {
