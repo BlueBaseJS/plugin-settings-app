@@ -1,4 +1,5 @@
 # Used on master and staging branches
+
 name: Development CI
 
 on:
@@ -17,20 +18,14 @@ jobs:
     name: Test, Build & Release
     runs-on: ubuntu-latest
     timeout-minutes: 30
-
     container:
       image: bluebasejs/github-actions-image
-      options: --privileged
 
     strategy:
       matrix:
         node-version: [12]
 
     steps:
-      # - uses: rokroskar/workflow-run-cleanup-action@master
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - uses: actions/checkout@v1
 
       - name: Reconstruct NPMRC
@@ -41,50 +36,93 @@ jobs:
           echo "registry=https://registry.npmjs.org/" >> .npmrc
           echo "@mevris:registry=http://benpm.mevris.io" >> .npmrc
           echo "@blueeast:registry=http://benpm.mevris.io" >> .npmrc
-          echo "@commi:registry=http://benpm.mevris.io" >> .npmrc
 
       - name: Install Dependencies
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
         run: yarn install
 
-      - name: Unit Tests
+      - name: Unit Tests (Jest)
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
         run: yarn test:only --coverage --logHeapUsage --ci
 
       - name: Test Lint
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
         run: yarn test:lint
 
       - name: Test Prettier
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
         run: yarn test:prettier
 
       - name: Build
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN}}
         run: yarn build
 
-      - name: Build Expo
-        run: HOME=/root bluebase expo:build
+  web-deploy:
+    name: Deploy Web
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    container:
+      image: bluebasejs/github-actions-image
+
+    strategy:
+      matrix:
+        node-version: [12]
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install Dependencies
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn install
 
       - name: Build Web
-        run: expo build:web --config=./build/expo/app.json
-
-      - name: Move Build
-        run: mkdir --parents ./build/web/client; mv -v ./web-build/* ./build/web/client
+        run: HOME=/root bluebase web:build --static
 
       - name: Now Deploy
         uses: BlueBaseJS/now-deploy-github-action@master
         with:
-          configs: '{ "teamId":"team_jx3GHNNxYWDffKwJNB7oMHCS"}'
+          configs: '{ "teamId":"team_5za12CO7eDBALsShXtEm7PXw"}'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NOW_TOKEN: ${{ secrets.ZEIT_TOKEN }}
 
+  expo-publish:
+    name: Expo Publish
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    container:
+      image: bluebasejs/github-actions-image
+      options: --privileged
+
+    strategy:
+      matrix:
+        node-version: [12]
+
+    steps:
+      - uses: actions/checkout@v1
+
       - name: Increase Watchers
         run: echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl -p
 
+      - name: Install Dependencies
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn install
+
+      - name: Build Expo
+        run: HOME=/root bluebase expo:build
+
       - name: Expo Deploy
-        uses: expo/expo-github-action@v5
-        with:
-          expo-version: 4.x
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          expo-username: ${{ secrets.EXPO_CLI_USERNAME }}
-          expo-password: ${{ secrets.EXPO_CLI_PASSWORD }}
+        uses: BlueBaseJS/expo-deploy-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           EXPO_CLI_USERNAME: ${{ secrets.EXPO_CLI_USERNAME }}
