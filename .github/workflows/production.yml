@@ -1,0 +1,126 @@
+# Used on master and staging branches
+
+name: Production CI
+
+on:
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches:
+      - 'master' # Push events on master branch
+      - 'next' # Push events on staging branch
+      - 'alpha' # Push events on alpha branch
+      - 'beta' # Push events on beta branch
+
+jobs:
+  test:
+    name: Test, Build & Release
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    container:
+      image: bluebasejs/github-actions-image
+      options: --privileged
+
+    strategy:
+      matrix:
+        node-version: [12]
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Reconstruct NPMRC
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "//benpm.mevris.io/:_authToken='${NPM_TOKEN}'" > .npmrc
+          echo "registry=https://registry.npmjs.org/" >> .npmrc
+          echo "@mevris:registry=http://benpm.mevris.io" >> .npmrc
+          echo "@blueeast:registry=http://benpm.mevris.io" >> .npmrc
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Unit Tests
+        run: yarn test:only --coverage --logHeapUsage --ci
+
+      - name: Test Lint
+        run: yarn test:lint
+
+      - name: Test Prettier
+        run: yarn test:prettier
+
+      - name: Build
+        run: yarn build
+
+      - name: Set Unsafe-Perm
+        run: npm set unsafe-perm true
+
+      - name: Semantic Release
+        run: npx semantic-release@beta
+        env:
+          GIT_CREDENTIALS: ${{ secrets.GIT_CREDENTIALS }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  web-deploy:
+    name: Deploy Web
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    container:
+      image: bluebasejs/github-actions-image
+
+    strategy:
+      matrix:
+        node-version: [12]
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install Dependencies
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn install
+
+      - name: Build Web
+        run: HOME=/root bluebase web:build --static
+
+      - name: Now Deploy
+        uses: BlueBaseJS/now-deploy-github-action@master
+        with:
+          configs: '{ "teamId":"team_5za12CO7eDBALsShXtEm7PXw"}'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NOW_TOKEN: ${{ secrets.ZEIT_TOKEN }}
+
+  expo-publish:
+    name: Expo Publish
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    container:
+      image: bluebasejs/github-actions-image
+      options: --privileged
+
+    strategy:
+      matrix:
+        node-version: [12]
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Increase Watchers
+        run: echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl -p
+
+      - name: Install Dependencies
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn install
+
+      - name: Build Expo
+        run: HOME=/root bluebase expo:build
+
+      - name: Expo Deploy
+        uses: BlueBaseJS/expo-deploy-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EXPO_CLI_USERNAME: ${{ secrets.EXPO_CLI_USERNAME }}
+          EXPO_CLI_PASSWORD: ${{ secrets.EXPO_CLI_PASSWORD }}

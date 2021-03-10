@@ -2535,6 +2535,14 @@
   resolved "https://registry.yarnpkg.com/@mdx-js/util/-/util-1.6.18.tgz#c7563bf72cb4520b8b7100b64006a64be717e936"
   integrity sha512-axMe+NoLF55OlXPbhRn4GNCHcL1f5W3V3c0dWzg05S9JXm3Ecpxzxaht3g3vTP0dcqBL/yh/xCvzK0ZpO54Eug==
 
+"@mevris/client-plugin-taskbar@^4.0.0":
+  version "4.0.2"
+  resolved "https://benpm.mevris.io/@mevris%2fclient-plugin-taskbar/-/client-plugin-taskbar-4.0.2.tgz#8bc7fed69b5659a7925eab1f45f9cc3afd425801"
+  integrity sha512-xMXVQ31yss0KpPcWuONG1Txem0Qv8vNKYfo9icqtkt46/INpbAZjJ2Ul2p2fYVdBkRlT6zeoXagcyfjUm8Aysw==
+  dependencies:
+    lodash.get "^4.4.2"
+    tslib "^1.10.0"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
