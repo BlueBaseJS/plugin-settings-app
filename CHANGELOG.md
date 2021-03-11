@@ -1,3 +1,9 @@
+## [4.1.1](https://github.com/BlueBaseJS/plugin-settings-app/compare/v4.1.0...v4.1.1) (2021-03-11)
+
+### Bug Fixes
+
+-   **workflow:** settingsTaskbarHeight ([6a1c73f](https://github.com/BlueBaseJS/plugin-settings-app/commit/6a1c73f120ad344fbc9ac7b66af5f1227ba2656a))
+
 # [4.1.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v4.0.1...v4.1.0) (2021-03-11)
 
 ### Bug Fixes
