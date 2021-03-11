@@ -25,10 +25,6 @@ jobs:
         node-version: [12]
 
     steps:
-      - uses: rokroskar/workflow-run-cleanup-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - uses: actions/checkout@v1
 
       - name: Reconstruct NPMRC
