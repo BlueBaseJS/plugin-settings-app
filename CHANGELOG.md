@@ -1,3 +1,34 @@
+# [4.1.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v4.0.1...v4.1.0) (2021-03-11)
+
+### Bug Fixes
+
+-   **added blueeast configs:** added blueeast configs ([b6864cd](https://github.com/BlueBaseJS/plugin-settings-app/commit/b6864cdc6897fcb8a31207d4d402e6696b993c16))
+-   **colorMode:** remove system ([6ded711](https://github.com/BlueBaseJS/plugin-settings-app/commit/6ded711d30c8958bc2bfed87f1ceeea4202d2a9c))
+-   **conflict:** resolved conflict ([81de923](https://github.com/BlueBaseJS/plugin-settings-app/commit/81de923fe5a3216680d2c2d40db1322e27a9ba99))
+-   **conflicts:** resolved conflicts og plugin ([0fb58ce](https://github.com/BlueBaseJS/plugin-settings-app/commit/0fb58ce99d2e790d8ac94105a241ba6b25db41f0))
+-   **console:** remove console ([d6535eb](https://github.com/BlueBaseJS/plugin-settings-app/commit/d6535ebb9e812020b8ce761756b9ec77d4d3837f))
+-   **console:** removed console ([41d0dd8](https://github.com/BlueBaseJS/plugin-settings-app/commit/41d0dd8a90b1d1d075b78255ea291f7bfd49a041))
+-   **developer:** master pull ([30ee5fd](https://github.com/BlueBaseJS/plugin-settings-app/commit/30ee5fd8445e4823e3bdfd33558e53a77c3ceb07))
+-   **fixTaskBarHeightIssue:** FixTaskBarHeightIssue ([3ca5586](https://github.com/BlueBaseJS/plugin-settings-app/commit/3ca55868d934f6d3b2706250e6264387e2b29910))
+-   **heading:** changed settings widget heading size ([04a0015](https://github.com/BlueBaseJS/plugin-settings-app/commit/04a00151d4fbe6e3dd372f8c50c48c7895546e29))
+-   **HEADING:** h6 ([7b8d8d6](https://github.com/BlueBaseJS/plugin-settings-app/commit/7b8d8d68dbe8a0fc23cd0abf4d2b892a0785ad91))
+-   **InformationList:** updated the  developer configs ([f1e815e](https://github.com/BlueBaseJS/plugin-settings-app/commit/f1e815edf7a2e0663c1046084082c8e85b2e6d02))
+-   **lint:** fixed lint ([92dadd7](https://github.com/BlueBaseJS/plugin-settings-app/commit/92dadd78bab9aeac32416bc88dd66e33cf482bf0))
+-   **Setting:** styling issue in settings app for mobile layout ([#200](https://github.com/BlueBaseJS/plugin-settings-app/issues/200)) ([a1a6896](https://github.com/BlueBaseJS/plugin-settings-app/commit/a1a68968d408b552265f77eecf639734ae36d8ea))
+-   **test:** fix tests ([fee9d91](https://github.com/BlueBaseJS/plugin-settings-app/commit/fee9d91a6d3620010a5436bdf742ea0850664343))
+-   **workflow:** settingsTaskbarHeight ([7476b9b](https://github.com/BlueBaseJS/plugin-settings-app/commit/7476b9b3f6d4f1ccbd41d893ca4fa47df87bdf8d))
+-   **workflow:** settingsTaskbarHeight ([82f5c93](https://github.com/BlueBaseJS/plugin-settings-app/commit/82f5c93fce5d9407423ac2c797cf1e2354cb6ccf))
+-   **workflow:** workflow ([2d07a38](https://github.com/BlueBaseJS/plugin-settings-app/commit/2d07a38ffd8521063fd8574d540e01e8982e0606))
+-   **workflow:** workflow ([28ef5a2](https://github.com/BlueBaseJS/plugin-settings-app/commit/28ef5a2489774d8fe99ca63ef805e687af8dd727))
+-   **workflow:** workflow ([e244a72](https://github.com/BlueBaseJS/plugin-settings-app/commit/e244a729e942c370e8d9d5576e4a41435336b896))
+-   **workflow:** workflow ([c09ef07](https://github.com/BlueBaseJS/plugin-settings-app/commit/c09ef075f8dd8fec2a3ca8eaa55faebed613a516))
+-   **workflow:** workflow ([3d01a11](https://github.com/BlueBaseJS/plugin-settings-app/commit/3d01a11069bc5de35f5595f4ce02c6e791858b41))
+
+### Features
+
+-   **ModeSettings:** Resolved issue of light & dark mode ([8d5ba32](https://github.com/BlueBaseJS/plugin-settings-app/commit/8d5ba32a1809edfc50b200e9d3a5a0675b806a50))
+-   **resolved tests of components:** resolved tests of components ([a0582ea](https://github.com/BlueBaseJS/plugin-settings-app/commit/a0582eaffce29e2aecf17ecd9f43b512c6382510))
+
 ## [4.0.1](https://github.com/BlueBaseJS/plugin-settings-app/compare/v4.0.0...v4.0.1) (2020-11-06)
 
 ### Bug Fixes
