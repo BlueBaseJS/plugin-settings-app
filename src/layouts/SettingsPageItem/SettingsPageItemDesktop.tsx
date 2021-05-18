@@ -38,7 +38,7 @@ const defaultStyles = (theme: Theme): SettingsPageItemDesktopStyles => ({
 
 	descriptionStyles: {
 		color: theme.palette.text.hint,
-		paddingVertical: theme.spacing.unit,
+		paddingBottom: theme.spacing.unit,
 	},
 
 	content: {

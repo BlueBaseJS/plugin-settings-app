@@ -9,6 +9,7 @@ export interface SettingsPageItemMobileStyles {
 	contentStyles: ViewStyle;
 	descriptionStyles: TextStyle;
 	root: ViewStyle;
+	titleStyles: TextStyle;
 	header: ViewStyle;
 }
 
@@ -31,8 +32,9 @@ const defaultStyles = (theme: Theme): SettingsPageItemMobileStyles => ({
 	header: {
 		paddingVertical: theme.spacing.unit,
 	},
-
-
+	titleStyles: {
+		paddingVertical: theme.spacing.unit,
+	},
 });
 
 export const SettingsPageItemMobile = (props: SettingsPageItemMobileProps) => {
@@ -44,17 +46,17 @@ export const SettingsPageItemMobile = (props: SettingsPageItemMobileProps) => {
 
 	const titleNode =
 		typeof title === 'string' ? (
-			<List.Subheader style={[titleStyle]}>{__(title)}</List.Subheader>
+			<List.Subheader style={[titleStyle, styles.titleStyles]}>{__(title)}</List.Subheader>
 		) : (
-				title
-			);
+			title
+		);
 
 	const descNode =
 		typeof description === 'string' ? (
 			<Caption style={[styles.descriptionStyles, descriptionStyle]}>{__(description)}</Caption>
 		) : (
-				description
-			);
+			description
+		);
 
 	return (
 		<View style={styles.root}>
