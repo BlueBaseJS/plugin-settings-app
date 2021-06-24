@@ -5,10 +5,10 @@ on:
   push:
     # Sequence of patterns matched against refs/heads
     branches:
-      - "master" # Push events on master branch
-      - "next" # Push events on staging branch
-      - "alpha" # Push events on alpha branch
-      - "beta" # Push events on beta branch
+      - 'master' # Push events on master branch
+      - 'next' # Push events on staging branch
+      - 'alpha' # Push events on alpha branch
+      - 'beta' # Push events on beta branch
 
 jobs:
   test:
@@ -25,6 +25,10 @@ jobs:
         node-version: [12]
 
     steps:
+      - uses: rokroskar/workflow-run-cleanup-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - uses: actions/checkout@v1
 
       - name: Reconstruct NPMRC
@@ -33,11 +37,11 @@ jobs:
         run: |
           echo "//benpm.mevris.io/:_authToken='${NPM_TOKEN}'" > .npmrc
           echo "registry=https://registry.npmjs.org/" >> .npmrc
-          echo "@mevris:registry=http://benpm.mevris.io" >> .npmrc
-          echo "@blueeast:registry=http://benpm.mevris.io" >> .npmrc
-          echo "@commi:registry=http://benpm.mevris.io" >> .npmrc
+          echo "@mevris:registry=https://benpm.mevris.io" >> .npmrc
+          echo "@blueeast:registry=https://benpm.mevris.io" >> .npmrc
+          echo "@commi:registry=https://benpm.mevris.io" >> .npmrc
       - name: Install Dependencies
-        run: yarn install
+        run:  yarn install
 
       - name: Unit Tests
         run: yarn test:only --coverage --logHeapUsage --ci
@@ -78,11 +82,14 @@ jobs:
           NOW_TOKEN: ${{ secrets.ZEIT_TOKEN }}
 
       - name: Increase Watchers
-        run: echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl -p       
+        run: echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl -p
 
       - name: Expo Deploy
-        uses: BlueBaseJS/expo-deploy-github-action@master
+        uses: expo/expo-github-action@v5
+        with:
+          expo-version: 4.x
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          expo-username: ${{ secrets.EXPO_CLI_USERNAME }}
+          expo-password: ${{ secrets.EXPO_CLI_PASSWORD }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          EXPO_CLI_USERNAME: ${{ secrets.EXPO_CLI_USERNAME }}
-          EXPO_CLI_PASSWORD: ${{ secrets.EXPO_CLI_PASSWORD }}
