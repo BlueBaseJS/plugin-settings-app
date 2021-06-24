@@ -1,3 +1,10 @@
+## [4.1.2](https://github.com/BlueBaseJS/plugin-settings-app/compare/v4.1.1...v4.1.2) (2021-06-24)
+
+### Bug Fixes
+
+-   **headingSpacing:** reduce spacing between title description ([60462dd](https://github.com/BlueBaseJS/plugin-settings-app/commit/60462ddb60f658dfc285613259d278b9612b5171))
+-   **hightlight:** overflowing ([7612bb7](https://github.com/BlueBaseJS/plugin-settings-app/commit/7612bb712fc21c8731855c2a61c853e34ca135f5))
+
 ## [4.1.1](https://github.com/BlueBaseJS/plugin-settings-app/compare/v4.1.0...v4.1.1) (2021-03-11)
 
 ### Bug Fixes
