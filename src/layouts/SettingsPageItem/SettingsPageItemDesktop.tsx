@@ -23,6 +23,7 @@ const defaultStyles = (theme: Theme): SettingsPageItemDesktopStyles => ({
 		borderColor: theme.palette.divider,
 		borderRadius: theme.shape.borderRadius * 2,
 		borderWidth: 1,
+		overflow: 'hidden',
 	},
 
 	header: {
@@ -38,7 +39,7 @@ const defaultStyles = (theme: Theme): SettingsPageItemDesktopStyles => ({
 
 	descriptionStyles: {
 		color: theme.palette.text.hint,
-		paddingVertical: theme.spacing.unit,
+		paddingBottom: theme.spacing.unit,
 	},
 
 	content: {
