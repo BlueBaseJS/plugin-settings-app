@@ -150,7 +150,7 @@
     "trash-cli": "^3.0.0",
     "ts-jest": "^24.2.0",
     "tslint": "5.20.1",
-    "typedoc": "^0.15.5",
+    "typedoc": "^0.20.37",
     "typescript": "~3.9.2",
     "waait": "^1.0.5",
     "wait": "^0.1.0",
