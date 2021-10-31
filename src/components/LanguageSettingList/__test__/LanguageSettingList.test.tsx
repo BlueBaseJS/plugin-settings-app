@@ -1,13 +1,13 @@
 import { BlueBaseApp, getComponent } from '@bluebase/core';
-
 import JsonSchema from '@bluebase/plugin-json-schema-components';
-import LanguageSetting from '../../../settings/LanguageSetting';
 import MUI from '@bluebase/plugin-material-ui';
-import Plugin from '../../../index';
-import React from 'react';
-import TextDirectionSetting from '../../../settings/TextDirectionSetting';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+
+import Plugin from '../../../index';
+import LanguageSetting from '../../../settings/LanguageSetting';
+import TextDirectionSetting from '../../../settings/TextDirectionSetting';
 
 const LanguageSettingList = getComponent('LanguageSettingList');
 

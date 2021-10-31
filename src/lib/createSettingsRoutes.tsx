@@ -1,8 +1,9 @@
 import { RouteConfig } from '@bluebase/components';
+import { isMobile } from '@bluebase/core';
+
 import { SettingsPageProps } from '../layouts/SettingsPage';
 import { createDesktopRoutes } from './createDesktopRoutes';
 import { createMobileRoutes } from './createMobileRoutes';
-import { isMobile } from '@bluebase/core';
 
 export interface CreateSettingsRoutesOptions {
 	mainRoute: RouteConfig;

@@ -1,10 +1,16 @@
 // tslint:disable: radix
 import { Body2, List } from '@bluebase/components';
+import {
+	getComponent,
+	Theme,
+	useConfig,
+	useIntl,
+	useStyles
+} from '@bluebase/core';
 import React, { useEffect, useState } from 'react';
-import { Theme, getComponent, useConfig, useIntl, useStyles } from '@bluebase/core';
+import { TextStyle } from 'react-native';
 
 import { LinkingSettingItemProps } from '../../components/exports';
-import { TextStyle } from 'react-native';
 import { isSupportOpen } from './isSupportOpen';
 
 export interface CallSupportSettingStyles {

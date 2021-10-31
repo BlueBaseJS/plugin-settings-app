@@ -1,8 +1,8 @@
+import { List } from '@bluebase/components';
 import { getComponent, useConfig, useIntl } from '@bluebase/core';
+import React from 'react';
 
 import { LinkingSettingItemProps } from '../../components/exports';
-import { List } from '@bluebase/components';
-import React from 'react';
 
 const LinkingSettingItem = getComponent<LinkingSettingItemProps>('LinkingSettingItem');
 

@@ -1,7 +1,6 @@
 import { Dialog, Divider, List, View } from '@bluebase/components';
-import React, { useState } from 'react';
-
 import { useIntl } from '@bluebase/core';
+import React, { useState } from 'react';
 
 const values = [
 	{
@@ -38,7 +37,7 @@ export const TextDirectionSetting = () => {
 		<React.Fragment>
 			<List.Item
 				left={
-					<List.Icon name={!!rtl ? 'format-textdirection-r-to-l' : 'format-textdirection-l-to-r'} />}
+					<List.Icon name={rtl ? 'format-textdirection-r-to-l' : 'format-textdirection-l-to-r'} />}
 				title={__('Text Direction')}
 				description={__(current.description)}
 				onPress={toggle}

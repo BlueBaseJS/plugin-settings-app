@@ -1,6 +1,6 @@
-import { VERSION } from './src/version';
 import { filters } from './filters';
 import { plugins } from './plugins';
+import { VERSION } from './src/version';
 
 export default {
 	plugins,

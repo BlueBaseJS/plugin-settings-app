@@ -1,6 +1,5 @@
 import { List, ListItemProps } from '@bluebase/components';
 import React, { useEffect, useState } from 'react';
-
 import { Linking } from 'react-native';
 
 export interface LinkingSettingItemProps extends ListItemProps {

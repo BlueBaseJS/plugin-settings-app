@@ -1,8 +1,9 @@
 // tslint:disable:no-console
-import React from 'react';
-import { SettingsPageItemProps } from '../';
 import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
+import React from 'react';
+
+import { SettingsPageItemProps } from '../';
 
 const SettingsPageItemDesktop = getComponent('SettingsPageItemDesktop');
 const SettingsPageItemMobile = getComponent('SettingsPageItemMobile');

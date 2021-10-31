@@ -1,6 +1,5 @@
 import { Divider, View } from '@bluebase/components';
 import { getComponent, useBlueBase } from '@bluebase/core';
-
 import React from 'react';
 
 export interface SettingListProps {

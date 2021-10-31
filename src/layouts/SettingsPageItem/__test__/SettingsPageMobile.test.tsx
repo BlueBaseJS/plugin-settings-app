@@ -1,13 +1,13 @@
 import { Caption, List, Noop } from '@bluebase/components';
-
 import { BlueBaseApp } from '@bluebase/core';
-import DarkModeSetting from '../../../settings/DarkModeSetting';
-import React from 'react';
-import SettingsPageItemMobile from '../SettingsPageItemMobile';
-import { Text } from 'react-native';
-import ThemeSelectionSetting from '../../../settings/ThemeSelectionSetting';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+import { Text } from 'react-native';
+
+import DarkModeSetting from '../../../settings/DarkModeSetting';
+import ThemeSelectionSetting from '../../../settings/ThemeSelectionSetting';
+import SettingsPageItemMobile from '../SettingsPageItemMobile';
 
 const item = {
 	name: 'AppearanceSettingsPage',

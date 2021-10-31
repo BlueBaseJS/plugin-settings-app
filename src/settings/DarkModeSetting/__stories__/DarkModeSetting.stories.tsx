@@ -1,15 +1,15 @@
 // tslint:disable:no-console
-import { DarkModeSetting } from '../DarkModeSetting';
+import storiesOf from '@bluebase/storybook-addon';
 import React from 'react';
 import { View } from 'react-native';
 
-import storiesOf from '@bluebase/storybook-addon';
+import { DarkModeSetting } from '../DarkModeSetting';
 
 storiesOf('Themes', module)
 
-.add('Theme Dark Mode Switch', () => (
-	<View>
-		<DarkModeSetting />
-	</View>
-))
+	.add('Theme Dark Mode Switch', () => (
+		<View>
+			<DarkModeSetting />
+		</View>
+	))
 ;

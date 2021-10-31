@@ -1,9 +1,10 @@
-import React from 'react';
-import SettingsPageDesktop from '../SettingsPageDesktop';
-import SettingsPageMobile from '../SettingsPageMobile';
-import { SettingsPageProps } from '../';
 // tslint:disable:no-console
 import storiesOf from '@bluebase/storybook-addon';
+import React from 'react';
+
+import { SettingsPageProps } from '../';
+import SettingsPageDesktop from '../SettingsPageDesktop';
+import SettingsPageMobile from '../SettingsPageMobile';
 
 // const SettingsPage = getComponent('SettingsPage');
 

@@ -1,7 +1,7 @@
 import 'jest-enzyme';
 import 'react-native';
 
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Enzyme from 'enzyme';
 
 /**

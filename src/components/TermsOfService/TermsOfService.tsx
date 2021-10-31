@@ -1,5 +1,5 @@
-import React from 'react';
 import { Text } from '@bluebase/components';
+import React from 'react';
 
 export class TermsOfService extends React.Component {
 	render() {

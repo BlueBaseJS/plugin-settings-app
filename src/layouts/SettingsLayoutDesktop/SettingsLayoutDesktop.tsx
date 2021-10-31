@@ -1,7 +1,7 @@
 import { Column, Container, Row } from '@bluebase/components';
+import React from 'react';
 
 import { CreateSettingsRoutesOptions } from '../../lib';
-import React from 'react';
 import { SettingsPageDesktop } from '../SettingsPage';
 import { SettingsPageList } from '../SettingsPageList';
 

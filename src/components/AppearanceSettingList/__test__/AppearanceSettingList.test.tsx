@@ -1,13 +1,13 @@
 import { BlueBaseApp, getComponent } from '@bluebase/core';
-
-import DarkModeSetting from '../../../settings/DarkModeSetting';
 import JsonSchema from '@bluebase/plugin-json-schema-components';
 import MUI from '@bluebase/plugin-material-ui';
-import Plugin from '../../../index';
-import React from 'react';
-import ThemeSelectionSetting from '../../../settings/ThemeSelectionSetting';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+
+import Plugin from '../../../index';
+import DarkModeSetting from '../../../settings/DarkModeSetting';
+import ThemeSelectionSetting from '../../../settings/ThemeSelectionSetting';
 
 const AppearanceSettingList = getComponent('AppearanceSettingList');
 

@@ -1,13 +1,13 @@
 import { H6, Noop } from '@bluebase/components';
-
 import { BlueBaseApp } from '@bluebase/core';
-import DarkModeSetting from '../../../settings/DarkModeSetting';
-import React from 'react';
-import SettingsPageDesktop from '../SettingsPageDesktop';
-import { SettingsPageItemDesktop } from '../../SettingsPageItem';
-import ThemeSelectionSetting from '../../../settings/ThemeSelectionSetting';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+
+import DarkModeSetting from '../../../settings/DarkModeSetting';
+import ThemeSelectionSetting from '../../../settings/ThemeSelectionSetting';
+import { SettingsPageItemDesktop } from '../../SettingsPageItem';
+import SettingsPageDesktop from '../SettingsPageDesktop';
 
 const item = {
 	name: 'AppearanceSettingsPage',

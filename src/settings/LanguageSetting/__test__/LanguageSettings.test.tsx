@@ -1,11 +1,11 @@
-import { BlueBaseApp, getComponent } from '@bluebase/core';
-
 import { List } from '@bluebase/components';
+import { BlueBaseApp, getComponent } from '@bluebase/core';
 import MUI from '@bluebase/plugin-material-ui';
-import Plugin from '../../../index';
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+
+import Plugin from '../../../index';
 
 const LanguageSetting = getComponent('LanguageSetting');
 

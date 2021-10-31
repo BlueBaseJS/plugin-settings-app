@@ -1,6 +1,6 @@
 import { Dialog, Divider, List, View } from '@bluebase/components';
-import React, { useState } from 'react';
 import { getComponent, useIntl, useTheme } from '@bluebase/core';
+import React, { useState } from 'react';
 
 const PrivacyPolicy = getComponent('PrivacyPolicy', 'EmptyState');
 

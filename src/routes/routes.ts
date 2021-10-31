@@ -1,5 +1,6 @@
 import { RouteConfig } from '@bluebase/components';
 import { RouteOptions } from '@bluebase/core';
+
 import { createSettingsRoutes } from '../lib';
 import { pages } from './pages';
 

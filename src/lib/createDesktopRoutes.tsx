@@ -1,8 +1,9 @@
-import { CreateSettingsRoutesOptions } from './createSettingsRoutes';
-import React from 'react';
 import { RouteConfig } from '@bluebase/components';
-import { SettingsLayoutDesktop } from '../layouts/SettingsLayoutDesktop';
 import get from 'lodash.get';
+import React from 'react';
+
+import { SettingsLayoutDesktop } from '../layouts/SettingsLayoutDesktop';
+import { CreateSettingsRoutesOptions } from './createSettingsRoutes';
 
 export const createDesktopRoutes = ({
 	mainRoute,

@@ -1,8 +1,7 @@
 import { Dialog, Divider, List } from '@bluebase/components';
-import React, { useState } from 'react';
 import { useConfig, useIntl, useTheme } from '@bluebase/core';
-
 import { Configs } from '@bluebase/core/dist/Configs';
+import React, { useState } from 'react';
 
 const ModeName: { [key: string]: string } = {
 	auto: 'Light',

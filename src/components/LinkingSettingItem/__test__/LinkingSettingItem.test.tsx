@@ -1,13 +1,14 @@
-import { BlueBaseApp } from '@bluebase/core';
-import { Linking } from 'react-native';
-import { LinkingSettingItem } from '..';
 import { List } from '@bluebase/components';
+import { BlueBaseApp } from '@bluebase/core';
 import MUI from '@bluebase/plugin-material-ui';
-import Plugin from '../../../index';
-import React from 'react';
 import { mount } from 'enzyme';
 // import wait from 'waait';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+import { Linking } from 'react-native';
+
+import Plugin from '../../../index';
+import { LinkingSettingItem } from '..';
 
 describe('LinkingSettingItem', () => {
 	it('LinkingSettingItem', async () => {

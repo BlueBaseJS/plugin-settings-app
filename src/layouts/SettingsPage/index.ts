@@ -1,6 +1,8 @@
 import { RouteConfig } from '@bluebase/components';
-import { SettingsPageItemProps } from '../SettingsPageItem';
 import { WebBrowserOpenOptions } from 'expo-web-browser';
+import { ReactNode } from 'react';
+
+import { SettingsPageItemProps } from '../SettingsPageItem';
 
 /**
  * A UI item displayed on a settings details page
@@ -8,7 +10,7 @@ import { WebBrowserOpenOptions } from 'expo-web-browser';
 export interface SettingsPageProps extends RouteConfig {
 	items: SettingsPageItemProps[];
 	onPress?: () => void;
-	right?: React.ReactNode;
+	right?: ReactNode;
 
 	url?: string;
 	browserParams?: WebBrowserOpenOptions;

@@ -1,11 +1,18 @@
-import { Dimensions, ScrollView, TextStyle, ViewStyle } from 'react-native';
 import { H6, NavigationOptions, View } from '@bluebase/components';
-import { Theme, resolveThunk, useFilter, useIntl, useStyles } from '@bluebase/core';
-import React from 'react';
-import { SettingsPageItemDesktop } from '../SettingsPageItem';
-import { SettingsPageProps } from '../SettingsPage';
+import {
+	resolveThunk,
+	Theme,
+	useFilter,
+	useIntl,
+	useStyles
+} from '@bluebase/core';
 import get from 'lodash.get';
+import React from 'react';
+import { Dimensions, ScrollView, TextStyle, ViewStyle } from 'react-native';
+
 import { useScreenProps } from '../../hooks';
+import { SettingsPageProps } from '../SettingsPage';
+import { SettingsPageItemDesktop } from '../SettingsPageItem';
 
 export interface SettingsPageDesktopStyles {
 	title: TextStyle;

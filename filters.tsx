@@ -1,6 +1,7 @@
 import { List } from '@bluebase/components';
 import React from 'react';
-import { SettingsPageProps } from '../../src';
+
+import { SettingsPageProps } from './src';
 
 export const filters = {
 	'bluebase.plugin.setting-app.pages': [

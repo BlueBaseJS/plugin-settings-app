@@ -5,7 +5,7 @@ export function isSupportOpen(date: Date, days: number[], opens: number, closes:
 
 	const currentDay = date.getDay();
 
-	if (days.find(day => day === currentDay) === undefined) {
+	if (days.find((day) => day === currentDay) === undefined) {
 		return false;
 	}
 

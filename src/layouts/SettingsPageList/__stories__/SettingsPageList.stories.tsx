@@ -1,7 +1,8 @@
-import React from 'react';
-import { SettingsPageList } from '../SettingsPageList';
-import { SettingsPageProps } from '../../SettingsPage';
 import storiesOf from '@bluebase/storybook-addon';
+import React from 'react';
+
+import { SettingsPageProps } from '../../SettingsPage';
+import { SettingsPageList } from '../SettingsPageList';
 
 export const pages: SettingsPageProps[] = [
 	{

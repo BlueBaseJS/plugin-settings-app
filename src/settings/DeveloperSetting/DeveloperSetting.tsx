@@ -1,8 +1,7 @@
 import { Icon, List } from '@bluebase/components';
 import { useConfig, useIntl, useTheme } from '@bluebase/core';
-
-import React from 'react';
 import { openBrowserAsync } from 'expo-web-browser';
+import React from 'react';
 
 export const DeveloperSetting = () => {
 	const { __, rtl } = useIntl();

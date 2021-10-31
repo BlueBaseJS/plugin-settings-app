@@ -1,12 +1,13 @@
-import { BlueBaseApp } from '@bluebase/core';
-import { DarkModeSetting } from '..';
 import { List } from '@bluebase/components';
+import { BlueBaseApp } from '@bluebase/core';
 import MUI from '@bluebase/plugin-material-ui';
-import Plugin from '../../../index';
-import React from 'react';
 import { mount } from 'enzyme';
 // import wait from 'waait';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { DarkModeSetting } from '..';
 
 describe('DarkModeSetting', () => {
 	it('should render ThemeSelectionSetting', async () => {

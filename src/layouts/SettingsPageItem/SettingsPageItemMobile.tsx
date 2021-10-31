@@ -1,8 +1,8 @@
 import { Caption, List, View } from '@bluebase/components';
-import { TextStyle, ViewStyle } from 'react-native';
 import { Theme, useComponent, useIntl, useStyles } from '@bluebase/core';
-
 import React from 'react';
+import { TextStyle, ViewStyle } from 'react-native';
+
 import { SettingsPageItemProps } from '../SettingsPageItem';
 
 export interface SettingsPageItemMobileStyles {

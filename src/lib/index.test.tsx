@@ -1,18 +1,18 @@
-import React, { createElement } from 'react';
-import { SettingsPageMobile, SettingsPageProps } from '../layouts/SettingsPage';
-
+import { Noop } from '@bluebase/components';
 import { BlueBaseApp } from '@bluebase/core';
 import MUI from '@bluebase/plugin-material-ui';
-import { Noop } from '@bluebase/components';
+import { mount } from 'enzyme';
+import { waitForElement } from 'enzyme-async-helpers';
+import React, { createElement } from 'react';
+import { View } from 'react-native';
+
 import Plugin from '../';
 import { SettingsLayoutDesktop } from '../layouts/SettingsLayoutDesktop';
+import { SettingsPageMobile, SettingsPageProps } from '../layouts/SettingsPage';
 import { SettingsPageList } from '../layouts/SettingsPageList';
-import { View } from 'react-native';
 import { createDesktopRoutes } from '.';
 import { createMobileRoutes } from './createMobileRoutes';
 import { createSettingsRoutes } from './createSettingsRoutes';
-import { mount } from 'enzyme';
-import { waitForElement } from 'enzyme-async-helpers';
 
 export const pages: SettingsPageProps[] = [
 	{

@@ -1,6 +1,6 @@
 import { Dialog, Divider, List } from '@bluebase/components';
-import React, { useState } from 'react';
 import { useBlueBase, useIntl, useTheme } from '@bluebase/core';
+import React, { useState } from 'react';
 
 export const ThemeSelectionSetting = () => {
 	const BB = useBlueBase();

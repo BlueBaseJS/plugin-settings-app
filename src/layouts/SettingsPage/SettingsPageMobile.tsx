@@ -1,11 +1,11 @@
 import { Divider, View } from '@bluebase/components';
-import { SafeAreaView, ScrollView, ViewStyle } from 'react-native';
-import { SettingsPageItemMobile, SettingsPageItemProps } from '../SettingsPageItem';
 import { Theme, useFilter, useStyles } from '@bluebase/core';
-
-import React from 'react';
-import { SettingsPageProps } from '../SettingsPage';
 import get from 'lodash.get';
+import React from 'react';
+import { SafeAreaView, ScrollView, ViewStyle } from 'react-native';
+
+import { SettingsPageProps } from '../SettingsPage';
+import { SettingsPageItemMobile, SettingsPageItemProps } from '../SettingsPageItem';
 
 export interface SettingsPageMobileStyles {
 	root: ViewStyle;

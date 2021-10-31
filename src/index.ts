@@ -1,15 +1,15 @@
-import { VERSION } from './version';
-import { components } from './components';
 import { createPlugin } from '@bluebase/core';
-import { createSettingsRoutes } from './lib';
+
+import { components } from './components';
 import { defaultConfigs } from './configs';
 import { lang } from './lang';
 import { layouts } from './layouts';
+import { createSettingsRoutes } from './lib';
 import { routes } from './routes';
 import { settings } from './settings';
-export { SettingsPageProps } from './layouts/SettingsPage';
-
+import { VERSION } from './version';
 export * from './components/exports';
+export { SettingsPageProps } from './layouts/SettingsPage';
 export { createSettingsRoutes };
 
 export default createPlugin({

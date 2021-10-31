@@ -1,13 +1,13 @@
-import { BlueBaseApp, NavigationContext } from '@bluebase/core';
-
 import { List } from '@bluebase/components';
+import { BlueBaseApp, NavigationContext } from '@bluebase/core';
 import MUI from '@bluebase/plugin-material-ui';
-import Plugin from '../../../../src';
-import React from 'react';
-import { SettingsPageList } from '../SettingsPageList';
 import { mount } from 'enzyme';
-import { openBrowserAsync } from 'expo-web-browser';
 import { waitForElement } from 'enzyme-async-helpers';
+import { openBrowserAsync } from 'expo-web-browser';
+import React from 'react';
+
+import Plugin from '../../../../src';
+import { SettingsPageList } from '../SettingsPageList';
 
 jest.mock('expo-web-browser');
 

@@ -1,10 +1,11 @@
-import { CreateSettingsRoutesOptions } from './createSettingsRoutes';
-import React from 'react';
 import { RouteConfig } from '@bluebase/components';
-import { SettingsPageListProps } from '../layouts/SettingsPageList';
-import { SettingsPageProps } from '../layouts/SettingsPage';
-import get from 'lodash.get';
 import { getComponent } from '@bluebase/core';
+import get from 'lodash.get';
+import React from 'react';
+
+import { SettingsPageProps } from '../layouts/SettingsPage';
+import { SettingsPageListProps } from '../layouts/SettingsPageList';
+import { CreateSettingsRoutesOptions } from './createSettingsRoutes';
 
 const SettingsPageList = getComponent<SettingsPageListProps>('SettingsPageList');
 const SettingsPageMobile = getComponent<SettingsPageProps>('SettingsPageMobile');

@@ -8,10 +8,10 @@ import {
 	useNavigation,
 	useTheme,
 } from '@bluebase/core';
-
-import React from 'react';
-import { SettingsPageProps } from '../SettingsPage';
 import { openBrowserAsync } from 'expo-web-browser';
+import React from 'react';
+
+import { SettingsPageProps } from '../SettingsPage';
 
 export interface SettingsPageListProps {
 	name: string;

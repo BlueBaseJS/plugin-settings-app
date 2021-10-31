@@ -1,8 +1,8 @@
 import { Body1, Body2, View } from '@bluebase/components';
-import { Platform, TextStyle, ViewStyle } from 'react-native';
 import { Theme, useComponent, useIntl, useStyles } from '@bluebase/core';
-
 import React from 'react';
+import { Platform, TextStyle, ViewStyle } from 'react-native';
+
 import { SettingsPageItemProps } from '../SettingsPageItem';
 
 export interface SettingsPageItemDesktopStyles {

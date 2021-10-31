@@ -1,6 +1,6 @@
+import { getComponent } from '@bluebase/core';
 import { JsonLayoutProps } from '@bluebase/plugin-json-schema-components';
 import React from 'react';
-import { getComponent } from '@bluebase/core';
 
 const JsonLayout = getComponent<JsonLayoutProps>('JsonLayout');
 

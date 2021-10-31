@@ -1,8 +1,9 @@
 import { Icon } from '@bluebase/components';
-import React from 'react';
-import { SettingsLayoutDesktop } from '../SettingsLayoutDesktop';
-import { SettingsPageProps } from '../../SettingsPage';
 import storiesOf from '@bluebase/storybook-addon';
+import React from 'react';
+
+import { SettingsPageProps } from '../../SettingsPage';
+import { SettingsLayoutDesktop } from '../SettingsLayoutDesktop';
 
 export const pages: SettingsPageProps[] = [
 	{

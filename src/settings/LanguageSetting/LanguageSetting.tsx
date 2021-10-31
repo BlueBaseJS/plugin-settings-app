@@ -1,6 +1,6 @@
 import { Dialog, Divider, List, View } from '@bluebase/components';
-import React, { useState } from 'react';
 import { useConfig, useIntl } from '@bluebase/core';
+import React, { useState } from 'react';
 
 export const LanguageSetting = () => {
 	const { __, locale, changeLocale } = useIntl();

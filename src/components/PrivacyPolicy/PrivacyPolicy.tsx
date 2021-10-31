@@ -1,5 +1,5 @@
-import React from 'react';
 import { Text } from '@bluebase/components';
+import React from 'react';
 
 export class PrivacyPolicy extends React.Component {
 	render() {

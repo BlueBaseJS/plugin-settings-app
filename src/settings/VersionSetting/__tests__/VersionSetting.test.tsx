@@ -1,11 +1,11 @@
-import * as React from 'react';
-
+import { List } from '@bluebase/components';
 import { BlueBaseApp } from '@bluebase/core';
 import BlueBaseMaterialUI from '@bluebase/plugin-material-ui';
-import { List } from '@bluebase/components';
-import { VersionSetting } from '../VersionSetting';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import * as React from 'react';
+
+import { VersionSetting } from '../VersionSetting';
 
 describe('VersionSetting', () => {
 	it('Component should be render successfully', async () => {

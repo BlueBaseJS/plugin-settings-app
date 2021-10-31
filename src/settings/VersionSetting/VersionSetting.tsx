@@ -1,6 +1,5 @@
-import { useConfig, useIntl } from '@bluebase/core';
-
 import { List } from '@bluebase/components';
+import { useConfig, useIntl } from '@bluebase/core';
 import React from 'react';
 
 export const VersionSetting = () => {

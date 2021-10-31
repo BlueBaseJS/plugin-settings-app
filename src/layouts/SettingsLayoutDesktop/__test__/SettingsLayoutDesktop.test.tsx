@@ -1,15 +1,15 @@
 import { Icon, Noop } from '@bluebase/components';
-import { SettingsPageDesktop, SettingsPageProps } from '../../SettingsPage';
-
 import { BlueBaseApp } from '@bluebase/core';
 import MUI from '@bluebase/plugin-material-ui';
-import Plugin from '../../..';
-import React from 'react';
-import { SettingsLayoutDesktop } from '../SettingsLayoutDesktop';
-import { SettingsPageList } from '../../SettingsPageList';
-import { View } from 'react-native';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+import { View } from 'react-native';
+
+import Plugin from '../../..';
+import { SettingsPageDesktop, SettingsPageProps } from '../../SettingsPage';
+import { SettingsPageList } from '../../SettingsPageList';
+import { SettingsLayoutDesktop } from '../SettingsLayoutDesktop';
 
 export const pages: SettingsPageProps[] = [
 	{
