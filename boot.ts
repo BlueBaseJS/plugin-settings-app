@@ -1,4 +1,4 @@
-import { VERSION } from '../../src/version';
+import { VERSION } from './src/version';
 import { filters } from './filters';
 import { plugins } from './plugins';
 
