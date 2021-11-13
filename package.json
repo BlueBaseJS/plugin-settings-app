@@ -48,9 +48,6 @@
     "storybook": "node ./node_modules/@storybook/react/bin/index.js -p 6006 ",
     "build-storybook": "node ./node_modules/@storybook/react/bin/build.js"
   },
-  "engines": {
-    "node": ">=8.9"
-  },
   "dependencies": {
     "@bluebase/components": "^6.4.0",
     "expo-web-browser": "~10.0.3",
