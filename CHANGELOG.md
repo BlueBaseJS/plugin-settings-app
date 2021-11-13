@@ -1,3 +1,13 @@
+# [5.0.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v4.1.2...v5.0.0) (2021-11-13)
+
+### Features
+
+*   Upgraded Expo to V43 ([#272](https://github.com/BlueBaseJS/plugin-settings-app/issues/272)) ([a18c80b](https://github.com/BlueBaseJS/plugin-settings-app/commit/a18c80b9f8c60ad56baaa7d233895db511c4320d))
+
+### BREAKING CHANGES
+
+*   Upgraded Expo to V43
+
 # [5.0.0-beta.1](https://github.com/BlueBaseJS/plugin-settings-app/compare/v4.1.2...v5.0.0-beta.1) (2021-10-31)
 
 ### Features
