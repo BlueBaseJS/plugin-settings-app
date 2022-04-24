@@ -1,8 +1,8 @@
 import { Text } from '@bluebase/components';
+import { useIntl } from '@bluebase/core';
 import React from 'react';
 
-export class PrivacyPolicy extends React.Component {
-	render() {
-		return <Text>Please add privacy Policies here</Text>;
-	}
-}
+export const PrivacyPolicy = () => {
+	const { __ } = useIntl();
+	return <Text>{__('Please add privacy Policies here')}</Text>;
+};

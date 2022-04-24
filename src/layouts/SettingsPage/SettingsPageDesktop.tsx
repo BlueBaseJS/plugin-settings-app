@@ -24,20 +24,21 @@ export interface SettingsPageDesktopProps extends SettingsPageProps {
 	styles?: Partial<SettingsPageDesktopStyles>;
 }
 
-const { height } = Dimensions.get('window');
+const defaultStyles = (theme: Theme): SettingsPageDesktopStyles => {
+	const { height } = Dimensions.get('window');
 
-const defaultStyles = (theme: Theme): SettingsPageDesktopStyles => ({
-	root: {
-		backgroundColor: theme.palette.background.default,
-		flex: 1,
-	},
-	scrollViewContainer: {
-		height: height - theme.spacing.unit * 10,
-	},
-	title: {
-		padding: theme.spacing.unit * 2,
-	},
-});
+	return {
+		root: {
+			flex: 1,
+		},
+		scrollViewContainer: {
+			height: height - theme.spacing.unit * 10,
+		},
+		title: {
+			padding: theme.spacing.unit * 2,
+		},
+	};
+};
 
 export const SettingsPageDesktop = (props: SettingsPageDesktopProps) => {
 	const { filter, items } = props;

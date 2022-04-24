@@ -28,4 +28,6 @@ export const SettingsLayoutDesktop = (props: SettingsLayoutDesktopProps) => {
 	);
 };
 
+SettingsLayoutDesktop.displayName = 'SettingsLayoutDesktop';
+
 export default SettingsLayoutDesktop;
