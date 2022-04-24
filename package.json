@@ -38,7 +38,7 @@
     "fix:lint": "eslint src --ext=ts,tsx --fix .",
     "test": "run-s build test:*",
     "test:lint": "eslint src --ext=ts,tsx",
-    "test:prettier": "prettier \"src/**/*.ts\" --list-different",
+    "test-prettier": "prettier \"src/**/*.ts\" --list-different",
     "test:md": "remark . -f",
     "test:only": "jest --coverage --runInBand",
     "prepublishOnly": "yarn remove expo react-native;",
