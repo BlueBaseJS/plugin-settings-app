@@ -1,3 +1,9 @@
+# [5.1.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v5.0.0...v5.1.0) (2022-04-24)
+
+### Features
+
+*   Improved translations ([b4b10f0](https://github.com/BlueBaseJS/plugin-settings-app/commit/b4b10f0385b6d35b23a51bc58074377c3d350c4c))
+
 # [5.0.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v4.1.2...v5.0.0) (2021-11-13)
 
 ### Features
