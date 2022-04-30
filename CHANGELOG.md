@@ -1,3 +1,9 @@
+## [5.1.1](https://github.com/BlueBaseJS/plugin-settings-app/compare/v5.1.0...v5.1.1) (2022-04-30)
+
+### Bug Fixes
+
+*   **SettingsPageDesktop:** Fixed title styles ([2df9a1e](https://github.com/BlueBaseJS/plugin-settings-app/commit/2df9a1ef5952672a97b2cfbb9afbf6815ec31ae6))
+
 # [5.1.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v5.0.0...v5.1.0) (2022-04-24)
 
 ### Features
