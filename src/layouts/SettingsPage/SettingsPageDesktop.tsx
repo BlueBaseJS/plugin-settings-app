@@ -35,7 +35,9 @@ const defaultStyles = (theme: Theme): SettingsPageDesktopStyles => {
 			height: height - theme.spacing.unit * 10,
 		},
 		title: {
-			padding: theme.spacing.unit * 2,
+			paddingHorizontal: theme.spacing.unit * 2,
+			paddingTop: theme.spacing.unit * 2,
+			paddingBottom: theme.spacing.unit,
 		},
 	};
 };
