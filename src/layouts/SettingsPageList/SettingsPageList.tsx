@@ -1,4 +1,4 @@
-import { Icon, List, NavigationOptions, StatefulComponent } from '@bluebase/components';
+import { Icon, List, StackNavigationOptions, StatefulComponent } from '@bluebase/components';
 import {
 	resolveThunk,
 	useBlueBase,
@@ -14,15 +14,16 @@ import React from 'react';
 import { SettingsPageProps } from '../SettingsPage';
 
 export interface SettingsPageListProps {
+	filter?: string;
 	name: string;
 	pages: SettingsPageProps[];
 }
 
-function getTitle(options: NavigationOptions) {
+function getTitle(options: StackNavigationOptions) {
 	return (options as any).drawerLabel || options.title || options.headerTitle;
 }
 
-function getIcon(options: NavigationOptions) {
+function getIcon(options: StackNavigationOptions) {
 	const icon = (options as any).drawerIcon;
 
 	if (!icon) {
@@ -48,7 +49,7 @@ export const SettingsPageList = (props: SettingsPageListProps) => {
 	const contextBundle = { navigation, screenProps: { BB, intl, theme } };
 
 	const { __ } = intl;
-	const { navigate, state } = navigation;
+	const { navigate, route } = navigation;
 
 	const HeaderComponent = useComponent(`${name}RootPageHeader`, 'Noop');
 	const FooterComponent = useComponent(`${name}RootPageFooter`, 'Noop');
@@ -60,7 +61,7 @@ export const SettingsPageList = (props: SettingsPageListProps) => {
 
 		const title = getTitle(options);
 		const left = getIcon(options);
-		const onPress = page.onPress ? page.onPress : () => navigate(pageName, state.params);
+		const onPress = page.onPress ? page.onPress : () => navigate(pageName, route.params);
 
 		const openUrl = () => openBrowserAsync(url!, browserParams);
 		const openUrlIcon = <Icon name="open-in-new" size={20} color={theme.palette.text.icon} />;

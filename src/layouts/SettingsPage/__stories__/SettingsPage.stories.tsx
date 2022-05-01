@@ -34,5 +34,4 @@ const item: SettingsPageProps = {
 
 storiesOf('Layouts / SettingsPage', module)
 	.add('Mobile View', () => <SettingsPageMobile {...item} />)
-
-	.add('Desktop View', () => <SettingsPageDesktop {...item} isMobile={false} />);
+	.add('Desktop View', () => <SettingsPageDesktop {...item} />);

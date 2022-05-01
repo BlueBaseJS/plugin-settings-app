@@ -11,9 +11,9 @@ export interface SettingsPageMobileStyles {
 	root: ViewStyle;
 }
 
-export interface SettingsPageMobileProps extends SettingsPageProps {
+export type SettingsPageMobileProps = SettingsPageProps & {
 	styles?: Partial<SettingsPageMobileStyles>;
-}
+};
 
 const defaultStyles = (_theme: Theme): SettingsPageMobileStyles => ({
 	root: {},

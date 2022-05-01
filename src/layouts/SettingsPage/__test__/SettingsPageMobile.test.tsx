@@ -45,7 +45,7 @@ describe('SettingsPageMobile', () => {
 					ListSubheader: Noop,
 				}}
 			>
-				<SettingsPageMobile title="settings" {...item} isMobile={false} />
+				<SettingsPageMobile {...item} />
 			</BlueBaseApp>
 		);
 

@@ -1,16 +1,8 @@
-import { H6, NavigationOptions, View } from '@bluebase/components';
-import {
-	resolveThunk,
-	Theme,
-	useFilter,
-	useIntl,
-	useStyles
-} from '@bluebase/core';
-import get from 'lodash.get';
+import { H6, StackNavigationOptions, View } from '@bluebase/components';
+import { Theme, useFilter, useIntl, useStyles } from '@bluebase/core';
 import React from 'react';
 import { Dimensions, ScrollView, TextStyle, ViewStyle } from 'react-native';
 
-import { useScreenProps } from '../../hooks';
 import { SettingsPageProps } from '../SettingsPage';
 import { SettingsPageItemDesktop } from '../SettingsPageItem';
 
@@ -20,9 +12,9 @@ export interface SettingsPageDesktopStyles {
 	scrollViewContainer: ViewStyle;
 }
 
-export interface SettingsPageDesktopProps extends SettingsPageProps {
+export type SettingsPageDesktopProps = SettingsPageProps & {
 	styles?: Partial<SettingsPageDesktopStyles>;
-}
+};
 
 const defaultStyles = (theme: Theme): SettingsPageDesktopStyles => {
 	const { height } = Dimensions.get('window');
@@ -46,12 +38,11 @@ export const SettingsPageDesktop = (props: SettingsPageDesktopProps) => {
 	const { filter, items } = props;
 	const { __ } = useIntl();
 
-	const screenProps = useScreenProps();
 	const styles = useStyles('SettingsPageDesktop', props, defaultStyles);
 	const { value: filteredItems } = useFilter(`${filter}.page.desktop`, items, props);
 
-	const options: NavigationOptions = resolveThunk(get(props, 'options', {}), screenProps);
-	const title = get(options, 'title', options.headerTitle) as string;
+	const options: StackNavigationOptions = props.options || {};
+	const title = options.title;
 
 	return (
 		<ScrollView
