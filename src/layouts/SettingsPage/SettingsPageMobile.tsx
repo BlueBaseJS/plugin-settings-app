@@ -1,11 +1,10 @@
 import { Divider, View } from '@bluebase/components';
 import { Theme, useFilter, useStyles } from '@bluebase/core';
-import get from 'lodash.get';
 import React from 'react';
 import { SafeAreaView, ScrollView, ViewStyle } from 'react-native';
 
 import { SettingsPageProps } from '../SettingsPage';
-import { SettingsPageItemMobile, SettingsPageItemProps } from '../SettingsPageItem';
+import { SettingsPageItemMobile } from '../SettingsPageItem';
 
 export interface SettingsPageMobileStyles {
 	root: ViewStyle;
@@ -24,7 +23,7 @@ export const SettingsPageMobile = (props: SettingsPageMobileProps) => {
 	const styles = useStyles('SettingsPageMobile', props, defaultStyles);
 	const { value: items } = useFilter(
 		`${filter}.page.mobile`,
-		get(props, 'items', []) as SettingsPageItemProps[],
+		props.items || [],
 		props
 	);
 
