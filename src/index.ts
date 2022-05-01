@@ -5,6 +5,7 @@ import { defaultConfigs } from './configs';
 import { lang } from './lang';
 import { layouts } from './layouts';
 import { createSettingsRoutes } from './lib';
+import { navigation } from './navigation';
 import { routes } from './routes';
 import { settings } from './settings';
 import { VERSION } from './version';
@@ -37,5 +38,6 @@ export default createPlugin({
 
 	filters: {
 		...lang,
+		...navigation,
 	},
 });
