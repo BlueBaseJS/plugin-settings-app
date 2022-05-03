@@ -1,3 +1,9 @@
+# [6.0.0-alpha.2](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.1...v6.0.0-alpha.2) (2022-05-03)
+
+### Bug Fixes
+
+*   **SettingsPageDesktop:** Fixed style issues ([2f7ee2d](https://github.com/BlueBaseJS/plugin-settings-app/commit/2f7ee2d30ecd5f93d0ac0839f387c76615ed707e))
+
 # [6.0.0-alpha.1](https://github.com/BlueBaseJS/plugin-settings-app/compare/v5.1.0...v6.0.0-alpha.1) (2022-05-01)
 
 ### Bug Fixes
