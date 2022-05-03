@@ -4,12 +4,14 @@ import React from 'react';
 import { Dimensions, ScrollView, TextStyle, ViewStyle } from 'react-native';
 
 import { SettingsPageProps } from '../SettingsPage';
-import { SettingsPageItemDesktop } from '../SettingsPageItem';
+import { SettingsPageItemDesktop, SettingsPageItemDesktopStyles } from '../SettingsPageItem';
 
 export interface SettingsPageDesktopStyles {
 	title: TextStyle;
 	root: ViewStyle;
+	scrollView: ViewStyle;
 	scrollViewContainer: ViewStyle;
+	item: Partial<SettingsPageItemDesktopStyles>;
 }
 
 export type SettingsPageDesktopProps = SettingsPageProps & {
@@ -23,6 +25,9 @@ const defaultStyles = (theme: Theme): SettingsPageDesktopStyles => {
 		root: {
 			flex: 1,
 		},
+		scrollView: {
+			flex: 1,
+		},
 		scrollViewContainer: {
 			height: height - theme.spacing.unit * 10,
 		},
@@ -31,6 +36,11 @@ const defaultStyles = (theme: Theme): SettingsPageDesktopStyles => {
 			paddingTop: theme.spacing.unit * 2,
 			paddingBottom: theme.spacing.unit,
 		},
+		item: {
+			root: {
+				marginVertical: theme.spacing.unit,
+			}
+		}
 	};
 };
 
@@ -46,7 +56,7 @@ export const SettingsPageDesktop = (props: SettingsPageDesktopProps) => {
 
 	return (
 		<ScrollView
-			style={{ flex: 1 }}
+			style={styles.scrollView}
 			contentContainerStyle={styles.scrollViewContainer}
 			showsVerticalScrollIndicator={false}
 		>
@@ -56,7 +66,7 @@ export const SettingsPageDesktop = (props: SettingsPageDesktopProps) => {
 					<SettingsPageItemDesktop
 						key={item.name}
 						{...item}
-						styles={{ root: { marginVertical: 8 } }}
+						styles={styles.item}
 					/>
 				))}
 			</View>

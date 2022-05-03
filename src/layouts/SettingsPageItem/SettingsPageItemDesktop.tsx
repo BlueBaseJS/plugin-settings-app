@@ -34,12 +34,12 @@ const defaultStyles = (theme: Theme): SettingsPageItemDesktopStyles => ({
 	},
 
 	titleStyles: {
-		paddingVertical: theme.spacing.unit,
+		paddingVertical: theme.spacing.unit / 2,
 	},
 
 	descriptionStyles: {
 		color: theme.palette.text.hint,
-		paddingBottom: theme.spacing.unit,
+		paddingVertical: theme.spacing.unit / 2,
 	},
 
 	content: {
@@ -74,10 +74,16 @@ export const SettingsPageItemDesktop = (props: SettingsPageItemDesktopProps) => 
 
 	return (
 		<View style={styles.root}>
-			<View style={styles.header}>
-				{titleNode}
-				{descNode}
-			</View>
+			{titleNode || descNode
+				? (
+					<View style={styles.header}>
+						{titleNode}
+						{descNode}
+					</View>
+				)
+				: null
+			}
+
 			<View style={styles.content}>
 				<ItemComponent />
 			</View>
