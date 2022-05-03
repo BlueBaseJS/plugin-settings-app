@@ -1,3 +1,21 @@
+# [6.0.0-alpha.1](https://github.com/BlueBaseJS/plugin-settings-app/compare/v5.1.0...v6.0.0-alpha.1) (2022-05-01)
+
+### Bug Fixes
+
+*   **SettingsPageDesktop:** Fixed title styles ([2df9a1e](https://github.com/BlueBaseJS/plugin-settings-app/commit/2df9a1ef5952672a97b2cfbb9afbf6815ec31ae6))
+
+### Code Refactoring
+
+*   BlueBase 8 Compatibility ([511d635](https://github.com/BlueBaseJS/plugin-settings-app/commit/511d635895b08346e687deb75f76d80779b2dcf4))
+
+### Features
+
+*   Added routes for Terms & Privacy ([22f0d0f](https://github.com/BlueBaseJS/plugin-settings-app/commit/22f0d0fbee17ee7d33c26e3d2185d5cc0febf3a4))
+
+### BREAKING CHANGES
+
+*   Changed navigation APIs to move to BlueBase 8. Will not work on previous versions
+
 # [5.1.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v5.0.0...v5.1.0) (2022-04-24)
 
 ### Features
