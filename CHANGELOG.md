@@ -1,3 +1,9 @@
+# [6.0.0-alpha.5](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.4...v6.0.0-alpha.5) (2022-06-26)
+
+### Features
+
+*   **SettingsPageItem:** Can now render children ([c1c8537](https://github.com/BlueBaseJS/plugin-settings-app/commit/c1c85378be84d5fe9b90d2a5e2291606f7fe2112))
+
 # [6.0.0-alpha.4](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.3...v6.0.0-alpha.4) (2022-06-26)
 
 ### Bug Fixes
