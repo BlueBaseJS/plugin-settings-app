@@ -35,7 +35,9 @@ const defaultStyles = (theme: Theme): SettingsPageDesktopStyles => {
 		headerTitle: {
 			flexGrow: 1
 		},
-		headerRight: {},
+		headerRight: {
+			justifyContent: 'center',
+		},
 		scrollView: {
 			flex: 1,
 		},

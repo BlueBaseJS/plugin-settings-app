@@ -61,7 +61,10 @@ export const SettingsPageList = (props: SettingsPageListProps) => {
 
 		const title = options.title;
 		const left = getIcon(options);
-		const onPress = page.onPress ? page.onPress : () => navigate(pageName, route.params);
+		const onPress = page.onPress ? page.onPress : () => navigate('Root', {
+			screen: pageName,
+			params: route.params,
+		});
 
 		const openUrl = () => openBrowserAsync(url!, browserParams);
 		const openUrlIcon = <Icon name="open-in-new" size={20} color={theme.palette.text.icon} />;
