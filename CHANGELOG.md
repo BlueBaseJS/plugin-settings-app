@@ -1,3 +1,9 @@
+# [6.0.0-alpha.4](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.3...v6.0.0-alpha.4) (2022-06-26)
+
+### Bug Fixes
+
+*   Fixed passing params on mobile ([f892109](https://github.com/BlueBaseJS/plugin-settings-app/commit/f892109702f69a0e13b2be705b66f38e0da55ce7))
+
 # [6.0.0-alpha.3](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.2...v6.0.0-alpha.3) (2022-06-26)
 
 ### Features
