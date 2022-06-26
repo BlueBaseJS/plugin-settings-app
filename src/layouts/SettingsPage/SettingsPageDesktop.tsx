@@ -7,6 +7,9 @@ import { SettingsPageProps } from '../SettingsPage';
 import { SettingsPageItemDesktop, SettingsPageItemDesktopStyles } from '../SettingsPageItem';
 
 export interface SettingsPageDesktopStyles {
+	header: ViewStyle;
+	headerRight: ViewStyle;
+	headerTitle: ViewStyle;
 	title: TextStyle;
 	root: ViewStyle;
 	scrollView: ViewStyle;
@@ -25,6 +28,14 @@ const defaultStyles = (theme: Theme): SettingsPageDesktopStyles => {
 		root: {
 			flex: 1,
 		},
+		header: {
+			flexDirection: 'row',
+			marginVertical: theme.spacing.unit,
+		},
+		headerTitle: {
+			flexGrow: 1
+		},
+		headerRight: {},
 		scrollView: {
 			flex: 1,
 		},
@@ -38,7 +49,7 @@ const defaultStyles = (theme: Theme): SettingsPageDesktopStyles => {
 		},
 		item: {
 			root: {
-				marginVertical: theme.spacing.unit,
+				marginBottom: theme.spacing.unit * 2,
 			}
 		}
 	};
@@ -51,8 +62,7 @@ export const SettingsPageDesktop = (props: SettingsPageDesktopProps) => {
 	const styles = useStyles('SettingsPageDesktop', props, defaultStyles);
 	const { value: filteredItems } = useFilter(`${filter}.page.desktop`, items, props);
 
-	const options: StackNavigationOptions = props.options || {};
-	const title = options.title;
+	const { title, headerRight }: StackNavigationOptions = props.options || {};
 
 	return (
 		<ScrollView
@@ -61,7 +71,14 @@ export const SettingsPageDesktop = (props: SettingsPageDesktopProps) => {
 			showsVerticalScrollIndicator={false}
 		>
 			<View style={styles.root}>
-				{title && <H6 style={styles.title}>{__(title)}</H6>}
+				<View style={styles.header}>
+					<View style={styles.headerTitle}>
+						{title && <H6 style={styles.title}>{__(title)}</H6>}
+					</View>
+					<View style={styles.headerRight}>
+						{headerRight ? headerRight({}) : null}
+					</View>
+				</View>
 				{filteredItems.map(item => (
 					<SettingsPageItemDesktop
 						key={item.name}

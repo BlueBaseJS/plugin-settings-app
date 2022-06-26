@@ -9,8 +9,10 @@ import { navigation } from './navigation';
 import { routes } from './routes';
 import { settings } from './settings';
 import { VERSION } from './version';
+
 export * from './components/exports';
 export { SettingsPageProps } from './layouts/SettingsPage';
+export * from './layouts/SettingsPageItem';
 export { createSettingsRoutes };
 
 export default createPlugin({
