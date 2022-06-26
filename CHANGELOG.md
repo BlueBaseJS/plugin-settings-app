@@ -1,3 +1,9 @@
+# [6.0.0-alpha.3](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.2...v6.0.0-alpha.3) (2022-06-26)
+
+### Features
+
+*   **SettingsPageDesktop:** Uses headerRight prop ([5d0d2ca](https://github.com/BlueBaseJS/plugin-settings-app/commit/5d0d2ca5cb819852c9321fe21e02de310866ef3e))
+
 # [6.0.0-alpha.2](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.1...v6.0.0-alpha.2) (2022-05-03)
 
 ### Bug Fixes
