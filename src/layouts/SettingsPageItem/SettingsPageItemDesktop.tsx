@@ -1,5 +1,5 @@
 import { Body1, Body2, View } from '@bluebase/components';
-import { Theme, useComponent, useIntl, useStyles } from '@bluebase/core';
+import { Theme, useBlueBase, useIntl, useStyles } from '@bluebase/core';
 import React from 'react';
 import { Platform, TextStyle, ViewStyle } from 'react-native';
 
@@ -52,9 +52,11 @@ const defaultStyles = (theme: Theme): SettingsPageItemDesktopStyles => ({
 });
 
 export const SettingsPageItemDesktop = (props: SettingsPageItemDesktopProps) => {
-	const { description, descriptionStyle, title, titleStyle } = props;
-	const ItemComponent = useComponent(props.component);
+	const { description, descriptionStyle, title, titleStyle, style, component, children } = props;
 	const { __ } = useIntl();
+	const BB = useBlueBase();
+
+	const ItemComponent = component ? BB.Components.resolveFromCache(component) : null;
 
 	const styles = useStyles('SettingsPageItemDesktop', props, defaultStyles);
 
@@ -73,7 +75,7 @@ export const SettingsPageItemDesktop = (props: SettingsPageItemDesktopProps) => 
 		);
 
 	return (
-		<View style={styles.root}>
+		<View style={[styles.root, style]}>
 			{titleNode || descNode
 				? (
 					<View style={styles.header}>
@@ -85,7 +87,7 @@ export const SettingsPageItemDesktop = (props: SettingsPageItemDesktopProps) => 
 			}
 
 			<View style={styles.content}>
-				<ItemComponent />
+				{ItemComponent ? <ItemComponent /> : children}
 			</View>
 		</View>
 	);

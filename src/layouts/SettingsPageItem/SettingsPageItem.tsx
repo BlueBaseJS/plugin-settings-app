@@ -1,6 +1,6 @@
 import { isMobile } from '@bluebase/core';
 import React from 'react';
-import { TextStyle } from 'react-native';
+import { TextStyle, ViewStyle } from 'react-native';
 
 import { SettingsPageItemDesktop } from './SettingsPageItemDesktop';
 import { SettingsPageItemMobile } from './SettingsPageItemMobile';
@@ -12,10 +12,10 @@ export interface SettingsPageItemProps {
 	/**
 	 * Name of the component, or the component itself to render.
 	 */
-	component: string | React.ComponentType<any>;
+	component?: string | React.ComponentType<any>;
 
 	/** A slug to identify the item */
-	name: string;
+	name?: string;
 
 	/** The title of the segment */
 	title?: React.ReactNode;
@@ -28,6 +28,9 @@ export interface SettingsPageItemProps {
 
 	/** Styles to apply to the description component */
 	descriptionStyle?: TextStyle;
+
+	children?: React.ReactNode;
+	style?: ViewStyle;
 }
 
 export const SettingsPageItem = (props: SettingsPageItemProps) => {
