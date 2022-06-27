@@ -1,7 +1,7 @@
 import { H6, StackNavigationOptions, View } from '@bluebase/components';
 import { Theme, useFilter, useIntl, useStyles } from '@bluebase/core';
 import React from 'react';
-import { Dimensions, ScrollView, TextStyle, ViewStyle } from 'react-native';
+import { ScrollView, TextStyle, ViewStyle } from 'react-native';
 
 import { SettingsPageProps } from '../SettingsPage';
 import { SettingsPageItemDesktop, SettingsPageItemDesktopStyles } from '../SettingsPageItem';
@@ -22,7 +22,7 @@ export type SettingsPageDesktopProps = SettingsPageProps & {
 };
 
 const defaultStyles = (theme: Theme): SettingsPageDesktopStyles => {
-	const { height } = Dimensions.get('window');
+	// const { height } = Dimensions.get('window');
 
 	return {
 		root: {
@@ -42,7 +42,7 @@ const defaultStyles = (theme: Theme): SettingsPageDesktopStyles => {
 			flex: 1,
 		},
 		scrollViewContainer: {
-			height: height - theme.spacing.unit * 10,
+			// height: height - theme.spacing.unit * 10,
 		},
 		title: {
 			paddingHorizontal: theme.spacing.unit * 2,
