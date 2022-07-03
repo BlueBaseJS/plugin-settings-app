@@ -1,3 +1,9 @@
+# [6.0.0-alpha.6](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.5...v6.0.0-alpha.6) (2022-06-27)
+
+### Features
+
+*   New Desktop UI ([ba8eac2](https://github.com/BlueBaseJS/plugin-settings-app/commit/ba8eac27b52c2080a92a9194b84ceb40f4817ff8))
+
 # [6.0.0-alpha.5](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.4...v6.0.0-alpha.5) (2022-06-26)
 
 ### Features
