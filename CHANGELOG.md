@@ -1,3 +1,9 @@
+# [6.0.0-alpha.7](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.6...v6.0.0-alpha.7) (2022-07-03)
+
+### Features
+
+*   **SettingsPageItem:** Registered component ([6c66013](https://github.com/BlueBaseJS/plugin-settings-app/commit/6c660134537f8e0cd676f8a6543ff526cb2824df))
+
 # [6.0.0-alpha.6](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.5...v6.0.0-alpha.6) (2022-06-27)
 
 ### Features
