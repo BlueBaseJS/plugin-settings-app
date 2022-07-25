@@ -1,3 +1,9 @@
+# [6.0.0-alpha.8](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.7...v6.0.0-alpha.8) (2022-07-25)
+
+### Features
+
+*   **SettingsPageItem:** Added danger prop ([5e0e022](https://github.com/BlueBaseJS/plugin-settings-app/commit/5e0e022bd447a8223395eb41f62baa3d990b1a53))
+
 # [6.0.0-alpha.7](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.6...v6.0.0-alpha.7) (2022-07-03)
 
 ### Features
