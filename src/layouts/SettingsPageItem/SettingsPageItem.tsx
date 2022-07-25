@@ -29,6 +29,8 @@ export interface SettingsPageItemProps {
 	/** Styles to apply to the description component */
 	descriptionStyle?: TextStyle;
 
+	danger?: boolean;
+
 	children?: React.ReactNode;
 	style?: ViewStyle;
 }

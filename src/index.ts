@@ -34,7 +34,7 @@ export default createPlugin({
 		...settings,
 		...layouts,
 
-		SettingsPageItem: SettingsPageItem
+		SettingsPageItem: SettingsPageItem,
 	},
 
 	indexRoute: 'SettingsApp',

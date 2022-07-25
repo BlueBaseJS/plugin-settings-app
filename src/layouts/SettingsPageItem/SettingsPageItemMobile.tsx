@@ -19,7 +19,7 @@ export interface SettingsPageItemMobileProps extends SettingsPageItemProps {
 	styles?: Partial<SettingsPageItemMobileStyles>;
 }
 
-const defaultStyles = (theme: Theme): SettingsPageItemMobileStyles => ({
+const defaultStyles = (theme: Theme, { danger }: SettingsPageItemMobileProps): SettingsPageItemMobileStyles => ({
 	contentStyles: {},
 
 	descriptionStyles: {
@@ -33,6 +33,7 @@ const defaultStyles = (theme: Theme): SettingsPageItemMobileStyles => ({
 		paddingVertical: theme.spacing.unit,
 	},
 	titleStyles: {
+		color: danger ? 'rgba(239, 83, 80, 1)' : theme.palette.text.primary,
 		paddingVertical: theme.spacing.unit,
 	},
 });
