@@ -1,3 +1,9 @@
+# [6.0.0-alpha.10](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.9...v6.0.0-alpha.10) (2022-09-25)
+
+### Bug Fixes
+
+*   **DesktopLayout:** Fixed content width issue ([ebef13e](https://github.com/BlueBaseJS/plugin-settings-app/commit/ebef13e821ee726a7a075fec693591f9cf39066e))
+
 # [6.0.0-alpha.9](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.8...v6.0.0-alpha.9) (2022-09-25)
 
 ### Bug Fixes
