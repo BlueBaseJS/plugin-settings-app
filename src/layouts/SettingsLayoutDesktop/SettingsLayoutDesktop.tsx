@@ -42,8 +42,8 @@ export const SettingsLayoutDesktop = (props: SettingsLayoutDesktopProps) => {
 		},
 		contentWrapper: {
 			alignSelf: 'center',
-			maxWidth: 600,
-			marginHorizontal: theme.spacing.unit * 2
+			marginHorizontal: theme.spacing.unit * 2,
+			width: 600,
 		}
 	});
 
