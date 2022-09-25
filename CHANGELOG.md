@@ -1,3 +1,9 @@
+# [6.0.0-alpha.11](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.10...v6.0.0-alpha.11) (2022-09-25)
+
+### Bug Fixes
+
+*   Release ([b548d92](https://github.com/BlueBaseJS/plugin-settings-app/commit/b548d929a386c6bfaedb280fe7a7c625a2c6bc78))
+
 # [6.0.0-alpha.10](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.9...v6.0.0-alpha.10) (2022-09-25)
 
 ### Bug Fixes
