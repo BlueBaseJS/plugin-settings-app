@@ -1,7 +1,7 @@
 import { H6, StackNavigationOptions, View } from '@bluebase/components';
 import { Theme, useFilter, useIntl, useStyles } from '@bluebase/core';
 import React from 'react';
-import { ScrollView, TextStyle, ViewStyle } from 'react-native';
+import { TextStyle, ViewStyle } from 'react-native';
 
 import { SettingsPageProps } from '../SettingsPage';
 import { SettingsPageItemDesktop, SettingsPageItemDesktopStyles } from '../SettingsPageItem';
@@ -12,8 +12,6 @@ export interface SettingsPageDesktopStyles {
 	headerTitle: ViewStyle;
 	title: TextStyle;
 	root: ViewStyle;
-	scrollView: ViewStyle;
-	scrollViewContainer: ViewStyle;
 	item: Partial<SettingsPageItemDesktopStyles>;
 }
 
@@ -38,12 +36,6 @@ const defaultStyles = (theme: Theme): SettingsPageDesktopStyles => {
 		headerRight: {
 			justifyContent: 'center',
 		},
-		scrollView: {
-			flex: 1,
-		},
-		scrollViewContainer: {
-			// height: height - theme.spacing.unit * 10,
-		},
 		title: {
 			paddingHorizontal: theme.spacing.unit * 2,
 			paddingTop: theme.spacing.unit * 2,
@@ -67,29 +59,23 @@ export const SettingsPageDesktop = (props: SettingsPageDesktopProps) => {
 	const { title, headerRight }: StackNavigationOptions = props.options || {};
 
 	return (
-		<ScrollView
-			style={styles.scrollView}
-			contentContainerStyle={styles.scrollViewContainer}
-			showsVerticalScrollIndicator={false}
-		>
-			<View style={styles.root}>
-				<View style={styles.header}>
-					<View style={styles.headerTitle}>
-						{title && <H6 style={styles.title}>{__(title)}</H6>}
-					</View>
-					<View style={styles.headerRight}>
-						{headerRight ? headerRight({}) : null}
-					</View>
+		<View style={styles.root}>
+			<View style={styles.header}>
+				<View style={styles.headerTitle}>
+					{title && <H6 style={styles.title}>{__(title)}</H6>}
 				</View>
-				{filteredItems.map(item => (
-					<SettingsPageItemDesktop
-						key={item.name}
-						{...item}
-						styles={styles.item}
-					/>
-				))}
+				<View style={styles.headerRight}>
+					{headerRight ? headerRight({}) : null}
+				</View>
 			</View>
-		</ScrollView>
+			{filteredItems.map(item => (
+				<SettingsPageItemDesktop
+					key={item.name}
+					{...item}
+					styles={styles.item}
+				/>
+			))}
+		</View>
 	);
 };
 

@@ -1,4 +1,4 @@
-import { View } from '@bluebase/components';
+import { SafeAreaView, ScrollView, View } from '@bluebase/components';
 import { useIntl, useStyles, useTheme } from '@bluebase/core';
 import React from 'react';
 import { ViewStyle } from 'react-native';
@@ -39,10 +39,10 @@ export const SettingsLayoutDesktop = (props: SettingsLayoutDesktopProps) => {
 		},
 		contentColumn: {
 			flexGrow: 1,
-			alignItems: 'center',
 		},
 		contentWrapper: {
-			width: 600,
+			alignSelf: 'center',
+			maxWidth: 600,
 			marginHorizontal: theme.spacing.unit * 2
 		}
 	});
@@ -50,13 +50,17 @@ export const SettingsLayoutDesktop = (props: SettingsLayoutDesktopProps) => {
 	return (
 		<View style={styles.root}>
 			<View style={styles.menuColumn}>
-				<SettingsPageList pages={pages} name={mainRoute.name} />
+				<ScrollView>
+					<SafeAreaView>
+						<SettingsPageList pages={pages} name={mainRoute.name} />
+					</SafeAreaView>
+				</ScrollView>
 			</View>
-			<View style={styles.contentColumn}>
-				<View style={styles.contentWrapper}>
+			<ScrollView style={styles.contentColumn} contentContainerStyle={styles.contentWrapper}>
+				<SafeAreaView>
 					{pageObj ? <SettingsPageDesktop filter={filter} {...pageObj} {...props} /> : null}
-				</View>
-			</View>
+				</SafeAreaView>
+			</ScrollView>
 		</View>
 	);
 };
