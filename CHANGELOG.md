@@ -1,3 +1,9 @@
+# [6.0.0-alpha.9](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.8...v6.0.0-alpha.9) (2022-09-25)
+
+### Bug Fixes
+
+*   Fixed scroll bars on desktop layout ([daf424c](https://github.com/BlueBaseJS/plugin-settings-app/commit/daf424cc7523ce4f987412da05f73a50ca0dd0df))
+
 # [6.0.0-alpha.8](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.7...v6.0.0-alpha.8) (2022-07-25)
 
 ### Features
