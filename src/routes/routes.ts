@@ -12,7 +12,7 @@ export const routes = async ({ BB, intl }: RouteOptions): Promise<RouteConfig[]>
 
 			mainRoute: {
 				name: 'SettingsApp',
-				path: '',
+				path: 'settings',
 
 				options: {
 					title: intl.__('Settings'),
