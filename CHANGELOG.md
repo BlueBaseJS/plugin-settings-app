@@ -1,3 +1,31 @@
+# [6.0.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v5.1.1...v6.0.0) (2023-09-09)
+
+### Bug Fixes
+
+*   Release ([b548d92](https://github.com/BlueBaseJS/plugin-settings-app/commit/b548d929a386c6bfaedb280fe7a7c625a2c6bc78))
+*   **DesktopLayout:** Fixed content width issue ([ebef13e](https://github.com/BlueBaseJS/plugin-settings-app/commit/ebef13e821ee726a7a075fec693591f9cf39066e))
+*   Fixed passing params on mobile ([f892109](https://github.com/BlueBaseJS/plugin-settings-app/commit/f892109702f69a0e13b2be705b66f38e0da55ce7))
+*   Fixed scroll bars on desktop layout ([daf424c](https://github.com/BlueBaseJS/plugin-settings-app/commit/daf424cc7523ce4f987412da05f73a50ca0dd0df))
+*   **SettingsPageDesktop:** Fixed style issues ([2f7ee2d](https://github.com/BlueBaseJS/plugin-settings-app/commit/2f7ee2d30ecd5f93d0ac0839f387c76615ed707e))
+
+### Code Refactoring
+
+*   BlueBase 8 Compatibility ([511d635](https://github.com/BlueBaseJS/plugin-settings-app/commit/511d635895b08346e687deb75f76d80779b2dcf4))
+
+### Features
+
+*   Expo 49 ([2739baa](https://github.com/BlueBaseJS/plugin-settings-app/commit/2739baa359bbcbc5b03e43d8dc7f8c80cfb1752b))
+*   **SettingsPageDesktop:** Uses headerRight prop ([5d0d2ca](https://github.com/BlueBaseJS/plugin-settings-app/commit/5d0d2ca5cb819852c9321fe21e02de310866ef3e))
+*   **SettingsPageItem:** Added danger prop ([5e0e022](https://github.com/BlueBaseJS/plugin-settings-app/commit/5e0e022bd447a8223395eb41f62baa3d990b1a53))
+*   **SettingsPageItem:** Registered component ([6c66013](https://github.com/BlueBaseJS/plugin-settings-app/commit/6c660134537f8e0cd676f8a6543ff526cb2824df))
+*   New Desktop UI ([ba8eac2](https://github.com/BlueBaseJS/plugin-settings-app/commit/ba8eac27b52c2080a92a9194b84ceb40f4817ff8))
+*   **SettingsPageItem:** Can now render children ([c1c8537](https://github.com/BlueBaseJS/plugin-settings-app/commit/c1c85378be84d5fe9b90d2a5e2291606f7fe2112))
+*   Added routes for Terms & Privacy ([22f0d0f](https://github.com/BlueBaseJS/plugin-settings-app/commit/22f0d0fbee17ee7d33c26e3d2185d5cc0febf3a4))
+
+### BREAKING CHANGES
+
+*   Changed navigation APIs to move to BlueBase 8. Will not work on previous versions
+
 # [6.0.0-alpha.12](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.11...v6.0.0-alpha.12) (2023-09-09)
 
 ### Features
