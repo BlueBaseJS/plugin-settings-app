@@ -1,5 +1,4 @@
 import { RouteConfig } from '@bluebase/components';
-import get from 'lodash.get';
 import React from 'react';
 
 import { SettingsLayoutDesktop } from '../layouts/SettingsLayoutDesktop';
@@ -15,7 +14,7 @@ export const createDesktopRoutes = ({
 		...pages.map(page => ({
 			...page,
 			options: mainRoute.options,
-			path: `${get(mainRoute, 'path', '').replace(/\/$/, '')}/${get(page, 'path', '')}`,
+			path: `${(mainRoute.path || '').replace(/\/$/, '')}/${page.path || ''}`,
 			screen: (props: any) => (
 				<SettingsLayoutDesktop
 					filter={filter}

@@ -1,4 +1,70 @@
-## [5.1.1](https://github.com/BlueBaseJS/plugin-settings-app/compare/v5.1.0...v5.1.1) (2022-04-30)
+# [6.0.0-alpha.12](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.11...v6.0.0-alpha.12) (2023-09-09)
+
+### Features
+
+*   Expo 49 ([2739baa](https://github.com/BlueBaseJS/plugin-settings-app/commit/2739baa359bbcbc5b03e43d8dc7f8c80cfb1752b))
+
+# [6.0.0-alpha.11](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.10...v6.0.0-alpha.11) (2022-09-25)
+
+### Bug Fixes
+
+*   Release ([b548d92](https://github.com/BlueBaseJS/plugin-settings-app/commit/b548d929a386c6bfaedb280fe7a7c625a2c6bc78))
+
+# [6.0.0-alpha.10](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.9...v6.0.0-alpha.10) (2022-09-25)
+
+### Bug Fixes
+
+*   **DesktopLayout:** Fixed content width issue ([ebef13e](https://github.com/BlueBaseJS/plugin-settings-app/commit/ebef13e821ee726a7a075fec693591f9cf39066e))
+
+# [6.0.0-alpha.9](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.8...v6.0.0-alpha.9) (2022-09-25)
+
+### Bug Fixes
+
+*   Fixed scroll bars on desktop layout ([daf424c](https://github.com/BlueBaseJS/plugin-settings-app/commit/daf424cc7523ce4f987412da05f73a50ca0dd0df))
+
+# [6.0.0-alpha.8](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.7...v6.0.0-alpha.8) (2022-07-25)
+
+### Features
+
+*   **SettingsPageItem:** Added danger prop ([5e0e022](https://github.com/BlueBaseJS/plugin-settings-app/commit/5e0e022bd447a8223395eb41f62baa3d990b1a53))
+
+# [6.0.0-alpha.7](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.6...v6.0.0-alpha.7) (2022-07-03)
+
+### Features
+
+*   **SettingsPageItem:** Registered component ([6c66013](https://github.com/BlueBaseJS/plugin-settings-app/commit/6c660134537f8e0cd676f8a6543ff526cb2824df))
+
+# [6.0.0-alpha.6](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.5...v6.0.0-alpha.6) (2022-06-27)
+
+### Features
+
+*   New Desktop UI ([ba8eac2](https://github.com/BlueBaseJS/plugin-settings-app/commit/ba8eac27b52c2080a92a9194b84ceb40f4817ff8))
+
+# [6.0.0-alpha.5](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.4...v6.0.0-alpha.5) (2022-06-26)
+
+### Features
+
+*   **SettingsPageItem:** Can now render children ([c1c8537](https://github.com/BlueBaseJS/plugin-settings-app/commit/c1c85378be84d5fe9b90d2a5e2291606f7fe2112))
+
+# [6.0.0-alpha.4](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.3...v6.0.0-alpha.4) (2022-06-26)
+
+### Bug Fixes
+
+*   Fixed passing params on mobile ([f892109](https://github.com/BlueBaseJS/plugin-settings-app/commit/f892109702f69a0e13b2be705b66f38e0da55ce7))
+
+# [6.0.0-alpha.3](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.2...v6.0.0-alpha.3) (2022-06-26)
+
+### Features
+
+*   **SettingsPageDesktop:** Uses headerRight prop ([5d0d2ca](https://github.com/BlueBaseJS/plugin-settings-app/commit/5d0d2ca5cb819852c9321fe21e02de310866ef3e))
+
+# [6.0.0-alpha.2](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.1...v6.0.0-alpha.2) (2022-05-03)
+
+### Bug Fixes
+
+*   **SettingsPageDesktop:** Fixed style issues ([2f7ee2d](https://github.com/BlueBaseJS/plugin-settings-app/commit/2f7ee2d30ecd5f93d0ac0839f387c76615ed707e))
+
+# [6.0.0-alpha.1](https://github.com/BlueBaseJS/plugin-settings-app/compare/v5.1.0...v6.0.0-alpha.1) (2022-05-01)
 
 ### Bug Fixes
 

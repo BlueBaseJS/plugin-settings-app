@@ -7,14 +7,15 @@ import { SettingsPageItemProps } from '../SettingsPageItem';
 /**
  * A UI item displayed on a settings details page
  */
-export interface SettingsPageProps extends RouteConfig {
+export type SettingsPageProps = RouteConfig & {
+	filter?: string;
 	items: SettingsPageItemProps[];
 	onPress?: () => void;
 	right?: ReactNode;
 
 	url?: string;
 	browserParams?: WebBrowserOpenOptions;
-}
+};
 
 export * from './SettingsPageDesktop';
 export * from './SettingsPageMobile';

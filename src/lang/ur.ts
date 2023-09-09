@@ -3,7 +3,7 @@ import { IntlMessages } from '@bluebase/core';
 export const ur = (messages: IntlMessages) => ({
 	...messages,
 
-	'BlueBase': 'بلیو بیس',
+	BlueBase: 'بلیو بیس',
 
 	// /////////////
 	// Components //
@@ -19,26 +19,26 @@ export const ur = (messages: IntlMessages) => ({
 	// Settings //
 	// ///////////
 
-	'Settings': 'ترتیبات',
-	'About': 'بمتعلق',
-	'General': 'جنرل',
+	Settings: 'ترتیبات',
+	About: 'بمتعلق',
+	General: 'جنرل',
 
-	'Appearance': 'ظہور',
+	Appearance: 'ظہور',
 	'All your theme related settings reside here.': 'تمام تھیمز کے بارے میں ترتیبات یہاں ہیں',
 	'Change your language settings here': 'یہاں اپنی زبان کی ترتیبات کو تبدیل کریں',
-	'Information': 'معلومات',
-	'Legal': 'قانونی',
-	'Support': 'حمایت',
+	Information: 'معلومات',
+	Legal: 'قانونی',
+	Support: 'حمایت',
 
 	// CallSupportSetting
-	'Call': 'کال کریں۔',
+	Call: 'کال کریں۔',
 	'Call Now': 'ابھی کال کریں۔',
-	'Closed': 'بند',
+	Closed: 'بند',
 
 	// DarkModeSetting
-	'Mode': 'موڈ',
-	'Dark': 'ڈارک',
-	'Light': 'لائٹ',
+	Mode: 'موڈ',
+	Dark: 'ڈارک',
+	Light: 'لائٹ',
 	'Dark Mode': 'ڈارک موڈ',
 	'Light Mode': 'لائٹ موڈ',
 
@@ -47,7 +47,7 @@ export const ur = (messages: IntlMessages) => ({
 	'BlueEast (Pvt.) Ltd.': 'بلیو ایسٹ پرائیویٹ لمیٹڈ',
 
 	// EmailSupportSetting
-	'Email': 'ای میل',
+	Email: 'ای میل',
 
 	// LanguageSetting
 	Language: 'زبان',
@@ -69,12 +69,12 @@ export const ur = (messages: IntlMessages) => ({
 	'Text will be displayed from Right to Left': 'متن دائیں سے بائیں سمت میں دکھایا جائے گا',
 
 	// ThemeSelectionSetting
-	'Themes': 'تھیمز',
+	Themes: 'تھیمز',
 	'Available Themes': 'موجودہ تھیمز',
 	'BlueBase Theme': 'بلیو بیس تھیم',
 
 	// VersionSetting
-	'Version': 'ورژن',
+	Version: 'ورژن',
 });
 
 export default ur;

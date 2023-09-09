@@ -37,7 +37,7 @@ describe('SettingsPageDesktop', () => {
 	it('should return SettingsPageDesktop', async () => {
 		const wrapper = mount(
 			<BlueBaseApp components={{ Card: Noop, Divider: Noop, Dialog: Noop, ListItem: Noop }}>
-				<SettingsPageDesktop title="settings" {...item} isMobile={false} />
+				<SettingsPageDesktop {...item} />
 			</BlueBaseApp>
 		);
 

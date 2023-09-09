@@ -1,4 +1,4 @@
-import { Icon, List, NavigationOptions, StatefulComponent } from '@bluebase/components';
+import { Icon, List, StackNavigationOptions, StatefulComponent } from '@bluebase/components';
 import {
 	resolveThunk,
 	useBlueBase,
@@ -14,15 +14,16 @@ import React from 'react';
 import { SettingsPageProps } from '../SettingsPage';
 
 export interface SettingsPageListProps {
+	filter?: string;
 	name: string;
 	pages: SettingsPageProps[];
 }
 
-function getTitle(options: NavigationOptions) {
-	return (options as any).drawerLabel || options.title || options.headerTitle;
-}
+// function getTitle(options: StackNavigationOptions) {
+// 	return (options as any).drawerLabel || options.title || options.headerTitle;
+// }
 
-function getIcon(options: NavigationOptions) {
+function getIcon(options: StackNavigationOptions) {
 	const icon = (options as any).drawerIcon;
 
 	if (!icon) {
@@ -47,8 +48,8 @@ export const SettingsPageList = (props: SettingsPageListProps) => {
 	const navigation = useNavigation();
 	const contextBundle = { navigation, screenProps: { BB, intl, theme } };
 
-	const { __ } = intl;
-	const { navigate, state } = navigation;
+	const { __, locale } = intl;
+	const { navigate, route } = navigation;
 
 	const HeaderComponent = useComponent(`${name}RootPageHeader`, 'Noop');
 	const FooterComponent = useComponent(`${name}RootPageFooter`, 'Noop');
@@ -56,11 +57,14 @@ export const SettingsPageList = (props: SettingsPageListProps) => {
 	const listItems = pages.map(page => {
 		const { name: pageName, browserParams, right, url } = page;
 
-		const options = resolveThunk(page.options || {}, contextBundle);
+		const options: any = resolveThunk(page.options || {}, contextBundle);
 
-		const title = getTitle(options);
+		const title = options.title;
 		const left = getIcon(options);
-		const onPress = page.onPress ? page.onPress : () => navigate(pageName, state.params);
+		const onPress = page.onPress ? page.onPress : () => navigate('Root', {
+			screen: pageName,
+			params: route.params,
+		});
 
 		const openUrl = () => openBrowserAsync(url!, browserParams);
 		const openUrlIcon = <Icon name="open-in-new" size={20} color={theme.palette.text.icon} />;
@@ -71,7 +75,7 @@ export const SettingsPageList = (props: SettingsPageListProps) => {
 			left,
 			onPress: url ? openUrl : onPress,
 			right: url ? openUrlIcon : right,
-			title: __(title),
+			title
 		};
 	});
 
@@ -81,9 +85,9 @@ export const SettingsPageList = (props: SettingsPageListProps) => {
 		<React.Fragment>
 			<HeaderComponent />
 			<StatefulComponent loading={loading} error={error} data={items}>
-				<List>
-					{items.map(({ Component, key, ...rest }, index) => (
-						<Component key={key || index} {...rest} />
+				<List key={locale}>
+					{items.map(({ Component, key, title, ...rest }, index) => (
+						<Component key={key || index} title={__(title)} {...rest} />
 					))}
 				</List>
 			</StatefulComponent>

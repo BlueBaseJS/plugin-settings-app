@@ -5,6 +5,7 @@ export default {
 	orientation: 'portrait',
 	icon: './assets/icon.png',
 	entryPoint: './node_modules/expo/AppEntry.js',
+	scheme: 'bluebase',
 	splash: {
 		image: './assets/splash.png',
 		resizeMode: 'cover',

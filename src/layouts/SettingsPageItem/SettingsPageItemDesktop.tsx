@@ -1,5 +1,5 @@
 import { Body1, Body2, View } from '@bluebase/components';
-import { Theme, useComponent, useIntl, useStyles } from '@bluebase/core';
+import { Theme, useBlueBase, useIntl, useStyles } from '@bluebase/core';
 import React from 'react';
 import { Platform, TextStyle, ViewStyle } from 'react-native';
 
@@ -17,44 +17,51 @@ export interface SettingsPageItemDesktopProps extends SettingsPageItemProps {
 	styles?: Partial<SettingsPageItemDesktopStyles>;
 }
 
-const defaultStyles = (theme: Theme): SettingsPageItemDesktopStyles => ({
-	root: {
-		backgroundColor: theme.palette.background.card,
-		borderColor: theme.palette.divider,
-		borderRadius: theme.shape.borderRadius * 2,
-		borderWidth: 1,
-		overflow: 'hidden',
-	},
+const defaultStyles = (theme: Theme, props: SettingsPageItemDesktopProps): SettingsPageItemDesktopStyles => {
+	const { danger }= props;
+	return {
+		root: {
+			backgroundColor: theme.palette.background.card,
+			borderColor: danger ? 'rgba(239, 83, 80, .5)' : theme.palette.divider,
+			borderRadius: theme.shape.borderRadius * 2,
+			borderWidth: 1,
+			overflow: 'hidden',
+		},
 
-	header: {
-		borderBottomColor: theme.palette.divider,
-		borderBottomWidth: 1,
-		paddingHorizontal: theme.spacing.unit * 2,
-		paddingVertical: theme.spacing.unit,
-	},
+		header: {
+			backgroundColor: danger ? 'rgba(239, 83, 80, .1)' : theme.palette.background.card,
+			borderBottomColor: danger ? 'rgba(239, 83, 80, .5)' : theme.palette.divider,
+			borderBottomWidth: 1,
+			paddingHorizontal: theme.spacing.unit * 2,
+			paddingVertical: theme.spacing.unit,
+		},
 
-	titleStyles: {
-		paddingVertical: theme.spacing.unit,
-	},
+		titleStyles: {
+			color: danger ? 'rgba(239, 83, 80, 1)' : theme.palette.text.primary,
+			paddingVertical: theme.spacing.unit / 2,
+		},
 
-	descriptionStyles: {
-		color: theme.palette.text.hint,
-		paddingBottom: theme.spacing.unit,
-	},
+		descriptionStyles: {
+			color: danger ? 'rgba(239, 83, 80, .87)' : theme.palette.text.secondary,
+			paddingVertical: theme.spacing.unit / 2,
+		},
 
-	content: {
-		// backgroundColor: theme.palette.background.card,
-		borderBottomWidth: Platform.select({ default: undefined, ios: 1 }),
-		borderColor: Platform.select({ default: undefined, ios: theme.palette.divider }),
-		borderTopWidth: Platform.select({ default: undefined, ios: 1 }),
-		flex: 1,
-	},
-});
+		content: {
+			// backgroundColor: theme.palette.background.card,
+			borderBottomWidth: Platform.select({ default: undefined, ios: 1 }),
+			borderColor: Platform.select({ default: undefined, ios: theme.palette.divider }),
+			borderTopWidth: Platform.select({ default: undefined, ios: 1 }),
+			flex: 1,
+		},
+	};
+};
 
 export const SettingsPageItemDesktop = (props: SettingsPageItemDesktopProps) => {
-	const { description, descriptionStyle, title, titleStyle } = props;
-	const ItemComponent = useComponent(props.component);
+	const { description, descriptionStyle, title, titleStyle, style, component, children } = props;
 	const { __ } = useIntl();
+	const BB = useBlueBase();
+
+	const ItemComponent = component ? BB.Components.resolveFromCache(component) : null;
 
 	const styles = useStyles('SettingsPageItemDesktop', props, defaultStyles);
 
@@ -73,13 +80,19 @@ export const SettingsPageItemDesktop = (props: SettingsPageItemDesktopProps) => 
 		);
 
 	return (
-		<View style={styles.root}>
-			<View style={styles.header}>
-				{titleNode}
-				{descNode}
-			</View>
+		<View style={[styles.root, style]}>
+			{titleNode || descNode
+				? (
+					<View style={styles.header}>
+						{titleNode}
+						{descNode}
+					</View>
+				)
+				: null
+			}
+
 			<View style={styles.content}>
-				<ItemComponent />
+				{ItemComponent ? <ItemComponent /> : children}
 			</View>
 		</View>
 	);
