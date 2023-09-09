@@ -1,3 +1,9 @@
+# [6.0.0-alpha.12](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.11...v6.0.0-alpha.12) (2023-09-09)
+
+### Features
+
+*   Expo 49 ([2739baa](https://github.com/BlueBaseJS/plugin-settings-app/commit/2739baa359bbcbc5b03e43d8dc7f8c80cfb1752b))
+
 # [6.0.0-alpha.11](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0-alpha.10...v6.0.0-alpha.11) (2022-09-25)
 
 ### Bug Fixes
