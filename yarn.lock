@@ -2255,6 +2255,20 @@
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
+"@bluebase/components@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-8.0.0.tgz#f47a613488e3fb93ad279ba87fd84cfcc865bb35"
+  integrity sha512-+M4I+9VmOfAx3hYaeQw2FRfbwINSY6bv4jcsKV005MmuilfxT6tvLEV82T7Yx51PJVWs1l70wQqBGyh1UNAo2Q==
+  dependencies:
+    "@react-native-picker/picker" "^2.5.0"
+    "@react-navigation/bottom-tabs" "^6.5.8"
+    "@react-navigation/drawer" "^6.6.3"
+    "@react-navigation/material-bottom-tabs" "^6.2.16"
+    "@react-navigation/material-top-tabs" "^6.6.3"
+    "@react-navigation/native" "^6.1.7"
+    "@react-navigation/native-stack" "^6.9.13"
+    "@react-navigation/stack" "^6.3.17"
+
 "@bluebase/components@^8.0.0-alpha.10", "@bluebase/components@^8.0.0-alpha.11":
   version "8.0.0-alpha.11"
   resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-8.0.0-alpha.11.tgz#e2537d7bdd35c6094250af23b6a13cd7fbccbb6c"
@@ -3983,7 +3997,7 @@
   resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.4.0.tgz#7ca2e01a3bdf854ee01ca752762ffa73c0e83313"
   integrity sha512-duGZc3a8Qa21YPrA4U3oR9NAUzBA66FTjubGK2CodA6rNjiwN+xC32hOZ5unkf4qD3DqLWeoPjg3fYf54bVMjA==
 
-"@react-native-picker/picker@^2.4.2":
+"@react-native-picker/picker@^2.4.2", "@react-native-picker/picker@^2.5.0":
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.5.0.tgz#25fcb53007241f36ede79a1f8d26c7a85e22c412"
   integrity sha512-AEZPKwXavmP4VkUUD6bskCrNF+zgd1RvsXJ208YewZSikGZCo0RLlnQxPDrdKoFpbigSYxbvRU5d8h3TzzeQ8Q==

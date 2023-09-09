@@ -36,12 +36,11 @@
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "fix:md": "remark . -o",
     "fix:lint": "eslint src --ext=ts,tsx --fix .",
-    "test": "run-s build test:*",
+    "test": "yarn test:lint && yarn test-prettier && yarn test:md",
     "test:lint": "eslint src --ext=ts,tsx",
     "test-prettier": "prettier \"src/**/*.ts\" --list-different",
     "test:md": "remark . -f",
     "test:only": "jest --coverage --runInBand",
-    "prepublishOnly": "yarn remove expo react-native;",
     "storybook-native": "NODE_ENV=STORYBOOK_NATIVE expo start",
     "prestorybook-native": "rnstl",
     "storybook-native-server": "start-storybook -p 7007",
@@ -49,7 +48,7 @@
     "build-storybook": "node ./node_modules/@storybook/react/bin/build.js"
   },
   "dependencies": {
-    "@bluebase/components": "^8.0.0-alpha.12",
+    "@bluebase/components": "^8.0.0",
     "expo-web-browser": "~12.3.2"
   },
   "devDependencies": {
