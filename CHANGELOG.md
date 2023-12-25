@@ -1,3 +1,9 @@
+# [6.1.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.0.0...v6.1.0) (2023-12-25)
+
+### Features
+
+*   Made it possible to filter routes ([8dfcb9f](https://github.com/BlueBaseJS/plugin-settings-app/commit/8dfcb9fa44f223045f74e09a239412aa4cfbd975))
+
 # [6.0.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v5.1.1...v6.0.0) (2023-09-09)
 
 ### Bug Fixes
