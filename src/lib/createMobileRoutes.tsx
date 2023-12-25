@@ -3,10 +3,9 @@ import { getComponent } from '@bluebase/core';
 import React from 'react';
 
 import { SettingsPageProps } from '../layouts/SettingsPage';
-import { SettingsPageListProps } from '../layouts/SettingsPageList';
+import { SettingsScreen } from '../layouts/SettingsScreen';
 import { CreateSettingsRoutesOptions } from './createSettingsRoutes';
 
-const SettingsPageList = getComponent<SettingsPageListProps>('SettingsPageList');
 const SettingsPageMobile = getComponent<SettingsPageProps>('SettingsPageMobile');
 
 export const createMobileRoutes = ({
@@ -14,13 +13,15 @@ export const createMobileRoutes = ({
 	pages,
 	filter,
 }: CreateSettingsRoutesOptions): RouteConfig[] => {
+	const Screen = route.screen || SettingsScreen;
+
 	return [
 		// Index Route
 		{
 			...route,
 			exact: true,
 			screen: (props: any) => (
-				<SettingsPageList filter={filter} name={route.name} pages={pages} {...props} />
+				<Screen filter={filter} name={route.name} pages={pages} {...props} />
 			),
 		},
 

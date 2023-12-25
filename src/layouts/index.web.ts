@@ -4,4 +4,5 @@ export const layouts = {
 	SettingsPageItemMobile: import('./SettingsPageItem/SettingsPageItemMobile'),
 	SettingsPageList: import('./SettingsPageList/SettingsPageList'),
 	SettingsPageMobile: import('./SettingsPage/SettingsPageMobile'),
+	SettingsScreen: import('./SettingsScreen/SettingsScreen'),
 };

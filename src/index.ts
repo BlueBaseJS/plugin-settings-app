@@ -14,6 +14,7 @@ import { VERSION } from './version';
 export * from './components/exports';
 export { SettingsPageProps } from './layouts/SettingsPage';
 export * from './layouts/SettingsPageItem';
+export * from './layouts/SettingsScreen';
 export { createSettingsRoutes };
 
 export default createPlugin({

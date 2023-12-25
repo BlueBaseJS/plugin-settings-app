@@ -1,7 +1,7 @@
 import { RouteConfig } from '@bluebase/components';
 import React from 'react';
 
-import { SettingsLayoutDesktop } from '../layouts/SettingsLayoutDesktop';
+import { SettingsScreen } from '../layouts/SettingsScreen';
 import { CreateSettingsRoutesOptions } from './createSettingsRoutes';
 
 export const createDesktopRoutes = ({
@@ -9,6 +9,8 @@ export const createDesktopRoutes = ({
 	pages,
 	filter,
 }: CreateSettingsRoutesOptions): RouteConfig[] => {
+	const Screen = mainRoute.screen || SettingsScreen;
+
 	return [
 		// Sub routes
 		...pages.map(page => ({
@@ -16,7 +18,7 @@ export const createDesktopRoutes = ({
 			options: mainRoute.options,
 			path: `${(mainRoute.path || '').replace(/\/$/, '')}/${page.path || ''}`,
 			screen: (props: any) => (
-				<SettingsLayoutDesktop
+				<Screen
 					filter={filter}
 					items={page.items}
 					pages={pages}
@@ -32,7 +34,7 @@ export const createDesktopRoutes = ({
 			...mainRoute,
 			exact: true,
 			screen: (props: any) => (
-				<SettingsLayoutDesktop
+				<Screen
 					filter={filter}
 					pages={pages}
 					mainRoute={mainRoute}
