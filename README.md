@@ -30,3 +30,4 @@
 
 *   [Storybook](https://BlueBaseJS.github.io/plugin-settings-app/storybook/)
 *   [API Docs](https://BlueBaseJS.github.io/plugin-settings-app/)
+
