@@ -1,3 +1,9 @@
+# [6.3.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.2.0...v6.3.0) (2023-12-29)
+
+### Features
+
+*   Added auto setting to dark mode ([e122b0d](https://github.com/BlueBaseJS/plugin-settings-app/commit/e122b0d9ceb481993c6719225d43d43d42f0f986))
+
 # [6.2.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.1.0...v6.2.0) (2023-12-28)
 
 ### Features
