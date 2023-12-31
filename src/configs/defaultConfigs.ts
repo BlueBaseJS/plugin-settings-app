@@ -1,4 +1,6 @@
 export const defaultConfigs = {
+	'plugin.settings-app.group-sort-order': ['General', 'Appearance', 'Account', 'Advanced', 'About'],
+
 	/** Support email. If set, Email option is show in Support section of About page */
 	'plugin.settings-app.support.email': null,
 

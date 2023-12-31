@@ -16,10 +16,11 @@ export interface SettingsLayoutDesktopStyles {
 
 export interface SettingsLayoutDesktopProps extends CreateSettingsRoutesOptions {
 	page?: string;
+	groupSortOrder?: string[];
 }
 
 export const SettingsLayoutDesktop = (props: SettingsLayoutDesktopProps) => {
-	const { pages, page, filter, mainRoute } = props;
+	const { pages, page, filter, mainRoute, groupSortOrder } = props;
 	const { theme } = useTheme();
 	const { rtl } = useIntl();
 
@@ -52,7 +53,7 @@ export const SettingsLayoutDesktop = (props: SettingsLayoutDesktopProps) => {
 			<View style={styles.menuColumn}>
 				<ScrollView>
 					<SafeAreaView>
-						<SettingsPageList pages={pages} name={mainRoute.name} />
+						<SettingsPageList pages={pages} name={mainRoute.name} groupSortOrder={groupSortOrder} />
 					</SafeAreaView>
 				</ScrollView>
 			</View>

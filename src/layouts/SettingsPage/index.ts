@@ -9,7 +9,9 @@ import { SettingsPageItemProps } from '../SettingsPageItem';
  */
 export type SettingsPageProps = RouteConfig & {
 	filter?: string;
+	group?: string;
 	items: SettingsPageItemProps[];
+
 	onPress?: () => void;
 	right?: ReactNode;
 

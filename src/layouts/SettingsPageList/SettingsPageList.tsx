@@ -17,6 +17,7 @@ export interface SettingsPageListProps {
 	filter?: string;
 	name: string;
 	pages: SettingsPageProps[];
+	groupSortOrder?: string[];
 }
 
 // function getTitle(options: StackNavigationOptions) {
@@ -75,19 +76,51 @@ export const SettingsPageList = (props: SettingsPageListProps) => {
 			left,
 			onPress: url ? openUrl : onPress,
 			right: url ? openUrlIcon : right,
-			title
+			title,
+			group: page.group,
 		};
 	});
 
 	const { loading, value: items, error } = useFilter(`${name}.settings.list.items`, listItems);
+
+	// Make groups
+	const groupSortOrder = props.groupSortOrder || [];
+	const groups: any[][] = groupSortOrder.map(() => []);
+	const ungrouped: any[] = [];
+
+	items.forEach((item: any) => {
+		if (item.group) {
+			// Find group index based on sortOrder, if not found, push group in sortOrder and use that index
+			let index = groupSortOrder.indexOf(item.group);
+			if (index === -1) {
+				groupSortOrder.push(item.group);
+				groups.push([]);
+				index = groupSortOrder.length - 1;
+			}
+
+			groups[index].push(item);
+		}
+		else {
+			ungrouped.push(item);
+		}
+	});
 
 	return (
 		<React.Fragment>
 			<HeaderComponent />
 			<StatefulComponent loading={loading} error={error} data={items}>
 				<List key={locale}>
-					{items.map(({ Component, key, title, ...rest }, index) => (
+					{ungrouped.map(({ Component, key, title, ...rest }, index) => (
 						<Component key={key || index} title={__(title)} {...rest} />
+					))}
+
+					{groupSortOrder.map((group, index) => groups[index].length > 0 && (
+						<React.Fragment key={group}>
+							<List.Subheader>{__(group)}</List.Subheader>
+							{groups[index].map(({ Component, key, title, ...rest }: any, index: number) => (
+								<Component key={key || index} title={__(title)} {...rest} />
+							))}
+						</React.Fragment>
 					))}
 				</List>
 			</StatefulComponent>

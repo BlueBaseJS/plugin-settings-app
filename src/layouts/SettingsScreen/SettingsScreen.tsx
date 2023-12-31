@@ -1,4 +1,4 @@
-import { isMobile } from '@bluebase/core';
+import { isMobile, useConfig } from '@bluebase/core';
 import React from 'react';
 import { ViewStyle } from 'react-native';
 
@@ -19,11 +19,15 @@ export interface SettingsScreenProps extends CreateSettingsRoutesOptions {
 }
 
 export const SettingsScreen = (props: SettingsScreenProps) => {
+
+	const [groupSortOrder] = useConfig('plugin.settings-app.group-sort-order');
+	// const sortKeys = ['General', 'Appearance', 'Account', 'Advanced', 'About'];
+
 	if (isMobile()) {
-		return <SettingsPageList {...props} />;
+		return <SettingsPageList groupSortOrder={groupSortOrder} {...props} />;
 	}
 
-	return <SettingsLayoutDesktop {...props} />;
+	return <SettingsLayoutDesktop groupSortOrder={groupSortOrder} {...props} />;
 };
 
 SettingsScreen.displayName = 'SettingsScreen';
