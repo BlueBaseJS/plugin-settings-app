@@ -1,3 +1,9 @@
+# [6.4.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.3.0...v6.4.0) (2023-12-31)
+
+### Features
+
+*   Added setting groups ([b6613c7](https://github.com/BlueBaseJS/plugin-settings-app/commit/b6613c7d80edfb15e9bff34222c8cc9a70c95e47))
+
 # [6.3.0](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.2.0...v6.3.0) (2023-12-29)
 
 ### Features
