@@ -1,3 +1,9 @@
+## [6.4.2](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.4.1...v6.4.2) (2024-04-13)
+
+### Bug Fixes
+
+*   **SettingsPageItemMobile:** Fixed layout ([3686841](https://github.com/BlueBaseJS/plugin-settings-app/commit/36868414d30e5ef330302d656df088bccecbf6ca))
+
 ## [6.4.1](https://github.com/BlueBaseJS/plugin-settings-app/compare/v6.4.0...v6.4.1) (2024-04-13)
 
 ### Bug Fixes
