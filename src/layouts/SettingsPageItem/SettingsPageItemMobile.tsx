@@ -68,10 +68,12 @@ export const SettingsPageItemMobile = (props: SettingsPageItemMobileProps) => {
 
 	return (
 		<View style={[styles.root, style]}>
-			<View style={styles.header}>
-				{titleNode}
-				{descNode}
-			</View>
+			{titleNode || descNode ? (
+				<View style={styles.header}>
+					{titleNode}
+					{descNode}
+				</View>
+			) : null}
 			<View style={styles.contentStyles}>
 				{ItemComponent ? <ItemComponent /> : children}
 			</View>
