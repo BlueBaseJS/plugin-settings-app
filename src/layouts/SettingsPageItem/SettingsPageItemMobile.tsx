@@ -20,21 +20,26 @@ export interface SettingsPageItemMobileProps extends SettingsPageItemProps {
 }
 
 const defaultStyles = (theme: Theme, { danger }: SettingsPageItemMobileProps): SettingsPageItemMobileStyles => ({
-	contentStyles: {},
+	root: {
+		flexGrow: 1
+	},
+
+	header: {
+		paddingVertical: theme.spacing.unit,
+	},
 
 	descriptionStyles: {
 		color: theme.palette.text.hint,
 		paddingHorizontal: theme.spacing.unit * 2,
 	},
 
-	root: {},
-
-	header: {
-		paddingVertical: theme.spacing.unit,
-	},
 	titleStyles: {
 		color: danger ? 'rgba(239, 83, 80, 1)' : theme.palette.text.primary,
 		paddingVertical: theme.spacing.unit,
+	},
+
+	contentStyles: {
+		flexGrow: 1
 	},
 });
 
